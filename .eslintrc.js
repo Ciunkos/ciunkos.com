@@ -16,6 +16,7 @@ module.exports = {
         'react/prop-types': 0,
         'react/jsx-first-prop-new-line': 0,
         'react/jsx-wrap-multilines': 0,
+        'react/jsx-indent-props': 0,
         'import/no-named-as-default': 0,
         'import/no-named-as-default-member': 0,
         'no-shadow': 0,

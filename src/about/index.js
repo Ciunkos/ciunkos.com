@@ -84,13 +84,13 @@ const AboutPage = ({ location = {} }) =>
                     </Button>
                 </styled.ContactForm>
 
-                {location.hash == "#contact-success" && 
+                {location.hash === '#contact-success' &&
                 <div className="task-result success">
                     <a name="contact-success" />
                     <p>Your message has been sent 📧</p>
                 </div>}
 
-                {location.hash == "#contact-error" && 
+                {location.hash === '#contact-error' &&
                 <div className="task-result error">
                     <a name="contact-error" />
                     <p>

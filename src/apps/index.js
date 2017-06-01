@@ -7,9 +7,14 @@ import { photo1480694313141fce5e697ee25 } from 'assets/backgrounds'
 import './styles.css'
 import apps from './data'
 
-const dimmensions = (str) => {
+const matchDimmesions = (str) => {
     const regex = /r(\d+)x(\d+)/g
     const matches = regex.exec(str)
+    return matches && matches.slice(1, 3).map(x => +x)
+}
+
+const dimmensions = (str) => {
+    const matches = matchDimmesions(str)
 
     const baseHeight = 400;
 
@@ -17,8 +22,8 @@ const dimmensions = (str) => {
     let scaledHeight = baseHeight
 
     if (matches) {
-        const width = +matches[1]
-        const height = +matches[2]
+        const width = matches[0]
+        const height = matches[1]
         scaledWidth = (width / height) * baseHeight
         scaledHeight = baseHeight
     }
@@ -73,16 +78,16 @@ const AppsPage = () =>
         {app.screenshots &&
         <styled.ScreenshotsView style={{ maxWidth: 1000, height: 424, minHeight: 424, maxHeight: 424, paddingBottom: 0, overflow: 'hidden' }}>
             <Scrollbars
-                universal 
+                universal
                 autoHide={false}
                 autoHeight
                 autoHeightMin={424}
                 autoHeightMax={424}
-                style={{width: '100%', overflowY: 'hidden', overflowX: 'hidden', height: 424, minHeight: 424, maxHeight: 424 }}
+                style={{ width: '100%', overflowY: 'hidden', overflowX: 'hidden', height: 424, minHeight: 424, maxHeight: 424 }}
                 renderThumbHorizontal={props => <div {...props} className="thumb-horizontal" />}
                 renderView={({ style, ...props }) => <div {...props} style={{ ...style, overflowY: 'hidden', minHeight: 424, width: '100%' }} />}
             >
-                <styled.Screenshots 
+                <styled.Screenshots
                     horizontal
                     style={{
                         paddingBottom: 24,

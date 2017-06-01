@@ -84,7 +84,7 @@
     "react-lowlight": "^1.0.6",
     "react-markdown": "^2.5.0",
     "react-pure-render": "^1.0.2",
-    "react-router": "^2.8.1",
+    "react-router": "^3.0.5",
     "react-router-scroll": "^0.4.2",
     "react-transitive-number": "^3.0.1"
   },

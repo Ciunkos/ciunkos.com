@@ -2,19 +2,7 @@ import React from 'react'
 import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames'
 import { browserHistory } from 'react-router';
-
-const partition = predicate => xs => 
-  Object.entries(xs).reduce((acc, [key, value]) => 
-    [
-      Object.assign(acc[0], predicate(value) ? ({[key]: value}) : ({})), 
-      Object.assign(acc[1], !predicate(value) ? ({[key]: value}) : ({}))
-    ]
-  , [{}, {}])
-
-const toObject = (acc, [key, value]) => ({...acc, [key]: value})
-
-const filter = predicate => xs => 
-  Object.entries(xs).filter(([key, value]) => predicate(value)).reduce(toObject, {})
+import { partition, filter } from 'utils'
 
 const viewCache = {}
 

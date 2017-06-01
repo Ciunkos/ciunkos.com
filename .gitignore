@@ -1,7 +1,12 @@
+# node.js and VS Code settings
 node_modules
-build
 .vscode
 
+# Build output
+build
+
+# Windows scripts - install, start, test, build
 *.bat
 
+# Private mailer configuration - see https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react
 src/server/mailer/config/*
