@@ -1,5 +1,7 @@
 import React from 'react'
 import PureComponent from 'react-pure-render/component';
+import classNames from 'classnames'
+import { browserHistory } from 'react-router';
 
 const partition = predicate => xs => 
   Object.entries(xs).reduce((acc, [key, value]) => 
@@ -14,12 +16,7 @@ const toObject = (acc, [key, value]) => ({...acc, [key]: value})
 const filter = predicate => xs => 
   Object.entries(xs).filter(([key, value]) => predicate(value)).reduce(toObject, {})
 
-import classNames from 'classnames'
-
 const viewCache = {}
-
-import { browserHistory } from 'react-router';
-
 
 function defaultView(name) {
   if(viewCache[name])
@@ -29,7 +26,7 @@ function defaultView(name) {
     render() {
       const {children, ref, id, tag: Tag = 'div', ...rest} = this.props;
       const [booleans, others] = partition(x => x === true)(rest)
-      const otherProps = filter(x => x)(others) //filter falsy values like undefined etc
+      const otherProps = filter(x => x)(others)
       let injectedProps = {}
       const href = this.props.href
 
@@ -53,24 +50,11 @@ function defaultView(name) {
         }
       }
 
-      try {
-        return (
-            <Tag ref={ref} id={id} className={classNames(name, booleans)} {...injectedProps} {...otherProps} >
-                {children}
-            </Tag>
-        )
-      }
-      catch (error) {
-        // if(!this.error)
-        // {
-        //   this.error = true;
-        //   //this.setState({error: 'error'})
-        // }
-
-        return (<Role ref={ref} id={id} className={classNames(name, booleans)} {...otherProps} >
-                Error
-            </Role>)
-      }
+      return (
+          <Tag ref={ref} id={id} className={classNames(name, booleans)} {...injectedProps} {...otherProps}>
+              {children}
+          </Tag>
+      )
     }
 
     static displayName = `styled.${name}`

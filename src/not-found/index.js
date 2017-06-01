@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled'
-import { Page, Section, ActionButton, Button } from 'components'
+import { Page, Section, Button } from 'components'
 
 const NotFoundPage = () =>
 <Page NotFound

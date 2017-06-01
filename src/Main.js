@@ -18,8 +18,6 @@ if (typeof window !== 'undefined') {
     middlewares = [useScroll()]
 }
 
-
-
 const Main = () =>
 <Router history={browserHistory} onUpdate={logPageView} render={applyRouterMiddleware(...middlewares)}>
     {routes}

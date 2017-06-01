@@ -1,6 +1,6 @@
 # [ciunkos.com](https://ciunkos.com/)
 
-This is my blog and page.
+This is my blog and home page.
 
 ## Installation
 

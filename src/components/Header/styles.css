@@ -86,7 +86,6 @@
         display: flex;
     }
 
-    /*https://css-tricks.com/child-and-sibling-selectors/#article-header-id-1*/
     .ActionLargeIcon + .ActionIcon {
         display: none;
     }

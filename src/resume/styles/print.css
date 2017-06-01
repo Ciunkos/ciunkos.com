@@ -16,23 +16,6 @@
     }
 }
 
-
-@media print {
-  html, body {
-    background: white!important;
-    width: 210mm;
-    /*height: 297mm;*/
-    margin-top: 0px!important;
-    margin-bottom: 0px!important;
-    font-size: 14px;
-  }
-
-  * {
-      color: black;
-      overflow:initial !important ;
-  }
-}
-
 :root{
     --unit: 8px;
     --print: 4px;
@@ -126,16 +109,47 @@
 
 
 @media print {
+    html, body {
+        background: white!important;
+        width: 210mm;
+        /*height: 297mm;*/
+        margin-top: 0px!important;
+        margin-bottom: 0px!important;
+        font-size: 14px;
+    }
+
     * {
         transition: none !important;
+        box-shadow: none!important;
+        border-color: white;
+        background-image: none!important;
+        color: black;
+        overflow:initial !important;
+    }
+
+    .Background,
+    .HeaderContainer,
+    .Actions,
+    .OverflowButton,
+    .ProjectIcon,
+    .ProjectUrl,
+    .TechnologySection,
+    .SkillIcon,
+    .Bar,
+    .Button {
+        display: none!important;
     }
 
     .Subheader {
         color: rgba(0,0,0,0.9)!important;
     }
 
-    .Resume .Section.Profile .em {
+    .Section.Profile .em {
         font-weight: normal !important;
+    }
+
+    .Section.Profile .InlineLink {
+        font-weight: normal;
     }
 
     em {
@@ -145,20 +159,12 @@
     .InlineLink {
         text-decoration: none;
         text-decoration-skip: none;
-    }
-
-    .Section.Profile .InlineLink {
-        font-weight: normal;
-    }
+    }    
 
     .Card > * {
         padding-left: 0!important;
         padding-right: 0!important;
     }
-/*.Skill:not(:last-child):after { 
-    content: '\a0\b7\a0'; 
-    \b7 is a middot, \a0 is a space
-}*/
 
     ul.dot-separated {
         overflow: hidden;
@@ -173,24 +179,6 @@
     ul.semicolon-separated li {
         display: inline;
     }
-
-/*.Goals .SkillName:first-letter {
-    text-transform: lowercase;
-}
-
-.Goals .SkillName:after {
-    content: "; ";
-    white-space: pre;
-}
-
-.Goal {
-    margin-bottom: 0!important;
-}
-
-.Goal:last-child .SkillName:after {
-    content: ".";
-}*/
-
 
     .ProjectsGrid > .media-no-print {
         display: none!important;
@@ -314,10 +302,6 @@
         max-height: initial!important;
     }
 
-    .OverflowButton {
-        display: none!important;
-    }
-
     .ProjectsGrid,.ProjectsOverview {
         padding: 0!important;
     }
@@ -332,29 +316,6 @@
     .ProjectHeader {
         padding: 0!important;
     }
-
-    .ProjectIcon,.ProjectUrl {
-        display: none;
-    }
-
-    .TechnologySection {
-        display: none;
-    }
-
-    .SkillIcon {
-        display: none;
-    }
-
-    /*.Goals {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }*/
-
-    /*display only first two
-    .ProjectCard:nth-child(-n+2){
-        display: block!important;
-    }*/
 
     .ProjectsGrid {
         max-width: initial;
@@ -374,31 +335,12 @@
         margin-right: 32px;
     }
 
-    .Background,.HeaderContainer {
-        display: none!important;
-    }
-
     .Page {
         display: block!important;
     }
 
     .Landing {
         width: 100%!important;
-    }
-
-    /*.ProjectCard:nth-child(even){
-        margin-right: 0px;
-    }*/
-    
-
-    * {
-        box-shadow: none!important;
-        border-color: white;
-        background-image: none!important;
-    }
-
-    .Actions {
-        display: none;
     }
 
     .HeadingImage {
@@ -485,10 +427,6 @@
 
     h4 {
         font-size: 16px!important;
-    }
-
-    .Bar,.Button {
-        display: none;
     }
 
     /*//fix the overflow*/

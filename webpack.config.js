@@ -185,10 +185,6 @@ module.exports = [
                     }
                 },
                 {
-                    test: /\.csv$/,
-                    loader: 'dsv-loader'
-                },
-                {
                     test: /\.css$/,
                     use: ExtractTextPlugin.extract({
                         fallback: 'isomorphic-style-loader',

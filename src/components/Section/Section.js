@@ -3,7 +3,7 @@ import styled from 'styled'
 import { Background } from 'components'
 
 const gradientStyle = gradient => gradient ? {
-    [`background-gradient${typeof gradient === "string" ? `-${gradient}` : ''}`]: true
+    [`background-gradient${typeof gradient === 'string' ? `-${gradient}` : ''}`]: true
 } : {}
 
 const Section = ({ children, cover, gradient = true, ...rest }) =>
@@ -15,6 +15,6 @@ const Section = ({ children, cover, gradient = true, ...rest }) =>
     </styled.SectionContent>
 </styled.Section>
 
-Section.Content = (props) => <styled.Content {...props} />
+Section.Content = props => <styled.Content {...props} />
 
 export default Section

@@ -3,7 +3,6 @@ const path = require('path');
 
 const TransferWebpackPlugin = require('transfer-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
@@ -19,11 +18,11 @@ module.exports =
     },
 
     devServer: {
-        contentBase: 'src/assets', // Relative directory for base of server
-        hot: true, // Live-reload
+        contentBase: 'src/assets',
+        hot: true,
         inline: true,
-        port: 3000, // Port Number
-        host: 'localhost', // Change to '0.0.0.0' for external facing server
+        port: 3000,
+        host: 'localhost',
         historyApiFallback: {
             disableDotRule: true,
             index: 'static.html'
@@ -59,7 +58,6 @@ module.exports =
                     name: '[name].[hash].[ext]'
                 }
             },
-            { test: /\.csv$/, loader: 'dsv-loader' },
             {
                 test: /\.css$/,
                 use: [
@@ -81,12 +79,14 @@ module.exports =
         ]
     },
     plugins: [
-        // Enables Hot Modules Replacement
         new webpack.HotModuleReplacementPlugin(),
 
-        new TransferWebpackPlugin([
-        { from: 'www' },
-        ], path.resolve(__dirname, 'src')),
+        new TransferWebpackPlugin(
+            [{
+                from: 'www'
+            }],
+            path.resolve(__dirname, 'src')
+        ),
 
         new HtmlWebpackPlugin({
             template: 'index.template.ejs',
