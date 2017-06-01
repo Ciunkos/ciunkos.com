@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'styled'
 import './styles.css'
 import { Page, Section } from 'components'
-import ReactDisqusThread from 'react-disqus-thread'
 import relatedPosts from 'blog/related-posts'
+import Comments from './Comments';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
 import { PostHeader } from 'blog/post'
@@ -72,13 +72,8 @@ const Blog = ({ post }) =>
             </p>
         </Section.Content>
 
-        <styled.CommentsThread Card Card-1 padding-2>
-            <ReactDisqusThread
-                shortname="ciunkos"
-                identifier={`https://ciunkos.com/${post.slug}`}
-                title={post.name}
-                url={`https://ciunkos.com/${post.slug}`}
-            />
+        <styled.CommentsThread Card padding-2>
+            <Comments id={post.slug} />
         </styled.CommentsThread>
     </Section>
 </Page>

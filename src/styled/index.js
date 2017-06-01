@@ -1,5 +1,4 @@
 import React from 'react'
-import PureComponent from 'react-pure-render/component';
 import classNames from 'classnames'
 import { browserHistory } from 'react-router';
 import { partition, filter } from 'utils'
@@ -10,7 +9,7 @@ function defaultView(name) {
   if(viewCache[name])
     return viewCache[name]
 
-  const view = class StyledComponent extends PureComponent  {
+  const view = class StyledComponent extends React.PureComponent {
     render() {
       const {children, ref, id, tag: Tag = 'div', ...rest} = this.props;
       const [booleans, others] = partition(x => x === true)(rest)
