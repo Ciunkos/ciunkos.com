@@ -9,7 +9,7 @@ import Blog from 'blog'
 
 import { creatingContactFormsWithNodemailerAndReact } from 'blog/posts'
 
-describe('A suite', () => {
+describe('Main routes rendering', () => {
     it('should render Home page without throwing an error', () => {
         expect(
             shallow(<Home />)
@@ -42,7 +42,7 @@ describe('A suite', () => {
         .toBe(true);
     })
 
-    it('should render a blog post page without throwing an error', () => {
+    it('should render a Blog post page without throwing an error', () => {
         expect(
             shallow(<Blog post={creatingContactFormsWithNodemailerAndReact} />)
             .name()
