@@ -1,0 +1,18 @@
+.Section.Home .SectionContent {
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.Section.Home {
+    min-height: 77vh;
+}
+
+.Section.Home .Background {
+    background-position-y: 40%;
+}
+
+@media print {
+    .Section.Home {
+        min-height: initial;
+    }
+}

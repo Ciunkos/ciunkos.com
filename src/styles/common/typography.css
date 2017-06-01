@@ -1,0 +1,42 @@
+em {
+    font-weight: 500;
+    font-style: normal;
+}
+
+.Subheader {
+    color: rgba(0, 0, 0, 0.541176);
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+}
+
+/*typography*/
+h1, h2 {
+    margin-top: 48px;
+    margin-bottom: 16px;
+    font-size: 32px;
+    line-height: 48px;
+}
+
+h3 {
+    margin-top: 8px;
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 32px;
+    font-weight: normal;
+}
+
+p,.Subheader {
+    line-height: 1.7em;
+}
+
+.tiny {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 24px;
+}

@@ -1,0 +1,13 @@
+.InlineLink {
+    font-weight: 600;
+    display: inline;
+}
+
+.InlineLink:hover,.InlineLink:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+}
+
+.InlineLink em {
+    font-weight: 600;
+}

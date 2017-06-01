@@ -1,0 +1,93 @@
+.NavigationBar {
+    flex-direction: column;
+}
+
+.AppBar {
+    height: 64px;
+}
+
+.SecondaryBar {
+    top: 64px;
+}
+
+.BarContent {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.Bar {
+    min-height: 56px;
+    align-items: center;
+    z-index: 4; /* appbar */
+    border-radius: 0;
+    justify-content: space-between;
+}
+
+.main-appbar {
+    background: #3040BC;
+    color: white;
+}
+
+.navbaritem {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.navbaritem {
+    /*flex: 1 1 56px;*/
+    flex: 1;
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.headeritem {
+    /*flex: 1 1 56px;*/
+    flex: 1;
+    flex-basis: auto;
+    flex-shrink: 0;
+    width: auto;
+}
+
+.navbaritem:hover {
+    border-bottom: 4px solid white;
+}
+
+.HeaderBar {
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+}
+
+.HeaderBar.scrolled-top {
+    box-shadow: none;
+}
+
+.MainHeader .HeaderBar.scrolled-top {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.4) 80%);
+}
+
+.SecondaryHeader .HeaderBar.scrolled-top {
+    background: transparent;
+}
+
+.navbaritem .ActionName {
+    display: none;
+}
+
+.navbaritem .ActionName {
+    display: none;
+}
+
+.ActionLargeIcon {
+    display: none;
+}
+
+@media all and (min-width: 640px) {
+    .ActionLargeIcon {
+        display: flex;
+    }
+
+    /*https://css-tricks.com/child-and-sibling-selectors/#article-header-id-1*/
+    .ActionLargeIcon + .ActionIcon {
+        display: none;
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "compilerOptions": {
+        "jsx": "react",
+        "module": "commonjs",
+        "target": "ES6",
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./",
+        "paths": {
+          "about/*": ["src/about/*"],
+          "apps/*": ["src/apps/*"],
+          "assets/*": ["src/assets/*"],
+          "blog/*": ["src/blog/*"],
+          "components/*": ["src/components/*"],
+          "disqus/*": ["src/disqus/*"],
+          "home/*": ["src/home/*"],
+          "icons/*": ["src/icons/*"],
+          "not-found/*": ["src/not-found/*"],
+          "projects/*": ["src/projects/*"],
+          "resume/*": ["src/resume/*"],
+          "server/*": ["src/server/*"],
+          "styled/*": ["src/styled/*"],
+          "styles/*": ["src/styles/*"],
+          "www/*": ["src/www/*"],
+          "about": ["src/about"],
+          "apps": ["src/apps"],
+          "assets": ["src/assets"],
+          "blog": ["src/blog"],
+          "components": ["src/components"],
+          "disqus": ["src/disqus"],
+          "home": ["src/home"],
+          "icons": ["src/icons"],
+          "not-found": ["src/not-found"],
+          "projects": ["src/projects"],
+          "resume": ["src/resume"],
+          "server": ["src/server"],
+          "styled": ["src/styled"],
+          "styles": ["src/styles"],
+          "www": ["src/www"]
+        }
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

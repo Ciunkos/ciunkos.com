@@ -1,0 +1,17 @@
+html,body {
+    background: #3040bc;
+    overflow-x: hidden;
+}
+
+.App {
+    color: white;
+    overflow-y: hidden;
+}
+
+/* Was:
+.Section,.Screenshots,.ProjectsGrid,.Card
+But that makes fonts blurry...
+*/
+.Background,.Screenshots {
+    transform: translateZ(0);
+}

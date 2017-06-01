@@ -1,0 +1,1 @@
+RatingSpeed is an easy to use app for checking your internet speed. We provide you detailed information about the upload and download speeds of your internet connections along with useful network information.

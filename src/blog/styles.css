@@ -1,0 +1,145 @@
+.PostHeader > :first-child {
+    margin-bottom: 8px;
+}
+
+.Markdown>pre>code {
+    font-size: 80%;
+}
+
+.Markdown>pre {
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    background: #f3f3f3;
+    /*padding: 8px 8px;*/
+}
+
+.Markdown a {
+    font-weight: 600;
+    display: inline;
+}
+
+.Markdown a:hover,.Markdown a:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+}
+
+p code,h1 code,h2 code,h3 code {
+    background: #f3f3f3;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+
+/*hide abstract*/
+.Markdown>h1 {
+    display: none;
+}
+
+/*.Markdown>h1+p {
+    display: none;
+}*/
+
+.Markdown {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.072px;
+}
+
+.Markdown h2 {
+    margin-top: 16px;
+    font-size: 28px;
+}
+
+@media screen and (min-width: 640px) {
+    .Markdown {
+        font-size: 21px;
+        line-height: 31px;
+        letter-spacing: -0.063px;
+    }
+}
+
+
+.Blog .Section:not(.RelatedPosts) .Content {
+    max-width: 800px!important;
+}
+
+.RelatedPostsView > *:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+@media screen and (min-width: 640px) {
+    .RelatedPostsView {
+        flex-direction: row;
+    }
+    
+    .RelatedPostsView > *:not(:last-child) {
+        margin-bottom: 0px;
+    }
+
+    .RelatedPostsView > *:not(:last-child) {
+        margin-right: 16px;
+    }
+}
+
+.CommentsThread {
+    max-width: 832px;
+    align-self: center;
+    width: 100%;
+    margin-bottom: 48px;
+}
+
+#disqus_thread { color: #000; }
+
+code.hljs {
+    padding: 4px 8px;
+}
+
+blockquote {
+    padding: 8px;
+    background: oldlace;
+}
+
+.Markdown {
+    font-family: Georgia,Cambria,"Times New Roman",Times,serif;
+}
+
+.Markdown h1, .Markdown h2, .Markdown h3, .Markdown h4 {
+    font-family: Roboto,"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Arial,sans-serif;
+}
+
+.Markdown a {
+    color: rgb(50, 142, 254);
+    font-weight: inherit;
+}
+
+.Blog .Section:first-child .SectionContent {
+    min-height: 60vh;
+}
+
+@media print {
+    .Blog .Section:first-child .SectionContent {
+        min-height: initial;
+    }
+
+    .Blog .Section.Comments, .Blog .Section.RelatedPosts {
+        display: none!important;
+    }
+}
+
+.PostContent {
+    color: black;
+    background: white;
+}
+
+.Blog .Title .SectionContent {
+    justify-content: flex-end;
+}
+
+.Blog .Title .Content {
+    padding-bottom: 32px;
+}
+
+.Blog .PostContent .Content {
+    padding-top: 32px;
+}

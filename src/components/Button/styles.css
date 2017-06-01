@@ -1,0 +1,58 @@
+.Button {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 4px;
+    padding: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+.Button:hover {
+    background: currentColor;
+}
+
+.Button:hover > *  {
+    color: white;
+}
+
+.primary.borderless {
+    color: white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+.Button.borderless:focus {
+    background: rgba(255, 255, 255, 0.01);
+}
+
+.primary.borderless:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+
+.primary {
+    color: white;
+    border-color: rgb(14, 122, 254);
+}
+
+.primary:hover {
+    color: white;
+    background: rgb(14, 122, 254);
+}
+
+.borderless {
+    border-color: transparent;
+}
+
+.primary.active {
+    color: white;
+    background: rgb(14, 122, 254);
+}
+
+.primary.active:hover,.primary.active:focus {
+    color: white;
+    background: #1884FF;
+}

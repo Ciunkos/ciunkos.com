@@ -1,0 +1,48 @@
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+    font-size: 16px;
+    font-family: Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+strong {
+    font-weight: bold;
+}
+a,
+button {
+    color: inherit;
+    /*http://stackoverflow.com/questions/36181403/css3-transition-delay-if-animate-svg-fill-and-color-at-the-same-time-bug-in-chro*/
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+a {
+    text-decoration: none;
+}
+button {
+    overflow: visible;
+    border: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
+}
+::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+:focus {
+    outline: 0;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0;
+}
