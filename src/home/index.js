@@ -36,8 +36,8 @@ const HomePage = () =>
         <ActionButton href="#posts" name="Read the stories" icon={<ArrowDownward />} />
     </Section>
 
-    <a name="posts" />
-
+    <a id="posts" />
+    
     { Object.values(posts).map(post =>
     <Section key={post.name} cover={post.cover} >
         <Section.Content padding-2 spacing-4>

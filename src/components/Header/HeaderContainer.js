@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled'
 
-export default class HeaderContainer extends React.Component {
-    listener = null;
+export default class HeaderContainer extends React.PureComponent {
+    listener = null
 
     constructor() {
         super();
@@ -19,87 +19,117 @@ export default class HeaderContainer extends React.Component {
     }
 
     startLoop() {
-        if(window && !this._frameId ) {
-            this._frameId = window.requestAnimationFrame( this.loop );
+        if (window && !this.frameId) {
+            this.frameId = window.requestAnimationFrame(this.loop);
         }
     }
 
     loop() {
-        const { name, target, height } = this.props
-            const HeaderFlowHeight = 64 + height
-            let prevState = 0;
-            const task = () => {
-                //cancelled
-                if(this._frameId === -1) {
-                    return;
-                }
+        const { height } = this.props
 
-                const state  = window && window.pageYOffset || document && document.documentElement.scrollTop || 0;
-                    if(state > prevState) { //scrolling down
-                        if(state > HeaderFlowHeight) {
-                            if(state > this.state.breakpoint + HeaderFlowHeight) {
-                                this.setState({
-                                    position: 'fixed',
-                                    top: -HeaderFlowHeight,
-                                    breakpoint: 0,
-                                })
-                            }
-                            else if(this.state.position == 'fixed') {
-                                this.setState({
-                                    position: 'absolute',
-                                    top: state,
-                                    breakpoint: state,
-                                })
-                            }
-                        }
-                        else {
-                            this.setState({
-                                position: 'absolute',
-                                top: 0
-                            })
-                        }
-                    } else if(prevState > state && !this.state.breakpoint) {
-                        this.setState({
-                            position: 'absolute',
-                            top: Math.max(state - HeaderFlowHeight, 0),
-                            breakpoint: state
-                    })
-                    
-                } else if(this.state.breakpoint ) {
-                    if(this.state.breakpoint - HeaderFlowHeight > state) {
-                        this.setState({
-                            position: 'fixed',
-                            top: 0,
-                            breakpoint: state
-                        })
-                    }
-                    else if(this.state.breakpoint + HeaderFlowHeight < state) {
-                        this.setState({
-                            position: 'fixed',
-                            top: Math.max(-HeaderFlowHeight, 0),
-                            breakpoint: state
-                        })
+        const HeaderFlowHeight = 64 + height
+        
+        let prevState = 0
+        let breakpoint = 0
+        let position = 'fixed'
+        let top = 0
+        let stuck = false
+        let prevTop = 0
+        let prevPosition = 'fixed'
+
+        const headerElement = document.getElementById('header')
+
+        const task = () => {
+            // task cancelled
+            if (this.frameId === -1) {
+                return;
+            }
+
+            const state = (window && window.pageYOffset) || 0
+
+            if (state !== prevState) {
+                // automatic scroll or jump to section, ignore scrolling up
+                // only with subheader
+                if (Math.abs(prevState - state) > 300 && state > 0) {
+                    if (this.props.subheader) {
+                        position = 'absolute'
+                        top = Math.max(state - HeaderFlowHeight, 0)
+                        breakpoint = Math.max(state - HeaderFlowHeight, 0)
+                        stuck = true
+                    } else {
+                        position = 'fixed'
+                        top = 0
+                        breakpoint = state
+                        stuck = false
                     }
                 }
 
+                if (state > prevState) {
+                    if (!stuck) {
+                        // start flow
+                        if (position === 'fixed') {
+                            breakpoint = state
+                            position = 'absolute'
+                            top = state
+                        } if (position === 'absolute' && state >= breakpoint + HeaderFlowHeight) {
+                            stuck = true
+                            position = 'fixed'
+                            top = -HeaderFlowHeight
+                        }
+                    }
+                } else {
+                    // unstick after scrolling up
+                    if (stuck) {
+                        stuck = false;
+                        position = 'absolute'
+                        top = Math.max(0, state - HeaderFlowHeight);
+                        breakpoint = Math.max(0, state - HeaderFlowHeight)
+                    }
+                    if (position === 'absolute' && state <= breakpoint) {
+                        position = 'fixed'
+                        top = 0
+                        breakpoint = 0
+                    }
+                }
+            }
 
-                    this.setState({
-                        scrollY: state,
-                        
-                    })
-                    prevState = state;
+            const ternaryScrollState = (state > 0 ? (state > 64 ? 65 : 64) : 0)
+            if (this.state.scrollY !== ternaryScrollState
+             /*|| this.state.position !== position
+             || this.state.top !== top*/) {
+                this.setState({
+                    scrollY: ternaryScrollState,
+                    //position,
+                    //top
+                })
+            }
 
-                    if(this._frameId !== -1)
-                this.frameId = window && window.requestAnimationFrame( task )
+            // manual DOM manipulation because of one frame latency with React setState
+            if (prevPosition !== position) {
+                headerElement.style.position = position;
+                prevPosition = position
+            }
+            if (prevTop !== top) {
+                headerElement.style.top = `${top}px`;
+                prevTop = top
+            }
+            // end of manual DOM manipulation
+
+            prevState = state;
+
+            if (this.frameId !== -1) {
+                this.frameId = window && window.requestAnimationFrame(task)
+            }
         }
 
-
-        task();        
+        task()
     }
 
     stopLoop() {
-        window && window.cancelAnimationFrame( this._frameId );
-        this._frameId = -1;
+        if (window) {
+            window.cancelAnimationFrame(this.frameId)
+        }
+        this.frameId = -1
     }
 
     componentDidMount() {
@@ -111,17 +141,17 @@ export default class HeaderContainer extends React.Component {
     }
 
     render() {
-        const { position, top, breakpoint, scrollY } = this.state;
+        const { position, top, scrollY } = this.state;
         const { header, subheader } = this.props;
 
         return (
-            <styled.HeaderContainer tag="header" style={{zIndex: 1000, width: '100%', position, left: 0, right: 0, top, willChange: 'top, position'}}>
-                <styled.MainHeader style={{height: 64, width: '100%'}}>
-                    {header && header(subheader ? 65 : scrollY)}
+            <styled.HeaderContainer id="header" tag="header" style={{ zIndex: 1000, width: '100%', /*top, position,*/ left: 0, right: 0, willChange: 'top, position' }} has-subheader={subheader !== undefined}>
+                <styled.MainHeader style={{ height: 64, width: '100%' }}>
+                    {header && header(scrollY)}
                 </styled.MainHeader>
 
                 {subheader &&
-                <styled.SecondaryHeader style={{height: 56, width: '100%'}}>
+                <styled.SecondaryHeader style={{ height: 56, width: '100%' }}>
                     {subheader(scrollY)}
                 </styled.SecondaryHeader>
                 }

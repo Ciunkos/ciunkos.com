@@ -3,7 +3,14 @@
     display: inline;
 }
 
-.InlineLink:hover,.InlineLink:focus {
+@media (hover: hover) {
+    .InlineLink:hover,.InlineLink:focus {
+        text-decoration: underline;
+        text-decoration-skip: ink;
+    }
+}
+
+.InlineLink:active {
     text-decoration: underline;
     text-decoration-skip: ink;
 }

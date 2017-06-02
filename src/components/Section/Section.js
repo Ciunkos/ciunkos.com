@@ -7,7 +7,7 @@ const gradientStyle = gradient => gradient ? {
 } : {}
 
 const Section = ({ children, cover, gradient = true, ...rest }) =>
-<styled.Section tag="section" {...rest} >
+<styled.Section tag="section" {...rest} tabIndex={-1}>
     {cover && <Background src={cover} />}
 
     <styled.SectionContent {...gradientStyle(gradient)}>

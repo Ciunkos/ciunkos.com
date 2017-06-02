@@ -10,11 +10,21 @@
     line-height: 20px;
 }
 
-.Button:hover {
+@media (hover: hover) {
+    .Button:hover {
+        background: currentColor;
+    }
+
+    .Button:hover > *  {
+        color: white;
+    }
+}
+
+.Button:active {
     background: currentColor;
 }
 
-.Button:hover > *  {
+.Button:active > *  {
     color: white;
 }
 
@@ -28,17 +38,29 @@
     background: rgba(255, 255, 255, 0.01);
 }
 
-.primary.borderless:hover {
-    background: rgba(255, 255, 255, 0.08);
+@media (hover: hover) {
+    .primary.borderless:hover,.primary.borderless:focus {
+        background: rgba(255, 255, 255, 0.08);
+    }
 }
 
+.primary.borderless:active {
+     background: rgba(255, 255, 255, 0.08);
+}
 
 .primary {
     color: white;
     border-color: rgb(14, 122, 254);
 }
 
-.primary:hover {
+@media (hover: hover) {
+    .primary:hover,.primary:focus {
+        color: white;
+        background: rgb(14, 122, 254);
+    }
+}
+
+.primary:active {
     color: white;
     background: rgb(14, 122, 254);
 }
@@ -52,7 +74,14 @@
     background: rgb(14, 122, 254);
 }
 
-.primary.active:hover,.primary.active:focus {
+@media (hover: hover) {
+    .primary.active:hover,.primary.active:focus {
+        color: white;
+        background: #1884FF;
+    }
+}
+
+.primary.active:active {
     color: white;
     background: #1884FF;
 }

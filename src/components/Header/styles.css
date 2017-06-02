@@ -49,8 +49,19 @@
     width: auto;
 }
 
-.navbaritem:hover {
+@media (hover: hover) {
+    .navbaritem:hover {
+        border-bottom: 4px solid white;
+    }
+}
+
+.navbaritem:active {
     border-bottom: 4px solid white;
+}
+
+.HeaderContainer {
+    position: fixed;
+    top: 0;
 }
 
 .HeaderBar {
@@ -63,6 +74,15 @@
 
 .MainHeader .HeaderBar.scrolled-top {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.4) 80%);
+}
+
+.has-subheader .MainHeader .HeaderBar:not(.scrolled-top) {
+    box-shadow: none;
+}
+
+.has-subheader .MainHeader .HeaderBar {
+    background: #3040BC;
+    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
 
 .SecondaryHeader .HeaderBar.scrolled-top {

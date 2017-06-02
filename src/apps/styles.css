@@ -4,7 +4,14 @@
     cursor: pointer;
 }
 
-.thumb-horizontal:hover,.thumb-horizontal:active {
+@media (hover: hover) {
+    .thumb-horizontal:hover {
+        background: rgba(255,255,255,0.6);
+        cursor: pointer;
+    }
+}
+
+.thumb-horizontal:active {
     background: rgba(255,255,255,0.6);
     cursor: pointer;
 }

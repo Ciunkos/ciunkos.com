@@ -19,7 +19,14 @@
     display: inline;
 }
 
-.Markdown a:hover,.Markdown a:focus {
+@media (hover: hover) {
+    .Markdown a:hover,.Markdown a:focus {
+        text-decoration: underline;
+        text-decoration-skip: ink;
+    }
+}
+
+.Markdown a:active {
     text-decoration: underline;
     text-decoration-skip: ink;
 }

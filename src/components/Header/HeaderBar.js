@@ -7,7 +7,7 @@ const HeaderBar = ({ routes = [], ...rest }) =>
     <styled.BarContent horizontal stretch>
     {
         routes.map(route =>
-            <Button 
+            <Button
                 key={route.href}
                 tag="a"
                 title={route.title || route.name}

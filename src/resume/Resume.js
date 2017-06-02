@@ -179,9 +179,7 @@ const Resume = () =>
         />
       }
 >
-    <Section Profile cover={photo14870587922750ad4aaf24ca7}>
-        <a name="profile" />
-
+    <Section Profile cover={photo14870587922750ad4aaf24ca7} id="profile">
         <Section.Content padding-2 >
             <styled.Column middle HeadingImageContainer >
                 <styled.HeadingImage
@@ -237,9 +235,7 @@ const Resume = () =>
         <ActionButton href="#education-and-experience" name="Learn more" icon={<ArrowDownward />} />
     </Section>
 
-    <Section cover={photo1441109296207fd911f7cd5e5}>
-        <a name="education-and-experience" />
-
+    <Section cover={photo1441109296207fd911f7cd5e5} id="education-and-experience">
         <Section.Content padding-2 spacing-4 >
             <h2>Education and work experience</h2>
 
@@ -265,9 +261,7 @@ const Resume = () =>
         </Section.Content>
     </Section>
 
-    <Section Skills cover={photo14603245588408df3143cd908}>
-        <a name="skills" />
-
+    <Section Skills cover={photo14603245588408df3143cd908} id="skills">
         <Section.Content padding-2 spacing-4>
             <h2>Skills</h2>
                     
@@ -299,9 +293,7 @@ const Resume = () =>
         </Section.Content>
     </Section>
 
-    <Section Projects cover={photo14603245588408df3143cd908}>
-        <a name="projects" />
-
+    <Section Projects cover={photo14603245588408df3143cd908} id="projects">
         <Section.Content padding-2 spacing-4>
             <h2>Projects</h2>
 
@@ -386,9 +378,7 @@ const Resume = () =>
          <ActionButton href="/apps" name="See more" icon={<ArrowForward />} />
     </Section>
 
-    <Section InterestsSection cover={photo1468322638156074863f9362e}>
-        <a name="interests-and-goals" />
-
+    <Section InterestsSection cover={photo1468322638156074863f9362e} id="interests-and-goals">
         <Section.Content padding-2 spacing-4>
             <h2>Interests and future goals</h2>
 

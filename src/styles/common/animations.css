@@ -7,6 +7,7 @@
     animation-duration: 0.25s;
     animation-fill-mode: both;
     will-change: transform, opacity;
+    transform: translateZ(0);
 }
 
 .fast {

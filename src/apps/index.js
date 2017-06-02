@@ -59,9 +59,7 @@ const AppsPage = () =>
     </Section>
 
     { Object.values(apps).map(app =>
-    <Section key={app.name} cover={app.cover}>
-        <a name={app.slug} />
-
+    <Section key={app.name} cover={app.cover} id={app.slug}>
         <Section.Content full-width stretch spacing-4 padding-2>
             <h2>
                 <styled.AppHeader horizontal spacing-2 middle>

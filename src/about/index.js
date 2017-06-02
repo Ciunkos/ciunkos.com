@@ -48,9 +48,7 @@ const AboutPage = ({ location = {} }) =>
         <ActionButton href="#contact" name="Contact me" icon={<MailOutline />} />
     </Section>
 
-    <Section Contact cover={photo1466096115517bceecbfb6fde} >
-        <a name="contact" />
-
+    <Section Contact cover={photo1466096115517bceecbfb6fde} id="contact">
         <Section.Content padding-2 spacing-4>
             <h1>
                 Contact me
@@ -85,14 +83,12 @@ const AboutPage = ({ location = {} }) =>
                 </styled.ContactForm>
 
                 {location.hash === '#contact-success' &&
-                <div className="task-result success">
-                    <a name="contact-success" />
+                <div className="task-result success" id="contact-success">
                     <p>Your message has been sent 📧</p>
                 </div>}
 
                 {location.hash === '#contact-error' &&
-                <div className="task-result error">
-                    <a name="contact-error" />
+                <div className="task-result error" id="contact-error">
                     <p>
                         An error occured while submitting the form, please try again or mail me directly
                         at <InlineLink href="mailto:ciunkos@gmail.com">ciunkos@gmail.com</InlineLink>

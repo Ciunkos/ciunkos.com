@@ -34,11 +34,9 @@ const Blog = ({ post }) =>
         </Section.Content>
     </Section>
 
-    {relatedPosts[post.slug] && 
-    <Section RelatedPosts >
-        <a name="related-posts" />
-
-        <Section.Content padding-2 spacing-4>'
+    {relatedPosts[post.slug] &&
+    <Section RelatedPosts id="related-posts">
+        <Section.Content padding-2 spacing-4>
             <h2>
                 Related posts
             </h2>
@@ -59,9 +57,7 @@ const Blog = ({ post }) =>
         </Section.Content>
     </Section> }
 
-    <Section Comments>
-        <a name="comments" />
-
+    <Section Comments id="comments">
         <Section.Content padding-2 spacing-4>
             <h2>
                 Express yourself...

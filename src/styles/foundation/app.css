@@ -12,6 +12,10 @@ html,body {
 .Section,.Screenshots,.ProjectsGrid,.Card
 But that makes fonts blurry...
 */
-.Background,.Screenshots {
+.Background,.Screenshots,.HeaderContainer {
     transform: translateZ(0);
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }

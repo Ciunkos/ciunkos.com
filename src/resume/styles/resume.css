@@ -74,11 +74,11 @@
     padding-top: 32px; padding-bottom: 32px;
 }
 
-.Section:first-child .SectionContent .Content:not(.Section.Profile) {
+.Section:first-child .SectionContent .Content {
     padding-top: 64px;
 }
 
-.Section:first-child .SectionContent .Content {
+.Resume .Section:first-child .SectionContent .Content {
     padding-top: 128px;
 }
 
@@ -188,7 +188,7 @@
         padding-left: 8px;
         padding-right: 8px;
     }
-    
+
     .ProjectCard {
         width: calc(50% - 8px);
         flex: none;
