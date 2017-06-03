@@ -83,15 +83,18 @@
 }
 
 @media all and (max-height: 640px) and (orientation:landscape) {
-    .SectionContent .Content:not(.Section.Profile) {
-        padding-top: 16px !important;
-        padding-bottom: 16px !important;
+    .Page .SectionContent .Content {
+        padding-top: 16px;
+        padding-bottom: 16px;
     }
 
-    .Section:first-child .SectionContent .Content:not(.Section.Profile) {
-        /*padding-top: 64px;*/
-        padding-top: 32px!important;
-        padding-bottom: 16px!important;
+    .Page .Section:first-child .SectionContent .Content {
+        padding-top: 32px;
+        padding-bottom: 16px;
+    }
+
+    .Page.Resume .Section:first-child .SectionContent .Content {
+        padding-top: 96px;
     }
 }
 
