@@ -15,7 +15,8 @@ const send = ({ email, name, text }) => {
         from,
         to: 'ciunkos@gmail.com',
         subject: `New message from ${from} at https://ciunkos.com`,
-        text
+        text,
+        replyTo: from
     };
 
     return new Promise((resolve, reject) => {

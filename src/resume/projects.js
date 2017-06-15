@@ -24,7 +24,7 @@ export default [
         slug: 'testy-prawo-jazdy',
         url: 'testyprawojazdy.com',
         icon: testyPrawoJazdy.icon,
-        description: 'Responsive web app for preparing for the polish driving theory test exam',
+        description: 'Responsive web app to prepare for the polish driving theory test exam',
         status: 'development',
         tech: [
             tech.js,
@@ -37,7 +37,7 @@ export default [
         ],
         responsibilities: [
             'Writing the front-end with React.js, styling with CSS, designing resposive, mobile friendly views',
-            'Database design and implementation of custom static database as code modules system',
+            'Database design and implementation of static data as a code modules system',
             'Open sourcing test questions and explanations along with an edit system based on Git',
             'Implementing reactive view model using MobX and performance testing',
             'Enabling server-side rendering using node.js on IIS with iis-node'
@@ -98,9 +98,9 @@ export default [
             'printable'
         ],
         responsibilities: [
-            'Writing the front-end with React.js, styling with CSS, using data as code modules',
+            'Writing the front-end with React.js, styling with CSS, using data as a code modules',
             'Designing responsive and printable resume page',
-            'Integrating blog and commenting system',
+            'Static blog generation and integrating Disqus commenting system',
             'Controlling source code and data versions using Git',
             'Deploying server-side rendering with express.js with iss-node on Windows IIS'
         ]
@@ -141,7 +141,6 @@ export default [
         icon: musicTube.icon,
         description: 'Windows Phone, Windows Store, Web App for music videos playback from YouTube.',
         status: 'unmaintained',
-
         tech: [
             tech.CSharp,
             tech.XAML,
@@ -223,10 +222,10 @@ export default [
         ],
         responsibilities: [
             'Development of Windows Phone application based on client\'s provided project using XAML, MVVM and C#',
-            'Integration with provided existing web APIs',
+            'Integration with existing web APIs',
             'Collaboration with the project owner and the rest of the team',
-            'Implemented monetization through different ad networks',
-            'Deploying updates after the release'
+            'Monetization through different ad networks',
+            'Deploying multiple updates after the release'
         ],
         print: true
     },

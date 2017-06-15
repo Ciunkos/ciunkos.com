@@ -28,6 +28,9 @@ export default {
         Skill(tech.Webpack, 2),
         Skill(tech.esLint, 1),
         Skill(tech.ChromeDevTools, 2),
+
+        Skill(tech.Jest),
+        Skill(tech.enzyme)
     ],
     windows: [
         Skill(tech.CSharp, 3),

@@ -5,6 +5,6 @@ export default [
     'User experience design',
     'App development',
     'Security',
-    'User interfaces design',
+    'User interface design',
     'Dogs 🐶'
 ]

@@ -4,9 +4,12 @@ em {
 }
 
 .Subheader {
-    color: rgba(0, 0, 0, 0.541176);
     color: rgba(255, 255, 255, 0.75);
     font-weight: 500;
+}
+
+.Card .Subheader {
+    color: rgba(0, 0, 0, 0.541176);
 }
 
 /*typography*/

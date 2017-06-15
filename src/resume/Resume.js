@@ -164,6 +164,16 @@ const scroll = (direction) => {
 const overflowScrollBack = () => scroll(-1)
 const overflowScrollForward = () => scroll(+1)
 
+const OverflowButton = ({ children, onClick }) =>
+<styled.OverflowButton style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 16 }}>
+    <Button primary borderless center middle horizontal spacing-2
+    style={{ minHeight: 48, height: '100%' }}
+    onClick={onClick}
+    >
+        {children}
+    </Button>
+</styled.OverflowButton>
+
 const Resume = () =>
 <Page Resume
       title="Resume - Przemysław Zalewski"
@@ -303,17 +313,12 @@ const Resume = () =>
 
         </Section.Content>
 
-        <styled.Row ProjectsOverview full-width stretch horizontal padding-2 style={{ maxWidth: 1120, color: 'black', width: '100%', maxHeight: 56 * 20, paddingBottom: 0 }}>
-            <styled.OverflowButton style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 16 }}>
-                <Button primary borderless center middle horizontal spacing-2
-                style={{ minHeight: 48, height: '100%' }}
-                onClick={overflowScrollBack}
-                >
-                    <ArrowBack />
-                </Button>
-            </styled.OverflowButton>
+        <styled.Row ProjectsOverview full-width horizontal padding-2 style={{ maxWidth: 1120, color: 'black', width: '100%', maxHeight: 56 * 20, paddingBottom: 0 }}>
+            <OverflowButton onClick={overflowScrollBack}>
+                <ArrowBack />
+            </OverflowButton>
             
-            <styled.ProjectsGrid id="projectGrid" horizontal full-width stretch >
+            <styled.ProjectsGrid id="projectGrid" horizontal full-width >
                 {
                     projects.filter(x => !x.exclude).map(project =>
                         <styled.Card ProjectCard key={project.name} card-1 media-no-print={!project.print}>
@@ -365,14 +370,9 @@ const Resume = () =>
                 <div className="OverflowLastItemFix media-no-print" />
             </styled.ProjectsGrid>
 
-            <styled.OverflowButton style={{paddingLeft: 8, paddingRight: 8, paddingBottom: 16}}>
-                <Button primary borderless center middle horizontal spacing-2
-                style={{minHeight: 48, height: '100%'}}
-                onClick={overflowScrollForward}
-                >
-                    <ArrowForward />
-                </Button>
-            </styled.OverflowButton>
+            <OverflowButton onClick={overflowScrollForward}>
+                <ArrowForward />
+            </OverflowButton>
         </styled.Row>
 
          <ActionButton href="/apps" name="See more" icon={<ArrowForward />} />

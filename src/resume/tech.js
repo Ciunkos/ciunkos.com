@@ -48,14 +48,18 @@ export default {
     Webpack: {
         name: 'Webpack'
     },
+    Jest: {
+        name: 'Jest'
+    },
+    enzyme: {
+        name: 'enzyme'
+    },
     MobX: {
         name: 'MobX'
     },
-
     Docker: {
         name: 'Docker'
     },
-
     CSharp: {
         name: 'C#'
     },
