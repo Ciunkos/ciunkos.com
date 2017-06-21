@@ -63,20 +63,16 @@ export default {
     CSharp: {
         name: 'C#'
     },
-
     XAML: {
         name: 'XAML',
         abbr: 'Extensible Application Markup Language'
     },
-
     SQL: {
         name: 'SQL'
     },
-
     LINQ: {
         name: 'LINQ'
     },
-
     WindowsPhone: {
         name: 'Windows Phone'
     },
@@ -86,64 +82,51 @@ export default {
     ReSharper: {
         name: 'ReSharper'
     },
-
     EntityFramework: {
         name: 'Entity Framework'
     },
-
     ASPDotNet: {
         name: 'ASP.NET',
         url: 'https://www.asp.net/'
     },
-
     MsSQL: {
         name: 'MS SQL',
         abbr: 'Microsoft SQL Server'
     },
-
     Azure: {
         name: 'Microsoft Azure',
         url: 'https://azure.microsoft.com/'
     },
-
     MVVM: {
         name: 'MVVM',
         abbr: 'Model-view-viewmodel'
     },
-
     IIS: {
         name: 'IIS',
         abbr: 'Internet Information Services'
     },
-
     visualStudioCode: {
         name: 'Visual Studio Code',
         url: 'https://code.visualstudio.com'
     },
-
     visualStudio: {
         name: 'Visual Studio',
         url: 'https://www.visualstudio.com'
     },
-
     blend: {
         name: 'Microsoft Blend'
     },
-
     webSockets: {
         name: 'WebSockets'
     },
-
     git: {
         name: 'Git',
         url: 'https://git-scm.com/'
     },
-
     gitHub: {
         name: 'GitHub',
         url: 'https://github.com/'
     },
-
     GoogleAnalytics: {
         name: 'Google Analytics',
         url: 'https://www.google.com/analytics/'
@@ -152,7 +135,6 @@ export default {
         name: 'CloudFlare',
         url: 'https://www.cloudflare.com/'
     },
-
     CPlusPlus: {
         name: 'C++'
     },
@@ -162,23 +144,18 @@ export default {
     DirectX11: {
         name: 'DirectX 11'
     },
-
     Haskell: {
         name: 'Haskell'
     },
-
     responsiveDesign: {
         name: 'Responsive design'
     },
-
     flexBox: {
         name: 'Flexbox'
     },
-
     english: {
         name: 'English (B2)'
     },
-
     polish: {
         name: 'Polish (native)'
     }

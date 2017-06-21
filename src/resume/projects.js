@@ -60,8 +60,9 @@ export default [
             tech.babel,
             tech.Redux,
             tech.webSockets,
-            tech.visualStudioCode,
-            tech.Docker
+            tech.Docker,
+            tech.CSharp,
+            tech.ASPDotNet
         ],
         responsibilities: [
             'Writing the front-end with React.js, Redux and custom styling solution',

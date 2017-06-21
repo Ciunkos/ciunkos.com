@@ -405,7 +405,7 @@ const Resume = () =>
     <Section Notes cover={photo1468322638156074863f9362e}>
         <Section.Content padding-2 spacing-4>
             <styled.LegalNote>
-                Wyrażam zgodę na przetwarzanie moich danych osobowych zawartych w mojej ofercie pracy dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. z 2002r. Nr 101, poz. 926 ze zm.).
+                Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia 29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U. 2016 r. poz. 922).
             </styled.LegalNote>
 
             <styled.CopyrightNotes media-no-print>
