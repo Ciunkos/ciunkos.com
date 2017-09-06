@@ -1,3 +1,5 @@
+// @auto-index
+
 import facebook from './facebook.jpg'
 import github from './github.jpg'
 import linkedIn from './linked-in.jpg'
@@ -10,10 +12,12 @@ export { default as linkedIn } from './linked-in.jpg'
 export { default as stackOverflow } from './stack-overflow.jpg'
 export { default as twitter } from './twitter.jpg'
 
-export default {
-    facebook,
-    github,
-    linkedIn,
-    stackOverflow,
-    twitter
+export default
+{
+  facebook,
+  github,
+  linkedIn,
+  stackOverflow,
+  twitter
 }
+

@@ -1,112 +1,110 @@
 .NavigationBar {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .AppBar {
-    height: 64px;
+  height: 64px;
 }
 
 .SecondaryBar {
-    top: 64px;
+  top: 64px;
 }
 
 .BarContent {
-    max-width: 1000px;
-    width: 100%;
+  max-width: 1000px;
+  width: 100%;
 }
 
 .Bar {
-    min-height: 56px;
-    align-items: center;
-    z-index: 4; /* appbar */
-    border-radius: 0;
-    justify-content: space-between;
+  min-height: 56px;
+  align-items: center;
+  z-index: 4;
+  border-radius: 0;
+  justify-content: space-between;
 }
 
 .main-appbar {
-    background: #3040BC;
-    color: white;
+  background: #3040BC;
+  color: white;
 }
 
 .navbaritem {
-    padding-left: 16px;
-    padding-right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .navbaritem {
-    /*flex: 1 1 56px;*/
-    flex: 1;
-    flex-basis: auto;
-    flex-shrink: 0;
-    width: auto;
+  flex: 1;
+  flex-basis: auto;
+  flex-shrink: 0;
+  width: auto;
 }
 
 .headeritem {
-    /*flex: 1 1 56px;*/
-    flex: 1;
-    flex-basis: auto;
-    flex-shrink: 0;
-    width: auto;
+  flex: 1;
+  flex-basis: auto;
+  flex-shrink: 0;
+  width: auto;
 }
 
 @media (hover: hover) {
-    .navbaritem:hover {
-        border-bottom: 4px solid white;
-    }
+  .navbaritem:hover {
+    border-bottom: 4px solid white;
+  }
 }
 
 .navbaritem:active {
-    border-bottom: 4px solid white;
+  border-bottom: 4px solid white;
 }
 
 .HeaderContainer {
-    position: fixed;
-    top: 0;
+  position: absolute;
+  top: 0;
 }
 
 .HeaderBar {
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
 
 .HeaderBar.scrolled-top {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .MainHeader .HeaderBar.scrolled-top {
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.4) 80%);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.0) 0%, rgba(0, 0, 0, 0.4) 80%);
 }
 
 .has-subheader .MainHeader .HeaderBar:not(.scrolled-top) {
-    box-shadow: none;
+  box-shadow: none;
 }
 
 .has-subheader .MainHeader .HeaderBar {
-    background: #3040BC;
-    box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  background: #3040BC;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
 
 .SecondaryHeader .HeaderBar.scrolled-top {
-    background: transparent;
+  background: transparent;
 }
 
 .navbaritem .ActionName {
-    display: none;
+  display: none;
 }
 
 .navbaritem .ActionName {
-    display: none;
+  display: none;
 }
 
 .ActionLargeIcon {
-    display: none;
+  display: none;
 }
 
 @media all and (min-width: 640px) {
-    .ActionLargeIcon {
-        display: flex;
-    }
+  .ActionLargeIcon {
+    display: flex;
+  }
 
-    .ActionLargeIcon + .ActionIcon {
-        display: none;
-    }
+  .ActionLargeIcon + .ActionIcon {
+    display: none;
+  }
 }

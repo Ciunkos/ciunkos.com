@@ -30,18 +30,18 @@ export { default as testyPrawoJazdy } from './testy-prawo-jazdy'
 
 export default
 {
-    apkaTv,
-    blog,
-    classicGames,
-    fastCoffee,
-    iAmRich,
-    kwejk,
-    musicTube,
-    platformerGameEngine,
-    pogaduszki,
-    promegle,
-    ratingSpeed,
-    storePro,
-    testyPrawoJazdy
+  apkaTv,
+  blog,
+  classicGames,
+  fastCoffee,
+  iAmRich,
+  kwejk,
+  musicTube,
+  platformerGameEngine,
+  pogaduszki,
+  promegle,
+  ratingSpeed,
+  storePro,
+  testyPrawoJazdy
 }
 

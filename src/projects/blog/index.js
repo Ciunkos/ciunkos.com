@@ -6,6 +6,6 @@ export { default as icon } from './icon.jpg'
 
 export default
 {
-    icon
+  icon
 }
 

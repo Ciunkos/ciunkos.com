@@ -1,17 +1,23 @@
 // @auto-index
 
-import _1r1280x918 from './1r1280x918.jpg'
-import _2r1280x918 from './2r1280x918.jpg'
-import _3r1280x918 from './3r1280x918.jpg'
+import s1r1633x943 from './s1r1633x943.jpg'
+import s2r1633x943 from './s2r1633x943.jpg'
+import s3r1633x943 from './s3r1633x943.jpg'
+import s4r1633x943 from './s4r1633x943.jpg'
+import s5r1633x943 from './s5r1633x943.jpg'
 
-export { default as _1r1280x918 } from './1r1280x918.jpg'
-export { default as _2r1280x918 } from './2r1280x918.jpg'
-export { default as _3r1280x918 } from './3r1280x918.jpg'
+export { default as s1r1633x943 } from './s1r1633x943.jpg'
+export { default as s2r1633x943 } from './s2r1633x943.jpg'
+export { default as s3r1633x943 } from './s3r1633x943.jpg'
+export { default as s4r1633x943 } from './s4r1633x943.jpg'
+export { default as s5r1633x943 } from './s5r1633x943.jpg'
 
 export default
 {
-    _1r1280x918,
-    _2r1280x918,
-    _3r1280x918
+  s1r1633x943,
+  s2r1633x943,
+  s3r1633x943,
+  s4r1633x943,
+  s5r1633x943
 }
 

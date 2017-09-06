@@ -1,472 +1,402 @@
 @page {
   size: A4;
-  margin: 0;
   margin: 27mm 16mm 27mm 16mm;
 }
 
 @media screen {
-    .media-only-print {
-        display: none;
-    }
+  .media-only-print {
+    display: none;
+  }
 }
 
 @media print {
-    .media-no-print {
-        display: none;
-    }
+  .media-no-print {
+    display: none;
+  }
 }
 
 :root{
-    --unit: 8px;
-    --print: 4px;
+  --unit: 8px;
+  --print: 4px;
 }
 
 /*<Spacing>*/
-.spacing-half:not(.horizontal) > * {
+.spacing-half:not(.horizontal) > :not(:last-child) {
     margin-bottom: calc(var(--unit) * 0.5);
 }
 
-.spacing:not(.horizontal) > * {
+.spacing:not(.horizontal) > :not(:last-child) {
     margin-bottom: var(--unit);
 }
 
-.spacing:not(.horizontal) > :last-child {
-    margin-bottom: 0px;
+.spacing-2:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 2);
 }
 
-.spacing-2:not(.horizontal) > * {
-    margin-bottom: calc(var(--unit) * 2);
+.spacing-3:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 3);
 }
 
-.spacing-2:not(.horizontal) > :last-child {
-    margin-bottom: 0px;
+.spacing-4:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 4);
 }
 
-.spacing-3:not(.horizontal) > * {
-    margin-bottom: calc(var(--unit) * 3);
+.spacing-8:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 8);
 }
 
-.spacing-3:not(.horizontal) > :last-child {
-    margin-bottom: 0px;
+.horizontal.spacing > :not(:last-child) {
+  margin-right: var(--unit);
 }
 
-.spacing-4:not(.horizontal) > * {
-    margin-bottom: calc(var(--unit) * 4);
+.horizontal.spacing-2 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 2);
 }
 
-.spacing-4:not(.horizontal) > :last-child {
-    margin-bottom: 0px;
+.horizontal.spacing-3 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 3);
 }
 
-.spacing-8:not(.horizontal) > * {
-    margin-bottom: calc(var(--unit) * 8);
+.horizontal.spacing-4 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 4);
 }
 
-.spacing-8:not(.horizontal) > :last-child {
-    margin-bottom: 0px;
+.horizontal.spacing-8 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 8);
 }
-
-.horizontal.spacing > * {
-    margin-right: var(--unit);
-}
-
-.horizontal.spacing > :last-child {
-    margin-right: 0px;
-}
-
-.horizontal.spacing-2 > * {
-    margin-right: calc(var(--unit) * 2);
-}
-
-.horizontal.spacing-2 > :last-child {
-    margin-right: 0px;
-}
-
-.horizontal.spacing-3 > * {
-    margin-right: calc(var(--unit) * 3);
-}
-
-.horizontal.spacing-3 > :last-child {
-    margin-right: 0px;
-}
-
-.horizontal.spacing-4 > * {
-    margin-right: calc(var(--unit) * 4);
-}
-
-.horizontal.spacing-4 > :last-child {
-    margin-right: 0px;
-}
-
-.horizontal.spacing-8 > * {
-    margin-right: calc(var(--unit) * 8);
-}
-
-.horizontal.spacing-8 > :last-child {
-    margin-right: 0px;
-}
-
-
 
 @media print {
-    html, body {
-        background: white!important;
-        width: 210mm;
-        /*height: 297mm;*/
-        margin-top: 0px!important;
-        margin-bottom: 0px!important;
-        font-size: 14px;
-    }
-
-    * {
-        transition: none !important;
-        box-shadow: none!important;
-        border-color: white;
-        background-image: none!important;
-        color: black;
-        overflow:initial !important;
-    }
-
-    .Background,
-    .HeaderContainer,
-    .Actions,
-    .OverflowButton,
-    .ProjectIcon,
-    .ProjectUrl,
-    .TechnologySection,
-    .SkillIcon,
-    .Bar,
-    .Button {
-        display: none!important;
-    }
-
-    .Subheader {
-        color: rgba(0,0,0,0.9)!important;
-    }
-
-    .Section.Profile .em {
-        font-weight: normal !important;
-    }
-
-    .Section.Profile .InlineLink {
-        font-weight: normal;
-    }
-
-    em {
-        font-weight: 600;
-    }
-    
-    .InlineLink {
-        text-decoration: none;
-        text-decoration-skip: none;
-    }    
-
-    .Card > * {
-        padding-left: 0!important;
-        padding-right: 0!important;
-    }
-
-    ul.dot-separated {
-        overflow: hidden;
-        margin-left: -8px;
-    }
-
-    ul.dot-separated li:before {
-        content: " \00b7 ";
-        width: 8px;
-        line-height: 24px;
-    }
-
-    ul.semicolon-separated li {
-        display: inline;
-    }
-
-    .ProjectsGrid > .media-no-print {
-        display: none!important;
-    }
-
-    .ProjectsGrid > :not(.media-no-print) {
-        display: block!important;
-    }
-
-
-    .ProjectsGrid {
-        overflow: hidden;
-    }
-
-    /*<Spacing>*/
-    .spacing-half:not(.horizontal) > * {
-        margin-bottom: calc(var(--print) * 0.5);
-    }
-
-    .spacing:not(.horizontal) > * {
-        margin-bottom: var(--print);
-    }
-
-    .spacing:not(.horizontal) > :last-child {
-        margin-bottom: 0px;
-    }
-
-    .spacing-2:not(.horizontal) > * {
-        margin-bottom: calc(var(--print) * 2);
-    }
-
-    .spacing-2:not(.horizontal) > :last-child {
-        margin-bottom: 0px;
-    }
-
-    .spacing-3:not(.horizontal) > * {
-        margin-bottom: calc(var(--print) * 3);
-    }
-
-    .spacing-3:not(.horizontal) > :last-child {
-        margin-bottom: 0px;
-    }
-
-    .spacing-4:not(.horizontal) > * {
-        margin-bottom: calc(var(--print) * 4);
-    }
-
-    .spacing-4:not(.horizontal) > :last-child {
-        margin-bottom: 0px;
-    }
-
-    .spacing-8:not(.horizontal) > * {
-        margin-bottom: calc(var(--print) * 8);
-    }
-
-    .spacing-8:not(.horizontal) > :last-child {
-        margin-bottom: 0px;
-    }
-
-    .horizontal.spacing > * {
-        margin-right: var(--print);
-    }
-
-    .horizontal.spacing > :last-child {
-        margin-right: 0px;
-    }
-
-    .horizontal.spacing-2 > * {
-        margin-right: calc(var(--print) * 2);
-    }
-
-    .horizontal.spacing-2 > :last-child {
-        margin-right: 0px;
-    }
-
-    .horizontal.spacing-3 > * {
-        margin-right: calc(var(--print) * 3);
-    }
-
-    .horizontal.spacing-3 > :last-child {
-        margin-right: 0px;
-    }
-
-    .horizontal.spacing-4 > * {
-        margin-right: calc(var(--print) * 4);
-    }
-
-    .horizontal.spacing-4 > :last-child {
-        margin-right: 0px;
-    }
-
-    .horizontal.spacing-8 > * {
-        margin-right: calc(var(--print) * 8);
-    }
-
-    .horizontal.spacing-8 > :last-child {
-        margin-right: 0px;
-    }
-
-    /*hack vertical spacing*/
-    .vertical-spacing > * {
-        margin-bottom: 0px!important;
-    }
-
-    .vertical-spacing {
-        margin-bottom: 0px;
-    }
-
-    .Section {
-        min-height: initial;
-    }
-
-    .ProjectsGrid {
-        /*flex-direction: column!important;*/
-        overflow-x: hidden!important;
-        max-height: initial!important;
-        flex-wrap: wrap;
-    }
-
-    .ProjectsOverview {
-        max-height: initial!important;
-    }
-
-    .ProjectsGrid,.ProjectsOverview {
-        padding: 0!important;
-    }
-
-    .ProjectCard {
-        width: 100%!important;
-        flex: 1!important;
-        
-        display: none;
-    }
-
-    .ProjectHeader {
-        padding: 0!important;
-    }
-
-    .ProjectsGrid {
-        max-width: initial;
-        margin: 0;
-        margin-right: -32px;
-    }
-
-    .ProjectsOverview {
-        padding: 0!important;
-    }
-
-     /*display only first four projects*/
-    .ProjectCard:not(.media-no-print){
-        display: block!important;
-        width: calc(50% - 32px)!important;
-        flex: none!important;
-        margin-right: 32px;
-    }
-
-    .Page {
-        display: block!important;
-    }
-
-    .Landing {
-        width: 100%!important;
-    }
-
-    .HeadingImage {
-        width: 222px!important;
-        height: 222px!important;
-        border-radius: 10%!important;
-    }
-
-    .Section.Profile .Content {
-        flex-direction: row;
-        
-    }
-
-    .Section.Profile .Content > * {
-        margin-right: 32px;
-    }
-
-    .Section.Profile .Content > :first-child {
-        margin-right: 0px;
-    }
-
-    .HeadingImageContainer {
-        margin-top: 0!important;
-        order: 1!important;
-    }
-
-    .Section.Profile h2 {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        text-align: initial;
-    }
-
-    .HeadingContent {
-        order: 0!important;
-    }
-
-    .SectionContent .Content {
-        padding-top: 0px!important; padding-bottom: 0px!important;
-        padding-left: 0;
-        padding-right: 0;
-        max-width: initial;
-    }
-
-    .LegalNote {
-        margin-bottom: 0!important;
-    }
-
-    .Section:not(:last-child) .SectionContent .Content {
-        padding-top: 0px!important; padding-bottom: 14px!important;
-    }
-
-    .Section:last-child .SectionContent .Content {
-        padding-top: 16px!important; padding-bottom: 0px!important;
-    }
-
-    .Section:first-child .SectionContent .Content {
-        padding-top: 0px!important;
-    }
-
-    .Skill {
-        border-radius: 0!important;
-        padding: 0!important;
-    }
-
-    h1,h2,h3,h4 {
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    h2 {
-        font-size: 24px;
-        border-bottom: 1px solid rgba(0,0,0,0.5);
-        padding-right: 64px;
-        align-self: flex-start;
-    }
-
-    h3 {
-        font-size: 17px;
-    }
-
-    h4 {
-        font-size: 16px!important;
-    }
-
-    /*//fix the overflow*/
-    .Section:last-child .Content {
-        padding-bottom: 0px!important;
-    }
-
-    /*https://stackoverflow.com/a/35154315/1384679*/
-    div {
-        float: none !important;
-    }
-
-    #app, #app > *, .Landing {
-        display: block!important;
-    }
-
-    .Section {
-        display: block!important;
-        /*page-break-inside: avoid;*/
-    }
-
-    .Section:last-child {
-        page-break-after: avoid;
-        page-break-before: avoid;
-    }
-
-    .InterestsSection {
-        page-break-after: avoid;
-        page-break-before: avoid;
-    }
-
-    .Section.Skills {
-        page-break-after: auto;
-        page-break-before: avoid;
-    }
-
-    .Section.Projects {
-        page-break-after: avoid;
-        page-break-before: always;
-    }
-
+  html, body {
+    background: white!important;
+    width: 210mm;
+    /*height: 297mm;*/
+    margin-top: 0px!important;
+    margin-bottom: 0px!important;
+    font-size: 14px;
+  }
+
+  * {
+    transition: none !important;
+    box-shadow: none!important;
+    border-color: white;
+    background-image: none!important;
+    color: black;
+    overflow:initial !important;
+  }
+
+  .Background,
+  .HeaderContainer,
+  .Actions,
+  .OverflowButton,
+  .ProjectIcon,
+  .ProjectUrl,
+  .TechnologySection,
+  .SkillIcon,
+  .Bar,
+  .Button {
+    display: none!important;
+  }
+
+  .Subheader {
+    color: rgba(0,0,0,0.9)!important;
+  }
+
+  .Section.Profile .em {
+    font-weight: normal !important;
+  }
+
+  .Section.Profile .InlineLink {
+    font-weight: normal;
+  }
+
+  em {
+    font-weight: 600;
+  }
+
+  .InlineLink {
+    text-decoration: none;
+    text-decoration-skip: none;
+  }
+
+  .Card > * {
+    padding-left: 0!important;
+    padding-right: 0!important;
+  }
+
+  ul.dot-separated {
+    overflow: hidden;
+    margin-left: -8px;
+  }
+
+  ul.dot-separated li:before {
+    content: " \00b7 ";
+    width: 8px;
+    line-height: 24px;
+  }
+
+  ul.semicolon-separated li {
+    display: inline;
+  }
+
+  .ProjectsGrid > .media-no-print {
+    display: none!important;
+  }
+
+  .ProjectsGrid > :not(.media-no-print) {
+    display: block!important;
+  }
+
+  .ProjectsGrid {
+    overflow: hidden;
+  }
+
+  /*<Spacing>*/
+  .spacing-half:not(.horizontal) > :not(:last-child) {
+    margin-bottom: calc(var(--print) * 0.5);
+  }
+
+  .spacing:not(.horizontal) > :not(:last-child) {
+      margin-bottom: var(--print);
+  }
+
+  .spacing-2:not(.horizontal) > :not(:last-child) {
+    margin-bottom: calc(var(--print) * 2);
+  }
+
+  .spacing-3:not(.horizontal) > :not(:last-child) {
+    margin-bottom: calc(var(--print) * 3);
+  }
+
+  .spacing-4:not(.horizontal) > :not(:last-child) {
+    margin-bottom: calc(var(--print) * 4);
+  }
+
+  .spacing-8:not(.horizontal) > :not(:last-child) {
+    margin-bottom: calc(var(--print) * 8);
+  }
+
+  .horizontal.spacing > :not(:last-child) {
+    margin-right: var(--print);
+  }
+
+  .horizontal.spacing-2 > :not(:last-child) {
+    margin-right: calc(var(--print) * 2);
+  }
+
+  .horizontal.spacing-3 > :not(:last-child) {
+    margin-right: calc(var(--print) * 3);
+  }
+
+  .horizontal.spacing-4 > :not(:last-child) {
+    margin-right: calc(var(--print) * 4);
+  }
+
+  .horizontal.spacing-8 > :not(:last-child) {
+    margin-right: calc(var(--print) * 8);
+  }
+
+  /*hack vertical spacing*/
+  .vertical-spacing > * {
+    margin-bottom: 0px!important;
+  }
+
+  .vertical-spacing {
+    margin-bottom: 0px;
+  }
+
+  .Section {
+    min-height: initial;
+  }
+
+  .ProjectsGrid {
+    /*flex-direction: column!important;*/
+    overflow-x: hidden!important;
+    max-height: initial!important;
+    flex-wrap: wrap;
+  }
+
+  .ProjectsOverview {
+    max-height: initial!important;
+  }
+
+  .ProjectsGrid, .ProjectsOverview {
+    padding: 0!important;
+  }
+
+  .ProjectCard {
+    width: 100%!important;
+    flex: 1!important;
+    display: none;
+  }
+
+  .ProjectHeader {
+    padding: 0!important;
+  }
+
+  .ProjectsGrid {
+    max-width: initial;
+    margin: 0;
+    margin-right: -32px;
+  }
+
+  .Page.Resume .ProjectsOverview {
+    padding: 0!important;
+  }
+
+  /*display only first four projects*/
+  .ProjectCard:not(.media-no-print){
+    display: block!important;
+    width: calc(50% - 32px)!important;
+    flex: none!important;
+    margin-right: 32px;
+  }
+
+  .Page {
+    display: block!important;
+  }
+
+  .Landing {
+    width: 100%!important;
+  }
+
+  .HeadingImage {
+    width: 222px!important;
+    height: 222px!important;
+    border-radius: 10%!important;
+  }
+
+  .Section.Profile .Content {
+    flex-direction: row;
+  }
+
+  .Section.Profile .Content > * {
+    margin-right: 32px;
+  }
+
+  .Section.Profile .Content > :first-child {
+    margin-right: 0px;
+  }
+
+  .HeadingImageContainer {
+    margin-top: 0!important;
+    order: 1!important;
+  }
+
+  .ClientSection {
+    flex-direction: row;
+  }
+
+  .ClientSection .Subheader {
+    display: inline;
+    margin-right: 4px;
+  }
+
+  .ClientSection > :not(:first-child) {
+    font-weight: bold;
+  }
+
+  .ClientSection .Subheader::after {
+    content: ":";
+  }
+
+  .Section.Profile h2 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: initial;
+  }
+
+  .HeadingContent {
+    order: 0!important;
+  }
+
+  .SectionContent .Content {
+    padding-top: 0px!important; padding-bottom: 0px!important;
+    padding-left: 0;
+    padding-right: 0;
+    max-width: initial;
+  }
+
+  .LegalNote {
+    margin-bottom: 0!important;
+  }
+
+  .Section:not(:last-child) .SectionContent .Content {
+    padding-top: 0px!important; padding-bottom: 14px!important;
+  }
+
+  .Section:last-child .SectionContent .Content {
+    padding-top: 16px!important; padding-bottom: 0px!important;
+  }
+
+  .Section:first-child .SectionContent .Content {
+    padding-top: 0px!important;
+  }
+
+  .Skill {
+    border-radius: 0!important;
+    padding: 0!important;
+  }
+
+  h1,h2,h3,h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.5);
+    padding-right: 64px;
+    align-self: flex-start;
+  }
+
+  h3 {
+    font-size: 17px;
+  }
+
+  h4 {
+    font-size: 16px!important;
+  }
+
+  /*//fix the overflow*/
+  .Section:last-child .Content {
+    padding-bottom: 0px!important;
+  }
+
+  /*https://stackoverflow.com/a/35154315/1384679*/
+  div {
+    float: none !important;
+  }
+
+  #app, #app > *, .Landing {
+    display: block!important;
+  }
+
+  .Section {
+    display: block!important;
+    /*page-break-inside: avoid;*/
+  }
+
+  .Section:last-child {
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  .InterestsSection {
+    page-break-after: avoid;
+    page-break-before: avoid;
+  }
+
+  .Section.Skills {
+    page-break-after: auto;
+    page-break-before: avoid;
+  }
+
+  .Section.Projects {
+    page-break-after: avoid;
+    page-break-before: always;
+  }
 }

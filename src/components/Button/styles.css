@@ -29,59 +29,59 @@
 }
 
 .primary.borderless {
-    color: white;
-    padding-top: 4px;
-    padding-bottom: 4px;
+  color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .Button.borderless:focus {
-    background: rgba(255, 255, 255, 0.01);
+  background: rgba(255, 255, 255, 0.01);
 }
 
 @media (hover: hover) {
-    .primary.borderless:hover,.primary.borderless:focus {
-        background: rgba(255, 255, 255, 0.08);
-    }
+  .primary.borderless:hover,.primary.borderless:focus {
+    background: rgba(255, 255, 255, 0.08);
+  }
 }
 
 .primary.borderless:active {
-     background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .primary {
-    color: white;
-    border-color: rgb(14, 122, 254);
+  color: white;
+  border-color: rgb(14, 122, 254);
 }
 
 @media (hover: hover) {
-    .primary:hover,.primary:focus {
-        color: white;
-        background: rgb(14, 122, 254);
-    }
+  .primary:hover,.primary:focus {
+    color: white;
+    background: rgb(14, 122, 254);
+  }
 }
 
 .primary:active {
-    color: white;
-    background: rgb(14, 122, 254);
+  color: white;
+  background: rgb(14, 122, 254);
 }
 
 .borderless {
-    border-color: transparent;
+  border-color: transparent;
 }
 
 .primary.active {
-    color: white;
-    background: rgb(14, 122, 254);
+  color: white;
+  background: rgb(14, 122, 254);
 }
 
 @media (hover: hover) {
-    .primary.active:hover,.primary.active:focus {
-        color: white;
-        background: #1884FF;
-    }
+  .primary.active:hover,.primary.active:focus {
+    color: white;
+    background: #1884FF;
+  }
 }
 
 .primary.active:active {
-    color: white;
-    background: #1884FF;
+  color: white;
+  background: #1884FF;
 }

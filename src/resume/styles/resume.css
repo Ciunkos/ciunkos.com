@@ -1,221 +1,231 @@
 .SkillName {
-    line-height: 24px;
+  line-height: 24px;
 }
 
 .ProjectIcon {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
 }
 
 .ProjectName {
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
 }
 
 .ProjectUrl {
-    padding-top: 4px;
-    font-size: 14px;
-    line-height: 16px;
+  padding-top: 4px;
+  font-size: 14px;
+  line-height: 16px;
 }
 
 .BioEntryName {
-    text-transform: uppercase;
-    min-width: 72px;
-    font-weight: 500;
+  text-transform: uppercase;
+  min-width: 72px;
+  font-weight: 500;
 }
 
 .Profile .Social {
-    padding-top: 16px;
+  padding-top: 16px;
 }
 
 .Profile .Actions {
-    max-width: 360px;
+  max-width: 360px;
 }
 
 .HeadingImage {
-    border-radius: 50%;
-    width: 196px;
-    height: 196px;
+  border-radius: 50%;
+  width: 196px;
+  height: 196px;
 }
 
 .OverflowButton {
-    display: none;
+  display: none;
 }
 
 .ProjectsGrid > * {
-    display: none;
+  display: none;
 }
 
 .ProjectsGrid > :first-child {
-    display: flex;
+  display: flex;
 }
 
 .ProjectsGrid {
-    overflow-x: hidden;
-    max-width: 1000px;
-    margin: 0 auto;
+  overflow-x: hidden;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .ProjectsOverview {
-    align-self: center;
-    padding-left: 0!important;
-    padding-right: 0!important;
+  align-self: center;
+  padding-left: 0!important;
+  padding-right: 0!important;
 }
 
 .Skill {
-    padding: 8px 16px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 18px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 18px;
 }
 
 .SectionContent .Content {
-    padding-top: 32px; padding-bottom: 32px;
+  padding-top: 32px; padding-bottom: 32px;
 }
 
 .Section:first-child .SectionContent .Content {
-    padding-top: 64px;
+  padding-top: 64px;
 }
 
 .Resume .Section:first-child .SectionContent .Content {
-    padding-top: 128px;
+  padding-top: 128px;
 }
 
 @media all and (max-height: 640px) and (orientation:landscape) {
-    .Page .SectionContent .Content {
-        padding-top: 16px;
-        padding-bottom: 16px;
-    }
+  /* .Page .SectionContent .Content {
+      padding-top: 16px;
+      padding-bottom: 16px;
+  }
 
-    .Page .Section:first-child .SectionContent .Content {
-        padding-top: 32px;
-        padding-bottom: 16px;
-    }
+  .Page .Section:first-child .SectionContent .Content {
+      padding-top: 32px;
+      padding-bottom: 16px;
+  } */
 
-    .Page.Resume .Section:first-child .SectionContent .Content {
-        padding-top: 96px;
-    }
+  .Page .SectionContent .Content {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .Page .Section:first-child .SectionContent .Content {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .Page.Resume .Section:first-child .SectionContent .Content {
+    padding-top: 96px;
+  }
 }
 
 .LegalNote {
-    font-size: 12px;
-    line-height: 18px;
+  font-size: 12px;
+  line-height: 18px;
 }
 
 .ProjectCard {
-    flex: 1;
+  flex: 1;
 }
 
 @media all and (min-width: 640px) {
-    .HeadingImageContainer {
-        margin-top: 48px;
-    }
+  .HeadingImageContainer {
+    margin-top: 48px;
+  }
 
-    .SectionContent .Content {
-        padding-top: 64px; padding-bottom: 64px;
-        align-self: center;
-        max-width: 1000px;
-    }
+  .SectionContent .Content {
+    padding-top: 64px; padding-bottom: 64px;
+    align-self: center;
+    max-width: 1000px;
+  }
 
-    .Section:first-child .SectionContent .Content {
-        padding-top: 128px;
-    }
+  .Section:first-child .SectionContent .Content {
+    padding-top: 128px;
+  }
 
-    .ProjectsOverview {
-        padding-left: 16px!important;
-        padding-right: 16px!important;
-    }
+  .ProjectsOverview {
+    padding-left: 16px!important;
+    padding-right: 16px!important;
+  }
 }
 
 @media all and (min-width: 640px) {
-    .HeadingImage {
-        width: 196px;
-        height: 196px;
-    }
+  .HeadingImage {
+    width: 196px;
+    height: 196px;
+  }
 
-    .Section.Profile .Content {
-        flex-direction: row;
-    }
+  .Section.Profile .Content {
+    flex-direction: row;
+  }
 
-    .Section.Profile .Content > * {
-        margin-right: 32px;
-    }
+  .Section.Profile .Content > * {
+    margin-right: 32px;
+  }
 
-    .Section.Profile .Content > :first-child {
-        margin-right: 0px;
-    }
+  .Section.Profile .Content > :first-child {
+    margin-right: 0px;
+  }
 
-    .HeadingImageContainer {
-        order: 1;
-    }
-    .HeadingContent {
-        order: 0;
-    }
+  .HeadingImageContainer {
+    order: 1;
+  }
+  .HeadingContent {
+    order: 0;
+  }
 
-    .HeadingImage {
-        border-radius: 10%;
-    }
+  .HeadingImage {
+    border-radius: 10%;
+  }
 }
 
 /* When wide enough, display navigation labels */
 @media all and (min-width: 550px) {
-    .MainHeader .navbaritem .ActionName {
-        padding-left: 16px;
-        display: flex;
-    }
+  .MainHeader .navbaritem .ActionName {
+    padding-left: 16px;
+    display: flex;
+  }
 }
 
 @media all and (min-width: 800px) {
-    .navbaritem .ActionName {
-        padding-left: 16px;
-        display: flex;
-    }
-    
-    .HeadingImage {
-        width: 256px;
-        height: 256px;
-    }
+  .navbaritem .ActionName {
+    padding-left: 16px;
+    display: flex;
+  }
+
+  .HeadingImage {
+    width: 256px;
+    height: 256px;
+  }
 }
 
 @media all and (min-width: 1000px) {
-    .HeadingImage {
-        width: 337px;
-        height: 337px;
-    }
+  .HeadingImage {
+    width: 337px;
+    height: 337px;
+  }
 }
 
 @media all and (min-width: 1120px) {
-    .ProjectsGrid {
-        padding-bottom: 16px;
-        padding-left: 8px;
-        padding-right: 8px;
-    }
+  .ProjectsGrid {
+    padding-bottom: 16px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 
-    .ProjectCard {
-        width: calc(50% - 8px);
-        flex: none;
-    }
+  .ProjectCard {
+    width: calc(50% - 8px);
+    flex: none;
+  }
 
-    .ProjectsGrid > * {
-        display: flex;
-    }
+  .ProjectsGrid > * {
+    display: flex;
+  }
 
-    .ProjectsGrid .Card {
-        margin-right: 16px;
-    }
-    .ProjectsGrid .Card:last-child {
-        margin-right: 0px;
-    }
+  .ProjectsGrid .Card {
+    margin-right: 16px;
+  }
+  .ProjectsGrid .Card:last-child {
+    margin-right: 0px;
+  }
 
-    .OverflowLastItemFix {
-        width: 1px;
-        height: 100%;
-        margin-left: -1px;
-    }
+  .OverflowLastItemFix {
+    width: 1px;
+    height: 100%;
+    margin-left: -1px;
+  }
 
-   .OverflowButton {
-        display: flex;
-    }
+  .OverflowButton {
+    display: flex;
+  }
 }
 

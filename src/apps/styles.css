@@ -4,6 +4,10 @@
     cursor: pointer;
 }
 
+.Screenshots {
+    overflow: hidden;
+}
+
 @media (hover: hover) {
     .thumb-horizontal:hover {
         background: rgba(255,255,255,0.6);

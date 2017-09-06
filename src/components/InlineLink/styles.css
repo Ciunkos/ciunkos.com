@@ -1,20 +1,20 @@
 .InlineLink {
-    font-weight: 600;
-    display: inline;
+  font-weight: 600;
+  display: inline;
 }
 
 @media (hover: hover) {
-    .InlineLink:hover,.InlineLink:focus {
-        text-decoration: underline;
-        text-decoration-skip: ink;
-    }
+  .InlineLink:hover,.InlineLink:focus {
+    text-decoration: underline;
+    text-decoration-skip: ink;
+  }
 }
 
 .InlineLink:active {
-    text-decoration: underline;
-    text-decoration-skip: ink;
+  text-decoration: underline;
+  text-decoration-skip: ink;
 }
 
 .InlineLink em {
-    font-weight: 600;
+  font-weight: 600;
 }

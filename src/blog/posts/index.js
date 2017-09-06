@@ -12,9 +12,9 @@ export { default as traversableObjectsInJavaScript } from './traversable-objects
 
 export default
 {
-    creatingContactFormsWithNodemailerAndReact,
-    dataAsCodeModules,
-    debuggingJavascriptTheBasics,
-    traversableObjectsInJavaScript
+  creatingContactFormsWithNodemailerAndReact,
+  dataAsCodeModules,
+  debuggingJavascriptTheBasics,
+  traversableObjectsInJavaScript
 }
 

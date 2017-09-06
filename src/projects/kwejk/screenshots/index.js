@@ -16,11 +16,11 @@ export { default as _6 } from './6.jpg'
 
 export default
 {
-    _1,
-    _2,
-    _3,
-    _4,
-    _5,
-    _6
+  _1,
+  _2,
+  _3,
+  _4,
+  _5,
+  _6
 }
 

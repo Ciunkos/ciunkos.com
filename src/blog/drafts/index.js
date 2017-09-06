@@ -8,7 +8,7 @@ export { default as optimizingWebpackBundleSize } from './optimizing-webpack-bun
 
 export default
 {
-    javascriptRepls,
-    optimizingWebpackBundleSize
+  javascriptRepls,
+  optimizingWebpackBundleSize
 }
 

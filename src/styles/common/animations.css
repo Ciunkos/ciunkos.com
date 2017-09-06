@@ -1,17 +1,17 @@
 .transition-all {
-    transition: all 0.200s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  transition: all 0.200s cubic-bezier(0.4, 0, 0.2, 1)!important;
 }
 
 .animated {
-    overflow: hidden;
-    animation-duration: 0.25s;
-    animation-fill-mode: both;
-    will-change: transform, opacity;
-    transform: translateZ(0);
+  overflow: hidden;
+  animation-duration: 0.25s;
+  animation-fill-mode: both;
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
 
 .fast {
-    animation-duration: 200ms;
+  animation-duration: 200ms;
 }
 
 .delay {

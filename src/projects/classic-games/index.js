@@ -10,8 +10,8 @@ export { default as link } from './link.txt'
 
 export default
 {
-    description,
-    icon,
-    link
+  description,
+  icon,
+  link
 }
 

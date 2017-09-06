@@ -1,7 +1,7 @@
 // @auto-index
 
-import page from './page'
+import Page from './Page'
 
-export { default as page } from './page'
+export { default as Page } from './Page'
 
-export default page
+export default Page

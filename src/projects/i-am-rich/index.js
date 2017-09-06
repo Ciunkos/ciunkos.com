@@ -14,10 +14,10 @@ export { default as screenshots } from './screenshots'
 
 export default
 {
-    asdasd,
-    cover,
-    description,
-    icon,
-    screenshots
+  asdasd,
+  cover,
+  description,
+  icon,
+  screenshots
 }
 

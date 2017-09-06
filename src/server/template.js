@@ -8,34 +8,17 @@ const appSourcePath = find(stats.assetsByChunkName.main, /^app-[a-z0-9]+\.js$/g)
 const appStylesPath = find(stats.assetsByChunkName.main, /^styles-[a-z0-9]+\.css$/g)
 const styles = fs.readFileSync(appStylesPath)
 
-const webfont = ''
-// const webfont = `<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.10/webfont.js"></script>
-// <script>
-//   WebFont.load({
-//     google: {
-//       families: ['Roboto:300,400,500,700']
-//     }
-//   });
-// </script>`
-
 const fontCss = '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">'
-
-// preconnect to Google Fonts
-// <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 
 const template = (body, helmet) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
-
     <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no"/>
-
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" />
@@ -51,15 +34,12 @@ const template = (body, helmet) => `<!doctype html>
     <link rel="icon" type="image/png" href="/favicons/favicon-128.png" sizes="128x128" />
     <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicons/favicon.ico" type="image/x-icon" />
-
     <meta name="application-name" content="Ciunkos.com"/>
     <meta name="msapplication-TileColor" content="#3040BC" />
     <meta name="msapplication-TileImage" content="/favicons/mstile-144x144.png" />
     <meta name="msapplication-square70x70logo" content="/favicons/mstile-70x70.png" />
     <meta name="msapplication-square150x150logo" content="/favicons/mstile-150x150.png" />
     <meta name="msapplication-square310x310logo" content="/favicons/mstile-310x310.png" />
-
-
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-title" content="Ciunkos.com">
     <meta name="application-name" content="Ciunkos.com">
@@ -69,19 +49,13 @@ const template = (body, helmet) => `<!doctype html>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#3040BC">
     <meta name="msapplication-navbutton-color" content="#3040BC">
-
-
     <style>${styles}</style>
     ${fontCss}
   </head>
-  
   <body style="background: #3040bc">
     <div id="app">${body}</div>
   </body>
-
   <script defer src="/${appSourcePath}"></script>
-
-  ${webfont}
 </html>`
 
 export default template

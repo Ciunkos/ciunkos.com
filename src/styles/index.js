@@ -8,7 +8,7 @@ export { default as foundation } from './foundation'
 
 export default
 {
-    common,
-    foundation
+  common,
+  foundation
 }
 

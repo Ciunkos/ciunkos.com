@@ -10,8 +10,8 @@ export { default as screenshots } from './screenshots'
 
 export default
 {
-    description,
-    icon,
-    screenshots
+  description,
+  icon,
+  screenshots
 }
 

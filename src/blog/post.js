@@ -1,45 +1,39 @@
 import React from 'react'
 
-
 import styled from 'styled'
-
-import { InlineLink } from 'components'
-
+import { Paragraph, InlineLink, linkIf } from 'components'
 import Subscription from 'disqus/Subscription'
 import { comments } from 'disqus/service'
 
+const CommentCount = ({ post, ...rest }) =>
+  <Subscription commentCount={comments(`https://ciunkos.com/${post.slug}`)}>
+    {({ commentCount }) =>
+      <styled.CommentCount tag="span" {...rest}>
+        {commentCount} comments
+      </styled.CommentCount>
+    }
+  </Subscription>
 
-const CommentCount = ({ post }) =>
-<Subscription commentCount={comments(`https://ciunkos.com/${post.slug}`)}>
-{({ commentCount }) =>
-    <span>{commentCount} comments</span>
-}
-</Subscription>
-
-export const PostMeta = ({ post }) =>
-<p className="tiny">
-    {post.date || 'Draft'} · {post.readingTime} min read · <InlineLink href={`/${post.slug}#comments`}><CommentCount post={post} /></InlineLink>
-</p>
+export const PostMeta = ({ post, ...rest }) =>
+  <Paragraph tiny {...rest}>
+    {post.date || 'Draft'} · {post.readingTime} min read · <InlineLink href={`/${post.slug}#comments`}>
+      <CommentCount post={post} />
+    </InlineLink>
+  </Paragraph>
 
 export const PostHeader = ({ post, headerRole: HeaderRole = 'h1', link = true, ...rest }) =>
-<styled.PostHeader {...rest}>
+  <styled.PostHeader {...rest}>
     <HeaderRole>
-        {link && 
-        <InlineLink href={`/${post.slug}`}>
-            {post.name}
-        </InlineLink>
-        || post.name}
+      { linkIf(link && `/${post.slug}`)(post.name) }
     </HeaderRole>
     <PostMeta post={post} />
-</styled.PostHeader>
+  </styled.PostHeader>
 
-export const PostAbstract = ({ post }) =>
-<p>
-    {post.description}
-</p>
+export const PostAbstract = ({ post, ...rest }) =>
+  <styled.PostAbstract tag="p" {...rest}>{post.description}</styled.PostAbstract>
 
 export default {
-    PostHeader,
-    PostMeta,
-    PostAbstract
+  PostHeader,
+  PostMeta,
+  PostAbstract
 }
