@@ -78,7 +78,7 @@ This brings another issue on the spotlight, instead of displaying proper object,
 In order to easily debug variables and values we can use string interpolation or pass object to as an argument:
 
 ```javascript
-const logValues => (obj) => 
+const logValues => (obj) =>
   Object.entries(obj)
   .forEach(keyValuePair => {
     console.log(keyValuePair[0])
@@ -119,7 +119,7 @@ With the help of this little method we can just insert it to a long chain of opp
 
 After extending Array's prototype we can use this function as a method.
 
-```javascript  
+```javascript
 Array.prototype.tap = tap;
 
 [1, 2, 3, 4, 5]
@@ -145,11 +145,11 @@ Whenever you are bombarded with a strange "Uncaught TypeError: undefined is not 
 
 This option is very handy but can be hard to use when the origin of the exception is deep in library code. However, we can use stack trace in order to diagnose the source of the issue.
 
-### Setting breakpoints with the `debugger` 
+### Setting breakpoints with the `debugger`
 
 This is likely preferred basic debug tool as it allows you to inspect local variables, stack trace and doesn't involve logging to the console every time. Whenever the runtime steps on the `debugger` it will pause execution.
 
-```JavaScript 
+```javascript
 const example = (data = [1, 2, 3]) => {
   const s1 = someOperation()
   debugger
@@ -160,6 +160,6 @@ const example = (data = [1, 2, 3]) => {
 
 ### Placing breakpoints in the sources view
 
-By placing breakpoints with the DevTools you are free of code modifications and can debug ad-hoc issues. However, without proper source mapping the code you will likely see in the sources panel won't reasemble the original code. In order to fix that you must enable source mapping and turn it on in order to debug transpiled and minified code. 
+By placing breakpoints with the DevTools you are free of code modifications and can debug ad-hoc issues. However, without proper source mapping the code you will likely see in the sources panel won't reasemble the original code. In order to fix that you must enable source mapping and turn it on in order to debug transpiled and minified code.
 
 I will show you how in the following article, along with more information about how to debug node.js applications, handle transpiled code and setting your editor to allow seamless debugging. Stay tuned!

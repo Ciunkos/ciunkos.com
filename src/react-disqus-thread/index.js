@@ -11,7 +11,7 @@ export default class DisqusThread extends React.PureComponent {
   }
 
   loadDisqus = () => {
-    if (typeof window === 'undefined') {
+    if (!window) {
       return
     }
 
@@ -74,7 +74,7 @@ export default class DisqusThread extends React.PureComponent {
     } = this.props
 
     // inject the script only when not loaded yet
-    const loaded = typeof window !== 'undefined' && typeof window.DISQUS !== 'undefined'
+    const loaded = window && typeof window.DISQUS !== 'undefined'
 
     return (
       <Tag {...rest}>

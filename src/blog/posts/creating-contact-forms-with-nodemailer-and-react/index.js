@@ -6,26 +6,16 @@ const sum = (a, b) => a + b
 const readingTime = str => Math.round(str.split(' ').map(() => 1).reduce(sum, 0) / 200.0)
 
 const escapeRegExp = str =>
-  str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&")
+  str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&')
 
-const markdownWithAssets = Object.entries(images).reduce((source, [key, value]) =>
+const markdownWithAssets = Object.entries(images).reduce((source, [, value]) =>
 {
   const hashLessImageRegex = /\/(.*?)\.(.*?)(.png|.jpg)$/gi
   const hashLessImage = value.replace(hashLessImageRegex, '$1$3')
   const regex = new RegExp(`./images/${escapeRegExp(hashLessImage)}`, 'gi')
   const replaced = source.replace(regex, value)
-  console.log({
-    hashLessImage,
-    replaced,
-    source,
-    key, value
-  })
   return replaced
 }, markdown)
-
-console.log({
-  markdownWithAssets
-})
 
 export default {
   name: 'Creating contact forms with nodemailer and React',

@@ -108,3 +108,21 @@
     display: none;
   }
 }
+
+.HeaderContainer {
+  z-index: 1000;
+  width: 100%;
+  left: 0;
+  right: 0;
+  will-change: top, position;
+}
+
+.HeaderContainer .MainHeader {
+  height: 64px;
+  width: 100%;
+}
+
+.HeaderContainer .SecondaryHeader {
+  height: 56px;
+  width: 100%;
+}

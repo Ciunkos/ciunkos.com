@@ -21,7 +21,7 @@ export default class HeaderContainer extends React.PureComponent {
 
     startLoop() {
       if (typeof window !== 'undefined' && !this.frameId) {
-        this.frameId = window.requestAnimationFrame(this.loop);
+        this.frameId = window.requestAnimationFrame(this.loop)
       }
     }
 
@@ -134,38 +134,25 @@ export default class HeaderContainer extends React.PureComponent {
     }
 
     componentDidMount() {
-      this.startLoop();
+      this.startLoop()
     }
 
     componentWillUnmount() {
-      this.stopLoop();
+      this.stopLoop()
     }
 
     render() {
-      const { scrollY } = this.state;
-      const { header, subheader } = this.props;
-
+      const { scrollY } = this.state
+      const { header, subheader } = this.props
+      const hasSubheader = subheader !== undefined
       return (
-        <styled.HeaderContainer
-          id="header"
-          tag="header"
-          style={{
-            zIndex: 1000,
-            width: '100%',
-            /* top, position, */
-            left: 0,
-            right: 0,
-            willChange: 'top, position'
-          }}
-          has-subheader={subheader !== undefined}
-        >
-          <styled.MainHeader style={{ height: 64, width: '100%' }}>
-            {header && header(scrollY)}
+        <styled.HeaderContainer id="header" tag="header" has-subheader={hasSubheader}>
+          <styled.MainHeader>
+            { header && header(scrollY) }
           </styled.MainHeader>
-
           { subheader &&
-            <styled.SecondaryHeader style={{ height: 56, width: '100%' }}>
-              {subheader(scrollY)}
+            <styled.SecondaryHeader>
+              { subheader(scrollY) }
             </styled.SecondaryHeader>
           }
         </styled.HeaderContainer>

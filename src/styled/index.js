@@ -33,7 +33,7 @@ function defaultView(name) {
       && !href.endsWith('.pdf')) {
         injectedProps = {
           onClick: (e) => {
-            if(typeof window !== 'undefined') {
+            if (typeof window !== 'undefined') {
               if (!href.startsWith('#')) {
                 e.preventDefault();
                 setTimeout(() => {

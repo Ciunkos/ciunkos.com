@@ -1,6 +1,6 @@
 # Data as code modules
 
-What would happen if you begin treating data and other assets like you treat the code? It would allow you to consume the data and without the mess of parsing, fetching and other annoyances. You would be able to use common programming features to filter and create new views. Data and code deserve equal treatment! 
+What would happen if you begin treating data and other assets like you treat the code? It would allow you to consume the data and without the mess of parsing, fetching and other annoyances. You would be able to use common programming features to filter and create new views. Data and code deserve equal treatment!
 
 ## ES6 imports and exports
 
@@ -76,10 +76,10 @@ By using `System.import` you can load modules on the go and don't worry about th
 console.log('Loading data...')
 
 System.import('./data').then((data)=>{
-    console.log(data)
+  console.log(data)
 }).catch(error => {
-    console.log('Could not load the data')
-    console.error(error)
+  console.log('Could not load the data')
+  console.error(error)
 })
 ```
 
@@ -91,6 +91,6 @@ Just imagine you could `import Wikipedia from 'wikipedia.org/en/articles'` and d
 
 ```javascript
 <article>
-    {Wikipedia.Code_as_data}
+  {Wikipedia.Code_as_data}
 </article>
 ```
