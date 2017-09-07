@@ -1,5 +1,9 @@
 import 'babel-polyfill';
 
+if (typeof window === 'undefined') {
+  global.window = {}
+}
+
 import express from 'express'
 import bodyParser from 'body-parser'
 import React from 'react'
