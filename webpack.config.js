@@ -18,7 +18,7 @@ const flatten = (arr) => {
   return flat.some(Array.isArray) ? flatten(flat) : flat;
 }
 
-module.exports = ({ path, production = true, locale }) => {
+module.exports = ({ path, production = true, locale = '' }) => {
   const buildTime = new Date().toISOString().replace(/:|\./g, '_')
   const buildPath = resolve(__dirname, path || 'build')
   const dev = !production ? 'development' : '';
@@ -151,7 +151,7 @@ module.exports = ({ path, production = true, locale }) => {
           // new BundleAnalyzerPlugin(),
 
           new StatsWriterPlugin({
-            filename: 'stats.json'
+            filename: `${['stats', locale].filter(x => x).join('-')}.json`
           })
         ]
       }, {

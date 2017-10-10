@@ -6,19 +6,19 @@ const find = (source, regex) => source.find(x => regex.test(x))
 
 const appSourcePath = find(stats.assetsByChunkName.main, /^app-[a-z0-9]+\.js$/g)
 const appStylesPath = find(stats.assetsByChunkName.main, /^styles-[a-z0-9]+\.css$/g)
-const styles = fs.readFileSync(appStylesPath)
 
-const fontCss = '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">'
+//const fontCss = '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">'
 
 const template = (body, helmet) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preload" href="/${appSourcePath}" as="script">
+    <link rel="preload" href="/${appStylesPath}" as="style">
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no,user-scalable=no"/>
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" />
@@ -49,8 +49,7 @@ const template = (body, helmet) => `<!doctype html>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#3040BC">
     <meta name="msapplication-navbutton-color" content="#3040BC">
-    <style>${styles}</style>
-    ${fontCss}
+    <link rel="stylesheet" href="/${appStylesPath}" type="text/css">
   </head>
   <body style="background: #3040bc">
     <div id="app">${body}</div>

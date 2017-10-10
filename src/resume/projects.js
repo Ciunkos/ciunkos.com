@@ -228,7 +228,7 @@ export default [
     name: 'RatingSpeed',
     icon: ratingSpeed.icon,
     description: 'Network speed measurement app for Windows Phone',
-    client: companies.IT4Biznes,
+    client: companies.LOSO,
     status: 'unmaintaned',
     tech: [
       tech.CSharp,
@@ -250,7 +250,6 @@ export default [
     name: 'Fast-coffee',
     slug: 'fast-coffee',
     icon: fastCoffee.icon,
-    company: companies.IT4Biznes,
     description: 'Windows Phone dating app',
     client: companies.IT4Biznes,
     timeRange: '2014',

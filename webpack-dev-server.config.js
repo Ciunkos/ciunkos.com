@@ -67,55 +67,8 @@ module.exports = ({ locale } = {}) => ({
   },
   plugins: [
     ...(locale ? [new webpack.NormalModuleReplacementPlugin(localizedResourcePatten(locale), (resource) => {
-      console.log('replace!!')
-      console.log('replace!!')
-      console.log('replace!!')
-      console.log('replace!!')
-      console.log('replace!!')
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
       resource.request = resource.request.replace(localizedResourcePatten(locale), `$1$2/${locale}`); // eslint-disable-line no-param-reassign
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      console.log( resource.request)
-      // eslint-disable-line no-param-reassign
     })] : []),
-    // ...locales.map(locale => (
-    //   new webpack.NormalModuleReplacementPlugin(localizedResourcePatten(locale), (resource) => {
-    //     console.log('replace!!')
-    //     console.log('replace!!')
-    //     console.log('replace!!')
-    //     console.log('replace!!')
-    //     console.log('replace!!')
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     resource.request = resource.request.replace(localizedResourcePatten(locale), '$1index$2'); // eslint-disable-line no-param-reassign
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     console.log( resource.request)
-    //     // eslint-disable-line no-param-reassign
-    //   })
-    // )),
-    // new webpack.NormalModuleReplacementPlugin(localizedResourcePatten(locale), (resource) => {
-    //   console.log('replace!!')
-    //   console.log( resource.request)
-    //   resource.request = resource.request.replace(localizedResourcePatten(locale), `LOCALE/${locale}`); // eslint-disable-line no-param-reassign
-    //   console.log( resource.request)
-    // }),
     new webpack.HotModuleReplacementPlugin(),
     new TransferWebpackPlugin(
       [{

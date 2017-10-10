@@ -8,7 +8,7 @@ export default [
     tech: 'ES6, React, Redux, C#'
   },
   {
-    company: companies.IT4Biznes,
+    company: companies.LOSO,
     title: 'RatingSpeed',
     date: 'September - October 2014',
     scope: 'Windows Phone app',

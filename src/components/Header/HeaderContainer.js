@@ -20,7 +20,7 @@ export default class HeaderContainer extends React.PureComponent {
     }
 
     startLoop() {
-      if (typeof window !== 'undefined' && !this.frameId) {
+      if (window && !this.frameId) {
         this.frameId = window.requestAnimationFrame(this.loop)
       }
     }
@@ -46,7 +46,7 @@ export default class HeaderContainer extends React.PureComponent {
           return;
         }
 
-        const state = (typeof window !== 'undefined' && window.pageYOffset) || 0
+        const state = (window && window.pageYOffset) || 0
 
         if (state !== prevState) {
           // automatic scroll or jump to section, ignore scrolling up
@@ -119,7 +119,7 @@ export default class HeaderContainer extends React.PureComponent {
         prevState = state;
 
         if (this.frameId !== -1) {
-          this.frameId = typeof window !== 'undefined' && window.requestAnimationFrame(task)
+          this.frameId = window && window.requestAnimationFrame(task)
         }
       }
 
@@ -127,7 +127,7 @@ export default class HeaderContainer extends React.PureComponent {
     }
 
     stopLoop() {
-      if (typeof window !== 'undefined') {
+      if (window) {
         window.cancelAnimationFrame(this.frameId)
       }
       this.frameId = -1
