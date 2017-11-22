@@ -71,10 +71,30 @@ module.exports = ({ path, production = true, locale = '' }) => {
         },
         {
           test: /\.(jpg|png|svg)$/,
-          loader: 'file-loader',
-          options: {
-            name: '[name].[hash].[ext]'
-          }
+          loaders: [
+            {
+              loader: 'file-loader',
+              options: {
+                name: '[name].[hash].[ext]'
+              }
+            },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                optipng: {
+                  optimizationLevel: 7
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4
+                },
+                mozjpeg: {
+                  progressive: true,
+                  quality: 65
+                }
+              }
+            }
+          ]
         },
         {
           test: /\.csv$/,
