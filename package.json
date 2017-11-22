@@ -51,6 +51,7 @@
     "image-webpack-loader": "^3.4.2",
     "isomorphic-style-loader": "^4.0.0",
     "jest": "^21.2.1",
+    "jest-webpack-resolver": "^0.1.3",
     "json-loader": "^0.5.7",
     "node-sass": "^4.7.2",
     "postcss-cssnext": "^3.0.2",
@@ -112,7 +113,8 @@
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|txt|md)$": "<rootDir>/jest/fileTransformer.js",
       "\\.(json)$": "<rootDir>/jest/jsonLoader.js",
       "\\.(txt|md)$": "<rootDir>/jest/rawLoader.js"
-    }
+    },
+    "resolver": "jest-webpack-resolver"
   },
   "browserslist": [
     "> 3%"
