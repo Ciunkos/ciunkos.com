@@ -105,8 +105,8 @@
       "jsx"
     ],
     "moduleDirectories": [
-      "node_modules",
-      "src"
+      "<rootDir>/node_modules",
+      "<rootDir>/src"
     ],
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
