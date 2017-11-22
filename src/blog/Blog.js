@@ -25,9 +25,8 @@ const Blog = ({ post }) => (
             className="Markdown spacing-4"
             source={post.markdown}
             renderers={{
-              CodeBlock,
-              Code: CodeBlock,
-              Image
+              code: CodeBlock,
+              image: Image
             }}
           />
         )}

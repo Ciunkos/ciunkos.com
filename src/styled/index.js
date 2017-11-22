@@ -14,7 +14,8 @@ function defaultView(name) {
 
   const view = class StyledComponent extends React.PureComponent {
     render() {
-      const { children, href, ref, id, tag: Tag = 'div', ...rest } = this.props
+      const { children, ref, id, tag: Tag = 'div', ...rest } = this.props
+      const { href } = this.props;
       const [booleans, others] = partition(x => x === true)(rest)
       const otherProps = filter(x => x)(others)
       let injectedProps = {}
