@@ -116,6 +116,9 @@
     },
     "resolver": "jest-webpack-resolver"
   },
+  "jestWebpackResolver": {
+    "webpackConfig": "webpack-dev-server.config.js"
+  },
   "browserslist": [
     "> 3%"
   ]
