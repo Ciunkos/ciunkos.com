@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled'
 import { Button } from 'components'
 
-const ActionButton = ({ href, name, icon, ...rest }) =>
+const ActionButton = ({ href, name, icon, ...rest }) => (
   <Button
     tag={href ? 'a' : 'button'}
     href={href}
@@ -22,5 +22,6 @@ const ActionButton = ({ href, name, icon, ...rest }) =>
     <styled.ActionName>{name}</styled.ActionName>
     <styled.ActionIcon>{icon}</styled.ActionIcon>
   </Button>
+)
 
 export default ActionButton

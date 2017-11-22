@@ -16,8 +16,7 @@ export { default as Profile } from './Profile'
 export { default as Projects } from './Projects'
 export { default as Skills } from './Skills'
 
-export default
-{
+export default {
   covers,
   Education,
   Interests,
@@ -26,4 +25,3 @@ export default
   Projects,
   Skills
 }
-

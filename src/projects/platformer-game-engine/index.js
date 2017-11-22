@@ -4,8 +4,6 @@ import icon from './icon.png'
 
 export { default as icon } from './icon.png'
 
-export default
-{
+export default {
   icon
 }
-

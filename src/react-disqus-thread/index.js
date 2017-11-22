@@ -3,11 +3,11 @@ import { Helmet } from 'react-helmet'
 
 export default class DisqusThread extends React.PureComponent {
   componentDidMount() {
-    this.loadDisqus();
+    this.loadDisqus()
   }
 
   componentDidUpdate() {
-    this.loadDisqus();
+    this.loadDisqus()
   }
 
   loadDisqus = () => {
@@ -15,13 +15,7 @@ export default class DisqusThread extends React.PureComponent {
       return
     }
 
-    const {
-      identifier,
-      title,
-      url,
-      category_id,
-      onNewComment
-    } = this.props
+    const { identifier, title, url, category_id, onNewComment } = this.props
 
     const config = {
       identifier,
@@ -42,9 +36,7 @@ export default class DisqusThread extends React.PureComponent {
             .filter(keyValuePair => keyValuePair[1] !== undefined)
             .map(([key, value]) => [
               key,
-              key === 'url'
-                ? `${value}#!newthread`
-                : value
+              key === 'url' ? `${value}#!newthread` : value
             ])
 
           changes.forEach(([key, value]) => {
@@ -79,13 +71,13 @@ export default class DisqusThread extends React.PureComponent {
     return (
       <Tag {...rest}>
         <Helmet>
-          { !loaded &&
+          {!loaded && (
             <script
               key="disqus"
               src={`//${this.props.shortname}.disqus.com/embed.js`}
               data-timestamp={+new Date()}
             />
-          }
+          )}
         </Helmet>
 
         <div id="disqus_thread" />

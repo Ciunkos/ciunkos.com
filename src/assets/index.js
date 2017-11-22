@@ -12,12 +12,10 @@ export { default as profilePicture } from './profile-picture.jpg'
 export { default as social } from './social'
 export { default as _static } from './static.html'
 
-export default
-{
+export default {
   homeBackground,
   pageIcon,
   profilePicture,
   social,
   _static
 }
-

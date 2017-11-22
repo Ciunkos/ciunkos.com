@@ -1,7 +1,4 @@
-import {
-  partition,
-  filter
-} from 'utils'
+import { partition, filter } from 'utils'
 
 describe('utils/partition', () => {
   it('should partition simple case', () => {
@@ -16,36 +13,24 @@ describe('utils/partition', () => {
         f: false,
         g: 12
       })
-    )
-      .toEqual([
-        {
-          a: true
+    ).toEqual([
+      {
+        a: true
+      },
+      {
+        b: 'true',
+        c: '123',
+        d: {
+          e: 'z'
         },
-        {
-          b: 'true',
-          c: '123',
-          d: {
-            e: 'z'
-          },
-          f: false,
-          g: 12
-        }
-      ]);
+        f: false,
+        g: 12
+      }
+    ])
   })
 
   it('should handle empty objects', () => {
-    expect(
-      partition(x => x === true)(
-        {
-        }
-      )
-    )
-      .toEqual([
-        {
-        },
-        {
-        }
-      ]);
+    expect(partition(x => x === true)({})).toEqual([{}, {}])
   })
 })
 
@@ -64,14 +49,10 @@ describe('utils/filter', () => {
         g: 12,
         x: true
       })
-    )
-      .toEqual({ a: true, x: true });
+    ).toEqual({ a: true, x: true })
   })
 
   it('should handle empty objects', () => {
-    expect(
-      filter(x => x === true)({})
-    )
-      .toEqual({});
+    expect(filter(x => x === true)({})).toEqual({})
   })
 })

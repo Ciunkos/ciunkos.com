@@ -5,14 +5,21 @@ import { Page } from 'components'
 import { HeaderBar } from 'components/Header'
 import routes from './routes'
 import { description, title } from './LOCALE'
-import { Profile, Education, Skills, Projects, Interests, Notes } from './sections';
+import {
+  Profile,
+  Education,
+  Skills,
+  Projects,
+  Interests,
+  Notes
+} from './sections'
 
-export default () =>
+export default () => (
   <Page
     Resume
     title={title}
     description={description}
-    subheader={top =>
+    subheader={top => (
       <HeaderBar
         routes={routes}
         scrolled-top={top <= 64}
@@ -21,7 +28,7 @@ export default () =>
         fast
         style={{ zIndex: 10 }}
       />
-    }
+    )}
   >
     <Profile />
     <Education />
@@ -30,4 +37,4 @@ export default () =>
     <Interests />
     <Notes />
   </Page>
-
+)

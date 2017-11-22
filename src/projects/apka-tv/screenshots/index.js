@@ -18,8 +18,7 @@ export { default as _6r1920x1080 } from './6r1920x1080.jpg'
 export { default as _7r1920x1080 } from './7r1920x1080.jpg'
 export { default as _8r1920x1080 } from './8r1920x1080.jpg'
 
-export default
-{
+export default {
   _1,
   _2,
   _3,
@@ -29,4 +28,3 @@ export default
   _7r1920x1080,
   _8r1920x1080
 }
-

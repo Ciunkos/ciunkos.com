@@ -23,7 +23,8 @@ export default [
     slug: 'testy-prawo-jazdy',
     url: 'testyprawojazdy.com',
     icon: testyPrawoJazdy.icon,
-    description: 'Responsive web app to prepare for the polish driving theory test exam',
+    description:
+      'Responsive web app to prepare for the polish driving theory test exam',
     status: 'development',
     tech: [
       tech.js,
@@ -66,7 +67,7 @@ export default [
       'Writing the front-end with React.js, Redux and custom styling solution',
       'Implementing message queue system and reactive immutable database solution',
       'Implementing video calling over WebRTC along with the signaling server',
-      'Automatic image classification using Yahoo\'s Not Safe For Work deep neural model running on Docker',
+      "Automatic image classification using Yahoo's Not Safe For Work deep neural model running on Docker",
       'Integrating with legacy ASP.NET long polling back-end servers and C# code'
     ],
     print: true
@@ -91,10 +92,7 @@ export default [
       tech.visualStudioCode,
       tech.Webpack
     ],
-    tags: [
-      'responsive',
-      'printable'
-    ],
+    tags: ['responsive', 'printable'],
     responsibilities: [
       'Writing the front-end with React.js, styling with CSS, using data as a code modules',
       'Designing responsive and printable resume page',
@@ -135,7 +133,8 @@ export default [
     name: 'Music Tube',
     url: 'musictube.fm',
     icon: musicTube.icon,
-    description: 'Windows Phone, Windows Store, Web App for music videos playback from YouTube.',
+    description:
+      'Windows Phone, Windows Store, Web App for music videos playback from YouTube.',
     status: 'unmaintained',
     tech: [
       tech.CSharp,
@@ -180,7 +179,8 @@ export default [
     slug: 'apka-tv',
     name: 'APKA.TV',
     icon: apkaTv.icon,
-    description: 'Polish public TV streaming app for the final studies project. Made in collaboration with Grzegorz Ślązak, Justyna Witkowska and Paweł Skiba.',
+    description:
+      'Polish public TV streaming app for the final studies project. Made in collaboration with Grzegorz Ślązak, Justyna Witkowska and Paweł Skiba.',
     tech: [
       tech.CSharp,
       tech.XAML,
@@ -214,7 +214,7 @@ export default [
       tech.visualStudio
     ],
     responsibilities: [
-      'Development of Windows Phone application based on client\'s provided project using XAML, MVVM and C#',
+      "Development of Windows Phone application based on client's provided project using XAML, MVVM and C#",
       'Integration with existing web APIs',
       'Collaboration with the project owner and the rest of the team',
       'Monetization through different ad networks',
@@ -292,7 +292,8 @@ export default [
       'Porting to Windows Store as hybrid native and C# app',
       'Deploying to the app store and providing updates'
     ],
-    text: "I Am Rich is an unique time management game where your goal is to succeed at your avatar's life. Have you ever imagined to work as a salesman or as a broker? In this game you can be whoever you want! Have fun playing with your friends or with a computer opponents in local multiplayer for up to 4 players. Buy all the items to decorate your own apartament, graduate from the university, work hard and gain so much money so you are the richest person in the world!",
+    text:
+      "I Am Rich is an unique time management game where your goal is to succeed at your avatar's life. Have you ever imagined to work as a salesman or as a broker? In this game you can be whoever you want! Have fun playing with your friends or with a computer opponents in local multiplayer for up to 4 players. Buy all the items to decorate your own apartament, graduate from the university, work hard and gain so much money so you are the richest person in the world!",
     fetures: [
       'Local multiplayer for up to 4 players',
       'Player versus player or AI gameplay',
@@ -309,11 +310,7 @@ export default [
     description: 'Windows PC and Xbox 360 platformer game engine',
     client: companies.RedDotGames,
     status: 'unmaintained',
-    tech: [
-      tech.CSharp,
-      tech.DirectX9,
-      tech.visualStudio
-    ],
+    tech: [tech.CSharp, tech.DirectX9, tech.visualStudio],
     responsibilities: [
       'Development of XNA game engine',
       'Creation of game editor with support for live play',
@@ -327,13 +324,8 @@ export default [
     icon: classicGames.icon,
     description: 'Windows PC games',
     status: 'unmaintained',
-    tech: [
-      tech.CPlusPlus,
-      tech.DirectX9,
-      tech.visualStudio
-    ],
-    responsibilities: [
-    ],
+    tech: [tech.CPlusPlus, tech.DirectX9, tech.visualStudio],
+    responsibilities: [],
     downloadUrl: '/classics.zip',
     exclude: true
   }

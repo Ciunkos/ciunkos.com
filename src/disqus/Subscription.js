@@ -6,14 +6,13 @@ export default class Subscription extends React.Component {
   constructor() {
     super()
 
-    this.state = {
-    }
+    this.state = {}
   }
 
   componentDidMount() {
     const { children, ...subscriptions } = this.props
     Object.entries(subscriptions).forEach(([key, subscribe]) => {
-      this.subs[key] = subscribe((unsubscribe) => {
+      this.subs[key] = subscribe(unsubscribe => {
         this.setState({
           [key]: unsubscribe
         })
@@ -22,10 +21,10 @@ export default class Subscription extends React.Component {
   }
 
   componentWillUnmount() {
-    Object.values(this.subs).forEach((unsubscribe) => {
-      unsubscribe();
+    Object.values(this.subs).forEach(unsubscribe => {
+      unsubscribe()
     })
-    this.subs = {};
+    this.subs = {}
   }
 
   render() {

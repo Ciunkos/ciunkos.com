@@ -3,25 +3,25 @@ import { Router, browserHistory, applyRouterMiddleware } from 'react-router'
 
 import routes from 'routes'
 
-let logPageView = () => {};
+let logPageView = () => {}
 let middlewares = []
 
 if (typeof window !== 'undefined') {
   /* eslint-disable global-require */
-  const ReactGA = require('react-ga');
-  ReactGA.initialize('UA-41993735-2');
+  const ReactGA = require('react-ga')
+  ReactGA.initialize('UA-41993735-2')
 
   logPageView = () => {
-    ReactGA.set({ page: window.location.pathname });
-    ReactGA.pageview(window.location.pathname);
+    ReactGA.set({ page: window.location.pathname })
+    ReactGA.pageview(window.location.pathname)
   }
 
   /* eslint-disable global-require */
-  const useScroll = require('react-router-scroll').useScroll;
+  const { useScroll } = require('react-router-scroll')
   middlewares = [useScroll()]
 }
 
-const Main = () =>
+const Main = () => (
   <Router
     history={browserHistory}
     onUpdate={logPageView}
@@ -29,5 +29,6 @@ const Main = () =>
   >
     {routes}
   </Router>
+)
 
-export default Main;
+export default Main

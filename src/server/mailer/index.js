@@ -8,7 +8,7 @@ const transporter = nodemailer.createTransport({
     type: 'OAuth2',
     ...config
   }
-});
+})
 
 const send = ({ email, name, text }) => {
   const from = name && email ? `${name} <${email}>` : `${name || email}`
@@ -18,11 +18,12 @@ const send = ({ email, name, text }) => {
     subject: `New message from ${from} at https://ciunkos.com`,
     text,
     replyTo: from
-  };
+  }
 
   return new Promise((resolve, reject) => {
-    transporter.sendMail(message, (error, info) =>
-      error ? reject(error) : resolve(info)
+    transporter.sendMail(
+      message,
+      (error, info) => (error ? reject(error) : resolve(info))
     )
   })
 }

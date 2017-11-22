@@ -6,9 +6,7 @@ import screenshots from './screenshots'
 export { default as icon } from './icon.jpg'
 export { default as screenshots } from './screenshots'
 
-export default
-{
+export default {
   icon,
   screenshots
 }
-

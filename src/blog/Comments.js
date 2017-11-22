@@ -7,10 +7,11 @@ const defaults = {
 }
 const cannonicalUrl = path => `https://ciunkos.com/${path}`
 
-export default ({ id, ...props }) =>
+export default ({ id, ...props }) => (
   <ReactDisqusThread
     url={cannonicalUrl(id)}
     identifier={cannonicalUrl(id)}
     {...defaults}
     {...props}
   />
+)

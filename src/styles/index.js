@@ -6,9 +6,7 @@ import foundation from './foundation'
 export { default as common } from './common'
 export { default as foundation } from './foundation'
 
-export default
-{
+export default {
   common,
   foundation
 }
-

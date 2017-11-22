@@ -12,12 +12,10 @@ export { default as Features } from './Features.json'
 export { default as icon } from './icon.jpg'
 export { default as screenshots } from './screenshots'
 
-export default
-{
+export default {
   cover,
   Description,
   Features,
   icon,
   screenshots
 }
-

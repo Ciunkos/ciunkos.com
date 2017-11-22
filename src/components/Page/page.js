@@ -11,17 +11,16 @@ const Page = ({
   title,
   description,
   ...rest
-}) =>
-  <styled.Page {...rest} >
+}) => (
+  <styled.Page {...rest}>
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
     </Helmet>
 
     {header}
-    <main>
-      {children}
-    </main>
+    <main>{children}</main>
   </styled.Page>
+)
 
 export default Page

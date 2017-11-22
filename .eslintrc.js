@@ -9,6 +9,11 @@ module.exports = {
     indent: [
       'error', 2
     ],
+    'function-paren-newline': 0,
+    'object-curly-newline': ["error", { "consistent": true }],
+    'spaced-comment': 0,
+    'arrow-parens': ["error", "as-needed"],
+    'no-mixed-operators': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'linebreak-style': 0,
     'comma-dangle': [

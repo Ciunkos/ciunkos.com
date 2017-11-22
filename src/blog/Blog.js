@@ -1,16 +1,16 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown';
+import ReactMarkdown from 'react-markdown'
 
 import styled from 'styled'
 import './styles.css'
 import { Page, Section } from 'components'
 import relatedPosts from 'blog/related-posts'
-import Comments from './Comments';
-import CodeBlock from './CodeBlock';
-import Image from './Image';
+import Comments from './Comments'
+import CodeBlock from './CodeBlock'
+import Image from './Image'
 import { PostHeader } from 'blog/post'
 
-const Blog = ({ post }) =>
+const Blog = ({ post }) => (
   <Page Blog title={post.name} description={post.description}>
     <Section Title cover={post.cover} gradient="shadow">
       <Section.Content padding-2 spacing-4>
@@ -18,9 +18,9 @@ const Blog = ({ post }) =>
       </Section.Content>
     </Section>
 
-    <Section PostContent gradient={false} >
+    <Section PostContent gradient={false}>
       <Section.Content padding-2 spacing-4>
-        { post.markdown &&
+        {post.markdown && (
           <ReactMarkdown
             className="Markdown spacing-4"
             source={post.markdown}
@@ -30,30 +30,44 @@ const Blog = ({ post }) =>
               Image
             }}
           />
-        }
+        )}
       </Section.Content>
     </Section>
 
-    { relatedPosts[post.slug] &&
+    {relatedPosts[post.slug] && (
       <Section RelatedPosts id="related-posts">
         <Section.Content padding-2 spacing-4>
           <h2>Related posts</h2>
 
           <styled.Row RelatedPostsView style={{ color: 'black' }}>
-            { Object.entries(relatedPosts[post.slug] || {}).map(([key, post]) =>
-              <styled.Card key={key} Screenshot tag="a" href={`/${post.slug}`} stretch card-1 >
+            {Object.entries(
+              relatedPosts[post.slug] || {}
+            ).map(([key, post]) => (
+              <styled.Card
+                key={key}
+                Screenshot
+                tag="a"
+                href={`/${post.slug}`}
+                stretch
+                card-1
+              >
                 <div className="sixteen-nine">
                   <div className="content">
-                    <styled.Cover tag="img" src={post.cover} alt={post.name} img-responsive />
+                    <styled.Cover
+                      tag="img"
+                      src={post.cover}
+                      alt={post.name}
+                      img-responsive
+                    />
                   </div>
                 </div>
                 <PostHeader post={post} headerRole="h4" padding-2 />
               </styled.Card>
-            )}
+            ))}
           </styled.Row>
         </Section.Content>
       </Section>
-    }
+    )}
 
     <Section Comments id="comments">
       <Section.Content padding-2 spacing-4>
@@ -66,5 +80,6 @@ const Blog = ({ post }) =>
       </styled.CommentsThread>
     </Section>
   </Page>
+)
 
 export default Blog

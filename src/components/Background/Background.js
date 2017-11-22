@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled'
 
-const Background = ({ src, children, ...rest }) =>
+const Background = ({ src, children, ...rest }) => (
   <styled.Background
     style={{
       backgroundImage: `url("${src}")`
@@ -11,5 +11,6 @@ const Background = ({ src, children, ...rest }) =>
   >
     {children}
   </styled.Background>
+)
 
 export default Background

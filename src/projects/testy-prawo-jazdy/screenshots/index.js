@@ -12,12 +12,10 @@ export { default as s3r1633x943 } from './s3r1633x943.jpg'
 export { default as s4r1633x943 } from './s4r1633x943.jpg'
 export { default as s5r1633x943 } from './s5r1633x943.jpg'
 
-export default
-{
+export default {
   s1r1633x943,
   s2r1633x943,
   s3r1633x943,
   s4r1633x943,
   s5r1633x943
 }
-

@@ -12,12 +12,10 @@ export { default as profile } from './profile.jpg'
 export { default as projects } from './projects.jpg'
 export { default as skills } from './skills.jpg'
 
-export default
-{
+export default {
   education,
   interests,
   profile,
   projects,
   skills
 }
-

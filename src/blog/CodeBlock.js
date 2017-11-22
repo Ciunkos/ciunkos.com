@@ -10,12 +10,6 @@ export default class CodeBlock extends React.PureComponent {
   render() {
     const { language, literal, inline } = this.props
     const languageCode = (language === 'javascript' ? 'js' : language) || 'js'
-    return (
-      <Lowlight
-        language={languageCode}
-        value={literal}
-        inline={inline}
-      />
-    )
+    return <Lowlight language={languageCode} value={literal} inline={inline} />
   }
 }

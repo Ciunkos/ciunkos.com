@@ -8,26 +8,33 @@ import { skills as cover } from './covers'
 // import codeFights from './codefights.png'
 // import codeSchool from './codeschool.png'
 
-const Skills = ({ skills }) =>
-  <styled.Skills tag="ul" dot-separated horizontal wrappable spacing vertical-spacing>
-    {
-      skills.map(({ name }) =>
-        <styled.Skill key={name} tag="li" horizontal wrappable spacing>
-          <styled.SkillName>{name}</styled.SkillName>
-        </styled.Skill>
-      )
-    }
+const Skills = ({ skills }) => (
+  <styled.Skills
+    tag="ul"
+    dot-separated
+    horizontal
+    wrappable
+    spacing
+    vertical-spacing
+  >
+    {skills.map(({ name }) => (
+      <styled.Skill key={name} tag="li" horizontal wrappable spacing>
+        <styled.SkillName>{name}</styled.SkillName>
+      </styled.Skill>
+    ))}
   </styled.Skills>
+)
 
-const SkillSets = ({ children: skillSets }) =>
+const SkillSets = ({ children: skillSets }) => (
   <styled.SkillSets spacing-2>
-    { skillSets.map(([title, skills]) =>
+    {skillSets.map(([title, skills]) => (
       <styled.SkillSet key={title}>
         <h3>{title}</h3>
         <Skills skills={skills} />
       </styled.SkillSet>
-    )}
+    ))}
   </styled.SkillSets>
+)
 
 const skillSets = [
   ['Web', skills.web],
@@ -55,7 +62,7 @@ const skillSets = [
 //     )}
 //   </styled.Courses>
 
-export default () =>
+export default () => (
   <Section Skills cover={cover} id="skills">
     <Section.Content padding-2 spacing-4>
       <Section.Title>Skills</Section.Title>
@@ -71,9 +78,11 @@ export default () =>
       </h3>
 
       <Paragraph media-no-print>
-        See and my skills and compare your skills on these platforms. Don't hesitate to challenge me for a code fight 💪
+        See and my skills and compare your skills on these platforms.
+        Don't hesitate to challenge me for a code fight 💪
       </Paragraph>
 
       <Courses /> */}
     </Section.Content>
   </Section>
+)

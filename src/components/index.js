@@ -22,8 +22,7 @@ export { default as Page } from './Page'
 export { default as Paragraph } from './Paragraph'
 export { default as Section } from './Section'
 
-export default
-{
+export default {
   ActionButton,
   Background,
   Button,
@@ -35,4 +34,3 @@ export default
   Paragraph,
   Section
 }
-

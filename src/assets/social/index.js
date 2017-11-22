@@ -12,12 +12,10 @@ export { default as linkedIn } from './linked-in.jpg'
 export { default as stackOverflow } from './stack-overflow.jpg'
 export { default as twitter } from './twitter.jpg'
 
-export default
-{
+export default {
   facebook,
   github,
   linkedIn,
   stackOverflow,
   twitter
 }
-

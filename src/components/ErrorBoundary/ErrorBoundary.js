@@ -4,13 +4,10 @@ import { InlineLink } from 'components/InlineLink'
 import { Button } from 'components/Button'
 
 class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = { hasError: false }
-  }
+  state = { hasError: false }
 
   componentDidCatch(error, info) {
-    this.setState({ hasError: true, error, info })
+    this.setState({ hasError: true, info })
   }
 
   render() {
@@ -31,8 +28,8 @@ class ErrorBoundary extends React.Component {
           <div className="actions spacing">
             <Button
               tag="a"
-              onClick={(event) => {
-                event.preventDefault();
+              onClick={event => {
+                event.preventDefault()
                 if (typeof window !== 'undefined') {
                   window.location.reload()
                 }
@@ -46,10 +43,24 @@ class ErrorBoundary extends React.Component {
             >
               Refresh the page
             </Button>
-            <Button tag="a" href="/about#contact" primary center middle style={{ minHeight: 48 }}>
+            <Button
+              tag="a"
+              href="/about#contact"
+              primary
+              center
+              middle
+              style={{ minHeight: 48 }}
+            >
               Contact me
             </Button>
-            <Button tag="a" href="/" primary center middle style={{ minHeight: 48 }}>
+            <Button
+              tag="a"
+              href="/"
+              primary
+              center
+              middle
+              style={{ minHeight: 48 }}
+            >
               Back to home
             </Button>
           </div>
@@ -60,7 +71,7 @@ class ErrorBoundary extends React.Component {
         </div>
       )
     }
-    return this.props.children;
+    return this.props.children
   }
 }
 

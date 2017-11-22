@@ -16,8 +16,7 @@ export { default as _5r1366x768 } from './5r1366x768.jpg'
 export { default as _6r1366x768 } from './6r1366x768.jpg'
 export { default as _7r1366x768 } from './7r1366x768.jpg'
 
-export default
-{
+export default {
   _1r1366x768,
   _2r1366x768,
   _3r1366x768,
@@ -26,4 +25,3 @@ export default
   _6r1366x768,
   _7r1366x768
 }
-

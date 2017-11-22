@@ -18,8 +18,7 @@ export { default as _6 } from './6.jpg'
 export { default as _7 } from './7.jpg'
 export { default as _8 } from './8.jpg'
 
-export default
-{
+export default {
   _1,
   _2,
   _3,
@@ -29,4 +28,3 @@ export default
   _7,
   _8
 }
-

@@ -12,12 +12,10 @@ export { default as description } from './description.txt'
 export { default as icon } from './icon.jpg'
 export { default as screenshots } from './screenshots'
 
-export default
-{
+export default {
   asdasd,
   cover,
   description,
   icon,
   screenshots
 }
-

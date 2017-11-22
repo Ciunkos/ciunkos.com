@@ -32,8 +32,7 @@ export { default as oauthClient } from './oauth-client.jpg'
 export { default as result } from './result.jpg'
 export { default as sent } from './sent.jpg'
 
-export default
-{
+export default {
   apiKeyCreated,
   apiLibrary,
   apiServicesMenu,
@@ -50,4 +49,3 @@ export default
   result,
   sent
 }
-

@@ -5,20 +5,23 @@ import { Section, InlineLink } from 'components'
 import { contracts } from 'resume'
 import { education as cover } from './covers'
 
-const Contracts = ({ contracts }) =>
+const Contracts = ({ contracts }) => (
   <styled.Contracts spacing-3>
-    {
-      contracts.map(contract =>
-        <styled.Contract key={contract.date} {...contract.classes}>
-          <styled.Subheader Subheader>{contract.date}</styled.Subheader>
-          <p>{contract.company} · {contract.title} · {contract.scope && `${contract.scope} · `}{contract.tech}</p>
-          <p>{contract.decription}</p>
-        </styled.Contract>
-      )
-    }
+    {contracts.map(contract => (
+      <styled.Contract key={contract.date} {...contract.classes}>
+        <styled.Subheader Subheader>{contract.date}</styled.Subheader>
+        <p>
+          {contract.company} · {contract.title} ·{' '}
+          {contract.scope && `${contract.scope} · `}
+          {contract.tech}
+        </p>
+        <p>{contract.decription}</p>
+      </styled.Contract>
+    ))}
   </styled.Contracts>
+)
 
-const JobPaths = () =>
+const JobPaths = () => (
   <styled.JobPaths spacing-3>
     <div>
       <styled.Subheader>Since 2016</styled.Subheader>
@@ -33,27 +36,28 @@ const JobPaths = () =>
       <p>Game developer · C++, C#</p>
     </div>
   </styled.JobPaths>
+)
 
-export default () =>
+export default () => (
   <Section cover={cover} id="education-and-experience">
-    <Section.Content padding-2 spacing-4 >
+    <Section.Content padding-2 spacing-4>
       <h2>Education and work experience</h2>
 
       <p>
-        In 2014 I have earned <em>Bachelor of Science</em> degree
-        in <em>Computer Science</em> on {' '}
+        In 2014 I have earned <em>Bachelor of Science</em> degree in{' '}
+        <em>Computer Science</em> on {' '}
         <InlineLink href="http://wiz.pwr.edu.pl/en/">
           <em>Faculty of Computer Science and Management</em>
-        </InlineLink> of {' '}
+        </InlineLink>{' '}
+        of {' '}
         <InlineLink href="http://pwr.edu.pl/en/">
           <em>Wroclaw University of Science and Technology</em>
         </InlineLink>.
       </p>
 
       <p className="media-no-print">
-        I work mostly on my own apps and services,
-        however I have done some contracted work.
-        I am currently open for office work.
+        I work mostly on my own apps and services, however I have done some
+        contracted work. I am currently open for office work.
       </p>
 
       <styled.Row horizontal wrappable>
@@ -69,3 +73,4 @@ export default () =>
       </styled.Row>
     </Section.Content>
   </Section>
+)

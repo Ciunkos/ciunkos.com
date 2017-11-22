@@ -8,11 +8,7 @@ export default class Image extends React.PureComponent {
     return (
       <styled.Image center middle>
         <styled.ImageContainer center middle card-1 tag="a" href={src}>
-          <img
-            src={src}
-            title={title}
-            alt={alt}
-          />
+          <img src={src} title={title} alt={alt} />
         </styled.ImageContainer>
         <styled.Caption>{alt}</styled.Caption>
       </styled.Image>

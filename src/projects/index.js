@@ -28,8 +28,7 @@ export { default as ratingSpeed } from './rating-speed'
 export { default as storePro } from './store-pro'
 export { default as testyPrawoJazdy } from './testy-prawo-jazdy'
 
-export default
-{
+export default {
   apkaTv,
   blog,
   classicGames,
@@ -44,4 +43,3 @@ export default
   storePro,
   testyPrawoJazdy
 }
-

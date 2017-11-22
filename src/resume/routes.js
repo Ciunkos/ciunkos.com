@@ -1,12 +1,6 @@
 import React from 'react'
 
-import {
-  AccountCircle,
-  School,
-  Poll,
-  BusinessCenter,
-  CheckBox
-} from 'icons'
+import { AccountCircle, School, Poll, BusinessCenter, CheckBox } from 'icons'
 
 export default [
   {

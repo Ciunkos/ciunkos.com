@@ -1,16 +1,12 @@
 import React from 'react'
 
 import styled from 'styled'
-import PageIcon from 'assets/page-icon.jpg';
-import {
-  Apps,
-  PermContactCalendar,
-  InfoOutline
-} from 'icons'
+import PageIcon from 'assets/page-icon.jpg'
+import { Apps, PermContactCalendar, InfoOutline } from 'icons'
 import HeaderBar from './HeaderBar'
 import HeaderContainer from './HeaderContainer'
 
-const Logo = () =>
+const Logo = () => (
   <styled.Logo
     media-large-inline
     horizontal
@@ -23,13 +19,22 @@ const Logo = () =>
     }}
   >
     <div>ciunkOS</div>
-    <div className="fade-in-up delay" style={{ paddingLeft: 8 }}>blog</div>
+    <div className="fade-in-up delay" style={{ paddingLeft: 8 }}>
+      blog
+    </div>
   </styled.Logo>
+)
 
-const LargeIcon =
+const LargeIcon = (
   <styled.Icon media-large style={{ paddingRight: 12 }}>
-    <styled.PageIcon tag="img" src={PageIcon} alt="Ciunkos.com" style={{ width: 40, height: 40, borderRadius: '50%' }} />
+    <styled.PageIcon
+      tag="img"
+      src={PageIcon}
+      alt="Ciunkos.com"
+      style={{ width: 40, height: 40, borderRadius: '50%' }}
+    />
   </styled.Icon>
+)
 
 const routes = [
   {
@@ -99,13 +104,18 @@ const routes = [
   }
 ]
 
-const Header = ({ subheader, height = 0 }) =>
+const Header = ({ subheader, height = 0 }) => (
   <HeaderContainer
-    header={top =>
-      <HeaderBar routes={routes} scrolled-top={top <= 64} style={{ minHeight: 64, zIndex: 20 }} />
-    }
+    header={top => (
+      <HeaderBar
+        routes={routes}
+        scrolled-top={top <= 64}
+        style={{ minHeight: 64, zIndex: 20 }}
+      />
+    )}
     subheader={subheader}
     height={height}
   />
+)
 
 export default Header
