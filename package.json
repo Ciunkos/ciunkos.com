@@ -98,15 +98,11 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTest.js",
     "modulePaths": [
-      "<rootDir>/src"
+      "<rootDir>/src/"
     ],
     "moduleFileExtensions": [
       "js",
       "jsx"
-    ],
-    "moduleDirectories": [
-      "<rootDir>/node_modules",
-      "<rootDir>/src"
     ],
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
