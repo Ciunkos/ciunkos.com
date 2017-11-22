@@ -39,30 +39,30 @@ const Blog = ({ post }) => (
           <h2>Related posts</h2>
 
           <styled.Row RelatedPostsView style={{ color: 'black' }}>
-            {Object.entries(
-              relatedPosts[post.slug] || {}
-            ).map(([key, post]) => (
-              <styled.Card
-                key={key}
-                Screenshot
-                tag="a"
-                href={`/${post.slug}`}
-                stretch
-                card-1
-              >
-                <div className="sixteen-nine">
-                  <div className="content">
-                    <styled.Cover
-                      tag="img"
-                      src={post.cover}
-                      alt={post.name}
-                      img-responsive
-                    />
+            {Object.entries(relatedPosts[post.slug] || {}).map(
+              ([key, post]) => (
+                <styled.Card
+                  key={key}
+                  Screenshot
+                  tag="a"
+                  href={`/${post.slug}`}
+                  stretch
+                  card-1
+                >
+                  <div className="sixteen-nine">
+                    <div className="content">
+                      <styled.Cover
+                        tag="img"
+                        src={post.cover}
+                        alt={post.name}
+                        img-responsive
+                      />
+                    </div>
                   </div>
-                </div>
-                <PostHeader post={post} headerRole="h4" padding-2 />
-              </styled.Card>
-            ))}
+                  <PostHeader post={post} headerRole="h4" padding-2 />
+                </styled.Card>
+              )
+            )}
           </styled.Row>
         </Section.Content>
       </Section>

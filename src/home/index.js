@@ -35,9 +35,7 @@ const HomePage = () => (
 
           <p>
             If you have ever wondered, the{' '}
-            <InlineLink href="/about">
-              guy on the left {"it's"} me
-            </InlineLink>{' '}
+            <InlineLink href="/about">guy on the left {"it's"} me</InlineLink>{' '}
             and{' '}
             <InlineLink href="https://www.facebook.com/ares.sp.zoo/">
               the dog on the right is Ares

@@ -45,11 +45,11 @@ export default () => (
 
       <p>
         In 2014 I have earned <em>Bachelor of Science</em> degree in{' '}
-        <em>Computer Science</em> on {' '}
+        <em>Computer Science</em> on{' '}
         <InlineLink href="http://wiz.pwr.edu.pl/en/">
           <em>Faculty of Computer Science and Management</em>
         </InlineLink>{' '}
-        of {' '}
+        of{' '}
         <InlineLink href="http://pwr.edu.pl/en/">
           <em>Wroclaw University of Science and Technology</em>
         </InlineLink>.
