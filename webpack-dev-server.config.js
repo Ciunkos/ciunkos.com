@@ -1,12 +1,12 @@
-const webpack = require('webpack');
-const path = require('path');
-const TransferWebpackPlugin = require('transfer-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const postcssimport = require('postcss-import');
-const postcsscssnext = require('postcss-cssnext');
+const webpack = require('webpack')
+const path = require('path')
+const TransferWebpackPlugin = require('transfer-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const postcssimport = require('postcss-import')
+const postcsscssnext = require('postcss-cssnext')
 
-const buildPath = path.resolve(__dirname, 'dev');
-const localizedResourcePatten = locale => new RegExp(`(LOCALE)(.*?)`);
+const buildPath = path.resolve(__dirname, 'dev')
+const localizedResourcePatten = () => new RegExp('(LOCALE)(.*?)')
 
 module.exports = ({ locale } = {}) => ({
   entry: './src/app.js',
@@ -49,15 +49,15 @@ module.exports = ({ locale } = {}) => ({
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { modules: false, importLoaders: 1 } },
+          {
+            loader: 'css-loader',
+            options: { modules: false, importLoaders: 1 }
+          },
           {
             loader: 'postcss-loader',
             options: {
               plugins() {
-                return [
-                  postcssimport,
-                  postcsscssnext
-                ]
+                return [postcssimport, postcsscssnext]
               }
             }
           }
@@ -66,14 +66,26 @@ module.exports = ({ locale } = {}) => ({
     ]
   },
   plugins: [
-    ...(locale ? [new webpack.NormalModuleReplacementPlugin(localizedResourcePatten(locale), (resource) => {
-      resource.request = resource.request.replace(localizedResourcePatten(locale), `$1$2/${locale}`); // eslint-disable-line no-param-reassign
-    })] : []),
+    ...[
+      locale &&
+        new webpack.NormalModuleReplacementPlugin(
+          localizedResourcePatten(locale),
+          resource => {
+            /* eslint-disable no-param-reassign */
+            resource.request = resource.request.replace(
+              localizedResourcePatten(locale),
+              `$1$2/${locale}`
+            )
+          }
+        )
+    ].filter(x => x),
     new webpack.HotModuleReplacementPlugin(),
     new TransferWebpackPlugin(
-      [{
-        from: 'www'
-      }],
+      [
+        {
+          from: 'www'
+        }
+      ],
       path.resolve(__dirname, 'src')
     ),
     new HtmlWebpackPlugin({
