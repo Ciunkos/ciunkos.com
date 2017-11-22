@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme';
 
 import Home from 'home'
 import Apps from 'apps'
@@ -22,9 +22,7 @@ describe('Main routes rendering', () => {
   })
 
   it('should render Resume page without throwing an error', () => {
-    expect(shallow(<Resume />).contains(<h1>Przemysław Zalewski</h1>)).toBe(
-      true
-    )
+    expect(mount(<Resume />).find('.Page.Resume').length).toBe(1)
   })
 
   it('should render a Blog post page without throwing an error', () => {

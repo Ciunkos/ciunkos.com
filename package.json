@@ -11,7 +11,8 @@
     "build": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"build\"",
     "deploy": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
-    "test": "jest --watchAll",
+    "test": "jest --env=jsdom",
+    "test:watch": "jest --watchAll --env=jsdom",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
@@ -37,6 +38,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.7",
     "enzyme": "^3.2.0",
+    "enzyme-adapter-react-16": "^1.1.0",
     "eslint": "^4.11.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-import-resolver-webpack": "^0.8.3",
@@ -95,6 +97,7 @@
     "react-router-scroll": "^0.4.4"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTest.js",
     "modulePaths": [
       "/src"
     ],
