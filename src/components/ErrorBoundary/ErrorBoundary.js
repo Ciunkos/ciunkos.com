@@ -53,14 +53,7 @@ class ErrorBoundary extends React.Component {
             >
               Contact me
             </a>
-            <a
-              tag="a"
-              href="/"
-              primary
-              center
-              middle
-              style={{ minHeight: 48 }}
-            >
+            <a tag="a" href="/" primary center middle style={{ minHeight: 48 }}>
               Back to home
             </a>
           </div>
