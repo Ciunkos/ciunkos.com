@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Background } from 'components'
+import Background from '../Background'
 
 const gradientSuffix = gradient =>
   typeof gradient === 'string' ? `-${gradient}` : ''

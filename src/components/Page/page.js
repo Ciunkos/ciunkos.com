@@ -2,7 +2,7 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 import styled from 'styled'
-import { Header } from 'components'
+import Header from '../Header'
 
 const Page = ({
   children,

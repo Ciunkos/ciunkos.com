@@ -1,7 +1,7 @@
 import React from 'react'
 
-import { InlineLink } from 'components/InlineLink'
-import { Button } from 'components/Button'
+// import { InlineLink } from 'components/InlineLink'
+// import { Button } from 'components/Button'
 
 class ErrorBoundary extends React.Component {
   state = { hasError: false }
@@ -21,12 +21,12 @@ class ErrorBoundary extends React.Component {
         <div className="ErrorBoundary spacing-2">
           <h1>Something went wrong</h1>
           <p>
-            <InlineLink href={`mailto:ciunkos@gmail.com?body=${encodedLog}`}>
+            <a href={`mailto:ciunkos@gmail.com?body=${encodedLog}`}>
               {"Please contact me and I'll get to the bottom of it."}
-            </InlineLink>
+            </a>
           </p>
           <div className="actions spacing">
-            <Button
+            <a
               tag="a"
               onClick={event => {
                 event.preventDefault()
@@ -42,8 +42,8 @@ class ErrorBoundary extends React.Component {
               style={{ minHeight: 48 }}
             >
               Refresh the page
-            </Button>
-            <Button
+            </a>
+            <a
               tag="a"
               href="/about#contact"
               primary
@@ -52,8 +52,8 @@ class ErrorBoundary extends React.Component {
               style={{ minHeight: 48 }}
             >
               Contact me
-            </Button>
-            <Button
+            </a>
+            <a
               tag="a"
               href="/"
               primary
@@ -62,7 +62,7 @@ class ErrorBoundary extends React.Component {
               style={{ minHeight: 48 }}
             >
               Back to home
-            </Button>
+            </a>
           </div>
           <details className="spacing">
             <summary>Details</summary>

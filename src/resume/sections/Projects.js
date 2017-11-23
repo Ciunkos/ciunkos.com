@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled'
 import { Section, ActionButton, Button } from 'components'
 import { projects as cover } from './covers'
-import { projects } from 'resume'
+import projects from 'resume/projects'
 import { ArrowBack, ArrowForward } from 'icons'
 
 const clamp = (min, max) => value => Math.max(Math.min(value, max), min)

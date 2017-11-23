@@ -4,7 +4,8 @@ import styled from 'styled'
 import { CheckBoxOutlineBlank } from 'icons'
 import { Section } from 'components'
 import { interests as cover } from './covers'
-import { goals, interests } from 'resume'
+import goals from 'resume/goals'
+import interests from 'resume/interests'
 
 const Interests = ({ interests, ...rest }) => (
   <styled.Interests

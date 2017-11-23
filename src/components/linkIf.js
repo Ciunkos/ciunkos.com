@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { InlineLink } from 'components'
+import InlineLink from './InlineLink'
 
 const wrapIf = (Component, props) => condition => value =>
   condition ? <Component {...props}>{value}</Component> : value

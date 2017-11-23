@@ -4,7 +4,8 @@ import styled from 'styled'
 import { Section, ActionButton, InlineLink, Button, linkIf } from 'components'
 import { profile as cover } from './covers'
 import ProfilePicture from 'assets/profile-picture.jpg'
-import { bio, social } from 'resume'
+import bio from 'resume/bio'
+import social from 'resume/social'
 import { ArrowDownward } from 'icons'
 
 const Bio = () => (

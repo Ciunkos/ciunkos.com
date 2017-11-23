@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Button } from 'components'
+import Button from '../Button'
 
 const HeaderBar = ({ routes = [], ...rest }) => (
   <styled.HeaderBar transition-all Bar main-appbar style={{ top: 0 }} {...rest}>

@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled'
 import { Section, InlineLink } from 'components'
-import { contracts } from 'resume'
+import contracts from 'resume/contracts'
 import { education as cover } from './covers'
 
 const Contracts = ({ contracts }) => (

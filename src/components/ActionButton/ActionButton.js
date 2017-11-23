@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Button } from 'components'
+import Button from '../Button'
 
 const ActionButton = ({ href, name, icon, ...rest }) => (
   <Button
