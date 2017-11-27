@@ -36,6 +36,15 @@ jobs:
       # debug $CIRCLE_ARTIFACTS
       - run: echo $CIRCLE_ARTIFACTS
 
+      # debug printenv
+      - run: echo printenv
+
+      # debug $CIRCLE_ARTIFACTS
+      - run: echo {$CIRCLE_ARTIFACTS}
+
+      # debug $CIRCLE_ARTIFACTS
+      - run: echo CIRCLE_ARTIFACTS
+
       # run tests!
       - run: npm run test
 
