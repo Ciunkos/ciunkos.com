@@ -33,18 +33,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # debug $CIRCLE_ARTIFACTS
-      - run: echo $CIRCLE_ARTIFACTS
-
-      # debug printenv
-      - run: printenv
-
-      # debug $CIRCLE_ARTIFACTS
-      - run: echo {$CIRCLE_ARTIFACTS}
-
-      # debug $CIRCLE_ARTIFACTS
-      - run: echo CIRCLE_ARTIFACTS
-
       # run tests!
       - run: npm run test
 
@@ -52,8 +40,17 @@ jobs:
       - run: npm run test:snapshot
 
       # extract snapshot test results
-      - run: npm run test:snapshot:extract $CIRCLE_ARTIFACTS
+      - run: npm run test:snapshot:extract /tmp/snapshots
+
+      - store_artifacts:
+          path: /tmp/snapshots
+          destination: snapshots
 
       # build!
-      - run: npm run build:to $CIRCLE_ARTIFACTS/build
+      - run: npm run build:to /tmp/build
+
+      - store_artifacts:
+          path: /tmp/build
+          destination: build
+
 
