@@ -37,7 +37,7 @@ jobs:
       - run: echo $CIRCLE_ARTIFACTS
 
       # debug printenv
-      - run: echo printenv
+      - run: printenv
 
       # debug $CIRCLE_ARTIFACTS
       - run: echo {$CIRCLE_ARTIFACTS}
