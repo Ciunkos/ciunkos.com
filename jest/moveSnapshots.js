@@ -17,6 +17,9 @@ const createDir = dir => {
 }
 
 glob('src/__snapshots__/*.snap', {}, (er, files) => {
+  console.log({
+    argv: process.argv
+  })
   files.forEach(fileName => {
     const newName = fileName
       .replace(/__snapshots__\//g, '')
