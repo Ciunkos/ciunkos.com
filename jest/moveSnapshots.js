@@ -1,7 +1,7 @@
 const fs = require('fs')
 const glob = require('glob')
 
-const outputDirectory = [process.env.CIRCLE_ARTIFACTS, 'snapshots']
+const outputDirectory = [process.env.$CIRCLE_ARTIFACTS, 'snapshots']
   .filter(x => x)
   .join('/')
 
