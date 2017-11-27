@@ -11,9 +11,8 @@
     "build": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"build\"",
     "deploy": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
-    "test": "jest",
-    "test:accept": "npm run test -- -t",
-    "test:watch": "jest --watchAll",
+    "test": "jest \\.test\\.js$",
+    "test:snapshot": "jest \\.snapshot\\.js$ --ci -u && node jest/moveSnapshots.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
@@ -114,6 +113,7 @@
       "js",
       "jsx"
     ],
+    "testMatch": [ "**/__tests__/**/*.js?(x)", "**/?(*.)(spec|test|snapshot).js?(x)" ],
     "moduleNameMapper": {
       "\\.(css|less)$": "identity-obj-proxy"
     },

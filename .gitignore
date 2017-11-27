@@ -5,6 +5,9 @@ node_modules
 # Build output
 build
 
+# Snapshots
+snapshots
+
 # Windows scripts - install, start, test, build
 *.bat
 
