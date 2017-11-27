@@ -39,6 +39,9 @@ jobs:
       # run snapshot tests!
       - run: npm run test:snapshot
 
-      # run snapshot tests!
+      # extract snapshot test results
       - run: npm run test:snapshot:extract $CIRCLE_ARTIFACTS
+
+      # build!
+      - run: npm run build:to $CIRCLE_ARTIFACTS/build
 
