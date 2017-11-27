@@ -14,3 +14,35 @@
 .Section:only-child .SectionContent .Content {
   min-height: 100vh;
 }
+
+.SectionContent .Content {
+  padding-top: 32px; padding-bottom: 32px;
+}
+
+.Section:first-child .SectionContent .Content {
+  padding-top: 64px;
+}
+
+@media all and (max-height: 640px) and (orientation:landscape) {
+  .Page .SectionContent .Content {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+
+  .Page .Section:first-child .SectionContent .Content {
+    padding-top: 32px;
+    padding-bottom: 32px;
+  }
+}
+
+@media all and (min-width: 640px) {
+  .SectionContent .Content {
+    padding-top: 64px; padding-bottom: 64px;
+    align-self: center;
+    max-width: 1000px;
+  }
+
+  .Section:first-child .SectionContent .Content {
+    padding-top: 128px;
+  }
+}

@@ -1,29 +1,21 @@
 module.exports = {
   extends: 'airbnb',
   parser: 'babel-eslint',
-  plugins: [
-    'react', 'jsx-a11y', 'import'
-  ],
+  plugins: ['react', 'jsx-a11y', 'import'],
   rules: {
     semi: 0,
-    indent: [
-      'error', 2
-    ],
+    indent: ['error', 2],
     'function-paren-newline': 0,
-    'object-curly-newline': ["error", { "consistent": true }],
+    'object-curly-newline': ['error', { consistent: true }],
     'spaced-comment': 0,
-    'arrow-parens': ["error", "as-needed"],
+    'arrow-parens': ['error', 'as-needed'],
     'no-mixed-operators': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
     'linebreak-style': 0,
-    'comma-dangle': [
-      'error', 'never'
-    ],
+    'comma-dangle': ['error', 'never'],
     'no-confusing-arrow': 0,
     'react/jsx-filename-extension': 0,
-    'react/jsx-indent': [
-      'error', 2
-    ],
+    'react/jsx-indent': ['error', 2],
     'react/prop-types': 0,
     'react/sort-comp': 0,
     'react/jsx-first-prop-new-line': 0,
@@ -34,35 +26,39 @@ module.exports = {
     'no-shadow': 0,
     'jsx-a11y/href-no-hash': 'off',
     'jsx-a11y/anchor-is-valid': [
-      'warn', {
+      'warn',
+      {
         aspects: ['invalidHref']
       }
     ],
+    'jsx-a11y/accessible-emoji': 0,
     'import/no-namespace': 2,
     'import/no-named-as-default': 0,
     'import/extensions': [
       'error',
-      'always', {
-        'js': 'never'
+      'always',
+      {
+        js: 'never'
       }
     ],
     'import/no-named-as-default-member': 0,
     'import/order': [
-      'error', {
-        'groups': [
-          [
-            'external', 'builtin'
-          ],
+      'error',
+      {
+        groups: [
+          ['external', 'builtin'],
           ['index', 'sibling', 'parent', 'internal']
         ],
         'newlines-between': 'always'
       }
     ],
-    "import/newline-after-import": [
-      "error", {
-        "count": 1
+    'import/no-extraneous-dependencies': 0,
+    'import/newline-after-import': [
+      'error',
+      {
+        count: 1
       }
-    ],
+    ]
   },
   settings: {
     'import/resolver': {
@@ -78,4 +74,4 @@ module.exports = {
     node: true,
     jest: true
   }
-};
+}

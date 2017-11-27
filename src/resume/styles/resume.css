@@ -70,39 +70,11 @@
   border-radius: 18px;
 }
 
-.SectionContent .Content {
-  padding-top: 32px; padding-bottom: 32px;
-}
-
-.Section:first-child .SectionContent .Content {
-  padding-top: 64px;
-}
-
 .Resume .Section:first-child .SectionContent .Content {
   padding-top: 128px;
 }
 
 @media all and (max-height: 640px) and (orientation:landscape) {
-  /* .Page .SectionContent .Content {
-      padding-top: 16px;
-      padding-bottom: 16px;
-  }
-
-  .Page .Section:first-child .SectionContent .Content {
-      padding-top: 32px;
-      padding-bottom: 16px;
-  } */
-
-  .Page .SectionContent .Content {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
-  .Page .Section:first-child .SectionContent .Content {
-    padding-top: 32px;
-    padding-bottom: 32px;
-  }
-
   .Page.Resume .Section:first-child .SectionContent .Content {
     padding-top: 96px;
   }

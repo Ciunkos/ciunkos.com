@@ -12,15 +12,22 @@
     "deploy": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
     "test": "jest",
+    "test:accept": "npm run test -- -t",
     "test:watch": "jest --watchAll",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
     "prettier:debug": "prettier \"src/**/*.js\" --debug-check",
-    "update": "ncu -x react-router --upgradeAll -a"
+    "update": "ncu -x react-router --upgradeAll -a",
+    "storybook": "start-storybook -p 9001 -c .storybook",
+    "screenshot:debug": "node node_modules/storybook-chrome-screenshot/lib/cli.js -p 9001 -c .storybook --debug",
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook --debug"
   },
   "private": true,
   "devDependencies": {
+    "@storybook/addon-storyshots": "3.2.16",
+    "@storybook/addons": "3.2.16",
+    "@storybook/react": "3.2.16",
     "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.0.2",
@@ -66,6 +73,7 @@
     "react-transform-catch-errors": "^1.0.2",
     "regenerator-runtime": "^0.11.0",
     "sass-loader": "^6.0.6",
+    "storybook-addon-specifications": "^2.1.1",
     "string-loader": "0.0.1",
     "style-loader": "^0.19.0",
     "transfer-webpack-plugin": "^0.1.4",
@@ -115,7 +123,8 @@
       "\\.(json)$": "<rootDir>/jest/jsonLoader.js",
       "\\.(txt|md)$": "<rootDir>/jest/rawLoader.js"
     },
-    "resolver": "jest-webpack-resolver"
+    "resolver": "jest-webpack-resolver",
+    "automock": false
   },
   "jestWebpackResolver": {
     "webpackConfig": "webpack-dev-server.config.js"

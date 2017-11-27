@@ -32,6 +32,17 @@ const NotFoundPage = () => (
 
           <Button
             tag="a"
+            href="/"
+            primary
+            center
+            middle
+            style={{ minHeight: 48 }}
+          >
+            Contact me
+          </Button>
+
+          <Button
+            tag="a"
             href="/apps"
             primary
             center
