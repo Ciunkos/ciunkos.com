@@ -8,7 +8,7 @@ const outputDirectory = [process.argv[2] || 'snapshots']
 const createDir = dir => {
   const splitPath = dir.split('/')
   splitPath.reduce((path, subPath) => {
-    if (!fs.existsSync(path)) {
+    if (path && !fs.existsSync(path)) {
       console.log(`Create directory at ${path}.`);
       fs.mkdirSync(path)
     }
