@@ -9,7 +9,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "npm run build:to \"build\"",
-    "build:to": "webpack --config webpack.config.js --progress --colors --env.production --env.path",
+    "build:to": "webpack --config webpack.config.js --colors --env.production --env.path",
     "deploy": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
     "test": "jest \\.test\\.js$",
