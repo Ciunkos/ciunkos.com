@@ -14,7 +14,7 @@
     "start:server": "node build/server.js",
     "test": "jest \\.test\\.js$",
     "test:snapshot": "jest \\.snapshot\\.js$ --ci -u",
-    "test:snapshot:extract": "node jest/moveSnapshots.js snapshots",
+    "test:snapshot:extract": "node jest/moveSnapshots.js",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
