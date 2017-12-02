@@ -39,7 +39,7 @@ jobs:
           destination: snapshots
 
       # run visual regression tests
-      - run: useradd screenshot && su - screenshot && npm run screenshot
+      - run: useradd screenshot && sudo -u screenshot npm run screenshot
 
       - store_artifacts:
           path: __screenshots__
