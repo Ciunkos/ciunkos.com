@@ -38,11 +38,13 @@ storiesOf('Button', module)
 
 storiesOf('NotFoundPage', module).add(
   'screenshot',
-  withScreenshot()(() => (
-    <AppContainer>
-      <NotFoundPage />
-    </AppContainer>
-  ))
+  //withScreenshot()(
+    () => (
+      <AppContainer>
+        <NotFoundPage />
+      </AppContainer>
+    )
+  //)
 )
 
 storiesOf('ResumePage', module).add(

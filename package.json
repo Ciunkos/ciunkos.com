@@ -21,7 +21,7 @@
     "prettier:debug": "prettier \"src/**/*.js\" --debug-check",
     "update": "ncu -x react-router --upgradeAll -a",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook"
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook --silent"
   },
   "private": true,
   "devDependencies": {
