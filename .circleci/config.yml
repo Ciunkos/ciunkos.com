@@ -25,7 +25,7 @@ jobs:
       # Install latest chrome dev package.
       # Note: this installs the necessary libs to make the bundled version of Chromium that Pupppeteer
       # installs, work.
-      - run: apt-get update && apt-get update && apt-get install -y google-chrome-unstable --no-install-recommends
+      - run: sudo apt-get update && sudo apt-get update && sudo apt-get install -y google-chrome-unstable --no-install-recommends
 
       # install dependencies
       - run: npm install
