@@ -38,10 +38,8 @@ jobs:
           path: /tmp/snapshots
           destination: snapshots
 
-      - run: useradd screenshot && su - screenshot
-
       # run visual regression tests
-      - run: npm run screenshot
+      - run: useradd screenshot && su - screenshot && npm run screenshot
 
       - store_artifacts:
           path: __screenshots__
