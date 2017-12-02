@@ -38,6 +38,13 @@ jobs:
           path: /tmp/snapshots
           destination: snapshots
 
+      # run visual regression tests
+      - run: npm run screenshot
+
+      - store_artifacts:
+          path: screenshots
+          destination: screenshots
+
       # build!
       - run: npm run build:to /tmp/build
 

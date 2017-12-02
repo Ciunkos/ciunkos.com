@@ -1,9 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-//import { withScreenshot } from 'storybook-chrome-screenshot'
-
-const withScreenshot = () => f => f
+import { withScreenshot } from 'storybook-chrome-screenshot';
 
 import { storiesOf, action, specs, describe, it } from '../.storybook/facade'
 import AppContainer from './AppContainer'

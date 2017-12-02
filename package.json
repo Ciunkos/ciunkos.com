@@ -21,8 +21,7 @@
     "prettier:debug": "prettier \"src/**/*.js\" --debug-check",
     "update": "ncu -x react-router --upgradeAll -a",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "screenshot:debug": "node node_modules/storybook-chrome-screenshot/lib/cli.js -p 9001 -c .storybook --debug",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook --debug"
+    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook"
   },
   "private": true,
   "devDependencies": {
@@ -75,6 +74,7 @@
     "regenerator-runtime": "^0.11.0",
     "sass-loader": "^6.0.6",
     "storybook-addon-specifications": "^2.1.1",
+    "storybook-chrome-screenshot": "^0.6.1",
     "string-loader": "0.0.1",
     "style-loader": "^0.19.0",
     "transfer-webpack-plugin": "^0.1.4",

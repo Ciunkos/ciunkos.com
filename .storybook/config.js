@@ -1,6 +1,6 @@
 import React from 'react'
 import { addDecorator, configure } from '@storybook/react';
-//import { setScreenshotOptions } from 'storybook-chrome-screenshot';
+import { setScreenshotOptions } from 'storybook-chrome-screenshot';
 import './addons';
 
 // setScreenshotOptions({
@@ -44,13 +44,13 @@ import './addons';
 //   ]
 // });
 
-// setScreenshotOptions({
-//   viewport: {
-//     width: 768,
-//     height: 400,
-//     deviceScaleFactor: 2,
-//   },
-// });
+setScreenshotOptions({
+  viewport: {
+    width: 1280,
+    height: 720,
+    deviceScaleFactor: 1
+  },
+});
 
 const req = require.context('../src', true, /stories\.js$/)
 
