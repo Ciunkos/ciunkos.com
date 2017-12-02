@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import expect from 'expect'
-import { withScreenshot } from 'storybook-chrome-screenshot';
+import { withScreenshot } from 'storybook-chrome-screenshot'
 
 import { storiesOf, action, specs, describe, it } from '../.storybook/facade'
 import AppContainer from './AppContainer'
@@ -17,7 +17,7 @@ storiesOf('Button', module)
   .add('with text', () => (
     <Button onClick={action('clicked')}>Hello Button</Button>
   ))
-  .add('with screenshot', withScreenshot()(() => <Button>Screenshot</Button>))
+  .add('screenshot', withScreenshot()(() => <Button>Screenshot</Button>))
   .add('with some emoji', () => (
     <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   ))
@@ -37,7 +37,7 @@ storiesOf('Button', module)
   })
 
 storiesOf('NotFoundPage', module).add(
-  'with screenshot',
+  'screenshot',
   withScreenshot()(() => (
     <AppContainer>
       <NotFoundPage />
@@ -46,7 +46,7 @@ storiesOf('NotFoundPage', module).add(
 )
 
 storiesOf('ResumePage', module).add(
-  'with screenshot',
+  'screenshot',
   withScreenshot()(() => (
     <AppContainer>
       <ResumePage />
