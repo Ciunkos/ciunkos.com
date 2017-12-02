@@ -74,7 +74,7 @@
     "regenerator-runtime": "^0.11.0",
     "sass-loader": "^6.0.6",
     "storybook-addon-specifications": "^2.1.1",
-    "Ciunkos/storybook-chrome-screenshot": "^0.6.1",
+    "storybook-chrome-screenshot": "github:ciunkos/storybook-chrome-screenshot",
     "string-loader": "0.0.1",
     "style-loader": "^0.19.0",
     "transfer-webpack-plugin": "^0.1.4",
