@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:latest
+      - image: regviz/node-xcb
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -21,19 +21,6 @@ jobs:
 
       # disable package-lock
       - run: npm config set package-lock false
-
-      # Install latest chrome dev package.
-      # Note: this installs the necessary libs to make the bundled version of Chromium that Pupppeteer
-      # installs, work.
-      - run: sudo apt-get update && sudo apt-get install -y wget --no-install-recommends \
-                && sudo wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
-                && sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' \
-                && sudo apt-get update \
-                && sudo apt-get install -y google-chrome-unstable \
-                  --no-install-recommends \
-                && sudo rm -rf /var/lib/apt/lists/* \
-                && sudo apt-get purge --auto-remove -y curl \
-                && sudo rm -rf /src/*.deb
 
       # install dependencies
       - run: npm install
