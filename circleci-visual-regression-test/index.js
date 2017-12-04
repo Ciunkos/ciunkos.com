@@ -76,7 +76,8 @@ const main = async () => {
   // })
   let latest = projectInfo[0]
   while (latest.status !== 'success' && latest.branch !== 'master') {
-    const previousSuccessfulBuildNumber = latest.build_num
+    const previousSuccessfulBuildNumber =
+      latest.previous_successful_build.build_num
     latest = projectInfo.find(
       x => x.build_num === previousSuccessfulBuildNumber
     )
@@ -87,7 +88,7 @@ const main = async () => {
   console.info({ latest })
 
   const artifactsUrl = artifactsEndpoint(latest.build_num)
-  console.info({ artifactsUrl })
+  //console.info({ artifactsUrl })
   const response = await fetch(artifactsUrl)
   if (!response.ok) {
     throw new Error(`Request failed: ${artifactsUrl}`)
@@ -96,7 +97,11 @@ const main = async () => {
   const screenshots = json.filter(x =>
     x.path.startsWith('visual-regression/after')
   )
-  console.info(screenshots)
+  console.info({
+    screenshots,
+    screenshotsLength: screenshots.length,
+    total: json.length
+  })
   const tasks = await Promise.all(
     screenshots.map(async screenshot => {
       try {
