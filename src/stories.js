@@ -17,7 +17,7 @@ storiesOf('Button', module)
   .add('with text', () => (
     <Button onClick={action('clicked')}>Hello Button</Button>
   ))
-  .add('screenshot', withScreenshot()(() => <Button>Screenshot</Button>))
+  .add('screenshot', withScreenshot()(() => <Button>Screenshot test</Button>))
   .add('with some emoji', () => (
     <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   ))
@@ -39,11 +39,11 @@ storiesOf('Button', module)
 storiesOf('NotFoundPage', module).add(
   'screenshot',
   //withScreenshot()(
-    () => (
-      <AppContainer>
-        <NotFoundPage />
-      </AppContainer>
-    )
+  () => (
+    <AppContainer>
+      <NotFoundPage />
+    </AppContainer>
+  )
   //)
 )
 
