@@ -7,10 +7,10 @@ const output = '/tmp/master/'
 const outputScreenshots = `${output}screenshots/`
 
 const artifactsEndpoint = (
+  buildNumber = 51,
   vcsType = 'github',
   username = 'ciunkos',
   project = 'ciunkos.com',
-  buildNumber = 51,
   token = ''
 ) =>
   `https://circleci.com/api/v1.1/project/${vcsType}/${username}/${project}/${
@@ -57,7 +57,20 @@ const download = source => to => async () => {
 
 const main = async () => {
   createDir(outputScreenshots)
-  const response = await fetch(artifactsEndpoint())
+  const projectInfoResponse = await fetch(
+    'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'
+  )
+  const projectInfo = projectInfoResponse.json()
+
+  let latest = projectInfo[0]
+  while (latest.status !== 'success' && latest.branch !== 'master') {
+    const previousSuccessfulBuildNumber = latest.build_num
+    latest = projectInfo.find(
+      x => x.build_num === previousSuccessfulBuildNumber
+    )
+  }
+
+  const response = await fetch(artifactsEndpoint(latest.build_num))
   const json = await response.json()
   const screenshots = json.filter(x => x.path.startsWith('screenshots/'))
   const tasks = await Promise.all(
