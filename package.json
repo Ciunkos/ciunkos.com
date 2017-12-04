@@ -19,14 +19,15 @@
     "test:snapshot": "jest \\.snapshot\\.js$ --ci -u",
     "test:snapshot:extract": "node jest/moveSnapshots.js",
     "test:visual":
-      "node circleci-visual-regression-test && reg-cli __screenshots__ /tmp/master/screenshots /tmp/visual-regression -R /tmp/visual-regression/index.html --ignoreChange",
+      "node circleci-visual-regression-test && reg-cli /tmp/visual-regression/after /tmp/visual-regression/before /tmp/visual-regression -R /tmp/visual-regression/index.html --ignoreChange",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
     "prettier:debug": "prettier \"src/**/*.js\" --debug-check",
     "update": "ncu -x react-router --upgradeAll -a",
     "storybook": "start-storybook -p 9001 -c .storybook",
-    "screenshot": "storybook-chrome-screenshot -p 9001 -c .storybook --silent"
+    "screenshot":
+      "storybook-chrome-screenshot -p 9001 -c .storybook --silent -o /tmp/visual-regression/after"
   },
   "private": true,
   "devDependencies": {

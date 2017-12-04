@@ -3,8 +3,8 @@ const https = require('https')
 const Stream = require('stream').Transform
 const fs = require('fs')
 
-const output = '/tmp/master/'
-const outputScreenshots = `${output}screenshots/`
+const output = '/tmp/visual-regression/'
+const outputScreenshots = `${output}before/`
 
 const artifactsEndpoint = (
   buildNumber = 51,
@@ -72,12 +72,17 @@ const main = async () => {
 
   const response = await fetch(artifactsEndpoint(latest.build_num))
   const json = await response.json()
-  const screenshots = json.filter(x => x.path.startsWith('screenshots/'))
+  const screenshots = json.filter(x =>
+    x.path.startsWith('visual-regression/after')
+  )
   const tasks = await Promise.all(
     screenshots.map(async screenshot => {
       try {
-        console.info(`Dowloading ${screenshot.url}`)
-        await download(screenshot.url)(`${output}${screenshot.path}`)()
+        const to = `${outputScreenshots}${screenshot.path.substr(
+          'visual-regression/after'.length
+        )}`
+        console.info(`Dowloading ${screenshot.url} to `)
+        await download(screenshot.url)(to)()
         console.info(`Written to ${screenshot.path}`)
       } catch (error) {
         console.info('error')
