@@ -19,7 +19,7 @@
     "test:snapshot": "jest \\.snapshot\\.js$ --ci -u",
     "test:snapshot:extract": "node jest/moveSnapshots.js",
     "test:visual":
-      "node circleci-visual-regression-test && reg-cli __screenshots__ /tmp/master/screenshots /tmp/visual-regression -R /tmp/visual-regression/index.html",
+      "node circleci-visual-regression-test && reg-cli __screenshots__ /tmp/master/screenshots /tmp/visual-regression -R /tmp/visual-regression/index.html --ignoreChange",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
