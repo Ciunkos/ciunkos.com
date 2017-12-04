@@ -16,6 +16,15 @@ const artifactsEndpoint = (
     buildNumber
   }/artifacts?circle-token=${process.env.CIRCLE_TOKEN}`
 
+const projectEndpoint = (
+  vcsType = 'github',
+  username = 'ciunkos',
+  project = 'ciunkos.com'
+) =>
+  `https://circleci.com/api/v1.1/project/${vcsType}/${username}/${
+    project
+  }?circle-token=${process.env.CIRCLE_TOKEN}`
+
 const createDir = dir => {
   const splitPath = dir.split('/')
   console.info({ splitPath })
@@ -56,13 +65,10 @@ const download = source => to => async () => {
 
 const main = async () => {
   createDir(outputScreenshots)
-  const projectInfoResponse = await fetch(
-    'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'
-  )
+  const projectUrl = projectEndpoint()
+  const projectInfoResponse = await fetch(projectUrl)
   if (!projectInfoResponse.ok) {
-    throw new Error(
-      `Request failed: ${'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'}`
-    )
+    throw new Error(`Request failed: ${projectUrl}`)
   }
   const projectInfo = await projectInfoResponse.json()
   console.info({
@@ -107,5 +113,6 @@ const main = async () => {
 }
 
 main().catch(error => {
-  throw error
+  console.error(error)
+  process.exit(1)
 })
