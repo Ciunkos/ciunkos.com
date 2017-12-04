@@ -17,10 +17,7 @@ storiesOf('Button', module)
   .add('with text', () => (
     <Button onClick={action('clicked')}>Hello Button</Button>
   ))
-  .add(
-    'screenshot',
-    withScreenshot()(() => <Button>Screenshot test with changes</Button>)
-  )
+  .add('screenshot', withScreenshot()(() => <Button>Screenshot test</Button>))
   .add('with some emoji', () => (
     <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
   ))
