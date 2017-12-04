@@ -60,7 +60,7 @@ const main = async () => {
   const projectInfoResponse = await fetch(
     'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'
   )
-  const projectInfo = projectInfoResponse.json()
+  const projectInfo = await projectInfoResponse.json()
   console.info({
     projectInfo
   })
