@@ -10,8 +10,7 @@ const artifactsEndpoint = (
   buildNumber = 51,
   vcsType = 'github',
   username = 'ciunkos',
-  project = 'ciunkos.com',
-  token = ''
+  project = 'ciunkos.com'
 ) =>
   `https://circleci.com/api/v1.1/project/${vcsType}/${username}/${project}/${
     buildNumber
@@ -60,6 +59,11 @@ const main = async () => {
   const projectInfoResponse = await fetch(
     'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'
   )
+  if (!projectInfoResponse.ok) {
+    throw new Error(
+      `Request failed: ${'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'}`
+    )
+  }
   const projectInfo = await projectInfoResponse.json()
   console.info({
     projectInfo
@@ -75,7 +79,11 @@ const main = async () => {
     }
   }
 
-  const response = await fetch(artifactsEndpoint(latest.build_num))
+  const artifactsUrl = artifactsEndpoint(latest.build_num)
+  const response = await fetch(artifactsUrl)
+  if (!response.ok) {
+    throw new Error(`Request failed: ${artifactsUrl}`)
+  }
   const json = await response.json()
   const screenshots = json.filter(x =>
     x.path.startsWith('visual-regression/after')
