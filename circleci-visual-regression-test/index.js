@@ -71,9 +71,9 @@ const main = async () => {
     throw new Error(`Request failed: ${projectUrl}`)
   }
   const projectInfo = await projectInfoResponse.json()
-  // console.info({
-  //   projectInfo
-  // })
+  console.info({
+    projectInfo
+  })
   let latest = projectInfo[0]
   while (latest.status !== 'success' && latest.branch !== 'master') {
     const previousSuccessfulBuildNumber =
@@ -88,7 +88,7 @@ const main = async () => {
   console.info({ latest })
 
   const artifactsUrl = artifactsEndpoint(latest.build_num)
-  //console.info({ artifactsUrl })
+  console.info({ artifactsUrl })
   const response = await fetch(artifactsUrl)
   if (!response.ok) {
     throw new Error(`Request failed: ${artifactsUrl}`)
@@ -100,7 +100,8 @@ const main = async () => {
   console.info({
     screenshots,
     screenshotsLength: screenshots.length,
-    total: json.length
+    total: json.length,
+    json
   })
   const tasks = await Promise.all(
     screenshots.map(async screenshot => {
