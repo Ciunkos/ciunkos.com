@@ -79,7 +79,7 @@ const main = async () => {
     status: latest.status,
     branch: latest.branch
   })
-  while (latest.status !== 'success' && latest.branch !== 'master') {
+  while (latest.status !== 'success' || latest.branch !== 'master') {
     const previousSuccessfulBuildNumber =
       latest.previous_successful_build.build_num
     console.info({
