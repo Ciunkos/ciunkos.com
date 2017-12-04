@@ -22,8 +22,16 @@ jobs:
       # disable package-lock
       - run: npm config set package-lock false
 
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+
       # install dependencies
       - run: npm install
+
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
       # run tests!
       - run: npm run test

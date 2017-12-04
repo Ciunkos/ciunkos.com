@@ -61,13 +61,18 @@ const main = async () => {
     'https://circleci.com/api/v1.1/project/github/ciunkos/ciunkos.com'
   )
   const projectInfo = projectInfoResponse.json()
-
+  console.info({
+    projectInfo
+  })
   let latest = projectInfo[0]
   while (latest.status !== 'success' && latest.branch !== 'master') {
     const previousSuccessfulBuildNumber = latest.build_num
     latest = projectInfo.find(
       x => x.build_num === previousSuccessfulBuildNumber
     )
+    if (!latest) {
+      throw new Error('Could not find latest successful master build')
+    }
   }
 
   const response = await fetch(artifactsEndpoint(latest.build_num))
@@ -87,9 +92,12 @@ const main = async () => {
       } catch (error) {
         console.info('error')
         console.error(error.message)
+        throw error
       }
     })
   )
 }
 
-main()
+main().catch(error => {
+  throw error
+})
