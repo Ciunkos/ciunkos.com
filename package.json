@@ -7,14 +7,19 @@
     "url": "https://github.com/ciunkos/ciunkos-com.git"
   },
   "scripts": {
-    "start": "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+    "start":
+      "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "npm run build:to \"build\"",
-    "build:to": "webpack --config webpack.config.js --colors --env.production --env.path",
-    "deploy": "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
+    "build:to":
+      "webpack --config webpack.config.js --colors --env.production --env.path",
+    "deploy":
+      "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
     "test": "jest \\.test\\.js$",
     "test:snapshot": "jest \\.snapshot\\.js$ --ci -u",
     "test:snapshot:extract": "node jest/moveSnapshots.js",
+    "test:visual":
+      "node circleci-visual-regression-test && reg-cli __screenshots__ /tmp/master/screenshots /tmp/visual-regression -R /tmp/visual-regression/index.html --ignoreChange",
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "prettier": "prettier --write \"src/**/*.js\"",
@@ -71,6 +76,7 @@
     "react-hot-loader": "^3.1.3",
     "react-test-renderer": "^16.1.1",
     "react-transform-catch-errors": "^1.0.2",
+    "reg-cli": "^0.10.8",
     "regenerator-runtime": "^0.11.0",
     "sass-loader": "^6.0.6",
     "storybook-addon-specifications": "^2.1.1",
@@ -109,13 +115,8 @@
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupTest.js",
-    "modulePaths": [
-      "<rootDir>/src/"
-    ],
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
-    ],
+    "modulePaths": ["<rootDir>/src/"],
+    "moduleFileExtensions": ["js", "jsx"],
     "testMatch": [
       "**/__tests__/**/*.js?(x)",
       "**/?(*.)(spec|test|snapshot).js?(x)"
@@ -125,7 +126,8 @@
     },
     "transform": {
       "^.+\\.js$": "babel-jest",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|txt|md)$": "<rootDir>/jest/fileTransformer.js",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga|txt|md)$":
+        "<rootDir>/jest/fileTransformer.js",
       "\\.(json)$": "<rootDir>/jest/jsonLoader.js",
       "\\.(txt|md)$": "<rootDir>/jest/rawLoader.js"
     },
@@ -135,7 +137,5 @@
   "jestWebpackResolver": {
     "webpackConfig": "webpack-dev-server.config.js"
   },
-  "browserslist": [
-    "> 3%"
-  ]
+  "browserslist": ["> 3%"]
 }
