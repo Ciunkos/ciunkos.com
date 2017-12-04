@@ -71,9 +71,9 @@ const main = async () => {
     throw new Error(`Request failed: ${projectUrl}`)
   }
   const projectInfo = await projectInfoResponse.json()
-  console.info({
-    projectInfo
-  })
+  // console.info({
+  //   projectInfo
+  // })
   let latest = projectInfo[0]
   while (latest.status !== 'success' && latest.branch !== 'master') {
     const previousSuccessfulBuildNumber = latest.build_num
@@ -84,8 +84,10 @@ const main = async () => {
       throw new Error('Could not find latest successful master build')
     }
   }
+  console.info({ latest })
 
   const artifactsUrl = artifactsEndpoint(latest.build_num)
+  console.info({ artifactsUrl })
   const response = await fetch(artifactsUrl)
   if (!response.ok) {
     throw new Error(`Request failed: ${artifactsUrl}`)
@@ -94,6 +96,7 @@ const main = async () => {
   const screenshots = json.filter(x =>
     x.path.startsWith('visual-regression/after')
   )
+  console.info(screenshots)
   const tasks = await Promise.all(
     screenshots.map(async screenshot => {
       try {
