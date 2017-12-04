@@ -15,7 +15,7 @@ const artifactsEndpoint = (
 ) =>
   `https://circleci.com/api/v1.1/project/${vcsType}/${username}/${project}/${
     buildNumber
-  }/artifacts?circle-token=${process.env.CIRCLE_TOJKE}`
+  }/artifacts?circle-token=${process.env.CIRCLE_TOKEN}`
 
 const createDir = dir => {
   const splitPath = dir.split('/')
@@ -64,9 +64,7 @@ const main = async () => {
     screenshots.map(async screenshot => {
       try {
         console.info(`Dowloading ${screenshot.url}`)
-        const data = await download(screenshot.url)(
-          `${output}${screenshot.path}`
-        )()
+        await download(screenshot.url)(`${output}${screenshot.path}`)()
         console.info(`Written to ${screenshot.path}`)
       } catch (error) {
         console.info('error')
