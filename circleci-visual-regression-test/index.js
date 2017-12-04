@@ -71,16 +71,26 @@ const main = async () => {
     throw new Error(`Request failed: ${projectUrl}`)
   }
   const projectInfo = await projectInfoResponse.json()
-  console.info({
-    projectInfo
-  })
+  // console.info({
+  //   projectInfo
+  // })
   let latest = projectInfo[0]
+  console.info({
+    status: latest.status,
+    branch: latest.branch
+  })
   while (latest.status !== 'success' && latest.branch !== 'master') {
     const previousSuccessfulBuildNumber =
       latest.previous_successful_build.build_num
+    console.info({
+      previousSuccessfulBuildNumber
+    })
     latest = projectInfo.find(
       x => x.build_num === previousSuccessfulBuildNumber
     )
+    console.info({
+      newLatest: latest
+    })
     if (!latest) {
       throw new Error('Could not find latest successful master build')
     }
