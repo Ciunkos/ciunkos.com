@@ -40,16 +40,19 @@ jobs:
 
       # run visual regression tests
       - run: npm run screenshot
+      - run: npm run test:visual
 
       - store_artifacts:
           path: __screenshots__
           destination: screenshots
 
-      - run: npm run test:visual
-
       - store_artifacts:
           path: /tmp/visual-regression
           destination: visual-regression
+
+      - store_artifacts:
+          path: /tmp/master
+          destination: master
 
       # build!
       - run: npm run build:to /tmp/build
