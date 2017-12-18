@@ -1,7 +1,7 @@
 import React from 'react'
-import { addDecorator, configure } from '@storybook/react';
-import { setScreenshotOptions } from 'storybook-chrome-screenshot';
-import './addons';
+import { addDecorator, configure } from '@storybook/react'
+import { setScreenshotOptions } from 'storybook-chrome-screenshot'
+import './addons'
 
 // setScreenshotOptions({
 //   viewport: [
@@ -49,20 +49,18 @@ setScreenshotOptions({
     width: 1280,
     height: 720,
     deviceScaleFactor: 1
-  },
-});
+  }
+})
 
 const req = require.context('../src', true, /stories\.js$/)
 
 function loadStories() {
-  //require('../src/stories.js');
-  req.keys().forEach((filename) => req(filename))
+  //require('../src/stories.js')
+  req.keys().forEach(filename => req(filename))
 }
 
+addDecorator(story => <div className="storybook">{story()}</div>)
 
+configure(loadStories, module)
 
-addDecorator(story => <div className='storybook'>{story()}</div>)
-
-configure(loadStories, module);
-
-import '../src/setupTest.js';
+import '../src/setupTest.js'

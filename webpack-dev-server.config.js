@@ -6,9 +6,8 @@ const postcssimport = require('postcss-import')
 const postcsscssnext = require('postcss-cssnext')
 
 const buildPath = path.resolve(__dirname, 'dev')
-const localizedResourcePatten = () => new RegExp('(LOCALE)(.*?)')
 
-module.exports = ({ locale } = {}) => ({
+module.exports = () => ({
   entry: ['babel-polyfill', 'react-hot-loader/patch', './src/app.js'],
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
@@ -66,19 +65,6 @@ module.exports = ({ locale } = {}) => ({
     ]
   },
   plugins: [
-    ...[
-      locale &&
-        new webpack.NormalModuleReplacementPlugin(
-          localizedResourcePatten(locale),
-          resource => {
-            /* eslint-disable no-param-reassign */
-            resource.request = resource.request.replace(
-              localizedResourcePatten(locale),
-              `$1$2/${locale}`
-            )
-          }
-        )
-    ].filter(x => x),
     new webpack.HotModuleReplacementPlugin(),
     new TransferWebpackPlugin(
       [

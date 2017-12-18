@@ -37,14 +37,14 @@ jobs:
       - run: npm run test
 
       # run snapshot tests!
-      - run: npm run test:snapshot
+      # - run: npm run test:snapshot
 
       # extract snapshot test results
-      - run: npm run test:snapshot:extract /tmp/snapshots
+      # - run: npm run test:snapshot:extract /tmp/snapshots
 
-      - store_artifacts:
-          path: /tmp/snapshots
-          destination: snapshots
+      # - store_artifacts:
+      #     path: /tmp/snapshots
+      #     destination: snapshots
 
       # run visual regression tests
       - run: npm run screenshot
