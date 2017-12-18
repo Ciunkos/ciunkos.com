@@ -13,7 +13,6 @@ export { default as Resume } from './Resume'
 export { default as routes } from './routes'
 export { default as sections } from './sections'
 export { default as skills } from './skills'
-export { default as social } from './social'
 export { default as styles } from './styles'
 export { default as tech } from './tech'
 

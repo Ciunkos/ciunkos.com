@@ -5,8 +5,8 @@ import { Section, ActionButton, InlineLink, Button, linkIf } from 'components'
 import { profile as cover } from './covers'
 import ProfilePicture from 'assets/profile-picture.jpg'
 import bio from 'resume/bio'
-import social from 'resume/social'
 import { ArrowDownward } from 'icons'
+import Social from 'social'
 
 const Bio = () => (
   <styled.Bio spacing>
@@ -19,16 +19,6 @@ const Bio = () => (
       </styled.BioEntry>
     ))}
   </styled.Bio>
-)
-
-export const Social = () => (
-  <styled.Social horizontal wrappable spacing media-no-print>
-    {Object.entries(social).map(([key, { name, icon, url }]) => (
-      <styled.SocialEntry tag="a" href={url} key={key} card-1>
-        <styled.SocialIcon tag="img" src={icon} alt={name} />
-      </styled.SocialEntry>
-    ))}
-  </styled.Social>
 )
 
 export default () => (

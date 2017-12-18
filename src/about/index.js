@@ -4,7 +4,7 @@ import styled from 'styled'
 import './styles'
 import { Page, Section, ActionButton, InlineLink, Button } from 'components'
 import { MailOutline } from 'icons'
-import { social } from 'resume'
+import Social from 'social'
 import cover from './cover.jpg'
 import background from './background.jpg'
 
@@ -44,19 +44,7 @@ const AboutPage = ({ location = {} }) => (
 
         <styled.SocialLinks>
           <h3>See my social profiles</h3>
-          <styled.Social
-            horizontal
-            wrappable
-            spacing
-            media-no-print
-            style={{ paddingTop: 16 }}
-          >
-            {Object.entries(social).map(([key, { name, icon, url }]) => (
-              <styled.SocialEntry tag="a" href={url} key={key} card-1>
-                <styled.SocialIcon tag="img" src={icon} alt={name} />
-              </styled.SocialEntry>
-            ))}
-          </styled.Social>
+          <Social />
         </styled.SocialLinks>
       </Section.Content>
 

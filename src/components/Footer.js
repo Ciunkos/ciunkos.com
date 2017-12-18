@@ -1,9 +1,10 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Section, InlineLink } from 'components'
+import Section from './Section'
+import InlineLink from './InlineLink'
 import PageIcon from 'assets/page-icon.jpg'
-import { Social } from 'resume/sections/Profile'
+import Social from 'social'
 import './Footer.css'
 
 const AttributionLink = () => (

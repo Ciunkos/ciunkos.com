@@ -1,10 +1,4 @@
-import {
-  linkedIn,
-  github,
-  stackOverflow,
-  twitter,
-  facebook
-} from 'assets/social'
+import { linkedIn, github, stackOverflow, twitter, facebook } from './assets'
 
 export default {
   linkedIn: {
