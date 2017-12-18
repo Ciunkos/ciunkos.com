@@ -25,8 +25,8 @@ console.info({
 const [, , locale] = process.argv
 
 glob(`**/*.${locale}*`, { cwd }, (er, filesRoot) => {
-  const package = require('../package.json')
-  const { locale: defaultLocale } = package
+  const pkg = require('../package.json')
+  const { locale: defaultLocale } = pkg
 
   const files = filesRoot.map(x => `${cwd}/${x}`.replace(/\\/gi, '/'))
   console.log({
@@ -47,19 +47,26 @@ glob(`**/*.${locale}*`, { cwd }, (er, filesRoot) => {
       console.info({
         renamedTo: originalName
       })
+      if (fs.existsSync(originalName)) {
+        throw new Error('File already exists!')
+      }
       fs.renameSync(newName, originalName)
     }
     console.log(`Move file ${fileName} to ${newName}`)
     //createDir(newName)
+    if (fs.existsSync(newName)) {
+      throw new Error('File already exists!')
+    }
     fs.renameSync(fileName, newName)
   })
 
   //write package.json
+  const localePath = path.resolve(cwd, '..', 'package.json')
   fs.writeFileSync(
-    '../package.json',
+    localePath,
     JSON.stringify(
       {
-        ...package,
+        ...pkg,
         locale
       },
       null,
