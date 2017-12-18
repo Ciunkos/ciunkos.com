@@ -6,47 +6,42 @@ import posts from 'blog/posts'
 import { Page, Section, ActionButton, InlineLink } from 'components'
 import homeBackground from 'assets/home-background.jpg'
 import { PostHeader, PostAbstract } from 'blog/post'
+import locale from './locale'
 import './styles.css'
 
 const { WelcomeMessage, BlogDescription } = styled
 
 const HomePage = () => (
-  <Page
-    Home
-    title="Blog - Przemysław Zalewski - Ciunkos"
-    description="Przemysław Zalewski - blog, apps, resume"
-  >
+  <Page Home title={locale.page.title} description={locale.page.description}>
     <Section Home cover={homeBackground} gradient="shadow">
       <Section.Content padding-2>
-        <h1>Ooh, hello there!</h1>
+        <h1>{locale.hero.title}</h1>
 
         <WelcomeMessage spacing-2>
           <BlogDescription>
-            <p>
-              Assorted ramblings poured from my mind onto the page... This is
-              kind of a blog.
-            </p>
-
-            <p>
-              Topics incluce JavaScript, React.js, functional programming and
-              app development.
-            </p>
+            {locale.hero.paragraphs.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
           </BlogDescription>
 
           <p>
-            If you have ever wondered, the{' '}
-            <InlineLink href="/about">guy on the left {"it's"} me</InlineLink>{' '}
-            and{' '}
-            <InlineLink href="https://www.facebook.com/ares.sp.zoo/">
-              the dog on the right is Ares
-            </InlineLink>.
+            {locale.hero.note({
+              aboutLink: content => (
+                <InlineLink href="/about">{content}</InlineLink>
+              ),
+              outboundLink: content => (
+                <InlineLink href="https://www.facebook.com/ares.sp.zoo/">
+                  {content}
+                </InlineLink>
+              )
+            })}
           </p>
         </WelcomeMessage>
       </Section.Content>
 
       <ActionButton
         href="#posts"
-        name="Read the stories"
+        name={locale.readStories}
         icon={<ArrowDownward />}
       />
     </Section>
@@ -64,7 +59,7 @@ const HomePage = () => (
 
         <ActionButton
           href={`/${post.slug}`}
-          name="Read more"
+          name={locale.readMore}
           icon={<ArrowForward />}
         />
       </Section>

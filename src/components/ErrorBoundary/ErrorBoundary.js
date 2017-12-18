@@ -20,11 +20,11 @@ class ErrorBoundary extends React.Component {
       return (
         <div className="ErrorBoundary spacing-2">
           <h1>Something went wrong</h1>
-          <p>
+          <div>
             <a href={`mailto:ciunkos@gmail.com?body=${encodedLog}`}>
               {"Please contact me and I'll get to the bottom of it."}
             </a>
-          </p>
+          </div>
           <div className="actions spacing">
             <a
               tag="a"

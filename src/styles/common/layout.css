@@ -1,235 +1,236 @@
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .fixed {
-    position: fixed;
-    /*top: 0;*/
-    left: 0;
-    right: 0;
+  position: fixed;
+  /*top: 0;*/
+  left: 0;
+  right: 0;
 }
 
 .wrappable {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.spaced {
+  justify-content: space-between;
 }
 
 .center {
-    justify-content: center;
+  justify-content: center;
 }
 
 .middle {
-    align-items: center;
+  align-items: center;
 }
 
 .flex {
-    flex: 1;
+  flex: 1;
 }
 
 .flex-2 {
-    flex: 2;
+  flex: 2;
 }
 
 .stretch {
-    flex: 1;
+  flex: 1;
 }
 
 .fill {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-
-
 .horizontal {
-    flex-direction: row;
+  flex-direction: row;
 }
 
 .margin-0 {
-    margin: 0px;
+  margin: 0px;
 }
 
 .margin {
-    margin: 8px;
+  margin: 8px;
 }
 
 .margin-1 {
-    margin: 8px;
+  margin: 8px;
 }
 
 .margin-2 {
-    margin: 16px;
+  margin: 16px;
 }
 
 .padding-0 {
-    padding: 0px;
+  padding: 0px;
 }
 
 .padding-half {
-    padding: 4px;
+  padding: 4px;
 }
 
-
 .padding {
-    padding: 8px;
+  padding: 8px;
 }
 
 .padding-1 {
-    padding: 8px;
+  padding: 8px;
 }
 
 .padding-2 {
-    padding: 16px;
+  padding: 16px;
 }
 
 .padding-horizontal-half {
-    padding-left: 4px;
-    padding-right: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 .padding-horizontal {
-    padding-left: 8px;
-    padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .padding-horizontal-1 {
-    padding-left: 8px;
-    padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .padding-horizontal-2 {
-    padding-left: 16px;
-    padding-right: 16px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 .padding-vertical-0 {
-    padding-top: 0px;
-    padding-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 
 .padding-vertical-half {
-    padding-top: 4px;
-    padding-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .padding-vertical {
-    padding-top: 8px;
-    padding-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .padding-vertical-1 {
-    padding-top: 8px;
-    padding-bottom: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .padding-vertical-2 {
-    padding-top: 16px;
-    padding-bottom: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .padding-bottom {
-    padding-bottom: 8px;
+  padding-bottom: 8px;
 }
 
 .padding-bottom-2 {
-    padding-bottom: 16px;
+  padding-bottom: 16px;
 }
 
 .vertical-spacing > * {
-    margin-bottom: 8px;
+  margin-bottom: 8px;
 }
 
 .vertical-spacing {
-    margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 
 .vertical-spacing-2 > * {
-    margin-bottom: 16px;
+  margin-bottom: 16px;
 }
 
 .horizontal-spacing-2 > * {
-    margin-right: 16px;
+  margin-right: 16px;
 }
 
 .horizontal-spacing-2 > :last-child {
-    margin-right: 0px;
+  margin-right: 0px;
 }
 
 .img-responsive {
-    max-width: 100%;
-    height: 100%;
-    display:block;
-    object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
 }
 
-.sixteen-nine  {
+.sixteen-nine {
   position: relative;
   overflow: hidden;
 }
 
-.sixteen-nine:before  {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: 56.25%;
+.sixteen-nine:before {
+  display: block;
+  content: '';
+  width: 100%;
+  padding-top: 56.25%;
 }
 
-.sixteen-nine > .content  {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+.sixteen-nine > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 :root {
-    --unit: 8px;
-    --print: 4px;
-  }
+  --unit: 8px;
+  --print: 4px;
+}
 
-  /*<Spacing>*/
-  .spacing-half:not(.horizontal) > :not(:last-child) {
-      margin-bottom: calc(var(--unit) * 0.5);
-  }
+/*<Spacing>*/
+.spacing-half:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 0.5);
+}
 
-  .spacing:not(.horizontal) > :not(:last-child) {
-      margin-bottom: var(--unit);
-  }
+.spacing:not(.horizontal) > :not(:last-child) {
+  margin-bottom: var(--unit);
+}
 
-  .spacing-2:not(.horizontal) > :not(:last-child) {
-    margin-bottom: calc(var(--unit) * 2);
-  }
+.spacing-2:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 2);
+}
 
-  .spacing-3:not(.horizontal) > :not(:last-child) {
-    margin-bottom: calc(var(--unit) * 3);
-  }
+.spacing-3:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 3);
+}
 
-  .spacing-4:not(.horizontal) > :not(:last-child) {
-    margin-bottom: calc(var(--unit) * 4);
-  }
+.spacing-4:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 4);
+}
 
-  .spacing-8:not(.horizontal) > :not(:last-child) {
-    margin-bottom: calc(var(--unit) * 8);
-  }
+.spacing-8:not(.horizontal) > :not(:last-child) {
+  margin-bottom: calc(var(--unit) * 8);
+}
 
-  .horizontal.spacing > :not(:last-child) {
-    margin-right: var(--unit);
-  }
+.horizontal.spacing > :not(:last-child) {
+  margin-right: var(--unit);
+}
 
-  .horizontal.spacing-2 > :not(:last-child) {
-    margin-right: calc(var(--unit) * 2);
-  }
+.horizontal.spacing-2 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 2);
+}
 
-  .horizontal.spacing-3 > :not(:last-child) {
-    margin-right: calc(var(--unit) * 3);
-  }
+.horizontal.spacing-3 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 3);
+}
 
-  .horizontal.spacing-4 > :not(:last-child) {
-    margin-right: calc(var(--unit) * 4);
-  }
+.horizontal.spacing-4 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 4);
+}
 
-  .horizontal.spacing-8 > :not(:last-child) {
-    margin-right: calc(var(--unit) * 8);
-  }
+.horizontal.spacing-8 > :not(:last-child) {
+  margin-right: calc(var(--unit) * 8);
+}

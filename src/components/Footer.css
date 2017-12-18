@@ -1,0 +1,11 @@
+footer {
+  line-height: 1.7em;
+}
+
+footer .Logo {
+  align-items: center;
+}
+
+footer .Logo .InlineLink {
+  font-weight: lighter;
+}

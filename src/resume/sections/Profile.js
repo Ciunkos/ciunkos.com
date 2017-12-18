@@ -21,7 +21,7 @@ const Bio = () => (
   </styled.Bio>
 )
 
-const Social = () => (
+export const Social = () => (
   <styled.Social horizontal wrappable spacing media-no-print>
     {Object.entries(social).map(([key, { name, icon, url }]) => (
       <styled.SocialEntry tag="a" href={url} key={key} card-1>

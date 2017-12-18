@@ -3,11 +3,13 @@ import { Helmet } from 'react-helmet'
 
 import styled from 'styled'
 import Header from './Header'
+import Footer from './Footer'
 
 const Page = ({
   children,
   subheader,
   header = <Header subheader={subheader} />,
+  footer = <Footer />,
   title,
   description,
   ...rest
@@ -17,9 +19,9 @@ const Page = ({
       <title>{title}</title>
       <meta name="description" content={description} />
     </Helmet>
-
     {header}
     <main>{children}</main>
+    {footer}
   </styled.Page>
 )
 

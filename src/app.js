@@ -8,4 +8,15 @@ import 'styles/common'
 
 import Main from './Main'
 
-render(<Main />, document.getElementById('app'))
+const rerender = Component => {
+  const root = document.getElementById('app')
+  render(<Component />, root)
+}
+
+rerender(Main)
+
+if (module.hot) {
+  module.hot.accept('./Main', () => {
+    rerender(Main)
+  })
+}

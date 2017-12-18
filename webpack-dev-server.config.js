@@ -9,7 +9,7 @@ const buildPath = path.resolve(__dirname, 'dev')
 const localizedResourcePatten = () => new RegExp('(LOCALE)(.*?)')
 
 module.exports = ({ locale } = {}) => ({
-  entry: './src/app.js',
+  entry: ['babel-polyfill', 'react-hot-loader/patch', './src/app.js'],
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
