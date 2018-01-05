@@ -19,8 +19,8 @@ const HomePage = () => (
 
         <WelcomeMessage spacing-2>
           <BlogDescription>
-            {locale.hero.paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
+            {locale.hero.paragraphs.map(paragraph => (
+              <p key={paragraph}>{paragraph}</p>
             ))}
           </BlogDescription>
 

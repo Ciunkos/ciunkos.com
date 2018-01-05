@@ -15,13 +15,13 @@ export default class DisqusThread extends React.PureComponent {
       return
     }
 
-    const { identifier, title, url, category_id, onNewComment } = this.props
+    const { identifier, title, url, categoryId, onNewComment } = this.props
 
     const config = {
       identifier,
       title,
       url,
-      category_id,
+      category_id: categoryId,
       onNewComment
     }
 
@@ -60,7 +60,7 @@ export default class DisqusThread extends React.PureComponent {
       identifier,
       title,
       url,
-      category_id,
+      categoryId,
       onNewComment,
       ...rest
     } = this.props
