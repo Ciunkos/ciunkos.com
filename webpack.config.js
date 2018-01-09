@@ -6,6 +6,7 @@ const postcssimport = require('postcss-import')
 const postcsscssnext = require('postcss-cssnext')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const { resolve } = path
 
@@ -121,17 +122,17 @@ module.exports = ({ path, production = true } = {}) => {
         },
         plugins: [
           ...commonPlugins,
-          new webpack.optimize.UglifyJsPlugin({
-            beautify: false,
-            mangle: {
-              screw_ie8: true,
-              keep_fnames: true
-            },
-            compress: {
-              screw_ie8: true,
-              warnings: false
-            },
-            comments: false
+          new UglifyJsPlugin({
+            uglifyOptions: {
+              beautify: false,
+              mangle: {
+                keep_fnames: true
+              },
+              compress: {
+                warnings: false
+              },
+              comments: false
+            }
           }),
           new ExtractTextPlugin({
             filename: 'styles-[hash].css',
