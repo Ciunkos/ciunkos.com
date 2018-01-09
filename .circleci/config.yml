@@ -47,12 +47,12 @@ jobs:
       #     destination: snapshots
 
       # run visual regression tests
-      - run: npm run screenshot
-      - run: npm run test:visual
+      #- run: npm run screenshot
+      #- run: npm run test:visual
 
-      - store_artifacts:
-          path: /tmp/visual-regression
-          destination: visual-regression
+      #- store_artifacts:
+      #    path: /tmp/visual-regression
+      #    destination: visual-regression
 
       # build!
       - run: npm run build:to /tmp/build

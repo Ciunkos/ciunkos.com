@@ -10,15 +10,7 @@ const CircularDependencyPlugin = require('circular-dependency-plugin')
 const { resolve } = path
 
 module.exports = ({ path, production = true } = {}) => {
-  const buildTime = new Date().toISOString().replace(/:|\./g, '_')
   const buildPath = resolve(__dirname, path || 'build')
-  /* eslint-disable no-console */
-  console.log(`Build started at ${buildTime}`)
-  /* eslint-disable no-console */
-  console.log({
-    buildPath,
-    production
-  })
   {
     const commonPlugins = [
       new webpack.DefinePlugin({
