@@ -8,12 +8,12 @@
   },
   "scripts": {
     "start":
-      "webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
+      "cross-env NODE_ENV=development webpack-dev-server --config webpack-dev-server.config.js --progress --inline --colors",
     "build": "npm run build:to \"build\"",
     "build:to":
-      "webpack --config webpack.config.js --colors --env.production --env.path",
+      "cross-env NODE_ENV=production webpack --config webpack.config.js --colors --env.production --env.path",
     "deploy":
-      "webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
+      "cross-env NODE_ENV=production webpack --config webpack.config.js --progress --colors --env.production --env.path \"D:\\www\\ciunkos.com\"",
     "start:server": "node build/server.js",
     "switch-locale": "node switch-locale",
     "switch-locale:en": "node switch-locale en",
@@ -58,6 +58,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "circular-dependency-plugin": "^4.4.0",
     "css-loader": "^0.28.8",
+    "cross-env": "^5.1.3",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.15.0",

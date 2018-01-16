@@ -12,10 +12,13 @@
     "react",
     "stage-0"
   ],
-  "plugins": ["react-hot-loader/babel", "transform-runtime"],
+  "plugins": ["transform-runtime"],
   "env": {
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
     }
   }
 }
