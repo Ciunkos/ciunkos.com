@@ -14,9 +14,10 @@ module.exports = ({ path, production = true } = {}) => {
   const buildPath = resolve(__dirname, path || 'build')
   {
     const commonPlugins = [
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify('production')
-      }),
+      production &&
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('production')
+        }),
       new webpack.LoaderOptionsPlugin({
         minimize: production,
         debug: !production
@@ -29,7 +30,7 @@ module.exports = ({ path, production = true } = {}) => {
           compilation.errors.push(new Error(paths.join(' -> ')))
         }
       })
-    ]
+    ].filter(x => x)
 
     const commonLoaders = [
       {
@@ -156,6 +157,7 @@ module.exports = ({ path, production = true } = {}) => {
         name: 'server',
         target: 'node',
         entry: './src/server/index.js',
+        externals: ['express', 'encoding'],
         resolve: {
           modules: [resolve(__dirname, 'src'), 'node_modules']
         },
