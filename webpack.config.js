@@ -31,16 +31,8 @@ module.exports = ({ path, production = true } = {}) => {
         debug: !production
       }),
       new UglifyJsPlugin({
-        uglifyOptions: {
-          beautify: false,
-          mangle: {
-            keep_fnames: false
-          },
-          compress: {
-            warnings: false
-          },
-          comments: false
-        }
+        parallel: 4,
+        cache: true
       })
     ].filter(x => x)
 
