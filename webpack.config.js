@@ -157,7 +157,6 @@ module.exports = ({ path, production = true } = {}) => {
         name: 'server',
         target: 'node',
         entry: './src/server/index.js',
-        externals: ['express', 'encoding'],
         resolve: {
           modules: [resolve(__dirname, 'src'), 'node_modules']
         },

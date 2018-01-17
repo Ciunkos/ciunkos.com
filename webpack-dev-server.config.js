@@ -9,7 +9,6 @@ const buildPath = path.resolve(__dirname, 'dev')
 
 module.exports = () => ({
   entry: ['babel-polyfill', 'react-hot-loader/patch', './src/app.js'],
-  externals: ['express', 'encoding'],
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
