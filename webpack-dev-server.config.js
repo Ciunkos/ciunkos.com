@@ -37,7 +37,7 @@ module.exports = () => ({
         loader: 'babel-loader'
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png)$/,
         loader: 'file-loader',
         options: {
           name: '[name].[hash].[ext]'

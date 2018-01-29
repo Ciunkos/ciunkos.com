@@ -51,7 +51,7 @@ module.exports = ({ path, production = true } = {}) => {
         loader: 'raw-loader'
       },
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpg|png)$/,
         loaders: [
           {
             loader: 'file-loader',
