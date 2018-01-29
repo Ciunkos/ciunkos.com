@@ -5,11 +5,14 @@ import social from './data'
 
 const Social = () => (
   <styled.Social horizontal wrappable spacing media-no-print>
-    {Object.entries(social).map(([key, { name, icon, url }]) => (
-      <styled.SocialEntry tag="a" href={url} key={key} card-1>
-        <styled.SocialIcon tag="img" src={icon} alt={name} />
-      </styled.SocialEntry>
-    ))}
+    {Object.entries(social).map(([key, { name, icon, url }]) => {
+      const Renderer = icon
+      return (
+        <styled.SocialEntry tag="a" href={url} key={key} title={name} card-1>
+          <Renderer className="SocialIcon" />
+        </styled.SocialEntry>
+      )
+    })}
   </styled.Social>
 )
 
