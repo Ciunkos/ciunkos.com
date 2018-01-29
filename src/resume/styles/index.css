@@ -6,14 +6,20 @@
 
 .SocialEntry {
   margin-bottom: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .Card {
   background: white;
-  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px,
+    rgba(0, 0, 0, 0.117647) 0px 1px 4px;
   border-radius: 2px;
 }
 
 .shadow-1 {
-  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px,
+    rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
