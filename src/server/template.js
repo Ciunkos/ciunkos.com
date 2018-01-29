@@ -12,6 +12,13 @@ const appStylesPath = find(
 
 //const fontCss = '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">'
 
+const preloadAsset = (path, role) => `<${path}>; rel=preload; as=${role}`
+
+export const preloadHeader = [
+  preloadAsset(`/${appSourcePath}`, 'script'),
+  preloadAsset(`/${appStylesPath}`, 'style')
+].join(', ')
+
 const template = (body, helmet) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>

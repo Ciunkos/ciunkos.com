@@ -12,15 +12,19 @@ import { Helmet } from 'react-helmet'
 import { match, RouterContext } from 'react-router'
 
 import routes from 'routes'
-import template from './template'
+import template, { preloadHeader } from './template'
 import mailer from './mailer'
 
 const app = express()
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
+const enablePreload = res => res.header('Link', preloadHeader)
+
 const cache = {}
 app.get('*', (req, res) => {
+  enablePreload(res)
+
   if (cache[req.url]) {
     res.send(cache[req.url])
     return
