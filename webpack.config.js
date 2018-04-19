@@ -11,6 +11,10 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const { resolve } = path
 
 module.exports = ({ path, production = true } = {}) => {
+  console.log({
+    path,
+    __dirname
+  })
   const buildPath = resolve(__dirname, path || 'build')
   {
     const commonPlugins = [
@@ -44,7 +48,8 @@ module.exports = ({ path, production = true } = {}) => {
       },
       {
         test: /\.json$/,
-        use: 'json-loader'
+        use: 'json-loader',
+        type: 'javascript/auto'
       },
       {
         test: /\.(md|txt)$/,

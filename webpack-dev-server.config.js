@@ -43,6 +43,11 @@ module.exports = () => ({
           name: '[name].[hash].[ext]'
         }
       },
+      {
+        test: /\.json$/,
+        use: 'json-loader',
+        type: 'javascript/auto'
+      },
       { test: /\.(md|txt)$/, loader: 'raw-loader' },
       {
         test: /\.css$/,
