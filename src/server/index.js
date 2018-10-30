@@ -6,6 +6,8 @@ if (typeof window === 'undefined') {
 
 import express from 'express'
 import bodyParser from 'body-parser'
+import glob from 'glob'
+import path from 'path'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
@@ -15,14 +17,56 @@ import routes from 'routes'
 import template, { preloadHeader } from './template'
 import mailer from './mailer'
 
+const staticFiles = glob.sync('**/*.{js,css,json,png,jpg,txt,pdf,zip,xml}')
+const staticExcludes = [
+  /server\.js$/,
+  /stats\.json$/,
+  /static\.html$/,
+  /Web\.config$/
+]
+
+console.log({
+  staticFiles,
+  staticExcludes
+})
+
 const app = express()
+
+const filterHost = hostname => (req, res, next) => {
+  if (req.hostname !== hostname) {
+    return res.end()
+  }
+
+  return next()
+}
+
+app.use(filterHost('ciunkos.com'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 const enablePreload = res => res.header('Link', preloadHeader)
 
 const cache = {}
+
+staticFiles
+  .filter(_ => !staticExcludes.some(regex => _.match(regex)))
+  .forEach(_ => {
+    app.get(`/${_}`, (req, res) => {
+      const filePath = path.resolve(process.cwd(), _)
+      console.log({
+        route: `/${_}`,
+        url: req.url,
+        file: filePath
+      })
+      res.sendFile(filePath)
+    })
+  })
+
 app.get('*', (req, res) => {
+  console.log({
+    route: '*',
+    url: req.url
+  })
   enablePreload(res)
 
   if (cache[req.url]) {
@@ -66,4 +110,4 @@ app.post('/contact', async (req, res) => {
   }
 })
 
-app.listen(process.env.PORT)
+app.listen(80)
