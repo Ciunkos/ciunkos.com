@@ -6,7 +6,6 @@ const postcssimport = require('postcss-import')
 const postcsscssnext = require('postcss-cssnext')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 const CircularDependencyPlugin = require('circular-dependency-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 const { resolve } = path
 
@@ -33,10 +32,6 @@ module.exports = ({ path, production = true } = {}) => {
       new webpack.LoaderOptionsPlugin({
         minimize: production,
         debug: !production
-      }),
-      new UglifyJsPlugin({
-        parallel: 4,
-        cache: true
       })
     ].filter(x => x)
 
