@@ -1,18 +1,18 @@
 {
+  "plugins": [
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-export-namespace-from",
+    ["@babel/plugin-proposal-class-properties", { "loose": false }]
+  ],
   "presets": [
     [
-      "env",
+      "@babel/preset-env",
       {
-        "modules": false,
-        "targets": {
-          "node": "current"
-        }
+        "modules": false
       }
     ],
-    "react",
-    "stage-0"
+    "@babel/preset-react"
   ],
-  "plugins": ["transform-runtime"],
   "env": {
     "test": {
       "plugins": ["transform-es2015-modules-commonjs"]
