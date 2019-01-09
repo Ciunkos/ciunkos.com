@@ -52,7 +52,8 @@ export default () => (
         of{' '}
         <InlineLink href="http://pwr.edu.pl/en/">
           <em>Wroclaw University of Science and Technology</em>
-        </InlineLink>.
+        </InlineLink>
+        .
       </p>
 
       <p className="media-no-print">

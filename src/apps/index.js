@@ -25,7 +25,7 @@ const dimmensions = str => {
   if (matches) {
     const width = matches[0]
     const height = matches[1]
-    scaledWidth = width / height * baseHeight
+    scaledWidth = (width / height) * baseHeight
     scaledHeight = baseHeight
   }
   return {

@@ -93,67 +93,69 @@ export default () => (
       </OverflowButton>
 
       <styled.ProjectsGrid id="projectGrid" horizontal full-width>
-        {projects.filter(x => !x.exclude).map(project => (
-          <styled.Card
-            ProjectCard
-            key={project.name}
-            card-1
-            media-no-print={!project.print}
-          >
-            <styled.ProjectHeader padding-2 spacing-2 shadow-1>
-              <styled.Row horizontal spacing-2>
-                <styled.ProjectIcon
-                  tag="img"
-                  alt={project.name}
-                  src={project.icon}
-                  width="40"
-                  height="40"
-                />
-                <styled.ProjectHeadline center>
-                  <styled.ProjectName tag="h4">
-                    {project.name}
-                  </styled.ProjectName>
-                  {project.url && (
-                    <styled.ProjectUrl>{project.url}</styled.ProjectUrl>
-                  )}
-                </styled.ProjectHeadline>
-              </styled.Row>
-            </styled.ProjectHeader>
-
-            <styled.CardContent
-              padding-2
-              spacing-2
-              style={{ lineHeight: '1.7em' }}
+        {projects
+          .filter(x => !x.exclude)
+          .map(project => (
+            <styled.Card
+              ProjectCard
+              key={project.name}
+              card-1
+              media-no-print={!project.print}
             >
-              <styled.Description>{project.description}</styled.Description>
+              <styled.ProjectHeader padding-2 spacing-2 shadow-1>
+                <styled.Row horizontal spacing-2>
+                  <styled.ProjectIcon
+                    tag="img"
+                    alt={project.name}
+                    src={project.icon}
+                    width="40"
+                    height="40"
+                  />
+                  <styled.ProjectHeadline center>
+                    <styled.ProjectName tag="h4">
+                      {project.name}
+                    </styled.ProjectName>
+                    {project.url && (
+                      <styled.ProjectUrl>{project.url}</styled.ProjectUrl>
+                    )}
+                  </styled.ProjectHeadline>
+                </styled.Row>
+              </styled.ProjectHeader>
 
-              {project.client && (
-                <styled.ClientSection>
-                  <styled.Subheader>Client</styled.Subheader>
-                  <p>{project.client}</p>
-                </styled.ClientSection>
-              )}
+              <styled.CardContent
+                padding-2
+                spacing-2
+                style={{ lineHeight: '1.7em' }}
+              >
+                <styled.Description>{project.description}</styled.Description>
 
-              <styled.TechnologySection>
-                <styled.Subheader>Technology</styled.Subheader>
-                <p>
-                  {project.tech
-                    .map(x => (typeof x === 'string' ? x : x.name))
-                    .join(', ')}
-                </p>
-              </styled.TechnologySection>
+                {project.client && (
+                  <styled.ClientSection>
+                    <styled.Subheader>Client</styled.Subheader>
+                    <p>{project.client}</p>
+                  </styled.ClientSection>
+                )}
 
-              <styled.ResponsibilitiesSection>
-                <styled.Subheader>My responsibilities</styled.Subheader>
-                <ul>
-                  {project.responsibilities.map(responsibility => (
-                    <li key={responsibility}>{responsibility}</li>
-                  ))}
-                </ul>
-              </styled.ResponsibilitiesSection>
-            </styled.CardContent>
-          </styled.Card>
-        ))}
+                <styled.TechnologySection>
+                  <styled.Subheader>Technology</styled.Subheader>
+                  <p>
+                    {project.tech
+                      .map(x => (typeof x === 'string' ? x : x.name))
+                      .join(', ')}
+                  </p>
+                </styled.TechnologySection>
+
+                <styled.ResponsibilitiesSection>
+                  <styled.Subheader>My responsibilities</styled.Subheader>
+                  <ul>
+                    {project.responsibilities.map(responsibility => (
+                      <li key={responsibility}>{responsibility}</li>
+                    ))}
+                  </ul>
+                </styled.ResponsibilitiesSection>
+              </styled.CardContent>
+            </styled.Card>
+          ))}
         <ProjectCallToAction />
 
         <styled.OverflowLastItemFix media-no-print />
