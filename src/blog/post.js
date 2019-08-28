@@ -17,7 +17,7 @@ const CommentCount = ({ post, ...rest }) => (
 
 export const PostMeta = ({ post, ...rest }) => (
   <Paragraph tiny {...rest}>
-    {post.date || 'Draft'} · {post.readingTime} min read ·{' '}
+    {post.date || 'Draft'} ·{post.readingTime} min read ·{' '}
     <InlineLink href={`/${post.slug}#comments`}>
       <CommentCount post={post} />
     </InlineLink>

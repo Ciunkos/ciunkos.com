@@ -8,7 +8,7 @@ const postcsscssnext = require('postcss-cssnext')
 const buildPath = path.resolve(__dirname, 'dev')
 
 module.exports = () => ({
-  entry: ['babel-polyfill', 'react-hot-loader/patch', './src/app.js'],
+  entry: './src/app.js',
   resolve: {
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },

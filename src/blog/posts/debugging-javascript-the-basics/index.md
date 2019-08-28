@@ -3,20 +3,21 @@
 When it comes to debugging a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let's explore what we can do about it and bravely fight nasty bugs!
 
 ## Debugging with `console.log`
+
 Long, long ago, when people on Earth were using stones to do the most of their tasks, programmers were using standard output to print out information about process status. It is pretty easy to do imperatively - just add logging statements to print out values and diagnostic messages whenever there is a need.
 
 Let's assume that that we are debugging this little function:
 
 ```javascript
 function getMaxAge(people) {
-  var maxAge = 10;
-  for(var i=0; i<=people.length; i++) {
-    var age = people[i];
-    if(age <= maxAge) {
-      maxAge = age;
+  var maxAge = 10
+  for (var i = 0; i <= people.length; i++) {
+    var age = people[i]
+    if (age <= maxAge) {
+      maxAge = age
     }
   }
-  return maxAge;
+  return maxAge
 }
 ```
 
@@ -24,30 +25,30 @@ When we run this with `[10, 34, 23, 50]` it returns an `undefined`. Why? Let's p
 
 ```javascript
 function getMaxAge(people) {
-  console.log('people');
-  console.log(people);
+  console.log('people')
+  console.log(people)
 
-  var maxAge = 10;
-  for(var i=0; i<=people.length; i++) {
-    console.log('processing index');
-    console.log(i);
+  var maxAge = 10
+  for (var i = 0; i <= people.length; i++) {
+    console.log('processing index')
+    console.log(i)
 
-    var age = people[i];
+    var age = people[i]
 
-    console.log('current age');
+    console.log('current age')
     console.log(age)
 
-    console.log('testing age <= maxAge');
+    console.log('testing age <= maxAge')
     console.log(age <= maxAge)
 
-    if(age <= maxAge) {
-      maxAge = age;
+    if (age <= maxAge) {
+      maxAge = age
 
-      console.log('found new maxAge');
+      console.log('found new maxAge')
       console.log(maxAge)
     }
   }
-  return maxAge;
+  return maxAge
 }
 ```
 
@@ -92,7 +93,7 @@ todo: mention [nameof] operator from C#
 
 ## (Wire)tapping method chains
 
-Sometimes issues occur somewhere between long chain of operations. There comes handy `tap` method inspited by [Ruby's tap](https://ruby-doc.org/core-2.4.1/Object.html#method-i-tap). Basically it  calls user defined function with the argument and returns the same argument. It is is the identity function with a side-effect callback.
+Sometimes issues occur somewhere between long chain of operations. There comes handy `tap` method inspited by [Ruby's tap](https://ruby-doc.org/core-2.4.1/Object.html#method-i-tap). Basically it calls user defined function with the argument and returns the same argument. It is is the identity function with a side-effect callback.
 
 ```javascript
 const tap = f => x => {
@@ -110,36 +111,35 @@ const log = tap(console.log)
 With the help of this little method we can just insert it to a long chain of opperations and ispect the values as they flow through.
 
 ```javascript
-[1, 2, 3, 4, 5]
-.map(x => x * x)
-.map(log)
-.filter(even)
-.map(log)
+;[1, 2, 3, 4, 5]
+  .map(x => x * x)
+  .map(log)
+  .filter(even)
+  .map(log)
 ```
 
 After extending Array's prototype we can use this function as a method.
 
 ```javascript
-Array.prototype.tap = tap;
-
-[1, 2, 3, 4, 5]
-.map(x => x * x)
-.tap(x => console.log(`squares ${x}`))
-.filter(even)
-.tap(even => logValues({even}))
+Array.prototype.tap = tap
+;[1, 2, 3, 4, 5]
+  .map(x => x * x)
+  .tap(x => console.log(`squares ${x}`))
+  .filter(even)
+  .tap(even => logValues({ even }))
 ```
 
 There are already made modules which implement similar interface:
 
-  * [lodash tap](https://lodash.com/docs/4.17.4#tap)
-  * [underscore tap](http://underscorejs.org/#tap)
-  * [bluebird tap](http://bluebirdjs.com/docs/api/tap.html)
+- [lodash tap](https://lodash.com/docs/4.17.4#tap)
+- [underscore tap](http://underscorejs.org/#tap)
+- [bluebird tap](http://bluebirdjs.com/docs/api/tap.html)
 
 ## Debugging with DevTools
 
 Most browsers come with built-in support of development tools. For example, you can open Chrome DevTools by pressing F12 - where you can inspect the html elements, styling, and most importantly the source code.
 
-Whenever you are bombarded with a strange "Uncaught TypeError: undefined is not a function", or another exception you can enable *Pause on exceptions* and ispect the error in place.
+Whenever you are bombarded with a strange "Uncaught TypeError: undefined is not a function", or another exception you can enable _Pause on exceptions_ and ispect the error in place.
 
 ![Pause on exceptions in Chrome DevTools](./pause-on-exceptions.png)
 

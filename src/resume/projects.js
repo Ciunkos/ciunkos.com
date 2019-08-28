@@ -1,5 +1,3 @@
-import tech from './tech'
-import companies from './companies'
 import {
   apkaTv,
   fastCoffee,
@@ -15,6 +13,8 @@ import {
   platformerGameEngine,
   classicGames
 } from 'projects'
+import tech from './tech'
+import companies from './companies'
 
 export default [
   {

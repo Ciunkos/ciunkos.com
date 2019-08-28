@@ -4,6 +4,7 @@ import styled from 'styled'
 
 export default class HeaderContainer extends React.PureComponent {
   state = { scrollY: 0 }
+
   listener = null
 
   startLoop = () => {
@@ -13,7 +14,8 @@ export default class HeaderContainer extends React.PureComponent {
   }
 
   loop = () => {
-    const { height } = this.props
+    const { height, subheader } = this.props
+    const { scrollY } = this.state
 
     const HeaderFlowHeight = 64 + height
 
@@ -39,7 +41,7 @@ export default class HeaderContainer extends React.PureComponent {
         // automatic scroll or jump to section, ignore scrolling up
         // only with subheader
         if (Math.abs(prevState - state) > 300 && state > 0) {
-          if (this.props.subheader) {
+          if (subheader) {
             position = 'absolute'
             top = Math.max(state - HeaderFlowHeight, 0)
             breakpoint = Math.max(state - HeaderFlowHeight, 0)
@@ -87,7 +89,7 @@ export default class HeaderContainer extends React.PureComponent {
 
       const ternaryScrollState = state && (state > 64 ? 65 : 64)
       if (
-        this.state.scrollY !== ternaryScrollState
+        scrollY !== ternaryScrollState
         /* || this.state.position !== position
              || this.state.top !== top */
       ) {

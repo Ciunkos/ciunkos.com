@@ -2,22 +2,10 @@ const fs = require('fs')
 const glob = require('glob')
 const path = require('path')
 
-const outputDirectory = [process.argv[2] || 'snapshots']
-  .filter(x => x)
-  .join('/')
-
-const createDir = dir => {
-  const splitPath = dir.split('/')
-  splitPath.reduce((path, subPath) => {
-    if (path && !fs.existsSync(path)) {
-      console.log(`Create directory at ${path}.`)
-      fs.mkdirSync(path)
-    }
-    return `${path}/${subPath}`
-  })
-}
+const pkg = require('../package.json')
 
 const cwd = path.resolve(process.cwd(), './src/')
+
 console.info({
   cwd
 })
@@ -25,7 +13,6 @@ console.info({
 const [, , locale] = process.argv
 
 glob(`**/*.${locale}*`, { cwd }, (er, filesRoot) => {
-  const pkg = require('../package.json')
   const { locale: defaultLocale } = pkg
 
   const files = filesRoot.map(x => `${cwd}/${x}`.replace(/\\/gi, '/'))

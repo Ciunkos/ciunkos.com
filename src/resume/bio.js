@@ -1,7 +1,7 @@
 export default {
   age: {
     name: 'Age',
-    value: 26
+    value: 28
   },
   phone: {
     name: 'Phone',

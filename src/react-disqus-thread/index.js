@@ -55,13 +55,13 @@ export default class DisqusThread extends React.PureComponent {
 
   render() {
     const {
-      tag: Tag = 'div',
-      shortname,
+      categoryId,
       identifier,
+      onNewComment,
+      shortname,
+      tag: Tag = 'div',
       title,
       url,
-      categoryId,
-      onNewComment,
       ...rest
     } = this.props
 
@@ -74,14 +74,12 @@ export default class DisqusThread extends React.PureComponent {
           {!loaded && (
             <script
               key="disqus"
-              src={`//${this.props.shortname}.disqus.com/embed.js`}
+              src={`//${shortname}.disqus.com/embed.js`}
               data-timestamp={+new Date()}
             />
           )}
         </Helmet>
-
         <div id="disqus_thread" />
-
         <noscript>
           Please enable JavaScript to view the
           <a href="https://disqus.com/?ref_noscript" rel="nofollow">

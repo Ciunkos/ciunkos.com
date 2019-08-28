@@ -11,6 +11,7 @@ class ErrorBoundary extends React.Component {
   }
 
   render() {
+    const { children } = this.props
     const { hasError, info } = this.state
 
     if (hasError) {
@@ -64,7 +65,8 @@ class ErrorBoundary extends React.Component {
         </div>
       )
     }
-    return this.props.children
+
+    return children
   }
 }
 

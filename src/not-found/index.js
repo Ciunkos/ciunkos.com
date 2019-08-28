@@ -8,10 +8,9 @@ const NotFoundPage = () => (
     <Section cover="https://source.unsplash.com/random">
       <Section.Content padding-2 spacing-4>
         <h1>Ooops!</h1>
-
         <p>
-          {"The page you've requested does not exist."} If you believe this to
-          be an error,{' '}
+          The page you've requested does not exist. If you believe this to be an
+          error,{' '}
           <InlineLink href="/about#contact">
             {"please contact me and I'll get to the bottom of it."}
           </InlineLink>

@@ -4,7 +4,6 @@ Have you ever been tired of setting up development enviroment before you could w
 
 The most common but not so well known REPL for JS is the DevTools - just open it with F12 and type some code - it will be evaluated and the result printed out. Want you to try new language features, not yet available in the current browsers? Let's explore some possibilities.
 
-
 ## JavaScript
 
 ### Babel
@@ -18,7 +17,6 @@ Babel is a JavaScript compiler that transpile new language features to the commo
 [node.js](https://repl.it/languages/nodejs)
 
 ### node-repl
-
 
 ## Haskell
 

@@ -11,7 +11,7 @@ const Contracts = ({ contracts }) => (
       <styled.Contract key={contract.date} {...contract.classes}>
         <styled.Subheader Subheader>{contract.date}</styled.Subheader>
         <p>
-          {contract.company} · {contract.title} ·{' '}
+          {contract.company} ·{contract.title} ·{' '}
           {contract.scope && `${contract.scope} · `}
           {contract.tech}
         </p>

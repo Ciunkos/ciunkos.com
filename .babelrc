@@ -1,5 +1,11 @@
 {
   "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"]
+      }
+    ],
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",
     ["@babel/plugin-proposal-class-properties", { "loose": false }]
@@ -8,17 +14,11 @@
     [
       "@babel/preset-env",
       {
-        "modules": false
+        "corejs": "core-js@3",
+        "modules": false,
+        "useBuiltIns": "entry"
       }
     ],
     "@babel/preset-react"
-  ],
-  "env": {
-    "test": {
-      "plugins": ["transform-es2015-modules-commonjs"]
-    },
-    "development": {
-      "plugins": ["react-hot-loader/babel"]
-    }
-  }
+  ]
 }

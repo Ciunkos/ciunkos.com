@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 export const page = {
   title: 'Blog - Przemysław Zalewski - Ciunkos',
@@ -12,10 +12,10 @@ export const hero = {
     'Topics include JavaScript, React, functional programming and app development.'
   ],
   note: ({ aboutLink, outboundLink }) => (
-    <Fragment>
+    <>
       If you have ever wondered, the {aboutLink("guy on the left it's me")} and{' '}
       {outboundLink('the dog on the right is Ares 🐶')}
-    </Fragment>
+    </>
   )
 }
 export const readStories = 'Read the stories'

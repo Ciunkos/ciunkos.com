@@ -1,5 +1,3 @@
-import 'babel-polyfill'
-
 if (typeof window === 'undefined') {
   global.window = {}
 }

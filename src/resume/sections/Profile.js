@@ -2,11 +2,11 @@ import React from 'react'
 
 import styled from 'styled'
 import { Section, ActionButton, InlineLink, Button, linkIf } from 'components'
-import { profile as cover } from './covers'
 import ProfilePicture from 'assets/profile-picture.jpg'
 import bio from 'resume/bio'
 import { ArrowDownward } from 'icons'
 import Social from 'social'
+import { profile as cover } from './covers'
 
 const Bio = () => (
   <styled.Bio spacing>
@@ -34,7 +34,7 @@ export default () => (
           <p>Full-stack web and Windows app developer from Wroclaw.</p>
           <p>
             Currently working for{' '}
-            <InlineLink href="http://sandstream.pl">
+            <InlineLink href="https://sandstream.pl">
               <em>Sandstream Development Sp. z o.o.</em>
             </InlineLink>
           </p>

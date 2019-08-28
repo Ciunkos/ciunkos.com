@@ -17,7 +17,7 @@ const HeaderBar = ({ routes = [], ...rest }) => (
           center
           middle
           navbaritem
-          {...route.classes || {}}
+          {...(route.classes || {})}
           style={{
             minWidth: 24,
             paddingLeft: 0,

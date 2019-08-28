@@ -34,7 +34,6 @@ You can specify here what file types will be loaded and how the output files wil
 
 After configuring the bundler, you can proceed to import files and data in the code just like regular modules.
 
-
 ### JSON files
 
 ```javascript
@@ -42,7 +41,6 @@ import data from './data.json'
 
 console.log(data)
 ```
-
 
 ### Text files
 
@@ -65,7 +63,7 @@ console.log(customers)
 ```javascript
 import image from './image.jpg'
 
-<img src={image} />
+render(<img src={image} />)
 ```
 
 ## Asynchronous loading
@@ -75,12 +73,14 @@ By using `System.import` you can load modules on the go and don't worry about th
 ```javascript
 console.log('Loading data...')
 
-System.import('./data').then((data)=>{
-  console.log(data)
-}).catch(error => {
-  console.log('Could not load the data')
-  console.error(error)
-})
+System.import('./data')
+  .then(data => {
+    console.log(data)
+  })
+  .catch(error => {
+    console.log('Could not load the data')
+    console.error(error)
+  })
 ```
 
 ## Sharing the code on npm
@@ -90,7 +90,5 @@ With the proposed solution it is easy to share data modules and distribute them 
 Just imagine you could `import Wikipedia from 'wikipedia.org/en/articles'` and display a view of an article like this:
 
 ```javascript
-<article>
-  {Wikipedia.Code_as_data}
-</article>
+<article>{Wikipedia.Code_as_data}</article>
 ```

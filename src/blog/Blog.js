@@ -5,10 +5,10 @@ import styled from 'styled'
 import './styles.css'
 import { Page, Section } from 'components'
 import relatedPosts from 'blog/related-posts'
+import { PostHeader } from 'blog/post'
 import Comments from './Comments'
 import CodeBlock from './CodeBlock'
 import Image from './Image'
-import { PostHeader } from 'blog/post'
 
 const Blog = ({ post }) => (
   <Page Blog title={post.name} description={post.description}>

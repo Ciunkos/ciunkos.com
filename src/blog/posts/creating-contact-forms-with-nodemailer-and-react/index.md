@@ -7,7 +7,7 @@ Creating a contact form is a very common requested feature, almost every site ha
 For the sake of clarity there won't be any styling included and the components will be plain old HTML form and input tags. That simple component will do the job:
 
 ```javascript
-const ContactForm = () =>
+const ContactForm = () => (
   <form method="POST">
     <label htmlFor="name">Name</label>
     <input type="text" name="name" />
@@ -20,6 +20,7 @@ const ContactForm = () =>
 
     <input type="submit" />
   </form>
+)
 ```
 
 The contact form will be extended with event handling, validation and submission after the server-side setup is done.
@@ -115,7 +116,7 @@ const transporter = nodemailer.createTransport({
     type: 'OAuth2',
     ...config
   }
-});
+})
 ```
 
 As for the most of the node.js APIs and libraries, `nodemailer` uses callback-style programming, but if you prefer `Promises` and/or `async/await` you can simply wrap the function:
@@ -129,7 +130,7 @@ const sendMail = message => {
         return
       }
       resolve(info)
-    });
+    })
   })
 }
 
@@ -143,7 +144,7 @@ On the express.js side you can now use the `sendMail` function created before. D
 ```javascript
 import bodyParser from 'body-parser'
 
-app.use(bodyParser.urlencoded());
+app.use(bodyParser.urlencoded())
 ```
 
 ![Let's send a simple message](./images/before-send.jpg)
@@ -187,4 +188,3 @@ Working example and source code of this article is available on [GitHub](https:/
 Just download or clone this repository, `npm install` and you can fiddle with sending emails.
 
 ![Full view of the received e-mail](./images/result.jpg)
-
