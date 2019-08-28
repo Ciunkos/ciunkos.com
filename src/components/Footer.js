@@ -17,7 +17,7 @@ const RepositoryLink = () => (
 export default () => (
   <Section Notes>
     <Section.Content padding-2 spacing-4>
-      <styled.View tag="footer" spacing-4>
+      <styled.View tag="footer" spacing-4 media-no-print>
         <styled.View spacing-3>
           <styled.View tag="section" horizontal>
             <styled.Icon media-large style={{ paddingRight: 12 }}>
