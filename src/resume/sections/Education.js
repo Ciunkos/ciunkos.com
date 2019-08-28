@@ -15,7 +15,7 @@ const Contracts = ({ contracts }) => (
           {contract.scope && `${contract.scope} · `}
           {contract.tech}
         </p>
-        <p>{contract.decription}</p>
+        <p>{contract.description}</p>
       </styled.Contract>
     ))}
   </styled.Contracts>
