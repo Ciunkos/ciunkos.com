@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled'
-import { CheckBoxOutlineBlank } from 'icons'
+import { CheckBox, CheckBoxOutlineBlank } from 'icons'
 import { Section } from 'components'
 import goals from 'resume/goals'
 import interests from 'resume/interests'
@@ -27,10 +27,10 @@ const Interests = ({ interests, ...rest }) => (
 
 const Goals = ({ goals, ...rest }) => (
   <styled.Goals tag="ul" semicolon-separated spacing {...rest}>
-    {goals.map(goal => (
-      <styled.Goal key={goal} tag="li" horizontal spacing>
+    {goals.map(([goal, done]) => (
+      <styled.Goal key={goal} tag="li" horizontal spacing media-no-print={done}>
         <styled.SkillIcon>
-          <CheckBoxOutlineBlank />
+          {done ? <CheckBox /> : <CheckBoxOutlineBlank />}
         </styled.SkillIcon>
         <styled.SkillName tag="span" stretch>
           {goal}
@@ -65,6 +65,9 @@ const InlineInterests = ({ interests, ...rest }) => (
   </styled.InlineInterests>
 )
 
+const pendingGoals = goals =>
+  goals.filter(([, done]) => !done).map(([goal]) => goal)
+
 export default () => (
   <Section InterestsSection cover={cover} id="interests-and-goals">
     <Section.Content padding-2 spacing-4>
@@ -84,7 +87,7 @@ export default () => (
         <styled.GoalsSection>
           <h3>My goals</h3>
           <Goals goals={goals} media-no-print />
-          <InlineGoals goals={goals} media-only-print />
+          <InlineGoals goals={pendingGoals(goals)} media-only-print />
         </styled.GoalsSection>
       </styled.InterestsAndGoals>
     </Section.Content>

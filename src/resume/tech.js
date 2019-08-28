@@ -43,8 +43,43 @@ export default {
   CSS: {
     name: 'CSS'
   },
-  SASS: {
-    name: 'SASS'
+  Sass: {
+    name: 'Sass',
+    url: 'https://sass-lang.com'
+  },
+  threeJs: {
+    name: 'three.js',
+    url: 'https://threejs.org'
+  },
+  WebGL: {
+    name: 'WebGL'
+  },
+  dotNetCore: {
+    name: 'ASP.NET Core'
+  },
+  puppeteer: {
+    name: 'puppeteer',
+    url: 'https://pptr.dev'
+  },
+  nginx: {
+    name: 'nginx',
+    url: 'https://www.nginx.com'
+  },
+  mongoDB: {
+    name: 'mongoDB',
+    url: 'https://www.mongodb.com'
+  },
+  redis: {
+    name: 'redis',
+    url: 'https://redis.io/'
+  },
+  Jenkins: {
+    name: 'Jenkins',
+    url: 'https://jenkins.io'
+  },
+  GitLab: {
+    name: 'GitLab',
+    url: 'https://about.gitlab.com'
   },
   HTML: {
     name: 'HTML'
@@ -61,14 +96,8 @@ export default {
   Jest: {
     name: 'Jest'
   },
-  enzyme: {
-    name: 'enzyme'
-  },
   MobX: {
     name: 'MobX'
-  },
-  Docker: {
-    name: 'Docker'
   },
   CSharp: {
     name: 'C#'
@@ -118,6 +147,14 @@ export default {
     name: 'IIS',
     abbr: 'Internet Information Services'
   },
+  Docker: {
+    name: 'Docker',
+    url: 'https://www.docker.com'
+  },
+  DockerCompose: {
+    name: 'Docker Compose',
+    url: 'https://docs.docker.com/compose'
+  },
   visualStudioCode: {
     name: 'Visual Studio Code',
     url: 'https://code.visualstudio.com'
@@ -125,12 +162,6 @@ export default {
   visualStudio: {
     name: 'Visual Studio',
     url: 'https://www.visualstudio.com'
-  },
-  atom: {
-    name: 'Atom'
-  },
-  blend: {
-    name: 'Microsoft Blend'
   },
   webSockets: {
     name: 'WebSockets'
