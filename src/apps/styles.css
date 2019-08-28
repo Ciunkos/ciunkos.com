@@ -1,87 +1,88 @@
 .thumb-horizontal {
-    background: rgba(255,255,255,0.4);
-    border-radius: 4px;
-    cursor: pointer;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .Screenshots {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 @media (hover: hover) {
-    .thumb-horizontal:hover {
-        background: rgba(255,255,255,0.6);
-        cursor: pointer;
-    }
+  .thumb-horizontal:hover {
+    background: rgba(255, 255, 255, 0.6);
+    cursor: pointer;
+  }
 }
 
 .thumb-horizontal:active {
-    background: rgba(255,255,255,0.6);
-    cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
 }
 
 .AppIcon {
-    width: 80px;
-    height: 80px;
-    border-radius: 6px;
+  width: 80px;
+  height: 80px;
+  border-radius: 6px;
 }
 
 .AppIcon.small {
-    width: 40px;
-    height: 40px;
-    border-radius: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
 }
 
 @media print {
-    .OverflowLastItemFix {
-        display: none;
-    }
+  .OverflowLastItemFix {
+    display: none;
+  }
 
-    .Screenshots  {
-        width: 100%!important;
-        flex-wrap: wrap;
-    }
+  .Screenshots {
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
 
-    .Screenshots > * {
-        margin-bottom: 16px;
-    }
+  .Screenshots > * {
+    margin-bottom: 16px;
+  }
 }
 
 .ScreenshotsView {
-    margin: 0 auto;
-    margin-bottom: 16px;
-    flex: 1;
-    width: 100%;
+  margin: 0 auto;
+  margin-bottom: 16px;
+  flex: 1;
+  width: 100%;
 }
 
 .ScreenshotsView * {
-    overflow-y: hidden!important;
+  overflow-y: hidden !important;
 }
 
 @media print {
-    .ScreenshotsView {
-        height: auto!important;
-        min-height: auto!important;
-        max-height: none!important;
-        margin: 0;
-        margin-bottom: 48px;
-    }
+  .ScreenshotsView {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    margin: 0;
+    margin-bottom: 48px;
+  }
 
-    .ScreenshotsView * {
-        height: auto!important;
-        min-height: auto!important;
-        max-height: none!important;
-    }
+  .ScreenshotsView * {
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
 
-    .Screenshots,.Card {
-        page-break-inside: avoid;
-    }
+  .Screenshots,
+  .Card {
+    page-break-inside: avoid;
+  }
 
-    .Screenshots img {
-        height: 200px!important;
-    }
+  .Screenshots img {
+    height: 200px !important;
+  }
 
-    .Screenshots {
-        align-self: center;
-    }
+  .Screenshots {
+    align-self: center;
+  }
 }

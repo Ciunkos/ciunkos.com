@@ -1,36 +1,35 @@
 @media screen and (min-width: 640px) {
-    .media-mobile-only {
-        display: none;
-    }
+  .media-mobile-only {
+    display: none;
+  }
 }
 
 .media-large {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 920px) {
-    .media-large {
-        display: flex;
-    }
+  .media-large {
+    display: flex;
+  }
 }
 
 .media-large-inline {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 920px) {
-    .media-large-inline {
-        display: inline;
-    }
+  .media-large-inline {
+    display: inline;
+  }
 }
 
 .media-medium {
-    display: none;
+  display: none;
 }
 
 @media screen and (min-width: 640px) {
-    .media-medium {
-        display: flex;
-    }
+  .media-medium {
+    display: flex;
+  }
 }
-

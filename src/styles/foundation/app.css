@@ -1,21 +1,24 @@
-html,body {
-    background: #3040bc;
-    overflow-x: hidden;
+html,
+body {
+  background: #3040bc;
+  overflow-x: hidden;
 }
 
 .App {
-    color: white;
-    overflow-y: hidden;
+  color: white;
+  overflow-y: hidden;
 }
 
 /* Was:
 .Section,.Screenshots,.ProjectsGrid,.Card
 But that makes fonts blurry...
 */
-.Background,.Screenshots,.HeaderContainer {
-    transform: translateZ(0);
+.Background,
+.Screenshots,
+.HeaderContainer {
+  transform: translateZ(0);
 }
 
 * {
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }

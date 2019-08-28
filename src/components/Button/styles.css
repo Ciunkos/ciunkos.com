@@ -1,31 +1,31 @@
 .Button {
-    border-style: solid;
-    border-width: 2px;
-    border-radius: 4px;
-    padding: 8px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 4px;
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
 }
 
 @media (hover: hover) {
-    .Button:hover {
-        background: currentColor;
-    }
+  .Button:hover {
+    background: currentColor;
+  }
 
-    .Button:hover > *  {
-        color: white;
-    }
+  .Button:hover > * {
+    color: white;
+  }
 }
 
 .Button:active {
-    background: currentColor;
+  background: currentColor;
 }
 
-.Button:active > *  {
-    color: white;
+.Button:active > * {
+  color: white;
 }
 
 .primary.borderless {
@@ -39,13 +39,14 @@
 }
 
 @media (hover: hover) {
-  .primary.borderless:hover,.primary.borderless:focus {
+  .primary.borderless:hover,
+  .primary.borderless:focus {
     background: rgba(255, 255, 255, 0.08);
   }
 }
 
 .primary.borderless:active {
-    background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .primary {
@@ -54,7 +55,8 @@
 }
 
 @media (hover: hover) {
-  .primary:hover,.primary:focus {
+  .primary:hover,
+  .primary:focus {
     color: white;
     background: rgb(14, 122, 254);
   }
@@ -75,13 +77,14 @@
 }
 
 @media (hover: hover) {
-  .primary.active:hover,.primary.active:focus {
+  .primary.active:hover,
+  .primary.active:focus {
     color: white;
-    background: #1884FF;
+    background: #1884ff;
   }
 }
 
 .primary.active:active {
   color: white;
-  background: #1884FF;
+  background: #1884ff;
 }

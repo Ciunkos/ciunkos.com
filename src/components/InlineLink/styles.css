@@ -4,7 +4,8 @@
 }
 
 @media (hover: hover) {
-  .InlineLink:hover,.InlineLink:focus {
+  .InlineLink:hover,
+  .InlineLink:focus {
     text-decoration: underline;
     text-decoration-skip: ink;
   }

@@ -1,5 +1,5 @@
 .transition-all {
-  transition: all 0.200s cubic-bezier(0.4, 0, 0.2, 1)!important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 
 .animated {
@@ -15,7 +15,7 @@
 }
 
 .delay {
-  animation-delay: 1.0s;
+  animation-delay: 1s;
 }
 
 @keyframes fade-in-up {

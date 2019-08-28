@@ -22,13 +22,13 @@
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
     "precommit": "lint-staged",
-    "prettier": "prettier --write \"**/*{.js,.json,.md}\"",
+    "prettier": "prettier --write \"**/*.{js,json,md,css,scss}\"",
     "prettier:debug": "npm run prettier -- --debug-check",
     "update": "ncu -x \"react-router, history\" --upgradeAll -a",
     "update:check": "ncu -x \"react-router, history\""
   },
   "lint-staged": {
-    "*.{js,json,css,md}": [
+    "*.{js,json,md,css,scss}": [
       "prettier --write",
       "git add"
     ]

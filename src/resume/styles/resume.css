@@ -60,8 +60,8 @@
 
 .ProjectsOverview {
   align-self: center;
-  padding-left: 0!important;
-  padding-right: 0!important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
 }
 
 .Skill {
@@ -74,7 +74,7 @@
   padding-top: 128px;
 }
 
-@media all and (max-height: 640px) and (orientation:landscape) {
+@media all and (max-height: 640px) and (orientation: landscape) {
   .Page.Resume .Section:first-child .SectionContent .Content {
     padding-top: 96px;
   }
@@ -95,7 +95,8 @@
   }
 
   .SectionContent .Content {
-    padding-top: 64px; padding-bottom: 64px;
+    padding-top: 64px;
+    padding-bottom: 64px;
     align-self: center;
     max-width: 1000px;
   }
@@ -105,8 +106,8 @@
   }
 
   .ProjectsOverview {
-    padding-left: 16px!important;
-    padding-right: 16px!important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
 }
 
@@ -202,8 +203,8 @@
 }
 
 .Course {
-  background: #FFFFFF;
-  color: rgba(0,0,0,0.54);
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.54);
   /* padding: 16px 24px; */
   max-width: 392px;
   border-radius: 2px;
@@ -226,7 +227,6 @@
   font-size: 13px;
   line-height: 20px;
   justify-content: center;
-
 }
 
 .CourseTitle {
@@ -236,4 +236,3 @@
   font-size: 15px;
   line-height: 20px;
 }
-

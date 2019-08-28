@@ -21,22 +21,23 @@
 }
 
 @media print {
-  html, body {
-    background: white!important;
+  html,
+  body {
+    background: white !important;
     width: 210mm;
     /*height: 297mm;*/
-    margin-top: 0px!important;
-    margin-bottom: 0px!important;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
     font-size: 14px;
   }
 
   * {
     transition: none !important;
-    box-shadow: none!important;
+    box-shadow: none !important;
     border-color: white;
-    background-image: none!important;
+    background-image: none !important;
     color: black;
-    overflow:initial !important;
+    overflow: initial !important;
   }
 
   .Background,
@@ -49,11 +50,11 @@
   .SkillIcon,
   .Bar,
   .Button {
-    display: none!important;
+    display: none !important;
   }
 
   .Subheader {
-    color: rgba(0,0,0,0.9)!important;
+    color: rgba(0, 0, 0, 0.9) !important;
   }
 
   .Section.Profile .em {
@@ -74,8 +75,8 @@
   }
 
   .Card > * {
-    padding-left: 0!important;
-    padding-right: 0!important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   ul.dot-separated {
@@ -84,7 +85,7 @@
   }
 
   ul.dot-separated li:before {
-    content: " \00b7 ";
+    content: ' \00b7 ';
     width: 8px;
     line-height: 24px;
   }
@@ -94,11 +95,11 @@
   }
 
   .ProjectsGrid > .media-no-print {
-    display: none!important;
+    display: none !important;
   }
 
   .ProjectsGrid > :not(.media-no-print) {
-    display: block!important;
+    display: block !important;
   }
 
   .ProjectsGrid {
@@ -111,7 +112,7 @@
   }
 
   .spacing:not(.horizontal) > :not(:last-child) {
-      margin-bottom: var(--print);
+    margin-bottom: var(--print);
   }
 
   .spacing-2:not(.horizontal) > :not(:last-child) {
@@ -152,7 +153,7 @@
 
   /*hack vertical spacing*/
   .vertical-spacing > * {
-    margin-bottom: 0px!important;
+    margin-bottom: 0px !important;
   }
 
   .vertical-spacing {
@@ -165,27 +166,28 @@
 
   .ProjectsGrid {
     /*flex-direction: column!important;*/
-    overflow-x: hidden!important;
-    max-height: initial!important;
+    overflow-x: hidden !important;
+    max-height: initial !important;
     flex-wrap: wrap;
   }
 
   .ProjectsOverview {
-    max-height: initial!important;
+    max-height: initial !important;
   }
 
-  .ProjectsGrid, .ProjectsOverview {
-    padding: 0!important;
+  .ProjectsGrid,
+  .ProjectsOverview {
+    padding: 0 !important;
   }
 
   .ProjectCard {
-    width: 100%!important;
-    flex: 1!important;
+    width: 100% !important;
+    flex: 1 !important;
     display: none;
   }
 
   .ProjectHeader {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   .ProjectsGrid {
@@ -195,29 +197,29 @@
   }
 
   .Page.Resume .ProjectsOverview {
-    padding: 0!important;
+    padding: 0 !important;
   }
 
   /*display only first four projects*/
-  .ProjectCard:not(.media-no-print){
-    display: block!important;
-    width: calc(50% - 32px)!important;
-    flex: none!important;
+  .ProjectCard:not(.media-no-print) {
+    display: block !important;
+    width: calc(50% - 32px) !important;
+    flex: none !important;
     margin-right: 32px;
   }
 
   .Page {
-    display: block!important;
+    display: block !important;
   }
 
   .Landing {
-    width: 100%!important;
+    width: 100% !important;
   }
 
   .HeadingImage {
-    width: 222px!important;
-    height: 222px!important;
-    border-radius: 10%!important;
+    width: 222px !important;
+    height: 222px !important;
+    border-radius: 10% !important;
   }
 
   .Section.Profile .Content {
@@ -233,8 +235,8 @@
   }
 
   .HeadingImageContainer {
-    margin-top: 0!important;
-    order: 1!important;
+    margin-top: 0 !important;
+    order: 1 !important;
   }
 
   .ClientSection {
@@ -251,7 +253,7 @@
   }
 
   .ClientSection .Subheader::after {
-    content: ":";
+    content: ':';
   }
 
   .Section.Profile h2 {
@@ -261,38 +263,44 @@
   }
 
   .HeadingContent {
-    order: 0!important;
+    order: 0 !important;
   }
 
   .SectionContent .Content {
-    padding-top: 0px!important; padding-bottom: 0px!important;
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
     padding-left: 0;
     padding-right: 0;
     max-width: initial;
   }
 
   .LegalNote {
-    margin-bottom: 0!important;
+    margin-bottom: 0 !important;
   }
 
   .Section:not(:last-child) .SectionContent .Content {
-    padding-top: 0px!important; padding-bottom: 14px!important;
+    padding-top: 0px !important;
+    padding-bottom: 14px !important;
   }
 
   .Section:last-child .SectionContent .Content {
-    padding-top: 16px!important; padding-bottom: 0px!important;
+    padding-top: 16px !important;
+    padding-bottom: 0px !important;
   }
 
   .Section:first-child .SectionContent .Content {
-    padding-top: 0px!important;
+    padding-top: 0px !important;
   }
 
   .Skill {
-    border-radius: 0!important;
-    padding: 0!important;
+    border-radius: 0 !important;
+    padding: 0 !important;
   }
 
-  h1,h2,h3,h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     margin-top: 0;
     margin-bottom: 0;
   }
@@ -303,7 +311,7 @@
 
   h2 {
     font-size: 24px;
-    border-bottom: 1px solid rgba(0,0,0,0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
     padding-right: 64px;
     align-self: flex-start;
   }
@@ -313,12 +321,12 @@
   }
 
   h4 {
-    font-size: 16px!important;
+    font-size: 16px !important;
   }
 
   /*//fix the overflow*/
   .Section:last-child .Content {
-    padding-bottom: 0px!important;
+    padding-bottom: 0px !important;
   }
 
   /*https://stackoverflow.com/a/35154315/1384679*/
@@ -326,12 +334,14 @@
     float: none !important;
   }
 
-  #app, #app > *, .Landing {
-    display: block!important;
+  #app,
+  #app > *,
+  .Landing {
+    display: block !important;
   }
 
   .Section {
-    display: block!important;
+    display: block !important;
     /*page-break-inside: avoid;*/
   }
 
