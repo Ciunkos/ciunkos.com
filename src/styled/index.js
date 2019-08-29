@@ -36,32 +36,39 @@ function defaultView(name) {
       ) {
         injectedProps = {
           onClick: event => {
-            if (!href.startsWith('#')) {
-              event.preventDefault()
+            event.preventDefault()
 
+            if (!href.includes('#')) {
               requestAnimationFrame(() => {
                 push(href)
               })
             } else {
-              event.preventDefault()
-
-              const hash = href.substring(1)
-              const element = document.getElementById(hash)
+              const [sourcePathname, hash] = href.split('#')
 
               requestAnimationFrame(() => {
-                if (element) {
-                  window.scrollTo(0, element.offsetTop)
-                  element.focus()
-                }
-
                 const {
                   location: { hash: sourceHash, pathname }
                 } = window
 
-                if (sourceHash && sourceHash.length > 1) {
-                  replace(pathname + href)
+                const targetPathname = sourcePathname || pathname
+
+                const targetUrl = `${targetPathname}#${hash}`
+
+                if (
+                  sourceHash &&
+                  sourceHash.length > 1 &&
+                  pathname === sourcePathname
+                ) {
+                  replace(targetUrl)
                 } else {
-                  push(pathname + href)
+                  push(targetUrl)
+                }
+
+                const element = document.getElementById(hash)
+
+                if (element) {
+                  window.scrollTo(0, element.offsetTop)
+                  element.focus()
                 }
               })
             }
