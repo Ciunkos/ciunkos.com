@@ -25,6 +25,6 @@ const routes = {
 export const defaultRoute = () => <NotFound />
 
 export const match = (pathname = '') =>
-  routes[pathname || `${pathname}/`] || defaultRoute
+  routes[pathname] || routes[`${pathname}/`] || defaultRoute
 
 export default routes

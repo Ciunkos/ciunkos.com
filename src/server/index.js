@@ -12,12 +12,12 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
 
-import Main from '../Main'
+import AppContainer from '../AppContainer'
 import { defaultRoute, match } from '../routes'
 import template, { preloadHeader } from './template'
 import mailer from './mailer'
 
-const staticFiles = glob.sync('**/*.{js,css,json,png,jpg,txt,pdf,zip,xml}')
+const staticFiles = glob.sync('**/*.{js,css,json,png,jpg,txt,pdf,zip,xml,ico}')
 const staticExcludes = [
   /server\.js$/,
   /stats\.json$/,
@@ -78,11 +78,15 @@ app.get('*', (req, res) => {
     const { url: pathname } = req
     const location = { pathname }
 
-    const renderedComponent = renderToString(<Main location={location} />)
+    const route = match(pathname)
+    const page = route({ location })
+    const element = <AppContainer>{page}</AppContainer>
+
+    const renderedComponent = renderToString(element)
     const helmet = Helmet.renderStatic()
     const html = template(renderedComponent, helmet)
 
-    const notFound = match(pathname) === defaultRoute
+    const notFound = route === defaultRoute
     const status = notFound ? 404 : 200
 
     res.send(status, html)

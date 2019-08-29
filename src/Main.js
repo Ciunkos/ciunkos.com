@@ -24,8 +24,6 @@ const Main = ({ location: sourceLocation }) => {
   const route = match(pathname)
   const page = route({ location })
 
-  console.log({ location, route, page, sourceLocation })
-
   useEffect(() => {
     logPageView(location)
   }, [location])
