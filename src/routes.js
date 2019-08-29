@@ -16,7 +16,7 @@ const routes = {
   '/blog/': () => <Blog />,
   ...Object.fromEntries(
     Object.values(posts).map(post => [
-      `${post.slug}/`,
+      `/${post.slug}/`,
       () => <Blog post={post} />
     ])
   )
