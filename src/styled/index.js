@@ -1,9 +1,9 @@
 import React from 'react'
 import classNames from 'classnames'
-import { browserHistory } from 'react-router'
 
 import { partition, filter } from 'utils'
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary'
+import { push, replace } from './history'
 
 const viewCache = {}
 
@@ -35,29 +35,35 @@ function defaultView(name) {
         !href.endsWith('.pdf')
       ) {
         injectedProps = {
-          onClick: e => {
-            if (typeof window !== 'undefined') {
-              if (!href.startsWith('#')) {
-                e.preventDefault()
-                setTimeout(() => {
-                  browserHistory.push(href)
-                })
-              } else {
-                const hash = href.substring(1)
-                e.preventDefault()
-                const element = document.getElementById(hash)
-                setTimeout(() => {
-                  if (element) {
-                    window.scrollTo(0, element.offsetTop)
-                    element.focus()
-                  }
-                  if (window.location.hash && window.location.hash.length > 1) {
-                    browserHistory.replace(window.location.pathname + href)
-                  } else {
-                    browserHistory.push(window.location.pathname + href)
-                  }
-                })
-              }
+          onClick: event => {
+            if (!href.startsWith('#')) {
+              event.preventDefault()
+
+              requestAnimationFrame(() => {
+                push(href)
+              })
+            } else {
+              event.preventDefault()
+
+              const hash = href.substring(1)
+              const element = document.getElementById(hash)
+
+              requestAnimationFrame(() => {
+                if (element) {
+                  window.scrollTo(0, element.offsetTop)
+                  element.focus()
+                }
+
+                const {
+                  location: { hash: sourceHash, pathname }
+                } = window
+
+                if (sourceHash && sourceHash.length > 1) {
+                  replace(pathname + href)
+                } else {
+                  push(pathname + href)
+                }
+              })
             }
           }
         }
@@ -66,9 +72,9 @@ function defaultView(name) {
       return (
         <ErrorBoundary>
           <Tag
-            ref={ref}
-            id={id}
             className={classNames(name, booleans)}
+            id={id}
+            ref={ref}
             {...injectedProps}
             {...otherProps}
           >
@@ -92,7 +98,9 @@ const handler = {
 }
 
 const styled = {}
+
 const styledOrDefault = new Proxy(styled, handler)
 
-export default styledOrDefault
 export const View = defaultView('View')
+
+export default styledOrDefault

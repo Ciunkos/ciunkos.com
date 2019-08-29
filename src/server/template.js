@@ -19,7 +19,10 @@ export const preloadHeader = [
   preloadAsset(`/${appStylesPath}`, 'style')
 ].join(', ')
 
-const template = (body, helmet) => `<!doctype html>
+const template = (
+  body = '',
+  helmet = { title: '', meta: '' }
+) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">

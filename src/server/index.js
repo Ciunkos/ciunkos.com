@@ -1,3 +1,5 @@
+import 'core-js/stable'
+
 if (typeof window === 'undefined') {
   global.window = {}
 }
@@ -9,9 +11,9 @@ import path from 'path'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
-import { match, RouterContext } from 'react-router'
 
-import routes from 'routes'
+import Main from '../Main'
+import { defaultRoute, match } from '../routes'
 import template, { preloadHeader } from './template'
 import mailer from './mailer'
 
@@ -73,26 +75,25 @@ app.get('*', (req, res) => {
   }
 
   try {
-    match(
-      {
-        routes,
-        location: req.url
-      },
-      (err, redirect, props) => {
-        const renderedComponent = renderToString(<RouterContext {...props} />)
-        const helmet = Helmet.renderStatic()
-        const html = template(renderedComponent, helmet)
+    const { url: pathname } = req
+    const location = { pathname }
 
-        const notFound = props.routes.filter(route => route.notFound).length > 0
-        res.send(notFound ? 404 : 200, html)
-        if (!notFound) {
-          cache[req.url] = html
-        }
-      }
-    )
+    const renderedComponent = renderToString(<Main location={location} />)
+    const helmet = Helmet.renderStatic()
+    const html = template(renderedComponent, helmet)
+
+    const notFound = match(pathname) === defaultRoute
+    const status = notFound ? 404 : 200
+
+    res.send(status, html)
+
+    if (!notFound) {
+      cache[req.url] = html
+    }
   } catch (error) {
-    const result = [error.message, error.stack].join('\r\n')
-    res.send(500, result)
+    console.error(error)
+    const html = template()
+    res.send(500, html)
   }
 })
 
