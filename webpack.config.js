@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const postcssimport = require('postcss-import')
-const postcsscssnext = require('postcss-cssnext')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
 const { resolve } = path
@@ -85,14 +83,6 @@ module.exports = ({ path, production = true } = {}) => {
                     options: {
                       modules: false,
                       importLoaders: 1
-                    }
-                  },
-                  {
-                    loader: 'postcss-loader',
-                    options: {
-                      plugins() {
-                        return [postcssimport, postcsscssnext]
-                      }
                     }
                   }
                 ]

@@ -2,8 +2,6 @@ const webpack = require('webpack')
 const path = require('path')
 const TransferWebpackPlugin = require('transfer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const postcssimport = require('postcss-import')
-const postcsscssnext = require('postcss-cssnext')
 
 const buildPath = path.resolve(__dirname, 'dev')
 
@@ -56,14 +54,6 @@ module.exports = () => ({
           {
             loader: 'css-loader',
             options: { modules: false, importLoaders: 1 }
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins() {
-                return [postcssimport, postcsscssnext]
-              }
-            }
           }
         ]
       }

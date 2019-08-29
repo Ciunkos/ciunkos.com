@@ -1,12 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-// import { InlineLink } from 'components/InlineLink'
-// import { Button } from 'components/Button'
-
-class ErrorBoundary extends React.Component {
+class ErrorBoundary extends Component {
   state = { hasError: false }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(_, info) {
     this.setState({ hasError: true, info })
   }
 
