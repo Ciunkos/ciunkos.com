@@ -1,5 +1,7 @@
 # [ciunkos.com](https://ciunkos.com/)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Ciunkos/ciunkos.com.svg)](https://greenkeeper.io/)
+
 This is my blog and home page.
 
 ## Installation
