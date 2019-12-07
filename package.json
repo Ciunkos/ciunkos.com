@@ -62,7 +62,7 @@
     "json-loader": "0.5.7",
     "lint-staged": "9.4.3",
     "npm-check-updates": "github:przemyslawzalewski/npm-check-updates#770a9c52ac3679e9dc1cbf94ae66a91f472a7ae1",
-    "prettier": "1.18.2",
+    "prettier": "1.19.0",
     "raw-loader": "4.0.0",
     "style-loader": "1.0.1",
     "transfer-webpack-plugin": "0.1.4",
