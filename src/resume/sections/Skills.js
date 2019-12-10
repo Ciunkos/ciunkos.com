@@ -68,7 +68,7 @@ export default () => (
       <Section.Title>Skills</Section.Title>
 
       <Paragraph media-no-print>
-        {"Browse my skills to see if I can fit your project's needs."}
+        Browse my skills to see if I can fit your project's needs.
       </Paragraph>
 
       <SkillSets>{skillSets}</SkillSets>

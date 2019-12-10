@@ -12,7 +12,7 @@ const NotFoundPage = () => (
           The page you've requested does not exist. If you believe this to be an
           error,{' '}
           <InlineLink href="/about#contact">
-            {"please contact me and I'll get to the bottom of it."}
+            please contact me and I'll get to the bottom of it.
           </InlineLink>
         </p>
 

@@ -20,7 +20,7 @@ class ErrorBoundary extends Component {
           <h1>Something went wrong</h1>
           <div>
             <a href={`mailto:ciunkos@gmail.com?body=${encodedLog}`}>
-              {"Please contact me and I'll get to the bottom of it."}
+              Please contact me and I'll get to the bottom of it.
             </a>
           </div>
           <div className="actions spacing">
