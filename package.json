@@ -18,7 +18,7 @@
     "docker:start:service": "npm run docker:build && npm run docker:run:service",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
-    "prettier": "prettier \"**/*.{js,json,md,css,scss}\"",
+    "prettier": "prettier \"**/*.{js,json,md,css,scss,yml}\"",
     "prettier:check": "npm run prettier -- --check",
     "prettier:debug": "npm run prettier -- --debug-check",
     "prettier:fix": "npm run prettier -- --write",
