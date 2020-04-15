@@ -64,7 +64,7 @@
     "npm-check-updates": "github:przemyslawzalewski/npm-check-updates#770a9c52ac3679e9dc1cbf94ae66a91f472a7ae1",
     "prettier": "1.19.1",
     "raw-loader": "4.0.0",
-    "style-loader": "1.0.2",
+    "style-loader": "1.1.4",
     "transfer-webpack-plugin": "0.1.4",
     "webpack": "4.41.4",
     "webpack-cli": "3.3.10",
