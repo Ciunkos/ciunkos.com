@@ -34,8 +34,12 @@ export default () => (
           <p>Full-stack web and Windows app developer from Wroclaw.</p>
           <p>
             Currently working for{' '}
-            <InlineLink href="https://sandstream.pl">
-              <em>Sandstream Development Sp. z o.o.</em>
+            <InlineLink
+              href="https://sanddev.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
           </p>
         </styled.AboutMe>
