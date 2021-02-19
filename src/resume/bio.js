@@ -1,8 +1,4 @@
 export default {
-  age: {
-    name: 'Age',
-    value: 28
-  },
   phone: {
     name: 'Phone',
     value: '884 828 647',
