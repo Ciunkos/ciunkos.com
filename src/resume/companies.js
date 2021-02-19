@@ -1,7 +1,7 @@
 export default {
-  CubeInvestments: 'Cube Investments Sp.z o.o.',
+  CubeInvestments: 'Cube Investments sp. z o.o.',
   IT4Biznes: 'IT4Biznes Marcin Hatalak',
   RedDotGames: 'Red Dot Games',
-  Sandstream: 'Sandstream Development Sp. z o.o.',
-  LOSO: 'LOSO Sp. z o.o.'
+  Sandstream: 'Sandstream Development sp. z o.o.',
+  LOSO: 'LOSO sp. z o.o.'
 }

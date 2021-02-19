@@ -1,10 +1,10 @@
 export const title = 'CV - Przemysław Zalewski'
 export const description =
-  'Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla Sandstream Development Sp. z o.o.'
+  'Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla Sandstream Development sp. z o.o.'
 
 export default {
   description:
-    'Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla Sandstream Development Sp. z o.o.',
+    'Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla Sandstream Development sp. z o.o.',
   aboutMe: 'Full-stack Web i Windows App deweloper z Wrocławia.',
   status: link => `Aktualnie pracuję dla ${link}`,
   contact: 'Kontakt',
