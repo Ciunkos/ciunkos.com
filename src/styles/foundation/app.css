@@ -9,6 +9,10 @@ body {
   overflow-y: hidden;
 }
 
+.Page {
+  overflow: hidden;
+}
+
 /* Was:
 .Section,.Screenshots,.ProjectsGrid,.Card
 But that makes fonts blurry...
