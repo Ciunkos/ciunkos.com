@@ -39,7 +39,7 @@ const SkillSets = ({ children: skillSets }) => (
 const skillSets = [
   ['Web', skills.web],
   ['Windows', skills.windows],
-  ['Tools', skills.tools],
+  ['Tools and soft skills', skills.tools],
   ['Languages', skills.languages]
 ]
 
@@ -68,7 +68,7 @@ export default () => (
       <Section.Title>Skills</Section.Title>
 
       <Paragraph media-no-print>
-        Browse my skills to see if I can fit your project's needs.
+        Browse my skills to see if I can fit your project’s needs.
       </Paragraph>
 
       <SkillSets>{skillSets}</SkillSets>
