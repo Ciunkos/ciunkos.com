@@ -12,7 +12,7 @@ const AboutPage = ({ location = {} }) => (
   <Page
     About
     title="About me - Przemysław Zalewski - Ciunkos"
-    description="Przemysław Zalewski, a 26-year old developer from Wroclaw, Poland"
+    description="Przemysław Zalewski, Full Stack Web Developer from Wroclaw, Poland"
   >
     <Section About cover={cover}>
       <Section.Content padding-2 spacing-4>
@@ -20,7 +20,7 @@ const AboutPage = ({ location = {} }) => (
 
         <styled.AboutMe spacing-2>
           <p>
-            My name is Przemysław Zalewski. I am a 26-year old developer from
+            My name is Przemysław Zalewski. I am a Full Stack Web Developer from
             Wroclaw, Poland.
           </p>
 
@@ -29,7 +29,7 @@ const AboutPage = ({ location = {} }) => (
             not so long ago I have been developing Windows apps using C#. I have
             transitioned myself for the web stack in order to spread my apps and
             services for a much bigger audience and not wall myself in the
-            Microsoft's garden. Was that a good move? I am asking myself that
+            Microsoft’s garden. Was that a good move? I am asking myself that
             question every day.
           </p>
 
