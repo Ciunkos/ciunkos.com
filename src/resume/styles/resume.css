@@ -6,6 +6,7 @@
   width: 40px;
   height: 40px;
   border-radius: 4px;
+  box-shadow: 0 1px 5px #1b1f2326;
 }
 
 .ProjectName {
@@ -20,9 +21,13 @@
   line-height: 16px;
 }
 
+.BioEntry.media-only-print {
+  line-height: 1.5;
+}
+
 .BioEntryName {
   text-transform: uppercase;
-  min-width: 72px;
+  min-width: 128px;
   font-weight: 500;
 }
 
@@ -187,6 +192,7 @@
   .ProjectsGrid .Card {
     margin-right: 16px;
   }
+
   .ProjectsGrid .Card:last-child {
     margin-right: 0px;
   }
@@ -235,4 +241,47 @@
   font-weight: 500;
   font-size: 15px;
   line-height: 20px;
+}
+
+.ProjectHeadline {
+  display: flex;
+  flex: 1;
+  min-height: 40px;
+}
+
+.ProjectTimeFrame {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+@media print {
+  .Page.Resume {
+    font-size: 83%;
+  }
+
+  .ProjectCard {
+    margin-top: 32px;
+  }
+
+  .ProjectCard:first-child,
+  .ProjectCard:nth-child(2) {
+    margin-top: 0;
+  }
+
+  .ProjectHeadline {
+    display: flex;
+    flex: 1;
+    min-height: 20px;
+  }
+
+  .CardContent * {
+    text-align: justify !important;
+  }
+
+  .ProjectTimeFrame {
+    font-weight: normal;
+    font-size: 12px !important;
+    line-height: 20px;
+  }
 }

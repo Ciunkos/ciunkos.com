@@ -203,9 +203,22 @@
   /*display only first four projects*/
   .ProjectCard:not(.media-no-print) {
     display: block !important;
-    width: calc(50% - 32px) !important;
+    width: calc(50% - 16px) !important;
     flex: none !important;
-    margin-right: 32px;
+  }
+
+  .ProjectCard:not(.media-no-print):nth-child(odd) {
+    display: block !important;
+    width: calc(50% - 16px) !important;
+    flex: none !important;
+    margin-right: 16px;
+  }
+
+  .ProjectCard:not(.media-no-print):nth-child(even) {
+    display: block !important;
+    width: calc(50% - 16px) !important;
+    flex: none !important;
+    margin-left: 16px;
   }
 
   .Page {
@@ -284,7 +297,6 @@
   }
 
   .Section:last-child .SectionContent .Content {
-    padding-top: 16px !important;
     padding-bottom: 0px !important;
   }
 
