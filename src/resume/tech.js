@@ -8,15 +8,19 @@ export default {
   },
   expressJs: {
     name: 'Express.js',
-    url: 'https://expressjs.com/'
+    url: 'https://expressjs.com'
+  },
+  styledComponents: {
+    name: 'styled-components',
+    url: 'https://styled-components.com'
   },
   socketIO: {
     name: 'socket.io',
-    url: 'https://socket.io/'
+    url: 'https://socket.io'
   },
   ImmutableJS: {
     name: 'Immutable.js',
-    url: 'https://facebook.github.io/immutable-js/'
+    url: 'https://facebook.github.io/immutable-js'
   },
   babel: {
     name: 'Babel',
@@ -24,24 +28,69 @@ export default {
   },
   react: {
     name: 'React',
-    url: 'https://facebook.github.io/react/'
+    url: 'https://reactjs.org'
+  },
+  reactNative: {
+    name: 'React Native',
+    url: 'https://reactnative.dev'
   },
   esLint: {
     name: 'ESLint',
     url: 'http://eslint.org'
+  },
+  android: {
+    name: 'Android',
+    url: 'https://www.android.com'
+  },
+  iOS: {
+    name: 'iOS'
+  },
+  ChromeExtension: {
+    name: 'Chrome Extension'
+  },
+  prettier: {
+    name: 'Prettier',
+    url: 'https://prettier.io'
+  },
+  tensorFlow: {
+    name: 'TensorFlow',
+    url: 'https://www.tensorflow.org'
+  },
+  tensorFlowLite: {
+    name: 'TensorFlow Lite',
+    url: 'https://www.tensorflow.org/lite'
+  },
+  faceApi: {
+    name: 'face-api.js',
+    url: 'https://github.com/justadudewhohacks/face-api.js'
   },
   ChromeDevTools: {
     name: 'Chrome DevTools'
   },
   Redux: {
     name: 'Redux',
-    url: 'http://redux.js.org/'
+    url: 'http://redux.js.org'
+  },
+  reduxThunk: {
+    name: 'Redux Thunk',
+    url: 'https://github.com/reduxjs/redux-thunk'
   },
   SSR: {
     name: 'Server-side rendering'
   },
+  SSG: {
+    name: 'Static site generators'
+  },
+  rollup: {
+    name: 'Rollup',
+    url: 'https://rollupjs.org'
+  },
   CSS: {
     name: 'CSS'
+  },
+  figma: {
+    name: 'Figma',
+    url: 'https://www.figma.com'
   },
   Sass: {
     name: 'Sass',
@@ -54,24 +103,73 @@ export default {
   WebGL: {
     name: 'WebGL'
   },
+  dotNetFramework: {
+    name: '.NET Framework'
+  },
   dotNetCore: {
-    name: 'ASP.NET Core'
+    name: '.NET Core'
   },
   puppeteer: {
     name: 'puppeteer',
     url: 'https://pptr.dev'
+  },
+  expo: {
+    name: 'Expo',
+    url: 'https://expo.io'
+  },
+  electron: {
+    name: 'Electron',
+    url: 'https://www.electronjs.org'
+  },
+  kotlin: {
+    name: 'Kotlin',
+    url: 'https://kotlinlang.org'
+  },
+  openCV: {
+    name: 'OpenCV',
+    url: 'https://opencv.org'
+  },
+  webAssembly: {
+    name: 'WebAssembly',
+    url: 'https://webassembly.org'
   },
   nginx: {
     name: 'nginx',
     url: 'https://www.nginx.com'
   },
   mongoDB: {
-    name: 'mongoDB',
+    name: 'MongoDB',
     url: 'https://www.mongodb.com'
+  },
+  mongoose: {
+    name: 'mongoose',
+    url: 'https://mongoosejs.com'
+  },
+  mongoDBCompass: {
+    name: 'MongoDB Compass',
+    url: 'https://www.mongodb.com/products/compass'
+  },
+  typeScript: {
+    name: 'TypeScript',
+    url: 'https://www.typescriptlang.org'
+  },
+  ciCd: {
+    name: 'CI/CD'
+  },
+  ssh: {
+    name: 'SSH'
+  },
+  elk: {
+    name: 'ELK Stack',
+    url: 'https://www.elastic.co/elk-stack'
+  },
+  storybook: {
+    name: 'Storybook',
+    url: 'https://storybook.js.org'
   },
   redis: {
     name: 'redis',
-    url: 'https://redis.io/'
+    url: 'https://redis.io'
   },
   Jenkins: {
     name: 'Jenkins',
@@ -83,6 +181,15 @@ export default {
   },
   HTML: {
     name: 'HTML'
+  },
+  HTTPS: {
+    name: 'HTTP(S)'
+  },
+  REST: {
+    name: 'REST'
+  },
+  JWT: {
+    name: 'JWT'
   },
   npm: {
     name: 'npm'
@@ -126,7 +233,7 @@ export default {
   },
   ASPDotNet: {
     name: 'ASP.NET',
-    url: 'https://www.asp.net/'
+    url: 'https://www.asp.net'
   },
   ASPDotNetCore: {
     name: 'ASP.NET Core'
@@ -135,9 +242,52 @@ export default {
     name: 'MS SQL',
     abbr: 'Microsoft SQL Server'
   },
+  xUnit: {
+    name: 'xUnit',
+    url: 'https://xunit.net'
+  },
+  mySql: {
+    name: 'MySQL',
+    url: 'https://www.mysql.com'
+  },
+  mySqlWorkbench: {
+    name: 'MySQL Workbench',
+    url: 'https://www.mysql.com/products/workbench'
+  },
   Azure: {
     name: 'Microsoft Azure',
-    url: 'https://azure.microsoft.com/'
+    url: 'https://azure.microsoft.com'
+  },
+  AWS: {
+    name: 'AWS',
+    url: 'https://aws.amazon.com'
+  },
+  AWSS3: {
+    name: 'Amazon S3',
+    url: 'https://aws.amazon.com/s3'
+  },
+  MVC: {
+    name: 'MVC',
+    abbr: 'Model-View-Controllel'
+  },
+  APM: {
+    name: 'APM'
+  },
+  APMSentry: {
+    name: 'APM (Sentry.io)',
+    url: 'https://sentry.io'
+  },
+  APMAzure: {
+    name: 'APM (Azure Application Insights)',
+    url: 'https://azure.microsoft.com/en-us/services/monitor'
+  },
+  stripe: {
+    name: 'Stripe',
+    url: 'https://stripe.com'
+  },
+  paddle: {
+    name: 'paddle',
+    url: 'https://paddle.com'
   },
   MVVM: {
     name: 'MVVM',
@@ -168,19 +318,31 @@ export default {
   },
   git: {
     name: 'Git',
-    url: 'https://git-scm.com/'
+    url: 'https://git-scm.com'
   },
   GitHub: {
     name: 'GitHub',
-    url: 'https://github.com/'
+    url: 'https://github.com'
+  },
+  GitHubPages: {
+    name: 'GitHub Pages',
+    url: 'https://pages.github.com'
+  },
+  GitHubActions: {
+    name: 'GitHub Actions',
+    url: 'https://github.com/features/actions'
+  },
+  jira: {
+    name: 'Jira',
+    url: 'https://www.atlassian.com/software/jira'
   },
   GoogleAnalytics: {
     name: 'Google Analytics',
-    url: 'https://www.google.com/analytics/'
+    url: 'https://www.google.com/analytics'
   },
   CloudFlare: {
     name: 'CloudFlare',
-    url: 'https://www.cloudflare.com/'
+    url: 'https://www.cloudflare.com'
   },
   CPlusPlus: {
     name: 'C++'
@@ -211,5 +373,29 @@ export default {
   },
   polish: {
     name: 'Polish (native)'
+  },
+  scrum: {
+    name: 'Scrum'
+  },
+  scrumMaster: {
+    name: 'Scrum Master'
+  },
+  agile: {
+    name: 'Agile'
+  },
+  kanban: {
+    name: 'Kanban'
+  },
+  mentorship: {
+    name: 'Mentorship'
+  },
+  unitTesting: {
+    name: 'Unit testing'
+  },
+  e2e: {
+    name: 'End-to-end testing'
+  },
+  codeReview: {
+    name: 'Code review'
   }
 }
