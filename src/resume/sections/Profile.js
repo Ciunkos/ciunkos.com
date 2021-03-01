@@ -42,7 +42,7 @@ export default () => (
               <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
           </p>
-          <p>Earliest availability from May 2021. Remote work preferred.</p>
+          <p>Earliest availability from June 2021. Remote work preferred.</p>
         </styled.AboutMe>
 
         <styled.Outbound>

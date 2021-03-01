@@ -27,8 +27,14 @@ const Interests = ({ interests, ...rest }) => (
 
 const Goals = ({ goals, ...rest }) => (
   <styled.Goals tag="ul" semicolon-separated spacing {...rest}>
-    {goals.map(([goal, done]) => (
-      <styled.Goal key={goal} tag="li" horizontal spacing media-no-print={done}>
+    {goals.map(([goal, done, skipPrinting]) => (
+      <styled.Goal
+        key={goal}
+        tag="li"
+        horizontal
+        spacing
+        media-no-print={done || skipPrinting}
+      >
         <styled.SkillIcon>
           {done ? <CheckBox /> : <CheckBoxOutlineBlank />}
         </styled.SkillIcon>
@@ -50,7 +56,8 @@ const splitAndThenFirstLetterToLowercase = compose(firstLetterToLowercase)(
 )
 
 const toSentenceCase = (part, index) =>
-  (index > 0 ? splitAndThenFirstLetterToLowercase : id)(part)
+  (index > 0 && part.length > 2 ? splitAndThenFirstLetterToLowercase : id)(part)
+
 const createSentence = parts => parts.map(toSentenceCase).join(', ')
 
 const InlineGoals = ({ goals, ...rest }) => (
@@ -66,7 +73,9 @@ const InlineInterests = ({ interests, ...rest }) => (
 )
 
 const pendingGoals = goals =>
-  goals.filter(([, done]) => !done).map(([goal]) => goal)
+  goals
+    .filter(([, done, skipPrinting]) => !done && !skipPrinting)
+    .map(([goal]) => goal)
 
 export default () => (
   <Section InterestsSection cover={cover} id="interests-and-goals">

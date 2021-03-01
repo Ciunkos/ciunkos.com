@@ -2,9 +2,11 @@ export default [
   'Functional programming',
   'Language design',
   'Deep neural networks',
-  'User experience',
+  'UX',
   'App development',
+  'DX',
   'Security',
+  'Performance',
   'User interface design',
   'Dogs 🐶'
 ]
