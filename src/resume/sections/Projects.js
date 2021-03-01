@@ -70,8 +70,7 @@ export default () => (
     <Section.Content padding-2 spacing-4>
       <Section.Title>Projects</Section.Title>
       <styled.Paragraph media-no-print>
-        There are some notable projects I have been working on recently. Some of
-        them are still in development.
+        There are some notable projects I have been working on recently.
       </styled.Paragraph>
     </Section.Content>
 
@@ -84,7 +83,7 @@ export default () => (
         maxWidth: 1120,
         color: 'black',
         width: '100%',
-        maxHeight: 56 * 20,
+        maxHeight: 2 * 56 * 20,
         paddingBottom: 0
       }}
     >
@@ -104,29 +103,43 @@ export default () => (
             >
               <styled.ProjectHeader padding-2 spacing-2 shadow-1>
                 <styled.Row horizontal spacing-2>
-                  <styled.ProjectIcon
-                    tag="img"
-                    alt={project.name}
-                    src={project.icon}
-                    width="40"
-                    height="40"
-                  />
+                  {project.icon && (
+                    <styled.ProjectIcon
+                      tag="img"
+                      alt={project.name}
+                      src={project.icon}
+                      width="40"
+                      height="40"
+                    />
+                  )}
                   <styled.ProjectHeadline center>
                     <styled.ProjectName tag="h4">
                       {project.name}
                     </styled.ProjectName>
-                    {project.url && (
-                      <styled.ProjectUrl>{project.url}</styled.ProjectUrl>
-                    )}
+                    {project.url &&
+                      (project.href ? (
+                        <styled.ProjectUrl
+                          href={project.href}
+                          InlineLink
+                          rel="noopener noreferrer"
+                          tag="a"
+                          target="_blank"
+                        >
+                          {project.url}
+                        </styled.ProjectUrl>
+                      ) : (
+                        <styled.ProjectUrl>{project.url}</styled.ProjectUrl>
+                      ))}
                   </styled.ProjectHeadline>
+                  {project.timeFrame && (
+                    <styled.ProjectTimeFrame tag="h5">
+                      {project.timeFrame}
+                    </styled.ProjectTimeFrame>
+                  )}
                 </styled.Row>
               </styled.ProjectHeader>
 
-              <styled.CardContent
-                padding-2
-                spacing-2
-                style={{ lineHeight: '1.7em' }}
-              >
+              <styled.CardContent line-height-default padding-2 spacing-2>
                 <styled.Description>{project.description}</styled.Description>
 
                 {project.client && (
