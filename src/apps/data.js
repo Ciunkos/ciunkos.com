@@ -13,6 +13,7 @@ const apps = projects.reduce(
 )
 
 const {
+  sandtime,
   promegle,
   testyPrawoJazdy,
   kwejk,
@@ -28,6 +29,7 @@ const {
 } = apps
 
 export default {
+  sandtime,
   promegle,
   testyPrawoJazdy,
   kwejk,

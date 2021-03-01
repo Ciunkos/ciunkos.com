@@ -11,6 +11,7 @@ import platformerGameEngine from './platformer-game-engine'
 import pogaduszki from './pogaduszki'
 import promegle from './promegle'
 import ratingSpeed from './rating-speed'
+import sandtime from './sandtime'
 import storePro from './store-pro'
 import testyPrawoJazdy from './testy-prawo-jazdy'
 
@@ -25,6 +26,7 @@ export { default as platformerGameEngine } from './platformer-game-engine'
 export { default as pogaduszki } from './pogaduszki'
 export { default as promegle } from './promegle'
 export { default as ratingSpeed } from './rating-speed'
+export { default as sandtime } from './sandtime'
 export { default as storePro } from './store-pro'
 export { default as testyPrawoJazdy } from './testy-prawo-jazdy'
 
@@ -40,6 +42,7 @@ export default {
   pogaduszki,
   promegle,
   ratingSpeed,
+  sandtime,
   storePro,
   testyPrawoJazdy
 }

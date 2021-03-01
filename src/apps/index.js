@@ -44,7 +44,7 @@ const AppsPage = () => (
   <Page
     Apps
     title="Apps - Przemysław Zalewski - Ciunkos"
-    description="Promegle, Testy Prawo Jazdy, Store ᴾᴿᴼ, MusicTube and more..."
+    description="Sandtime.io, Promegle, Testy Prawo Jazdy, Store ᴾᴿᴼ, MusicTube and more..."
   >
     <Section Apps cover={cover}>
       <Section.Content padding-2 spacing-4>
@@ -175,8 +175,10 @@ const AppsPage = () => (
         {app.link ? (
           <ActionButton
             href={app.link}
-            name="Download"
             icon={<FileDownload />}
+            name="Get"
+            rel="noopener noreferrer"
+            target="_blank"
           />
         ) : (
           <div style={{ paddingTop: 32, height: 48 }} />
