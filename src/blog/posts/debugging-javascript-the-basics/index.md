@@ -1,12 +1,12 @@
 # Debugging Javascript - The Basics
 
-When it comes to debugging a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let's explore what we can do about it and bravely fight nasty bugs!
+When it comes to debugging a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let’s explore what we can do about it and bravely fight nasty bugs!
 
 ## Debugging with `console.log`
 
 Long, long ago, when people on Earth were using stones to do the most of their tasks, programmers were using standard output to print out information about process status. It is pretty easy to do imperatively - just add logging statements to print out values and diagnostic messages whenever there is a need.
 
-Let's assume that that we are debugging this little function:
+Let’s assume that that we are debugging this little function:
 
 ```javascript
 function getMaxAge(people) {
@@ -21,7 +21,7 @@ function getMaxAge(people) {
 }
 ```
 
-When we run this with `[10, 34, 23, 50]` it returns an `undefined`. Why? Let's put some `console.log` calls to see how it is evaluated.
+When we run this with `[10, 34, 23, 50]` it returns an `undefined`. Why? Let’s put some `console.log` calls to see how it is evaluated.
 
 ```javascript
 function getMaxAge(people) {
@@ -54,7 +54,7 @@ function getMaxAge(people) {
 
 Running the same code shows clearly that something is wrong with age comparison - it should be opposite. However, after fixing that issue, still we get an `undefined` result.
 
-That is because in the for loop the index gets out of the array's bounds [0, people.length - 1]. The for's condition should be less-than, not less-than-or-equals. Thats a very common issue, just remember:
+That is because in the for loop the index gets out of the array’s bounds [0, people.length - 1]. The for’s condition should be less-than, not less-than-or-equals. Thats a very common issue, just remember:
 
 > Don't use classic `for` loops - they are very prone to [off-by-one errors](https://en.wikipedia.org/wiki/Off-by-one_error)!
 
@@ -62,7 +62,7 @@ After fixing the code we can remove all the `console.log` calls.
 
 ### Printing argument names
 
-The `console.log` iterface uses kind of string formatting, like the one used commonly in C programs. We can leaverage this to print variable name along with it's value:
+The `console.log` interface uses kind of string formatting, like the one used commonly in C programs. We can leverage this to print variable name along with it’s value:
 
 ```javascript
 console.log('current age: %d', age)
@@ -87,13 +87,13 @@ const logValues => (obj) =>
   })
 ```
 
-Then just use `logValues({variable})`, leaveraging [object property shorthand]() syntax.
+Then just use `logValues({variable})`, leveraging [object property shorthand]() syntax.
 
 todo: mention [nameof] operator from C#
 
 ## (Wire)tapping method chains
 
-Sometimes issues occur somewhere between long chain of operations. There comes handy `tap` method inspited by [Ruby's tap](https://ruby-doc.org/core-2.4.1/Object.html#method-i-tap). Basically it calls user defined function with the argument and returns the same argument. It is is the identity function with a side-effect callback.
+Sometimes issues occur somewhere between long chain of operations. There comes handy `tap` method inspired by [Ruby’s tap](https://ruby-doc.org/core-2.4.1/Object.html#method-i-tap). Basically it calls user defined function with the argument and returns the same argument. It is is the identity function with a side-effect callback.
 
 ```javascript
 const tap = f => x => {
@@ -108,7 +108,7 @@ By using partial application we can then define `log` function:
 const log = tap(console.log)
 ```
 
-With the help of this little method we can just insert it to a long chain of opperations and ispect the values as they flow through.
+With the help of this little method we can just insert it to a long chain of operations and inspect the values as they flow through.
 
 ```javascript
 ;[1, 2, 3, 4, 5]
@@ -118,7 +118,7 @@ With the help of this little method we can just insert it to a long chain of opp
   .map(log)
 ```
 
-After extending Array's prototype we can use this function as a method.
+After extending Array’s prototype we can use this function as a method.
 
 ```javascript
 Array.prototype.tap = tap

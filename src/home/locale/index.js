@@ -13,7 +13,7 @@ export const hero = {
   ],
   note: ({ aboutLink, outboundLink }) => (
     <>
-      If you have ever wondered, the {aboutLink("guy on the left it's me")} and{' '}
+      If you have ever wondered, the {aboutLink('guy on the left it’s me')} and{' '}
       {outboundLink('the dog on the right is Ares 🐶')}
     </>
   )

@@ -147,9 +147,9 @@ import bodyParser from 'body-parser'
 app.use(bodyParser.urlencoded())
 ```
 
-![Let's send a simple message](./images/before-send.jpg)
+![Let’s send a simple message](./images/before-send.jpg)
 
-You can now send emails when handling POST requests on the contact form submission route. It's very straightforward to send emails with the configured mailer, however the user should be notified about the result. There are few options out there: redirect to the success or error page, return a status code or combine both.
+You can now send emails when handling POST requests on the contact form submission route. It’s very straightforward to send emails with the configured mailer, however the user should be notified about the result. There are few options out there: redirect to the success or error page, return a status code or combine both.
 
 ![Confirmation of e-mail have been sent](./images/sent.jpg)
 

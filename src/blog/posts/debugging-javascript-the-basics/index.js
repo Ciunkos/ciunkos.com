@@ -22,6 +22,6 @@ export default {
   cover,
   markdown: markdownWithAssets,
   description:
-    "When it comes to debug a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let's explore what we can do about it and bravely fight nasty bugs!",
+    'When it comes to debug a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let’s explore what we can do about it and bravely fight nasty bugs!',
   readingTime: readingTime(markdownWithAssets)
 }

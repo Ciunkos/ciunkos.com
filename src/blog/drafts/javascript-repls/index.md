@@ -1,8 +1,8 @@
 # JavaScript REPLs
 
-Have you ever been tired of setting up development enviroment before you could write just a simple "Hello World!" program in a new discovered language? Fear no more! Most programming languages come with REPL (read-eval-print-loop) tools and so do the JavaScript.
+Have you ever been tired of setting up development environment before you could write just a simple "Hello World!" program in a new discovered language? Fear no more! Most programming languages come with REPL (read-eval-print-loop) tools and so do the JavaScript.
 
-The most common but not so well known REPL for JS is the DevTools - just open it with F12 and type some code - it will be evaluated and the result printed out. Want you to try new language features, not yet available in the current browsers? Let's explore some possibilities.
+The most common but not so well known REPL for JS is the DevTools - just open it with F12 and type some code - it will be evaluated and the result printed out. Want you to try new language features, not yet available in the current browsers? Let’s explore some possibilities.
 
 ## JavaScript
 
