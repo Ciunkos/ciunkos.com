@@ -31,7 +31,7 @@ const NotFoundPage = () => (
 
           <Button
             tag="a"
-            href="/"
+            href="/about#contact"
             primary
             center
             middle
