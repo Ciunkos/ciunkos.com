@@ -31,7 +31,7 @@ export default () => (
         <Section.Title tag="h1">Przemysław Zalewski</Section.Title>
 
         <styled.AboutMe>
-          <p>Full-stack web and Windows app developer from Wroclaw.</p>
+          <p>Full Stack Web Developer from Wroclaw, Poland.</p>
           <p>
             Currently working for{' '}
             <InlineLink
@@ -42,6 +42,7 @@ export default () => (
               <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
           </p>
+          <p>Earliest availability from May 2021. Remote work preferred.</p>
         </styled.AboutMe>
 
         <styled.Outbound>

@@ -4,8 +4,14 @@ export default [
   {
     company: companies.Sandstream,
     title: 'Full Stack Web Developer',
-    date: 'July 2017 - now',
-    tech: 'ES6, React, Redux, C#'
+    date: 'July 2017 - present',
+    tech: 'JS, React, node.js, C#, .NET Core'
+  },
+  {
+    company: companies.SelfEmployment,
+    title: '25+ apps, 3 million+ downloads',
+    date: '2012 - July 2017',
+    tech: 'C#, XAML, ASP.NET'
   },
   {
     company: companies.LOSO,

@@ -24,16 +24,16 @@ const Contracts = ({ contracts }) => (
 const JobPaths = () => (
   <styled.JobPaths spacing-3>
     <div>
-      <styled.Subheader>Since 2016</styled.Subheader>
-      <p>Full-stack web developer · JavaScript</p>
+      <styled.Subheader>Since 2017</styled.Subheader>
+      <p>Full Stack Web Developer · JavaScript</p>
     </div>
     <div>
-      <styled.Subheader Subheader>2013 - 2016</styled.Subheader>
-      <p>Windows app developer · C#</p>
+      <styled.Subheader Subheader>2012 - 2017</styled.Subheader>
+      <p>Windows App Developer · C#</p>
     </div>
     <div>
-      <styled.Subheader Subheader>Before 2013</styled.Subheader>
-      <p>Game developer · C++, C#</p>
+      <styled.Subheader Subheader>Before 2012</styled.Subheader>
+      <p>Game Developer · C++, C#</p>
     </div>
   </styled.JobPaths>
 )
@@ -44,30 +44,25 @@ export default () => (
       <h2>Education and work experience</h2>
 
       <p>
-        In 2014 I have earned <em>Bachelor of Science</em> degree in{' '}
-        <em>Computer Science</em> on{' '}
+        In 2014 I have earned a <em>Bachelor of Science</em> degree in{' '}
+        <em>Computer Science</em> at the{' '}
         <InlineLink href="http://wiz.pwr.edu.pl/en/">
           <em>Faculty of Computer Science and Management</em>
         </InlineLink>{' '}
         of{' '}
         <InlineLink href="http://pwr.edu.pl/en/">
-          <em>Wroclaw University of Science and Technology</em>
+          <em>Wroclaw University of&nbsp;Science and Technology</em>
         </InlineLink>
         .
       </p>
 
-      <p className="media-no-print">
-        I work mostly on my own apps and services, however I have done some
-        contracted work. I am currently open for office work.
-      </p>
-
-      <styled.Row horizontal wrappable>
-        <styled.Column stretch style={{ flex: '2 1 auto', paddingRight: 16 }}>
-          <h3>Contracted work</h3>
+      <styled.Row horizontal wrappable wrappable-spacing>
+        <styled.Column flex-stretch-2>
+          <h3>Commercial work</h3>
           <Contracts contracts={contracts} />
         </styled.Column>
 
-        <styled.Column stretch style={{ flex: '1 1 auto' }}>
+        <styled.Column flex-stretch--1>
           <h3>Job paths</h3>
           <JobPaths />
         </styled.Column>
