@@ -8,6 +8,8 @@ import Social from 'social'
 import cover from './cover.jpg'
 import background from './background.jpg'
 
+const CONTACT_FORM = false
+
 const AboutPage = ({ location = {} }) => (
   <Page
     About
@@ -56,78 +58,95 @@ const AboutPage = ({ location = {} }) => (
         <h1>Contact me</h1>
 
         <styled.About spacing-4>
-          <styled.ContactForm
-            id="contact-form"
-            tag="form"
-            method="POST"
-            action="/contact"
-            spacing-4
-            style={{ maxWidth: 360 }}
-          >
-            <styled.FormFiels spacing-2>
-              <styled.FormField spacing>
-                <label htmlFor="name" className="spacing">
-                  <span>Name</span>
-                  <input type="text" name="name" id="name" />
-                </label>
-              </styled.FormField>
+          <div className="task-result error" id="contact-error">
+            <p>
+              Please mail me directly at{' '}
+              <InlineLink href="mailto:ciunkos@gmail.com">
+                ciunkos@gmail.com
+              </InlineLink>{' '}
+              or{' '}
+              <InlineLink href="mailto:ciunkos@gmail.com">
+                ciunkos@ciunkos.com
+              </InlineLink>
+              .
+            </p>
+          </div>
+          {CONTACT_FORM && (
+            <>
+              <styled.ContactForm
+                id="contact-form"
+                tag="form"
+                method="POST"
+                action="/contact"
+                spacing-4
+                style={{ maxWidth: 360 }}
+              >
+                <styled.FormFiels spacing-2>
+                  <styled.FormField spacing>
+                    <label htmlFor="name" className="spacing">
+                      <span>Name</span>
+                      <input type="text" name="name" id="name" />
+                    </label>
+                  </styled.FormField>
 
-              <styled.FormField spacing>
-                <label htmlFor="email" className="spacing">
-                  <span>Email</span>
-                  <input type="email" name="email" id="email" />
-                </label>
-                <p className="tiny">Your email will be kept private</p>
-              </styled.FormField>
+                  <styled.FormField spacing>
+                    <label htmlFor="email" className="spacing">
+                      <span>Email</span>
+                      <input type="email" name="email" id="email" />
+                    </label>
+                    <p className="tiny">Your email will be kept private</p>
+                  </styled.FormField>
 
-              <styled.FormField spacing>
-                <label htmlFor="message" className="spacing">
-                  <span>Message</span>
-                  <textarea
-                    className="stretch"
-                    name="message"
-                    id="message"
-                    rows="3"
-                    style={{ maxWidth: 360 }}
-                  />
-                </label>
-              </styled.FormField>
-            </styled.FormFiels>
+                  <styled.FormField spacing>
+                    <label htmlFor="message" className="spacing">
+                      <span>Message</span>
+                      <textarea
+                        className="stretch"
+                        name="message"
+                        id="message"
+                        rows="3"
+                        style={{ maxWidth: 360 }}
+                      />
+                    </label>
+                  </styled.FormField>
+                </styled.FormFiels>
 
-            <Button
-              type="submit"
-              primary
-              active
-              full-width
-              center
-              middle
-              style={{ minHeight: 48 }}
-            >
-              Send
-            </Button>
-          </styled.ContactForm>
+                <Button
+                  type="submit"
+                  primary
+                  active
+                  full-width
+                  center
+                  middle
+                  style={{ minHeight: 48 }}
+                >
+                  Send
+                </Button>
+              </styled.ContactForm>
 
-          {location.hash === '#contact-success' && (
-            <div className="task-result success" id="contact-success">
-              <p>
-                Your message has been sent{' '}
-                <span role="img" aria-label="mail icon">
-                  📧
-                </span>
-              </p>
-            </div>
-          )}
+              {location.hash === '#contact-success' && (
+                <div className="task-result success" id="contact-success">
+                  <p>
+                    Your message has been sent{' '}
+                    <span role="img" aria-label="mail icon">
+                      📧
+                    </span>
+                  </p>
+                </div>
+              )}
 
-          {location.hash === '#contact-error' && (
-            <div className="task-result error" id="contact-error">
-              <p>
-                An error occurred while submitting the form, please try again or
-                mail me directly at{' '}
-                <InlineLink href="mailto:ciunkos@gmail.com">
-                  ciunkos@gmail.com
-                </InlineLink>
-              </p>
-            </div>
+              {location.hash === '#contact-error' && (
+                <div className="task-result error" id="contact-error">
+                  <p>
+                    An error occurred while submitting the form, please try
+                    again or mail me directly at{' '}
+                    <InlineLink href="mailto:ciunkos@gmail.com">
+                      ciunkos@gmail.com
+                    </InlineLink>
+                  </p>
+                </div>
+              )}
+            </>
           )}
         </styled.About>
       </Section.Content>
