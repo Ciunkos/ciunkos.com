@@ -38,6 +38,7 @@
     background-image: none !important;
     color: black;
     overflow: initial !important;
+    text-rendering: optimizeLegibility;
   }
 
   .Background,
