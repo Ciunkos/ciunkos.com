@@ -65,7 +65,7 @@ const AboutPage = ({ location = {} }) => (
                 ciunkos@gmail.com
               </InlineLink>{' '}
               or{' '}
-              <InlineLink href="mailto:ciunkos@gmail.com">
+              <InlineLink href="mailto:ciunkos@ciunkos.com">
                 ciunkos@ciunkos.com
               </InlineLink>
               .
