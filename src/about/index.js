@@ -28,16 +28,16 @@ const AboutPage = ({ location = {} }) => (
             Most of the time I am doing web development with JavaScript, however
             not so long ago I have been developing Windows apps using C#. I have
             transitioned myself for the web stack in order to spread my apps and
-            services for a much bigger audience and not wall myself in the
+            services for a much bigger audience and not wall myself in
             Microsoft’s garden. Was that a good move? I am asking myself that
             question every day.
           </p>
 
           <p>
-            Here, on the blog, I mostly write about React.js, node.js and other
+            Here, on the blog, I mostly write about React.js, node.js, and other
             hot web technologies and present how to incorporate interesting
             solutions in your projects. As the web stack is not so well designed
-            and is full of quirks and workarounds I've got many topics to
+            and is full of quirks and workarounds I’ve got many topics to
             explore and write about. Stay tuned!
           </p>
         </styled.AboutMe>
