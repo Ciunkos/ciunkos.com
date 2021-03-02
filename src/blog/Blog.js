@@ -6,7 +6,6 @@ import './styles.css'
 import { Page, Section } from 'components'
 import relatedPosts from 'blog/related-posts'
 import { PostHeader } from 'blog/post'
-import Comments from './Comments'
 import CodeBlock from './CodeBlock'
 import Image from './Image'
 
@@ -67,17 +66,6 @@ const Blog = ({ post }) => (
         </Section.Content>
       </Section>
     )}
-
-    <Section Comments id="comments">
-      <Section.Content padding-2 spacing-4>
-        <h2>Express yourself...</h2>
-        <p>Let me know your thoughts.</p>
-      </Section.Content>
-
-      <styled.CommentsThread Card padding-2>
-        <Comments id={post.slug} />
-      </styled.CommentsThread>
-    </Section>
   </Page>
 )
 

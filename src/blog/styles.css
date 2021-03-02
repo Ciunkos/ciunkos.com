@@ -85,17 +85,6 @@ h3 code {
   }
 }
 
-.CommentsThread {
-  max-width: 832px;
-  align-self: center;
-  width: 100%;
-  margin-bottom: 48px;
-}
-
-#disqus_thread {
-  color: #000;
-}
-
 code.hljs {
   padding: 4px 8px;
 }
@@ -131,7 +120,6 @@ blockquote {
     min-height: initial;
   }
 
-  .Blog .Section.Comments,
   .Blog .Section.RelatedPosts {
     display: none !important;
   }

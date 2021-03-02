@@ -5,7 +5,6 @@ import Blog from './Blog'
 
 export { default as Blog } from './Blog'
 export { default as CodeBlock } from './CodeBlock'
-export { default as Comments } from './Comments'
 export { default as drafts } from './drafts'
 export { default as Image } from './Image'
 export { default as post } from './post'

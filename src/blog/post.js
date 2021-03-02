@@ -1,26 +1,11 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Paragraph, InlineLink, linkIf } from 'components'
-import Subscription from 'disqus/Subscription'
-import { comments } from 'disqus/service'
-
-const CommentCount = ({ post, ...rest }) => (
-  <Subscription commentCount={comments(`https://ciunkos.com/${post.slug}`)}>
-    {({ commentCount }) => (
-      <styled.CommentCount tag="span" {...rest}>
-        {commentCount} comments
-      </styled.CommentCount>
-    )}
-  </Subscription>
-)
+import { Paragraph, linkIf } from 'components'
 
 export const PostMeta = ({ post, ...rest }) => (
   <Paragraph tiny {...rest}>
-    {post.date || 'Draft'} · {post.readingTime} min read ·{' '}
-    <InlineLink href={`/${post.slug}#comments`}>
-      <CommentCount post={post} />
-    </InlineLink>
+    {post.date || 'Draft'} · {post.readingTime} min read
   </Paragraph>
 )
 
