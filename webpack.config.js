@@ -49,10 +49,6 @@ module.exports = ({ path, production = true } = {}) => {
             }
           }
         ]
-      },
-      {
-        test: /\.csv$/,
-        loader: 'dsv-loader'
       }
     ]
 
