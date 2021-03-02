@@ -3,7 +3,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 
 import styled from 'styled'
 import { Page, Section, ActionButton } from 'components'
-import { FileDownload } from 'icons'
+import { ArrowForward, FileDownload } from 'icons'
 import cover from './cover.jpg'
 import './styles.css'
 import apps from './data'
@@ -59,7 +59,13 @@ const AppsPage = () => (
           style={{ paddingTop: 16 }}
         >
           {Object.entries(apps).map(([key, { name, icon, slug }]) => (
-            <styled.AppListItem tag="a" href={`#${slug}`} key={key} card-1>
+            <styled.AppListItem
+              card-1
+              href={`#${slug}`}
+              key={key}
+              tag="a"
+              title={name}
+            >
               <styled.AppIcon tag="img" src={icon} alt={name} />
             </styled.AppListItem>
           ))}
@@ -174,9 +180,10 @@ const AppsPage = () => (
 
         {app.link ? (
           <ActionButton
+            download={app.download}
             href={app.link}
-            icon={<FileDownload />}
-            name="Get"
+            icon={app.download ? <FileDownload /> : <ArrowForward />}
+            name={app.label || 'See more'}
             rel="noopener noreferrer"
             target="_blank"
           />
