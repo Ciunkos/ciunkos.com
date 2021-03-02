@@ -1,6 +1,6 @@
 module.exports = {
   extends: 'airbnb',
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   plugins: ['react', 'jsx-a11y', 'import'],
   rules: {
     'arrow-parens': ['error', 'as-needed'],
@@ -8,7 +8,6 @@ module.exports = {
     'function-paren-newline': 0,
     'implicit-arrow-linebreak': 0,
     'import/extensions': ['error', 'always', { js: 'never' }],
-    'import/extensions': 0,
     'import/first': 0,
     'import/newline-after-import': ['error', { count: 1 }],
     'import/no-extraneous-dependencies': 0,

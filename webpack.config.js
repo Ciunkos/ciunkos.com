@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-const TransferWebpackPlugin = require('transfer-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin")
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
@@ -93,14 +93,11 @@ module.exports = ({ path, production = true } = {}) => {
             disable: false,
             allChunks: true
           }),
-          new TransferWebpackPlugin(
-            [
-              {
-                from: 'www'
-              }
-            ],
-            resolve(__dirname, 'src')
-          ),
+          new CopyPlugin({
+            patterns: [
+              { from: "src/www", to: "src" }
+            ]
+          }),
           new StatsWriterPlugin({
             filename: 'stats.json'
           })

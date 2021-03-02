@@ -15,7 +15,6 @@ export default {
     name: 'StackOverflow',
     url: 'https://stackoverflow.com/users/1384679/przemys%C5%82aw-zalewski',
     icon: stackOverflow
-    // icon: 'http://sourcingrecruitment.info/wp-content/uploads/2015/05/stackoverflow.png'
   },
   twitter: {
     name: 'Twitter',

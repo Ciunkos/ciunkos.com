@@ -1,6 +1,6 @@
 const webpack = require('webpack')
 const path = require('path')
-const TransferWebpackPlugin = require('transfer-webpack-plugin')
+const CopyPlugin = require("copy-webpack-plugin")
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const buildPath = path.resolve(__dirname, 'dev')
@@ -61,14 +61,11 @@ module.exports = () => ({
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new TransferWebpackPlugin(
-      [
-        {
-          from: 'www'
-        }
-      ],
-      path.resolve(__dirname, 'src')
-    ),
+    new CopyPlugin({
+      patterns: [
+        { from: "src/www", to: "src" }
+      ]
+    }),
     new HtmlWebpackPlugin({
       template: 'index.template.ejs',
       inject: 'body'
