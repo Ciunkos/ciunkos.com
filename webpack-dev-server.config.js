@@ -62,7 +62,10 @@ module.exports = () => ({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CopyPlugin({
-      patterns: [{ from: 'src/www', to: 'src' }]
+      patterns: [
+        { from: './src/www/', to: './' },
+        { from: './src/www/favicons', to: './' }
+      ]
     }),
     new HtmlWebpackPlugin({
       template: 'index.template.ejs',

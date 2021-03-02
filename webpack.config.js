@@ -1,12 +1,12 @@
 const webpack = require('webpack')
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
 
 const { resolve } = path
 
-module.exports = ({ path, production = true } = {}) => {
+module.exports = ({ path = 'build', production = true } = {}) => {
   console.log({
     path,
     __dirname
@@ -41,14 +41,10 @@ module.exports = ({ path, production = true } = {}) => {
       },
       {
         test: /\.(jpg|png)$/,
-        loaders: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[hash].[ext]'
-            }
-          }
-        ]
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash].[ext]'
+        }
       }
     ]
 
@@ -71,30 +67,29 @@ module.exports = ({ path, production = true } = {}) => {
             ...commonLoaders,
             {
               test: /\.css$/,
-              use: ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: [
-                  {
-                    loader: 'css-loader',
-                    options: {
-                      modules: false,
-                      importLoaders: 1
-                    }
+              use: [
+                MiniCssExtractPlugin.loader,
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: false,
+                    importLoaders: 1
                   }
-                ]
-              })
+                }
+              ]
             }
           ]
         },
         plugins: [
           ...commonPlugins,
-          new ExtractTextPlugin({
-            filename: 'styles-[hash].css',
-            disable: false,
-            allChunks: true
+          new MiniCssExtractPlugin({
+            filename: 'styles-[hash].css'
           }),
           new CopyPlugin({
-            patterns: [{ from: 'src/www', to: 'src' }]
+            patterns: [
+              { from: './src/www/', to: './' },
+              { from: './src/www/favicons', to: './' }
+            ]
           }),
           new StatsWriterPlugin({
             filename: 'stats.json'
@@ -118,21 +113,11 @@ module.exports = ({ path, production = true } = {}) => {
             ...commonLoaders,
             {
               test: /\.css$/,
-              use: ExtractTextPlugin.extract({
-                fallback: 'isomorphic-style-loader',
-                use: 'css-loader'
-              })
+              use: ['isomorphic-style-loader', 'css-loader']
             }
           ]
         },
-        plugins: [
-          ...commonPlugins,
-          new ExtractTextPlugin({
-            filename: 'styles-[hash].css',
-            disable: true,
-            allChunks: true
-          })
-        ]
+        plugins: commonPlugins
       }
     ]
   }
