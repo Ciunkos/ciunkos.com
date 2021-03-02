@@ -10,6 +10,8 @@ export { default as link } from './link.txt'
 
 export default {
   description,
+  download: true,
   icon,
+  label: 'Download',
   link
 }
