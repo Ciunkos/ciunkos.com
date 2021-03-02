@@ -15,7 +15,6 @@ import { Helmet } from 'react-helmet'
 import AppContainer from '../AppContainer'
 import { defaultRoute, match } from '../routes'
 import template, { preloadHeader } from './template'
-import mailer from './mailer'
 
 const staticFiles = glob.sync('**/*.{js,css,json,png,jpg,txt,pdf,zip,xml,ico}')
 const staticExcludes = [
@@ -98,18 +97,6 @@ app.get('*', (req, res) => {
     console.error(error)
     const html = template()
     res.send(500, html)
-  }
-})
-
-app.post('/contact', async (req, res) => {
-  try {
-    const email = req.body.email || ''
-    const name = req.body.name || ''
-    const text = req.body.message || ''
-    await mailer({ email, name, text })
-    res.redirect('/about#contact-success')
-  } catch (error) {
-    res.redirect('/about#contact-error')
   }
 })
 

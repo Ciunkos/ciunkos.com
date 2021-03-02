@@ -11,7 +11,7 @@ import NotFound from 'not-found'
 const routes = {
   '/': () => <Home />,
   '/resume/': () => <Resume />,
-  '/about/': ({ location }) => <About location={location} />,
+  '/about/': () => <About />,
   '/apps/': () => <Apps />,
   '/blog/': () => <Blog />,
   ...Object.fromEntries(
