@@ -154,7 +154,7 @@ export default [
     print: true
   },
   {
-    key: 'korona-krulow',
+    key: 'koronaKrulow',
     name: 'Korona Krulów',
     url: 'koronakrulow.pl',
     href: 'https://koronakrulow.pl',
@@ -274,7 +274,7 @@ export default [
   {
     key: 'musicTube',
     slug: 'music-tube',
-    name: 'Music Tube',
+    name: 'MusicTube',
     url: 'musictube.fm',
     icon: musicTube.icon,
     description:

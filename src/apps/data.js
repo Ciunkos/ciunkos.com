@@ -14,6 +14,7 @@ const apps = projects.reduce(
 
 const {
   sandtime,
+  koronaKrulow,
   promegle,
   testyPrawoJazdy,
   kwejk,
@@ -30,6 +31,7 @@ const {
 
 export default {
   sandtime,
+  koronaKrulow,
   promegle,
   testyPrawoJazdy,
   kwejk,

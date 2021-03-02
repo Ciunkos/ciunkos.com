@@ -5,6 +5,7 @@ import blog from './blog'
 import classicGames from './classic-games'
 import fastCoffee from './fast-coffee'
 import iAmRich from './i-am-rich'
+import koronaKrulow from './korona-krulow'
 import kwejk from './kwejk'
 import musicTube from './music-tube'
 import platformerGameEngine from './platformer-game-engine'
@@ -20,6 +21,7 @@ export { default as blog } from './blog'
 export { default as classicGames } from './classic-games'
 export { default as fastCoffee } from './fast-coffee'
 export { default as iAmRich } from './i-am-rich'
+export { default as koronaKrulow } from './korona-krulow'
 export { default as kwejk } from './kwejk'
 export { default as musicTube } from './music-tube'
 export { default as platformerGameEngine } from './platformer-game-engine'
@@ -36,6 +38,7 @@ export default {
   classicGames,
   fastCoffee,
   iAmRich,
+  koronaKrulow,
   kwejk,
   musicTube,
   platformerGameEngine,
