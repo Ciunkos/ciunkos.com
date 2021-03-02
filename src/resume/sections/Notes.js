@@ -4,7 +4,9 @@ import styled from 'styled'
 import { Section, InlineLink } from 'components'
 
 const DownloadLink = () => (
-  <InlineLink href="resume.pdf">Download this resume as PDF</InlineLink>
+  <InlineLink href="resume.pdf" rel="noopener noreferrer" target="_blank">
+    Download this resume as a PDF
+  </InlineLink>
 )
 
 export default () => (
