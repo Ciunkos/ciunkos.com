@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Section, ActionButton, Button } from 'components'
+import { Section, ActionButton, Button, Paragraph } from 'components'
 import projects from 'resume/projects'
 import { ArrowBack, ArrowForward } from 'icons'
 import { projects as cover } from './covers'
@@ -69,9 +69,9 @@ export default () => (
   <Section Projects cover={cover} id="projects">
     <Section.Content padding-2 spacing-4>
       <Section.Title>Projects</Section.Title>
-      <styled.Paragraph media-no-print>
+      <Paragraph media-no-print>
         There are some notable projects I have been working on recently.
-      </styled.Paragraph>
+      </Paragraph>
     </Section.Content>
 
     <styled.Row
