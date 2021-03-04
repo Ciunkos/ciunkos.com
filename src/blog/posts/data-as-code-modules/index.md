@@ -25,7 +25,7 @@ Then add following configuration to your `webpack.config.js` file in the `module
   test: /\.(jpg|png|svg)$/,
   loader: 'file-loader',
   options: {
-    name: '[path][name].[hash].[ext]'
+    name: '[path][name].[contenthash].[ext]'
   }
 },
 ```

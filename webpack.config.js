@@ -7,10 +7,6 @@ const { StatsWriterPlugin } = require('webpack-stats-plugin')
 const { resolve } = path
 
 module.exports = ({ path = 'build', production = true } = {}) => {
-  console.log({
-    path,
-    __dirname
-  })
   const buildPath = resolve(__dirname, path || 'build')
   {
     const commonPlugins = [
@@ -43,21 +39,20 @@ module.exports = ({ path = 'build', production = true } = {}) => {
         test: /\.(jpg|png)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[hash].[ext]'
+          name: '[name].[contenthash].[ext]'
         }
       }
     ]
 
     return [
       {
-        // The configuration for the client
         name: 'browser',
         entry: './src/app.js',
         resolve: {
           modules: [resolve(__dirname, 'src'), 'node_modules']
         },
         output: {
-          filename: 'app-[hash].js', // Name of output file
+          filename: 'app-[contenthash].js',
           path: buildPath,
           publicPath: '/'
         },
@@ -83,7 +78,7 @@ module.exports = ({ path = 'build', production = true } = {}) => {
         plugins: [
           ...commonPlugins,
           new MiniCssExtractPlugin({
-            filename: 'styles-[hash].css'
+            filename: 'styles-[contenthash].css'
           }),
           new CopyPlugin({
             patterns: [
