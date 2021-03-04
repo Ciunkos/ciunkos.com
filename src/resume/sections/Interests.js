@@ -86,7 +86,7 @@ export default () => (
         I am always ready to learn new things and explore new opportunities.
       </p>
 
-      <styled.InterestsAndGoals spacing-2>
+      <styled.InterestsAndGoals spacing-4>
         <styled.InterestsSection>
           <h3>My interests</h3>
           <Interests interests={interests} media-no-print />

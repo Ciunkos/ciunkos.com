@@ -26,7 +26,7 @@ const Skills = ({ skills }) => (
 )
 
 const SkillSets = ({ children: skillSets }) => (
-  <styled.SkillSets spacing-2>
+  <styled.SkillSets spacing-4>
     {skillSets.map(([title, skills]) => (
       <styled.SkillSet key={title}>
         <h3>{title}</h3>
