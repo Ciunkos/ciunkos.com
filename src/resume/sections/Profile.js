@@ -30,9 +30,19 @@ export default () => (
       <styled.Column HeadingContent flex-2 spacing-4>
         <Section.Title tag="h1">Przemysław Zalewski</Section.Title>
 
-        <styled.AboutMe>
-          <p>Full Stack Web Developer from Wroclaw, Poland.</p>
+        <styled.AboutMe spacing-2>
           <p>
+            Full Stack Web Developer from Wroclaw, Poland. My daily toolbox
+            includes JavaScript, React, node.js, C#, and .NET.
+          </p>
+          <p>
+            I am fully committed to what I do, I am experienced with the full
+            product lifecycle and I lead projects and teams to achieve their
+            goals. I am product-focused, and I deliver. I love clean code,
+            functional programming and participate in code reviews heavily. New
+            challenges and opportunities are what I am looking for.
+          </p>
+          <styled.CurrentEmployment tag="p" media-no-print>
             Currently working for{' '}
             <InlineLink
               href="https://sanddev.com"
@@ -41,7 +51,7 @@ export default () => (
             >
               <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
-          </p>
+          </styled.CurrentEmployment>
           <p>Earliest availability from June 2021. Remote work preferred.</p>
         </styled.AboutMe>
 
