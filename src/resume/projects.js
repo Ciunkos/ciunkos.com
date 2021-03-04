@@ -33,11 +33,11 @@ export default [
       tech.Redux,
       tech.reduxThunk,
       tech.nodeJs,
+      tech.Jest,
       tech.CSharp,
+      tech.dotNetCore,
       tech.EntityFramework,
       tech.mySql,
-      tech.mySqlWorkbench,
-      tech.dotNetCore,
       tech.ASPDotNetCore,
       tech.Sass,
       tech.WebGL,
@@ -67,11 +67,10 @@ export default [
     timeFrame: 'January 2019 - present',
     icon: sandtimeIcon,
     description:
-      'In-house multiplatform SaaS time tracking system to improve workflows of creative people. With the automatic time tracking and integrations, it makes all the parties involved in projects credible and accountable.',
+      'In-house multiplatform SaaS time tracking system to improve workflows of creative people. With automatic time tracking and integrations, it makes all the parties involved in projects credible and accountable.',
     tech: [
       tech.js,
       tech.react,
-      tech.Redux,
       tech.nodeJs,
       tech.expressJs,
       tech.Sass,
@@ -86,6 +85,7 @@ export default [
       tech.JWT,
       tech.ciCd,
       tech.Jenkins,
+      tech.git,
       tech.GitLab,
       tech.elk,
       tech.puppeteer,
@@ -109,7 +109,7 @@ export default [
     timeFrame: 'November 2019 - December 2019',
     icon: validatorIcon,
     description:
-      'Mobile app to help users capture perfect photos for ID documents. The app was submitted to the Polish government competition GovTech. The project scored 5th place out of more than 50 submissions.',
+      'Mobile app to help users capture perfect photos for ID documents. The app was submitted to the Polish government competition, GovTech, and scored 5th place.',
     tech: [
       tech.js,
       tech.react,
@@ -119,7 +119,9 @@ export default [
       tech.openCV,
       tech.webAssembly,
       tech.android,
-      tech.kotlin
+      tech.kotlin,
+      tech.git,
+      tech.GitLab
     ],
     responsibilities: [
       'I was responsible for leading a small team to deliver a fully functional app that meets the competition’s requirements within a tight deadline. I have incorporated AI-based solutions and libraries to tackle the problem with near-real-time performance in mind. I have integrated React-based frontend with native Kotlin-based Android app that ran bare-metal models for extended performance on mobile, while still being able to run the app entirely on the web, fully offline. I have implemented a complex image detection and processing pipeline using face-api.js, OpenCV, TensorFlow, and custom functions. To achieve proper results, I have provided an extensive test suite, debug and visualization tools, and gathered a huge set of samples. Finally, I wrote a submission paper with a detailed report and documentation.'
@@ -140,6 +142,8 @@ export default [
       tech.js,
       tech.rollup,
       tech.SSG,
+      tech.git,
+      tech.GitHub,
       tech.GitHubPages,
       tech.GitHubActions,
       tech.react,
@@ -184,9 +188,9 @@ export default [
       tech.MobX
     ],
     responsibilities: [
-      'Writing the front-end with React.js, styling with CSS, designing resposive, mobile friendly views',
+      'Writing the front-end with React.js, styling with CSS, designing responsive, mobile-friendly views',
       'Database design and implementation of static data as a code modules system',
-      'Open sourcing test questions and explanations along with an edit system based on Git',
+      'Open-sourcing test questions and explanations along with an edit system based on Git',
       'Implementing reactive view model using MobX and performance testing',
       'Enabling server-side rendering using node.js on IIS with iis-node'
     ]
@@ -210,7 +214,7 @@ export default [
       tech.ASPDotNet
     ],
     responsibilities: [
-      'Writing the front-end with React.js, Redux and custom styling solution',
+      'Writing the front-end with React.js, Redux, and a custom styling solution',
       'Implementing message queue system and reactive immutable database solution',
       'Implementing video calling over WebRTC along with the signaling server',
       'Automatic image classification using Yahoo’s Not Safe For Work deep neural model running on Docker',
@@ -263,12 +267,12 @@ export default [
       tech.visualStudio
     ],
     responsibilities: [
-      'Design and development of Windows Phone 8 application using C#, XAML and MVVM pattern',
+      'Design and development of Windows Phone 8 application using C#, XAML, and MVVM pattern',
       'Creating and deploying ASP.NET based web service and API endpoints along with a landing page',
       'Designing and managing MS SQL database and integrating it with back-end service using Entity Framework',
       'Back-end crawling services for deals discovery and sending push notifications',
       'Internationalization implementation for over 192 languages',
-      'Deployment of multiple updates, maintenance work and customer support'
+      'Deployment of multiple updates, maintenance work, and customer support'
     ]
   },
   {
@@ -313,8 +317,8 @@ export default [
     responsibilities: [
       'Development of native Windows Phone',
       'Implementation of Gadu-Gadu binary protocol',
-      'Setting up persistent proxy and push notification server',
-      'Deploying multiple updates, maintenance work and customer support'
+      'Setting up a persistent proxy and push notification server',
+      'Deploying multiple updates, maintenance work, and customer support'
     ]
   },
   {
@@ -356,7 +360,7 @@ export default [
       tech.visualStudio
     ],
     responsibilities: [
-      'Development of Windows Phone application based on client’s provided project using XAML, MVVM and C#',
+      'Development of Windows Phone application based on client’s provided project using XAML, MVVM, and C#',
       'Integration with existing web APIs',
       'Collaboration with the project owner and the rest of the team',
       'Monetization through different ad networks',
@@ -379,10 +383,10 @@ export default [
       tech.visualStudio
     ],
     responsibilities: [
-      'Development of Windows Phone application using XAML, MVVM and C#',
-      'Implementing network speed measurement, test results statistics and upload',
+      'Development of Windows Phone application using XAML, MVVM, and C#',
+      'Implementing network speed measurement, test results statistics, and upload',
       'Implementing the design provided by the client',
-      'Preparing app for publishing in the Windows Store and providing app updates'
+      'Preparing the app for publishing in the Windows Store and providing app updates'
     ]
   },
   {

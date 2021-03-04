@@ -1,6 +1,6 @@
 export default {
   js: {
-    name: 'JavaScript (ES6+)'
+    name: 'JavaScript'
   },
   nodeJs: {
     name: 'node.js',
@@ -168,7 +168,7 @@ export default {
     url: 'https://storybook.js.org'
   },
   redis: {
-    name: 'redis',
+    name: 'Redis',
     url: 'https://redis.io'
   },
   Jenkins: {
@@ -397,5 +397,9 @@ export default {
   },
   codeReview: {
     name: 'Code review'
+  },
+  ngrok: {
+    name: 'ngrok',
+    url: 'https://ngrok.com'
   }
 }

@@ -1,6 +1,6 @@
 export default [
   ['Join a team of highly-skilled and experienced people'],
-  ['Improve my spoken and written English'],
+  ['Improve my spoken English'],
   ['Sharpen my TypeScript skills'],
   ['Set up a Kubernetes cluster'],
   ['Learn Haskell well', false, true],
