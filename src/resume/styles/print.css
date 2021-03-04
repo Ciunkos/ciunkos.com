@@ -26,8 +26,8 @@
     background: white !important;
     width: 210mm;
     /*height: 297mm;*/
-    margin-top: 0px !important;
-    margin-bottom: 0px !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
     font-size: 14px;
   }
 
@@ -154,11 +154,11 @@
 
   /*hack vertical spacing*/
   .vertical-spacing > * {
-    margin-bottom: 0px !important;
+    margin-bottom: 0 !important;
   }
 
   .vertical-spacing {
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   .Section {
@@ -231,8 +231,8 @@
   }
 
   .HeadingImage {
-    width: 222px !important;
-    height: 222px !important;
+    width: 170px !important;
+    height: 170px !important;
     border-radius: 10% !important;
   }
 
@@ -245,7 +245,7 @@
   }
 
   .Section.Profile .Content > :first-child {
-    margin-right: 0px;
+    margin-right: 0;
   }
 
   .HeadingImageContainer {
@@ -271,8 +271,8 @@
   }
 
   .Section.Profile h2 {
-    margin-top: 0px;
-    margin-bottom: 0px;
+    margin-top: 0;
+    margin-bottom: 0;
     text-align: initial;
   }
 
@@ -281,8 +281,8 @@
   }
 
   .SectionContent .Content {
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
     padding-left: 0;
     padding-right: 0;
     max-width: initial;
@@ -293,16 +293,17 @@
   }
 
   .Section:not(:last-child) .SectionContent .Content {
-    padding-top: 0px !important;
+    padding-top: 0 !important;
     padding-bottom: 14px !important;
   }
 
   .Section:last-child .SectionContent .Content {
-    padding-bottom: 0px !important;
+    padding-bottom: 0 !important;
   }
 
   .Section:first-child .SectionContent .Content {
-    padding-top: 0px !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .Skill {
@@ -339,7 +340,7 @@
 
   /*//fix the overflow*/
   .Section:last-child .Content {
-    padding-bottom: 0px !important;
+    padding-bottom: 0 !important;
   }
 
   /*https://stackoverflow.com/a/35154315/1384679*/
