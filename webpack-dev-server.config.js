@@ -17,8 +17,7 @@ module.exports = () => ({
     port: 3000,
     host: 'localhost',
     historyApiFallback: {
-      disableDotRule: true,
-      index: 'static.html'
+      disableDotRule: true
     }
   },
   devtool: 'eval',

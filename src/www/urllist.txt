@@ -1,9 +1,0 @@
-https://ciunkos.com/
-https://ciunkos.com/apps
-https://ciunkos.com/resume
-https://ciunkos.com/about
-https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react
-https://ciunkos.com/data-as-code-modules
-https://ciunkos.com/debugging-javascript-the-basics
-https://ciunkos.com/traversable-objects-in-java-script
-https://ciunkos.com/resume.pdf
