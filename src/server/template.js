@@ -31,7 +31,7 @@ const template = (
     <link rel="preload" href="/${appStylesPath}" as="style">
     ${helmet.title.toString()}
     ${helmet.meta.toString()}
-    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,shrink-to-fit=no,user-scalable=no"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/favicons/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/favicons/apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/favicons/apple-touch-icon-72x72.png" />
