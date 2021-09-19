@@ -401,5 +401,8 @@ export default {
   ngrok: {
     name: 'ngrok',
     url: 'https://ngrok.com'
+  },
+  XNA: {
+    name: 'XNA'
   }
 }

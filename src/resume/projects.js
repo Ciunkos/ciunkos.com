@@ -351,14 +351,7 @@ export default [
     icon: kwejk.icon,
     description: 'Kwejk.pl feed viewer application for Windows Phone.',
     client: companies.CubeInvestments,
-    tech: [
-      tech.CSharp,
-      tech.XAML,
-      tech.MVVM,
-      tech.ASPDotNet,
-      tech.MsSQL,
-      tech.visualStudio
-    ],
+    tech: [tech.CSharp, tech.XAML, tech.MVVM, tech.ASPDotNet, tech.REST],
     responsibilities: [
       'Development of Windows Phone application based on client’s provided project using XAML, MVVM, and C#',
       'Integration with existing web APIs',
@@ -374,14 +367,7 @@ export default [
     icon: ratingSpeed.icon,
     description: 'Network speed measurement app for Windows Phone.',
     client: companies.LOSO,
-    tech: [
-      tech.CSharp,
-      tech.XAML,
-      tech.MVVM,
-      tech.ASPDotNet,
-      tech.MsSQL,
-      tech.visualStudio
-    ],
+    tech: [tech.CSharp, tech.XAML, tech.MVVM, tech.ASPDotNet, tech.REST],
     responsibilities: [
       'Development of Windows Phone application using XAML, MVVM, and C#',
       'Implementing network speed measurement, test results statistics, and upload',
@@ -416,8 +402,7 @@ export default [
     slug: 'i-am-rich',
     name: 'I Am Rich The Game',
     icon: iAmRich.icon,
-    description:
-      'Windows PC and Windows Store 4-player turn-based game simulation game.',
+    description: 'Windows PC and Windows Store turn-based simulation game.',
     client: companies.RedDotGames,
     tech: [
       tech.CPlusPlus,
@@ -452,7 +437,7 @@ export default [
     description:
       'Windows PC and Xbox 360 platformer game engine with a built-in editor.',
     client: companies.RedDotGames,
-    tech: [tech.CSharp, tech.DirectX9, tech.visualStudio],
+    tech: [tech.CSharp, tech.DirectX9, tech.XNA, tech.visualStudio],
     responsibilities: [
       'Development of XNA game engine',
       'Creation of game editor with support for live play',
