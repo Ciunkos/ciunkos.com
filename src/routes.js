@@ -13,7 +13,6 @@ const routes = {
   '/resume/': () => <Resume />,
   '/about/': () => <About />,
   '/apps/': () => <Apps />,
-  '/blog/': () => <Blog />,
   ...Object.fromEntries(
     Object.values(posts).map(post => [
       `/${post.slug}/`,
@@ -22,7 +21,7 @@ const routes = {
   )
 }
 
-export const defaultRoute = () => <NotFound />
+const defaultRoute = () => <NotFound />
 
 export const match = (pathname = '') =>
   routes[pathname] || routes[`${pathname}/`] || defaultRoute

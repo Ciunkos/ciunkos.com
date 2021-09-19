@@ -33,6 +33,8 @@ module.exports = {
     'no-console': 0,
     'no-mixed-operators': 0,
     'no-multiple-empty-lines': ['error', { max: 1 }],
+    'no-restricted-syntax': 0,
+    'no-await-in-loop': 0,
     'no-shadow': 0,
     'object-curly-newline': ['error', { consistent: true }],
     'operator-linebreak': 0,

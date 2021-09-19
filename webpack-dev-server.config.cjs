@@ -31,7 +31,11 @@ module.exports = () => ({
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
+        type: 'javascript/auto',
+        resolve: {
+          fullySpecified: false
+        }
       },
       {
         test: /\.(jpg|png)$/,
@@ -61,10 +65,7 @@ module.exports = () => ({
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new CopyPlugin({
-      patterns: [
-        { from: './src/www/', to: './' },
-        { from: './src/www/favicons', to: './' }
-      ]
+      patterns: [{ from: './src/www/', to: './' }]
     }),
     new HtmlWebpackPlugin({
       template: 'index.template.ejs',

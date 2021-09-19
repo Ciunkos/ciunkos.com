@@ -1,6 +1,6 @@
 import fs from 'fs'
 
-const stats = JSON.parse(fs.readFileSync('./stats.json'))
+const stats = JSON.parse(fs.readFileSync('./build/stats.json'))
 
 const find = (source, regex) => source.find(x => regex.test(x))
 
@@ -9,15 +9,6 @@ const appStylesPath = find(
   stats.assetsByChunkName.main,
   /^styles-[a-z0-9]+\.css$/g
 )
-
-//const fontCss = '<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">'
-
-const preloadAsset = (path, role) => `<${path}>; rel=preload; as=${role}`
-
-export const preloadHeader = [
-  preloadAsset(`/${appSourcePath}`, 'script'),
-  preloadAsset(`/${appStylesPath}`, 'style')
-].join(', ')
 
 const template = (
   body = '',

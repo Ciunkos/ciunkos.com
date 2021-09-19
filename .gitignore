@@ -1,6 +1,3 @@
-.vscode
-build
 **/node_modules
-
-# Private mailer configuration - see https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react
-src/server/mailer/config/*
+build
+dist
