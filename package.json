@@ -17,7 +17,7 @@
     "prettier:check": "npm run prettier -- --check",
     "prettier:debug": "npm run prettier -- --debug-check",
     "prettier:fix": "npm run prettier -- --write",
-    "start": "webpack serve --mode development --config webpack-dev-server.config.js --progress --inline",
+    "start": "webpack serve --mode development --config webpack-dev-server.config.cjs --progress --inline",
     "start:server": "node build/server.cjs",
     "switch-locale": "node switch-locale",
     "switch-locale:en": "node switch-locale en",
