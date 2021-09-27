@@ -35,7 +35,7 @@ export default class HeaderContainer extends React.PureComponent {
         return
       }
 
-      const state = (window && window.pageYOffset) || 0
+      const state = Math.max(0, (window && window.pageYOffset) || 0)
 
       if (state !== prevState) {
         // automatic scroll or jump to section, ignore scrolling up
