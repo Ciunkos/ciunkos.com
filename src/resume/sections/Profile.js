@@ -8,6 +8,30 @@ import { ArrowDownward } from 'icons'
 import Social from 'social'
 import { profile as cover } from './covers'
 
+const PERIOD_OF_NOTICE_DAYS = 60
+const AVAILABILITY_BUFFER_DAYS = 33
+
+const yearMonthDateFormatter = new Intl.DateTimeFormat(['en-US', 'en'], {
+  month: 'long',
+  year: 'numeric'
+})
+
+const EarliestAvailability = ({ children: now }) => {
+  const estimatedAvailability = new Date(now)
+  estimatedAvailability.setDate(
+    estimatedAvailability.getDate() +
+      PERIOD_OF_NOTICE_DAYS +
+      AVAILABILITY_BUFFER_DAYS
+  )
+
+  const formattedYearMonth = yearMonthDateFormatter.format(
+    estimatedAvailability,
+    { month: '2-digit', year: 'numeric' }
+  )
+
+  return formattedYearMonth
+}
+
 const Bio = () => (
   <styled.Bio spacing>
     {Object.entries(bio).map(([key, { name, value, uri, classes = {} }]) => (
@@ -52,7 +76,11 @@ export default () => (
               <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
           </styled.CurrentEmployment>
-          <p>Earliest availability from June 2021. Remote work preferred.</p>
+          <p>
+            Earliest availability from{' '}
+            <EarliestAvailability>{new Date()}</EarliestAvailability>. Remote
+            work preferred.
+          </p>
         </styled.AboutMe>
 
         <styled.Outbound>
