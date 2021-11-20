@@ -16,7 +16,7 @@ const yearMonthDateFormatter = new Intl.DateTimeFormat(['en-US', 'en'], {
   year: 'numeric'
 })
 
-const EarliestAvailability = ({ children: now }) => {
+const EarliestAvailabilityDate = ({ children: now }) => {
   const estimatedAvailability = new Date(now)
   estimatedAvailability.setDate(
     estimatedAvailability.getDate() +
@@ -76,11 +76,11 @@ export default () => (
               <em>Sandstream Development sp. z o.o.</em>
             </InlineLink>
           </styled.CurrentEmployment>
-          <p>
+          <styled.EarliestAvailability tag="p" media-no-print>
             Earliest availability from{' '}
-            <EarliestAvailability>{new Date()}</EarliestAvailability>. Remote
-            work preferred.
-          </p>
+            <EarliestAvailabilityDate>{new Date()}</EarliestAvailabilityDate>.
+            Remote work preferred.
+          </styled.EarliestAvailability>
         </styled.AboutMe>
 
         <styled.Outbound>
