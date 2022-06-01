@@ -65,7 +65,7 @@ const ProjectCallToAction = () => (
   </styled.Card>
 )
 
-const preventWordWidows = text => text.replace(/ ([a-zA-Z]) /g, ` $1\u00A0`)
+const preventWordWidows = text => text.replace(/ ([a-zA-Z]) /g, ' $1\u00A0')
 
 export default () => (
   <Section Projects cover={cover} id="projects">
