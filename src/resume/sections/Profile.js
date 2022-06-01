@@ -63,8 +63,8 @@ export default () => (
             I am fully committed to what I do, I am experienced with the full
             product lifecycle and I lead projects and teams to achieve their
             goals. I am product-focused, and I deliver. I love clean code,
-            functional programming and participate in code reviews heavily. New
-            challenges and opportunities are what I am looking for.
+            functional programming, and I participate in code reviews heavily.
+            New challenges and opportunities are what I am looking for.
           </p>
           <styled.CurrentEmployment tag="p" media-no-print>
             Currently working for{' '}

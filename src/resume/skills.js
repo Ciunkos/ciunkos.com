@@ -8,9 +8,9 @@ const Skill = (skill, value) => ({
 export default {
   web: [
     Skill(tech.react, 3),
-    Skill(tech.reactNative, 1),
     Skill(tech.nodeJs, 3),
     Skill(tech.Redux, 3),
+    Skill(tech.reactNative, 1),
     Skill(tech.HTML, 3),
     Skill(tech.CSS, 3),
     Skill(tech.Sass, 2),
@@ -23,7 +23,6 @@ export default {
     Skill(tech.JWT, 2),
     Skill(tech.SSR, 2),
     Skill(tech.electron, 1),
-    Skill(tech.reactNative, 1),
     Skill(tech.expo, 1),
     Skill(tech.npm, 3),
     Skill(tech.yarn, 2),
@@ -62,7 +61,7 @@ export default {
     Skill(tech.GitHubActions, 1),
     Skill(tech.AWS, 1),
     Skill(tech.GoogleAnalytics, 2),
-    Skill(tech.CloudFlare, 2),
+    Skill(tech.cloudflare, 2),
     Skill(tech.visualStudioCode, 3),
     Skill(tech.visualStudio, 3),
 

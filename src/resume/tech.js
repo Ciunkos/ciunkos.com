@@ -402,8 +402,8 @@ export default {
     name: 'Google Analytics',
     url: 'https://www.google.com/analytics'
   },
-  CloudFlare: {
-    name: 'CloudFlare',
+  cloudflare: {
+    name: 'Cloudflare',
     url: 'https://www.cloudflare.com'
   },
   CPlusPlus: {
