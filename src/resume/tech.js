@@ -125,6 +125,64 @@ export default {
     name: 'Kotlin',
     url: 'https://kotlinlang.org'
   },
+  swift: {
+    name: 'Swift',
+    url: 'https://developer.apple.com/swift/'
+  },
+  go: {
+    name: 'go',
+    url: 'https://go.dev'
+  },
+  java: {
+    name: 'Java'
+  },
+  redash: {
+    name: 'Redash',
+    url: 'https://redash.io'
+  },
+  bigQuery: {
+    name: 'BigQuery',
+    url: 'https://cloud.google.com/bigquery'
+  },
+  kibana: {
+    name: 'Kibana',
+    url: 'https://www.elastic.co/kibana/'
+  },
+  grafana: {
+    name: 'Grafana',
+    url: 'https://grafana.com'
+  },
+  amplitude: {
+    name: 'Amplitude',
+    url: 'https://amplitude.com'
+  },
+  googleAdManager: {
+    name: 'Google Ad Manager',
+    url: 'https://admanager.google.com'
+  },
+  hapi: {
+    name: 'Hapi.js',
+    url: 'https://hapi.dev'
+  },
+  firebase: {
+    name: 'Firebase',
+    url: 'https://firebase.google.com'
+  },
+  xcode: {
+    name: 'Xcode',
+    url: 'https://developer.apple.com/xcode'
+  },
+  androidStudio: {
+    name: 'Android Studio',
+    url: 'https://developer.android.com/studio'
+  },
+  confluence: {
+    name: 'Confluence',
+    url: 'https://www.atlassian.com/software/confluence'
+  },
+  itly: {
+    name: 'Itly'
+  },
   openCV: {
     name: 'OpenCV',
     url: 'https://opencv.org'
@@ -230,6 +288,10 @@ export default {
   },
   EntityFramework: {
     name: 'Entity Framework'
+  },
+  net: {
+    name: '.NET',
+    url: 'https://dotnet.microsoft.com'
   },
   ASPDotNet: {
     name: 'ASP.NET',

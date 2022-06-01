@@ -21,10 +21,53 @@ import sandtimeIcon from './sandtime.png'
 
 export default [
   {
+    key: 'omio',
+    name: 'Ads and Ancillaries',
+    client: 'PGS Software S.A. for Omio',
+    url: 'Omio.com',
+    href: 'https://www.omio.com',
+    slug: 'omio',
+    timeFrame: 'July 2021 - May 2022',
+    description:
+      'I worked closely with other developers, product managers, designers, and stakeholders to deliver the best ad experience and coverage across multiple touchpoints and platforms (web, mobile apps, email). I delivered new features while making huge improvements to existing code and processes. Even when my role was mainly on the frontend, I was always happy to jump in and get my hands dirty with server-side code or initially unfamiliar areas such as native code in mobile apps.',
+    tech: [
+      tech.typeScript,
+      tech.react,
+      tech.js,
+      tech.nodeJs,
+      tech.reactNative,
+      tech.Jest,
+      tech.storybook,
+      tech.hapi,
+      tech.REST,
+      tech.Redux,
+      tech.swift,
+      tech.kotlin,
+      tech.go,
+      tech.java,
+      tech.redash,
+      tech.SQL,
+      tech.bigQuery,
+      tech.kibana,
+      tech.grafana,
+      tech.amplitude,
+      tech.googleAdManager,
+      tech.firebase,
+      tech.xcode,
+      tech.androidStudio,
+      tech.jira,
+      tech.confluence
+    ],
+    responsibilities: [
+      'I was responsible for bringing the requested features to life, actively participating in the full life cycles from idea and design discussion to implementation, A/B testing, monitoring, and continuous improvement. I consistently got rid of technology debt, improved performance and kept services and features secure and up to date. I loved doing quick, deep, and helpful code reviews. I was always there when any help was needed. During this project, I actively participated in regular meetings and cross-team technical groups to share and disseminate knowledge. I maintained close collaboration with my colleagues during joint programming sessions in pairs and larger groups.'
+    ],
+    print: true
+  },
+  {
     key: 'profilometry',
     name: 'Undisclosed',
     slug: 'profilometry',
-    timeFrame: 'July 2017 - present',
+    timeFrame: 'July 2017 - June 2021',
     description:
       'Web application for rendering, manipulation, and storage of 3D scans from profilometers, AFMs, and other 3D microscopes. A bespoke solution for a leading company that manufactures profilometry devices and is focused on thin-film measurements.',
     tech: [
@@ -61,7 +104,7 @@ export default [
   {
     key: 'sandtime',
     name: 'Sandtime.io',
-    url: 'sandtime.io',
+    url: 'Sandtime.io',
     href: 'https://sandtime.io',
     slug: 'sandtime',
     timeFrame: 'January 2019 - present',
@@ -155,7 +198,7 @@ export default [
     responsibilities: [
       'I was responsible for providing a library to reduce code duplication across the company’s repositories. I have defined module boundaries and extracted a huge chunk of utility functions to be strongly typed and included within the library. I wrote hundreds of TypeScript functions and I have covered them with tests to attain full coverage. I have been responsible for the package releases on npm and related chores. I have been performing code reviews to make sure the shared code is of high quality. With the custom static site generation toolkit, I have provided searchable and interactive documentation.'
     ],
-    print: true
+    print: false
   },
   {
     key: 'koronaKrulow',
@@ -203,6 +246,7 @@ export default [
     icon: promegle.icon,
     description: 'Anonymous chat application for Windows Phone and web.',
     tech: [
+      tech.CSharp,
       tech.js,
       tech.react,
       tech.nodeJs,
@@ -210,8 +254,9 @@ export default [
       tech.Redux,
       tech.webSockets,
       tech.Docker,
-      tech.CSharp,
-      tech.ASPDotNet
+      tech.ASPDotNet,
+      tech.WindowsPhone,
+      tech.WindowsStore
     ],
     responsibilities: [
       'Writing the front-end with React.js, Redux, and a custom styling solution',

@@ -5,13 +5,13 @@
 
 @media screen {
   .media-only-print {
-    display: none;
+    display: none !important;
   }
 }
 
 @media print {
   .media-no-print {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -113,6 +113,10 @@
   }
 
   .spacing:not(.horizontal) > :not(:last-child) {
+    margin-bottom: var(--print);
+  }
+
+  .spacing-1:not(.horizontal) > :not(:last-child) {
     margin-bottom: var(--print);
   }
 

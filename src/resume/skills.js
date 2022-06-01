@@ -7,18 +7,16 @@ const Skill = (skill, value) => ({
 
 export default {
   web: [
-    Skill(tech.js, 3),
-    Skill(tech.typeScript, 1),
     Skill(tech.react, 3),
+    Skill(tech.reactNative, 1),
     Skill(tech.nodeJs, 3),
     Skill(tech.Redux, 3),
-    Skill(tech.reduxThunk, 2),
     Skill(tech.HTML, 3),
     Skill(tech.CSS, 3),
     Skill(tech.Sass, 2),
-    Skill(tech.responsiveDesign, 3),
-    Skill(tech.expressJs, 3),
     Skill(tech.Jest, 2),
+    Skill(tech.expressJs, 3),
+    Skill(tech.hapi, 1),
     Skill(tech.HTTPS, 3),
     Skill(tech.REST, 3),
     Skill(tech.webSockets, 2),
@@ -28,6 +26,7 @@ export default {
     Skill(tech.reactNative, 1),
     Skill(tech.expo, 1),
     Skill(tech.npm, 3),
+    Skill(tech.yarn, 2),
     Skill(tech.Webpack, 3),
     Skill(tech.babel, 2),
     Skill(tech.rollup, 1),
@@ -43,24 +42,19 @@ export default {
     Skill(tech.threeJs, 1)
   ],
   windows: [
-    Skill(tech.CSharp, 3),
-    Skill(tech.XAML, 3),
-    Skill(tech.dotNetFramework, 2),
-    Skill(tech.dotNetCore, 2),
-    Skill(tech.ASPDotNet, 2),
-    Skill(tech.ASPDotNetCore, 1),
+    Skill(tech.net, 3),
     Skill(tech.LINQ, 3),
     Skill(tech.EntityFramework, 2),
-    Skill(tech.MsSQL, 2),
-    Skill(tech.mySql, 1),
-    Skill(tech.IIS, 2),
-    Skill(tech.xUnit)
+    Skill(tech.MsSQL, 2)
   ],
   tools: [
     Skill(tech.git, 3),
     Skill(tech.GitHub, 3),
     Skill(tech.GitLab, 2),
     Skill(tech.jira, 2),
+    Skill(tech.confluence, 1),
+    Skill(tech.figma, 1),
+    Skill(tech.storybook, 2),
     Skill(tech.Docker, 2),
     Skill(tech.DockerCompose, 2),
     Skill(tech.ciCd, 2),
@@ -73,6 +67,7 @@ export default {
     Skill(tech.visualStudio, 3),
 
     Skill(tech.unitTesting),
+    Skill(tech.responsiveDesign, 3),
     Skill(tech.e2e, 1),
     Skill(tech.scrum),
     Skill(tech.scrumMaster),
@@ -81,12 +76,12 @@ export default {
     Skill(tech.mentorship)
   ],
   languages: [
-    Skill(tech.english, 2),
-    Skill(tech.polish, 3),
     Skill(tech.js, 3),
+    Skill(tech.typeScript, 2),
     Skill(tech.CSharp, 3),
-    Skill(tech.typeScript, 1),
     Skill(tech.CPlusPlus, 1),
-    Skill(tech.Haskell, 1)
+    Skill(tech.Haskell, 1),
+    Skill(tech.english, 2),
+    Skill(tech.polish, 3)
   ]
 }

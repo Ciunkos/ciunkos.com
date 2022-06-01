@@ -17,18 +17,18 @@ export default {
       'media-only-print': true
     }
   },
-  gitHubPersonal: {
-    name: 'GitHub (personal)',
-    value: 'github.com/Ciunkos',
-    uri: 'https://github.com/Ciunkos',
-    classes: {
-      'media-only-print': true
-    }
-  },
   gitHubWork: {
     name: 'GitHub (work)',
     value: 'github.com/przemyslawzalewski',
     uri: 'https://github.com/przemyslawzalewski',
+    classes: {
+      'media-only-print': true
+    }
+  },
+  gitHubPersonal: {
+    name: 'GitHub (personal)',
+    value: 'github.com/Ciunkos',
+    uri: 'https://github.com/Ciunkos',
     classes: {
       'media-only-print': true
     }

@@ -78,8 +78,13 @@ const pendingGoals = goals =>
     .map(([goal]) => goal)
 
 export default () => (
-  <Section InterestsSection cover={cover} id="interests-and-goals">
-    <Section.Content padding-2 spacing-4>
+  <Section
+    InterestsSection
+    cover={cover}
+    id="interests-and-goals"
+    media-no-print
+  >
+    <Section.Content padding-2 spacing-4 media-no-print>
       <h2>Interests and future goals</h2>
 
       <p className="media-no-print">
@@ -93,7 +98,7 @@ export default () => (
           <InlineInterests interests={interests} media-only-print />
         </styled.InterestsSection>
 
-        <styled.GoalsSection>
+        <styled.GoalsSection media-no-print={pendingGoals(goals).length < 3}>
           <h3>My goals</h3>
           <Goals goals={goals} media-no-print />
           <InlineGoals goals={pendingGoals(goals)} media-only-print />

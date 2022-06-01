@@ -164,6 +164,10 @@
   margin-bottom: 0px;
 }
 
+.vertical-spacing-1 > * {
+  margin-bottom: 8px;
+}
+
 .vertical-spacing-2 > * {
   margin-bottom: 16px;
 }
@@ -214,6 +218,10 @@
 }
 
 .spacing:not(.horizontal) > :not(:last-child) {
+  margin-bottom: var(--unit);
+}
+
+.spacing-1:not(.horizontal) > :not(:last-child) {
   margin-bottom: var(--unit);
 }
 

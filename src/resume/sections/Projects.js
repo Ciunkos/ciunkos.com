@@ -65,6 +65,8 @@ const ProjectCallToAction = () => (
   </styled.Card>
 )
 
+const preventWordWidows = text => text.replace(/ ([a-zA-Z]) /g, ` $1\u00A0`)
+
 export default () => (
   <Section Projects cover={cover} id="projects">
     <Section.Content padding-2 spacing-4>
@@ -140,7 +142,11 @@ export default () => (
               </styled.ProjectHeader>
 
               <styled.CardContent line-height-default padding-2 spacing-2>
-                <styled.Description>{project.description}</styled.Description>
+                {project.description && (
+                  <styled.Description>
+                    {preventWordWidows(project.description)}
+                  </styled.Description>
+                )}
 
                 {project.client && (
                   <styled.ClientSection>
@@ -160,11 +166,13 @@ export default () => (
 
                 <styled.ResponsibilitiesSection>
                   <styled.Subheader>My responsibilities</styled.Subheader>
-                  <ul>
+                  <styled.ul spacing-1>
                     {project.responsibilities.map(responsibility => (
-                      <li key={responsibility}>{responsibility}</li>
+                      <li key={responsibility}>
+                        {preventWordWidows(responsibility)}
+                      </li>
                     ))}
-                  </ul>
+                  </styled.ul>
                 </styled.ResponsibilitiesSection>
               </styled.CardContent>
             </styled.Card>

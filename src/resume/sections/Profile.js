@@ -57,7 +57,7 @@ export default () => (
         <styled.AboutMe spacing-2>
           <p>
             Full Stack Web Developer from Wroclaw, Poland. My daily toolbox
-            includes JavaScript, React, node.js, C#, and .NET.
+            includes JavaScript, TypeScript, React, node.js, C#, and .NET.
           </p>
           <p>
             I am fully committed to what I do, I am experienced with the full
