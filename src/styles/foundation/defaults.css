@@ -23,6 +23,12 @@ button {
   /*http://stackoverflow.com/questions/36181403/css3-transition-delay-if-animate-svg-fill-and-color-at-the-same-time-bug-in-chro*/
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: inherit;
+}
 a {
   text-decoration: none;
   cursor: pointer;
