@@ -464,8 +464,7 @@ export default [
       'Porting to Windows Store as hybrid native and C# app',
       'Deploying to the app store and providing updates'
     ],
-    text:
-      'I Am Rich is an unique time management game where your goal is to succeed at your avatar’s life. Have you ever imagined to work as a salesman or as a broker? In this game you can be whoever you want! Have fun playing with your friends or with a computer opponents in local multiplayer for up to 4 players. Buy all the items to decorate your own apartament, graduate from the university, work hard and gain so much money so you are the richest person in the world!',
+    text: 'I Am Rich is an unique time management game where your goal is to succeed at your avatar’s life. Have you ever imagined to work as a salesman or as a broker? In this game you can be whoever you want! Have fun playing with your friends or with a computer opponents in local multiplayer for up to 4 players. Buy all the items to decorate your own apartament, graduate from the university, work hard and gain so much money so you are the richest person in the world!',
     fetures: [
       'Local multiplayer for up to 4 players',
       'Player versus player or AI gameplay',

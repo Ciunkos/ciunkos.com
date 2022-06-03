@@ -26,7 +26,7 @@ const map = f => object =>
 To filter and object we can compose mapping function and change the reduction or use generic Functor mapping to produce single or no value. By using the `undefined` value as a result of mapping function filtered properies will become `undefined` mimicing standard behavior.
 
 ```javascript
-const pass = f => value => (f(value) ? value : undefined)
+const pass = f => value => f(value) ? value : undefined
 const filter = map(pass)
 ```
 
