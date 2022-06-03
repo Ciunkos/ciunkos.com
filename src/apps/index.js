@@ -8,14 +8,14 @@ import cover from './cover.jpg'
 import './styles.css'
 import apps from './data'
 
-const matchDimmesions = str => {
+const matchDimensions = str => {
   const regex = /r(\d+)x(\d+)/g
   const matches = regex.exec(str)
   return matches && matches.slice(1, 3).map(x => +x)
 }
 
-const dimmensions = str => {
-  const matches = matchDimmesions(str)
+const dimensions = str => {
+  const matches = matchDimensions(str)
 
   const baseHeight = 400
 
@@ -35,7 +35,7 @@ const dimmensions = str => {
 }
 
 const totalWidth = entries => {
-  const widths = entries.map(entry => dimmensions(entry[0]).width + 8)
+  const widths = entries.map(entry => dimensions(entry[0]).width + 8)
   const sum = widths.reduce((acc, curr) => acc + curr, 32 - 8)
   return sum
 }
@@ -158,13 +158,13 @@ const AppsPage = () => (
                     style={{
                       marginRight: 8,
                       background: 'rgba(255, 255, 255, 0.1)',
-                      height: dimmensions(key).height
+                      height: dimensions(key).height
                     }}
                   >
                     <img
                       src={value}
                       alt={app.name}
-                      style={{ height: dimmensions(key).height }}
+                      style={{ height: dimensions(key).height }}
                     />
                   </styled.Card>
                 ))}
