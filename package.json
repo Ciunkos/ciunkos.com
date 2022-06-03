@@ -8,8 +8,8 @@
     "url": "https://github.com/ciunkos/ciunkos-com.git"
   },
   "scripts": {
-    "prebuild": "node prebuild.js",
-    "build": "npm run prebuild && webpack --mode production --config webpack.config.cjs && npm run start:server",
+    "clean": "node clean.js",
+    "build": "npm run clean && webpack --mode production --config webpack.config.cjs && npm run start:server",
     "check": "npm run test && npm run lint && npm run prettier:check",
     "lint": "eslint .",
     "lint:fix": "npm run lint -- --fix",
