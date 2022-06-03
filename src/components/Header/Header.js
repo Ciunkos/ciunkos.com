@@ -106,13 +106,7 @@ const routes = [
 
 const Header = ({ subheader, height = 0 }) => (
   <HeaderContainer
-    header={top => (
-      <HeaderBar
-        routes={routes}
-        scrolled-top={top <= 64}
-        style={{ minHeight: 64, zIndex: 20 }}
-      />
-    )}
+    header={top => <HeaderBar routes={routes} scrolled-top={top <= 64} />}
     subheader={subheader}
     height={height}
   />

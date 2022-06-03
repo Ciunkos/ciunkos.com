@@ -106,7 +106,7 @@ export default class HeaderContainer extends React.PureComponent {
         prevPosition = position
       }
       if (prevTop !== top) {
-        headerElement.style.top = `${top}px`
+        headerElement.style.top = `${Math.max(0, top)}px`
         prevTop = top
       }
       // end of manual DOM manipulation
