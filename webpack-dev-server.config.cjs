@@ -11,9 +11,7 @@ module.exports = () => ({
     modules: [path.resolve(__dirname, 'src'), 'node_modules']
   },
   devServer: {
-    contentBase: 'src/assets',
     hot: true,
-    inline: true,
     port: 3000,
     host: 'localhost',
     historyApiFallback: {
