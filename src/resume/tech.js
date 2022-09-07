@@ -466,5 +466,41 @@ export default {
   },
   XNA: {
     name: 'XNA'
+  },
+  NextJs: {
+    name: 'Next.js',
+    url: 'https://nextjs.org'
+  },
+  WebdriverIO: {
+    name: 'WebdriverIO',
+    url: 'https://webdriver.io'
+  },
+  SSE: {
+    name: 'Server-Sent Events',
+    url: 'https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events'
+  },
+  WebExtensions: {
+    name: 'Web Extensions',
+    url: 'https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions'
+  },
+  TailwindCSS: {
+    name: 'Tailwind CSS',
+    url: 'https://tailwindcss.com'
+  },
+  Auth0: {
+    name: 'Auth0',
+    url: 'https://auth0.com'
+  },
+  Kubernetes: {
+    name: 'Kubernetes',
+    url: 'https://kubernetes.io'
+  },
+  Datadog: {
+    name: 'Datadog',
+    url: 'https://www.datadoghq.com'
+  },
+  CircleCI: {
+    name: 'CircleCI',
+    url: 'https://circleci.com'
   }
 }

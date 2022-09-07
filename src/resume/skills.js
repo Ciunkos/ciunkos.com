@@ -14,6 +14,7 @@ export default {
     Skill(tech.HTML, 3),
     Skill(tech.CSS, 3),
     Skill(tech.Sass, 2),
+    Skill(tech.styledComponents, 2),
     Skill(tech.Jest, 2),
     Skill(tech.expressJs, 3),
     Skill(tech.hapi, 1),

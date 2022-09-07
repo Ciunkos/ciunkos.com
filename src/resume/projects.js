@@ -21,6 +21,39 @@ import sandtimeIcon from './sandtime.png'
 
 export default [
   {
+    key: 'taskManager',
+    name: 'Back Office Task Management System',
+    client: 'PGS Software S.A. for undisclosed client',
+    slug: 'task-manager',
+    timeFrame: 'June 2022 - August 2022',
+    description:
+      'I joined the project with a vision to lead my team in the journey of delivering the most business value while maintaining the best quality of the code and systems. I supported my team to transition from legacy git flows and branch juggling into trunk-based development and CI/CD/CD workflows. This required us to focus and work on test automation and building confidence in our development processes. I went ahead and brought a massively refreshed UI with greatly improved responsiveness and reactiveness with live updates. The changes we made resulted in great user feedback and a continuous reduction of errors and time waste. While working closely with stakeholders, I guided product development into a predictable, agile, and iterative path. I prevented going into a split-brain situation with a new project launch that was deemed, after deep analysis, to not bring value.',
+    tech: [
+      tech.typeScript,
+      tech.react,
+      tech.NextJs,
+      tech.nodeJs,
+      tech.Jest,
+      tech.WebdriverIO,
+      tech.SSE,
+      tech.WebExtensions,
+      tech.mongoDB,
+      tech.styledComponents,
+      tech.TailwindCSS,
+      tech.CSS,
+      tech.REST,
+      tech.Auth0,
+      tech.Kubernetes,
+      tech.Datadog,
+      tech.jira,
+      tech.CircleCI
+    ],
+    responsibilities: [
+      'I was responsible for the technical leadership of a team of 4 developers while also performing active development of features. My day-to-day work included bringing improvements to existing systems and swift communication within the team and across the organization. Through active and deep code review participation, I encouraged my fellow team members to follow best practices and reduce technical debt. I led many fruitful discussions and technical meetings to align on common team values. I steered the development into a data-driven and short-feedback loop and maintained the backlog and sprint plans. I have undergone massive decoupling and simplification efforts to keep the repositories maintainable. By keeping a tight eye on security and correctness, I enforced strict auth, improved observability, and logging, to make the systems behave and work well. I participated in the cloud cost reduction process by aligning the resource usage for deployments and optimizing for performance.'
+    ],
+    print: true
+  },
+  {
     key: 'omio',
     name: 'Ads and Ancillaries',
     client: 'PGS Software S.A. for Omio',
@@ -169,7 +202,7 @@ export default [
     responsibilities: [
       'I was responsible for leading a small team to deliver a fully functional app that meets the competition’s requirements within a tight deadline. I have incorporated AI-based solutions and libraries to tackle the problem with near-real-time performance in mind. I have integrated React-based frontend with native Kotlin-based Android app that ran bare-metal models for extended performance on mobile, while still being able to run the app entirely on the web, fully offline. I have implemented a complex image detection and processing pipeline using face-api.js, OpenCV, TensorFlow, and custom functions. To achieve proper results, I have provided an extensive test suite, debug and visualization tools, and gathered a huge set of samples. Finally, I wrote a submission paper with a detailed report and documentation.'
     ],
-    print: true
+    print: false
   },
   {
     key: 'std',
@@ -268,7 +301,7 @@ export default [
   },
   {
     key: 'blog',
-    name: 'Personal web page and blog.',
+    name: 'Personal web page and blog',
     slug: 'blog',
     url: 'ciunkos.com',
     href: 'https://ciunkos.com',
