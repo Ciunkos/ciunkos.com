@@ -40,6 +40,8 @@ const main = async () => {
 
       await writeFile(`./dist/${alias}`, html)
     }
+
+    process.exit(0)
   } catch (error) {
     console.error(error)
     process.exit(1)
