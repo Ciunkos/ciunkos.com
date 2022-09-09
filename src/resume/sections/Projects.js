@@ -12,9 +12,12 @@ const scroll = direction => () => {
   if (document) {
     const grid = document.getElementById('projectGrid')
     if (grid) {
-      const extent = grid.scrollWidth - grid.offsetWidth - 8
-      const value = grid.scrollLeft + direction * grid.offsetWidth
-      grid.scrollLeft = clamp(0, extent)(value)
+      const extent = grid.scrollWidth - grid.offsetWidth - 16
+      const value =
+        Math.floor(
+          (grid.scrollLeft + direction * grid.offsetWidth) / grid.offsetWidth
+        ) * grid.offsetWidth
+      grid.scroll({ left: clamp(0, extent)(value), behavior: 'smooth' })
     }
   }
 }
