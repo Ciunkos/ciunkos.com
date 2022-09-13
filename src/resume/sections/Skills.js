@@ -37,7 +37,6 @@ const SkillSets = ({ children: skillSets }) => (
 )
 
 const skillSets = [
-  ['Languages', skills.languages],
   ['Tech', [...skills.web, ...skills.windows]],
   ['Tools and soft skills', skills.tools]
 ]

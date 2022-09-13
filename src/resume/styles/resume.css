@@ -262,11 +262,10 @@
   }
 
   .ProjectCard {
-    margin-top: 32px;
+    margin-top: 0;
   }
 
-  .ProjectCard:first-child,
-  .ProjectCard:nth-child(2) {
+  .ProjectCard:first-child {
     margin-top: 0;
   }
 

@@ -7,6 +7,9 @@ const Skill = (skill, value) => ({
 
 export default {
   web: [
+    Skill(tech.js, 3),
+    Skill(tech.typeScript, 2),
+    Skill(tech.CSharp, 3),
     Skill(tech.react, 3),
     Skill(tech.nodeJs, 3),
     Skill(tech.Redux, 3),
@@ -74,14 +77,5 @@ export default {
     Skill(tech.agile),
     Skill(tech.codeReview),
     Skill(tech.mentorship)
-  ],
-  languages: [
-    Skill(tech.js, 3),
-    Skill(tech.typeScript, 2),
-    Skill(tech.CSharp, 3),
-    Skill(tech.CPlusPlus, 1),
-    Skill(tech.Haskell, 1),
-    Skill(tech.english, 2),
-    Skill(tech.polish, 3)
   ]
 }

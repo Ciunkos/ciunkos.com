@@ -27,7 +27,7 @@ export default [
     slug: 'task-manager',
     timeFrame: 'June 2022 - August 2022',
     description:
-      'I joined the project with a vision to lead my team in the journey of delivering the most business value while maintaining the best quality of the code and systems. I supported my team to transition from legacy git flows and branch juggling into trunk-based development and CI/CD/CD workflows. This required us to focus and work on test automation and building confidence in our development processes. I went ahead and brought a massively refreshed UI with greatly improved responsiveness and reactiveness with live updates. The changes we made resulted in great user feedback and a continuous reduction of errors and time waste. While working closely with stakeholders, I guided product development into a predictable, agile, and iterative path. I prevented going into a split-brain situation with a new project launch that was deemed, after deep analysis, to not bring value.',
+      'I joined the project with a vision to lead my team in the journey of delivering the most business value while maintaining the best quality of the code and systems. I supported transition into CI/CD/CD workflows. I brought a massively refreshed UI. The changes resulted in great user feedback and a continuous reduction of errors and time waste.',
     tech: [
       tech.typeScript,
       tech.react,
@@ -49,7 +49,7 @@ export default [
       tech.CircleCI
     ],
     responsibilities: [
-      'I was responsible for the technical leadership of a team of 4 developers while also performing active development of features. My day-to-day work included bringing improvements to existing systems and swift communication within the team and across the organization. Through active and deep code review participation, I encouraged my fellow team members to follow best practices and reduce technical debt. I led many fruitful discussions and technical meetings to align on common team values. I steered the development into a data-driven and short-feedback loop and maintained the backlog and sprint plans. I have undergone massive decoupling and simplification efforts to keep the repositories maintainable. By keeping a tight eye on security and correctness, I enforced strict auth, improved observability, and logging, to make the systems behave and work well. I participated in the cloud cost reduction process by aligning the resource usage for deployments and optimizing for performance.'
+      'I was responsible for the technical leadership of a team of 4 developers while also performing active development of features. My day-to-day work included bringing improvements to existing systems and swift communication within the team and across the organization. Through active and deep code review participation, I encouraged my fellow team members to follow best practices and reduce technical debt. I led many fruitful discussions and technical meetings to align on common team values. I steered the development into a data-driven and short-feedback loop and maintained the backlog and sprint plans. I have undergone massive decoupling and simplification efforts to keep the repositories maintainable. By keeping a tight eye on security and correctness, I enforced strict auth, improved observability, and logging. I participated in the cloud cost reduction process by aligning the resource usage for deployments and optimizing for performance.'
     ],
     print: true
   },
@@ -99,6 +99,7 @@ export default [
   {
     key: 'profilometry',
     name: 'Undisclosed',
+    client: 'Sandstream Development sp. z o.o. for undisclosed client',
     slug: 'profilometry',
     timeFrame: 'July 2017 - June 2021',
     description:
@@ -130,13 +131,14 @@ export default [
       tech.stripe
     ],
     responsibilities: [
-      'I was responsible for full-stack software development using a modern React-based frontend with C# powered backend services to provide a web-based app that allows 3D image visualization and processing. During this project, I have learned how to work with an on-site and remote team to deliver a great product that satisfies client’s and users’ needs. I had gained experience with git workflow and collaboration with other developers. I had been performing code reviews and delivered high-quality code. I had also been responsible for the integration of external libraries and close cooperation with the APIs provider, which often resulted in a need for providing detailed bug reports and test cases. I’ve been continuously focused on providing great user experience, performance, and security, which is why I have brought in many useful solutions like visual regression detection toolkit, secret leakage prevention and configured and optimized the build process to yield the optimal bundle and improve the development experience.'
+      'I was responsible for full-stack software development using a React-based frontend with a C# backend to provide a web-based app that allows 3D image visualization and processing. During this project, I have learned how to work with an on-site and remote team to deliver a great product that satisfies client’s and users’ needs. I had gained experience with git workflow and collaboration with other developers. I had been performing code reviews and delivered high-quality code. I had also been responsible for the integration of external libraries and close cooperation with the APIs provider, which often resulted in a need for providing detailed bug reports and test cases. I’ve been continuously focused on providing great user experience, performance, and security, which is why I have brought in useful solutions like visual regression detection toolkit, secret leakage prevention, and optimized the build process to yield the optimal bundle and improve development experience.'
     ],
     print: true
   },
   {
     key: 'sandtime',
     name: 'Sandtime.io',
+    client: 'Sandstream Development sp. z o.o.',
     url: 'Sandtime.io',
     href: 'https://sandtime.io',
     slug: 'sandtime',
@@ -181,6 +183,7 @@ export default [
   {
     key: 'validator',
     name: 'Validator',
+    client: 'Sandstream Development sp. z o.o.',
     slug: 'validator',
     timeFrame: 'November 2019 - December 2019',
     icon: validatorIcon,
@@ -207,6 +210,7 @@ export default [
   {
     key: 'std',
     name: 'std',
+    client: 'Sandstream Development sp. z o.o.',
     url: 'sandstreamdev.github.io/std',
     href: 'https://sandstreamdev.github.io/std',
     slug: 'std',

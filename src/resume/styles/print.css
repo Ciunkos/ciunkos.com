@@ -39,6 +39,7 @@
     color: black;
     overflow: initial !important;
     text-rendering: optimizeLegibility;
+    text-align: justify !important;
   }
 
   .Background,
@@ -170,10 +171,9 @@
   }
 
   .ProjectsGrid {
-    /*flex-direction: column!important;*/
+    flex-direction: column !important;
     overflow-x: hidden !important;
     max-height: initial !important;
-    flex-wrap: wrap;
   }
 
   .ProjectsOverview {
@@ -201,29 +201,36 @@
     margin-right: -32px;
   }
 
+  .ClientSection {
+    order: -1;
+    margin-top: -16px;
+  }
+
+  .ClientSection .Subheader,
+  .ResponsibilitiesSection .Subheader {
+    display: none !important;
+  }
+
   .Page.Resume .ProjectsOverview {
     padding: 0 !important;
   }
 
-  /*display only first four projects*/
   .ProjectCard:not(.media-no-print) {
     display: block !important;
-    width: calc(50% - 16px) !important;
+    width: 100% !important;
     flex: none !important;
   }
 
   .ProjectCard:not(.media-no-print):nth-child(odd) {
     display: block !important;
-    width: calc(50% - 16px) !important;
+    width: 100% !important;
     flex: none !important;
-    margin-right: 16px;
   }
 
   .ProjectCard:not(.media-no-print):nth-child(even) {
     display: block !important;
-    width: calc(50% - 16px) !important;
+    width: 100% !important;
     flex: none !important;
-    margin-left: 16px;
   }
 
   .Page {
@@ -310,6 +317,10 @@
     padding-bottom: 0 !important;
   }
 
+  .SectionContent {
+    display: block !important;
+  }
+
   .Skill {
     border-radius: 0 !important;
     padding: 0 !important;
@@ -321,6 +332,7 @@
   h4 {
     margin-top: 0;
     margin-bottom: 0;
+    display: block;
   }
 
   h1 {
@@ -329,7 +341,7 @@
 
   h2 {
     font-size: 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    /* border-bottom: 1px solid rgba(0, 0, 0, 0.5); */
     padding-right: 64px;
     align-self: flex-start;
   }
