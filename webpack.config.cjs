@@ -61,7 +61,7 @@ module.exports = () => {
       output: {
         filename: 'app-[contenthash].js',
         path: distPath,
-        publicPath: '/'
+        publicPath: process.env.PUBLIC_PATH ?? '/'
       },
       devtool: 'source-map',
       module: {
@@ -105,7 +105,7 @@ module.exports = () => {
       output: {
         path: buildPath,
         filename: 'server.cjs',
-        publicPath: '/'
+        publicPath: process.env.PUBLIC_PATH ?? '/'
       },
       module: {
         rules: [

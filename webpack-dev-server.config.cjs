@@ -22,7 +22,7 @@ module.exports = () => ({
   output: {
     filename: 'app.js',
     path: buildPath,
-    publicPath: '/'
+    publicPath: process.env.PUBLIC_PATH ?? '/'
   },
   module: {
     rules: [
