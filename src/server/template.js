@@ -54,7 +54,7 @@ const template = (
   <body style="background: #3040bc">
     <div id="app">${body}</div>
   </body>
-  <script defer src="${appSourcePath}"></script>
+  <script defer src="${publicPath}${appSourcePath}"></script>
 </html>`
 
 export default template
