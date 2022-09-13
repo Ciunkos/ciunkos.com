@@ -1,5 +1,3 @@
-import 'core-js/stable'
-
 if (typeof window === 'undefined') {
   global.window = {}
 }

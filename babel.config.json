@@ -5,16 +5,18 @@
       {
         "root": ["./src"]
       }
-    ],
-    ["@babel/plugin-proposal-class-properties", { "loose": false }]
+    ]
   ],
   "presets": [
     [
       "@babel/preset-env",
       {
-        "corejs": 3,
         "modules": false,
-        "useBuiltIns": "entry"
+        "useBuiltIns": false,
+        "targets": {
+          "esmodules": true,
+          "node": "current"
+        }
       }
     ],
     "@babel/preset-react"

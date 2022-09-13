@@ -26,7 +26,7 @@ module.exports = () => {
   const commonLoaders = [
     {
       test: /\.js$/,
-      exclude: /node_modules/,
+      include: /.*/,
       loader: 'babel-loader',
       type: 'javascript/auto',
       resolve: {

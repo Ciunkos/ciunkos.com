@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const page = {
-  title: 'Blog - Przemysław Zalewski - Ciunkos',
+  title: 'Przemysław Zalewski - Ciunkos',
   description: 'Przemysław Zalewski - blog, aplikacje, CV'
 }
 

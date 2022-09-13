@@ -1,4 +1,4 @@
-export const title = 'CV - Przemysław Zalewski'
+export const title = 'CV - Przemysław Zalewski - Ciunkos'
 export const description =
   'Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla Sandstream Development sp. z o.o.'
 

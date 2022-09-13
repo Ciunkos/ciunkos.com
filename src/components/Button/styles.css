@@ -68,7 +68,7 @@
 }
 
 .borderless {
-  border-color: transparent;
+  border: none;
 }
 
 .primary.active {
