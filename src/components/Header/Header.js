@@ -18,10 +18,7 @@ const Logo = () => (
       display: 'flex'
     }}
   >
-    <div>ciunkOS</div>
-    <div className="fade-in-up delay" style={{ paddingLeft: 8 }}>
-      blog
-    </div>
+    <div>Przemysław Zalewski</div>
   </styled.Logo>
 )
 
