@@ -162,9 +162,13 @@ const AppsPage = () => (
                     }}
                   >
                     <img
-                      src={value}
                       alt={app.name}
+                      decoding="async"
+                      height={dimensions(key).height}
+                      loading="lazy"
+                      src={value}
                       style={{ height: dimensions(key).height }}
+                      width={dimensions(key).width}
                     />
                   </styled.Card>
                 ))}
