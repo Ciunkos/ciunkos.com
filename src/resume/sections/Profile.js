@@ -6,6 +6,7 @@ import ProfilePicture from 'assets/profile-picture.jpg'
 import bio from 'resume/bio'
 import { ArrowDownward } from 'icons'
 import Social from 'social'
+import companies from '../companies'
 import { profile as cover } from './covers'
 
 const PERIOD_OF_NOTICE_DAYS = 60
@@ -73,7 +74,7 @@ export default () => (
               rel="noopener noreferrer"
               target="_blank"
             >
-              <em>Sandstream Development sp. z o.o.</em>
+              <em>{companies.Sanddev}</em>
             </InlineLink>
           </styled.CurrentEmployment>
           <styled.EarliestAvailability tag="p" media-no-print>

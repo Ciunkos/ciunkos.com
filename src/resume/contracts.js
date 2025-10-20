@@ -2,7 +2,7 @@ import companies from './companies'
 
 export default [
   {
-    company: companies.Sandstream,
+    company: companies.Sanddev,
     title: 'Senior Full Stack Web Developer',
     date: 'July 2017 - present',
     tech: 'JS, React, node.js, C#'

@@ -99,7 +99,7 @@ export default [
   {
     key: 'profilometry',
     name: 'Undisclosed',
-    client: 'Sandstream Development sp. z o.o. for undisclosed client',
+    client: `${companies.Sanddev} for undisclosed client`,
     slug: 'profilometry',
     timeFrame: 'July 2017 - June 2021',
     description:
@@ -138,7 +138,7 @@ export default [
   {
     key: 'sandtime',
     name: 'Sandtime.io',
-    client: 'Sandstream Development sp. z o.o.',
+    client: companies.Sanddev,
     url: 'Sandtime.io',
     href: 'https://sandtime.io',
     slug: 'sandtime',
@@ -183,7 +183,7 @@ export default [
   {
     key: 'validator',
     name: 'Validator',
-    client: 'Sandstream Development sp. z o.o.',
+    client: companies.Sanddev,
     slug: 'validator',
     timeFrame: 'November 2019 - December 2019',
     icon: validatorIcon,
@@ -210,9 +210,9 @@ export default [
   {
     key: 'std',
     name: 'std',
-    client: 'Sandstream Development sp. z o.o.',
-    url: 'sandstreamdev.github.io/std',
-    href: 'https://sandstreamdev.github.io/std',
+    client: companies.Sanddev,
+    url: 'sanddev-com.github.io/std',
+    href: 'https://sanddev-com.github.io/std/',
     slug: 'std',
     timeFrame: 'October 2019 - August 2020',
     description:
