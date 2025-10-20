@@ -1,12 +1,10 @@
 import companies from '../companies'
 
 export const title = 'CV - Przemysław Zalewski - Ciunkos'
-export const description =
-  `Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla ${companies.Sanddev}`
+export const description = `Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla ${companies.Sanddev}`
 
 export default {
-  description:
-    `Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla ${companies.Sanddev}`,
+  description: `Full-stack Web i Windows App deweloper z Wrocławia. Aktualnie pracuję dla ${companies.Sanddev}`,
   aboutMe: 'Full-stack Web i Windows App deweloper z Wrocławia.',
   status: link => `Aktualnie pracuję dla ${link}`,
   contact: 'Kontakt',
