@@ -14,7 +14,7 @@ const publicPath = process.env.PUBLIC_PATH ?? '/'
 
 const template = (
   body = '',
-  helmet = { title: '', meta: '' }
+  helmet = { title: '', meta: '', pathname: '' }
 ) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
@@ -50,6 +50,7 @@ const template = (
     <meta name="msapplication-TileImage" content="${publicPath}ms-icon-144x144.png">
     <meta name="msapplication-navbutton-color" content="#3040BC">
     <link rel="stylesheet" href="${publicPath}${appStylesPath}" type="text/css">
+    <link rel="canonical" href="https://ciunkos.com/${pathname}">
   </head>
   <body style="background: #3040bc">
     <div id="app">${body}</div>

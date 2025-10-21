@@ -34,7 +34,7 @@ const main = async () => {
 
       const renderedComponent = renderToString(element)
       const helmet = Helmet.renderStatic()
-      const html = template(renderedComponent, helmet)
+      const html = template(renderedComponent, { ...helmet, pathname })
 
       await writeFile(`./dist/${alias}`, html)
     }
