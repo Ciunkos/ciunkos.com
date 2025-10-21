@@ -14,15 +14,15 @@ const publicPath = process.env.PUBLIC_PATH ?? '/'
 
 const template = (
   body = '',
-  helmet = { title: '', meta: '', pathname: '' }
+  { title, meta, pathname }
 ) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
     <link rel="preload" href="${publicPath}${appSourcePath}" as="script">
     <link rel="preload" href="${publicPath}${appStylesPath}" as="style">
-    ${helmet.title.toString()}
-    ${helmet.meta.toString()}
+    ${title.toString()}
+    ${meta.toString()}
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="apple-touch-icon" sizes="57x57" href="${publicPath}apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="${publicPath}apple-icon-60x60.png">
@@ -50,7 +50,7 @@ const template = (
     <meta name="msapplication-TileImage" content="${publicPath}ms-icon-144x144.png">
     <meta name="msapplication-navbutton-color" content="#3040BC">
     <link rel="stylesheet" href="${publicPath}${appStylesPath}" type="text/css">
-    <link rel="canonical" href="https://ciunkos.com/${pathname}">
+    <link rel="canonical" href="https://ciunkos.com${pathname}">
   </head>
   <body style="background: #3040bc">
     <div id="app">${body}</div>
