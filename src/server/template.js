@@ -12,10 +12,7 @@ const appStylesPath = find(
 
 const publicPath = process.env.PUBLIC_PATH ?? '/'
 
-const template = (
-  body = '',
-  { title, meta, pathname }
-) => `<!doctype html>
+const template = (body = '', { title, meta, pathname }) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
