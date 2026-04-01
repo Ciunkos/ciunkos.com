@@ -9,7 +9,7 @@ const Social = () => (
       const Renderer = icon
       return (
         <styled.SocialEntry tag="a" href={url} key={key} title={name} card-1>
-          <Renderer className="SocialIcon" />
+          <Renderer className="ServiceIcon" />
         </styled.SocialEntry>
       )
     })}
