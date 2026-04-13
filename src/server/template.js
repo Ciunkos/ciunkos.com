@@ -48,6 +48,7 @@ const template = (body = '', { title, meta, pathname }) => `<!doctype html>
     <meta name="msapplication-navbutton-color" content="#3040BC">
     <link rel="stylesheet" href="${publicPath}${appStylesPath}" type="text/css">
     <link rel="canonical" href="https://ciunkos.com${pathname}">
+    <meta name='impact-site-verification' value='c7cf594f-cb85-4c69-81b1-29727fd2c171' />
   </head>
   <body style="background: #3040bc">
     <div id="app">${body}</div>
