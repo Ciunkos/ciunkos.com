@@ -67,9 +67,9 @@
     "webpack-stats-plugin": "^1.0.3"
   },
   "dependencies": {
-    "body-parser": "^1.20.4",
+    "body-parser": "^1.20.5",
     "classnames": "^2.2.6",
-    "express": "^4.22.1",
+    "express": "^4.22.2",
     "glob": "^7.1.6",
     "highlight.js": "^11.5.1",
     "react": "^17.0.1",
