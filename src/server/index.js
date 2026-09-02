@@ -23,7 +23,7 @@ const routes = [
   { pathname: '/debugging-javascript-the-basics', includeInSitemap: true },
   { pathname: '/resume', includeInSitemap: true },
   { pathname: '/traversable-objects-in-java-script', includeInSitemap: true },
-  { pathname: '/not-found', alias: '404.html', includeInSitemap: true }
+  { pathname: '/not-found', alias: '404.html', includeInSitemap: false }
 ]
 
 const main = async () => {
@@ -51,7 +51,9 @@ const main = async () => {
         route => `<url><loc>https://ciunkos.com${route.pathname}</loc></url>`
       )
 
-    const sitemapXml = `<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${sitemapUrls.join('')}</urlset>`
+    const sitemapXml = `<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${sitemapUrls.join(
+      ''
+    )}</urlset>`
 
     await writeFile('./dist/sitemap.xml', sitemapXml, 'utf-8')
 
