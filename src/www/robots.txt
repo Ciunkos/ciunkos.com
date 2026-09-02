@@ -1,2 +1,5 @@
 User-agent: * 
 Disallow: 
+
+Sitemap: https://ciunkos.com/sitemap.xml
+Sitemap: https://ciunkos.com/korpo-tlumacz/sitemap.xml
