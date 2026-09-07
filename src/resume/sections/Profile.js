@@ -9,8 +9,9 @@ import Social from 'social'
 import companies from '../companies'
 import { profile as cover } from './covers'
 
+const NOTICE_RECEIVED_AT = new Date('2026-09-03T12:00:00.000Z')
 const PERIOD_OF_NOTICE_DAYS = 60
-const AVAILABILITY_BUFFER_DAYS = 33
+const AVAILABILITY_BUFFER_DAYS = 0
 
 const yearMonthDateFormatter = new Intl.DateTimeFormat(['en-US', 'en'], {
   month: 'long',
@@ -18,7 +19,7 @@ const yearMonthDateFormatter = new Intl.DateTimeFormat(['en-US', 'en'], {
 })
 
 const EarliestAvailabilityDate = ({ children: now }) => {
-  const estimatedAvailability = new Date(now)
+  const estimatedAvailability = new Date(NOTICE_RECEIVED_AT ?? now)
   estimatedAvailability.setDate(
     estimatedAvailability.getDate() +
       PERIOD_OF_NOTICE_DAYS +
@@ -78,7 +79,7 @@ export default () => (
             </InlineLink>
           </styled.CurrentEmployment>
           <styled.EarliestAvailability tag="p" media-no-print>
-            Earliest availability from{' '}
+            Available from{' '}
             <EarliestAvailabilityDate>{new Date()}</EarliestAvailabilityDate>.
             Remote work preferred.
           </styled.EarliestAvailability>
