@@ -3,3 +3,5 @@ Disallow:
 
 Sitemap: https://ciunkos.com/sitemap.xml
 Sitemap: https://ciunkos.com/korpo-tlumacz/sitemap.xml
+Sitemap: https://ciunkos.com/wyrocznia/sitemap.xml
+Sitemap: https://ciunkos.com/kalkulator-b2b-vs-uop-2026/sitemap.xml
