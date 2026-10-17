@@ -10,5 +10,5 @@ Sitemap: https://ciunkos.com/hire/sitemap.xml
 Sitemap: https://ciunkos.com/business-idea-validator/a/sitemap.xml
 Sitemap: https://ciunkos.com/spf-dkim-dmarc-checker/a/sitemap.xml
 Sitemap: https://ciunkos.com/engagement-configurator/a/sitemap.xml
-Sitemap: https://ciunkos.com/ai-engineering-glossary/a/sitemap.xml
+Sitemap: https://ciunkos.com/glossary/a/sitemap.xml
 Sitemap: https://ciunkos.com/software-cost-estimator/a/sitemap.xml
