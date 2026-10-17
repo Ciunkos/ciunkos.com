@@ -4,6 +4,7 @@ import { Section } from 'components'
 import { apps } from 'home/Recent'
 import locale from 'home/locale'
 import riddle from './2026/shot-2026-riddle.jpg'
+import przemo from './2026/shot-2026-przemo.jpg'
 import migawki from './2026/shot-2026-migawki.jpg'
 import kalkulator from './2026/shot-2026-kalkulator.jpg'
 import wyrocznia from './2026/shot-2026-wyrocznia.jpg'
@@ -18,6 +19,7 @@ import glossary from './2026/shot-2026-glossary.jpg'
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
   riddle,
+  przemo,
   migawki,
   kalkulator,
   wyrocznia,

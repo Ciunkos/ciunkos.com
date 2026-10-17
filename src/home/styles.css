@@ -79,13 +79,18 @@
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 10px;
 }
 
 @media (max-width: 899px) {
   .RecentGrid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Five tiles: the first one gets the full row, the other four form a 2 x 2 grid. */
+  .RecentGrid li:first-child {
+    grid-column: 1 / -1;
   }
 }
 

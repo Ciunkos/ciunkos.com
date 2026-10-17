@@ -28,8 +28,9 @@ export const recent = {
   nowNote:
     'Niżej: aplikacje z pierwszej dekady, tak jak pokazywała je ta strona w 2017.',
   apps: {
-    riddle: ['Ty i Przemysław?', 'Strona rekrutacyjna w zagadkach'],
-    migawki: ['Migawki', 'Gra foto: 36 klatek, pięć minut'],
+    riddle: ['Ty i Przemysław?', 'Zagadka: strona rekrutacyjna'],
+    przemo: ['Przemo', 'Flack: napisz do mnie-AI, zawsze odpisze'],
+    migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
     bimi: ['Sprawdź BIMI', 'Czy Gmail pokaże Twoje logo?'],
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
@@ -37,14 +38,16 @@ export const recent = {
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
     glossary: ['Słownik', 'AI, projekty, poczta'],
     kalkulator: ['Kalkulator B2B vs UoP', 'Umowy w Polsce, 2026'],
-    korpo: ['Korpo Tłumacz', 'Korpomowa po ludzku'],
-    wyrocznia: ['Wyrocznia', 'Zapytaj Klaudię: tak albo nie']
+    korpo: ['Korpo Tłumacz', 'Korpomowa na ludzki i z powrotem'],
+    wyrocznia: ['Wyrocznia', 'Zapytaj Klaudię o cokolwiek: tak albo nie']
   },
   long: {
+    migawki:
+      'Zaczęło się od piosenki z EP-ki „Migawki”, skończyło na abstrakcyjnej grze w deszczowym, nocnym mieście. Jedyne, co widzisz, to migawki.',
+    przemo:
+      'Flack, jak Flak Cannon: memowy Slack, w którym działa tylko jedna rozmowa, DM ze mną jako agentem AI. Zaczął się jako Przemo, bot mnie na firmowy czat, i odpisuje tak jak ja, z literówkami włącznie.',
     riddle:
       'Strona rekrutacyjna w kształcie filmu o Człowieku Zagadce: dwa quizy, rzut monetą i agent AI, który odpowiada na pytania o mnie.',
-    migawki:
-      'Gra fotograficzna w przeglądarce: pada, ludzie patrzą w ekrany, a Ty masz 36 klatek i pięć minut.',
     kalkulator:
       'Porównuje B2B z umową o pracę w skali całego roku: podatki, urlop, L4 i koszty.',
     wyrocznia: 'Zapytaj Klaudię o cokolwiek. Odpowiada tylko tak albo nie.',

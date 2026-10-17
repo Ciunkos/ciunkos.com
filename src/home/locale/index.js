@@ -28,8 +28,9 @@ export const recent = {
   nowNote:
     'Below: the apps from my first decade, as this page showed them in 2017.',
   apps: {
-    riddle: ['You 🤝 Przemysław?', 'A hire page in riddles'],
-    migawki: ['Migawki', 'A photo game: 36 frames, five minutes'],
+    riddle: ['You 🤝 Przemysław?', 'Riddle me this: a hire page'],
+    przemo: ['Przemo', 'Flack: DM the AI me, it always replies'],
+    migawki: ['Migawki', 'Started as a song, ended as a game'],
     bimi: ['BIMI checker', 'Will Gmail show your logo?'],
     estimator: ['Software cost estimator', '125 real projects'],
     validator: ['Business idea validator', 'AI report, free'],
@@ -37,14 +38,16 @@ export const recent = {
     configurator: ['Engagement configurator', 'Price and start date'],
     glossary: ['Glossary', 'AI, projects, email'],
     kalkulator: ['B2B vs UoP calculator', 'Polish contracts, 2026'],
-    korpo: ['Korpo Tłumacz', 'Corporate speak, decoded'],
-    wyrocznia: ['Wyrocznia', 'Ask Klaudia, yes or no']
+    korpo: ['Korpo Tłumacz', 'Corporate speak into plain words'],
+    wyrocznia: ['Wyrocznia', 'Ask Klaudia anything, she says yes or no']
   },
   long: {
+    migawki:
+      'It began as a song from an EP called Migawki and ended as an abstract browser game in a rainy night city. All you see are snapshots.',
+    przemo:
+      'Flack, as in the Flak Cannon: a meme Slack where the only chat that works is a DM with me as an AI agent. It started as Przemo, a bot of me for the team chat, and it replies the way I do, typos included.',
     riddle:
       'A hire page shaped like a film about the Riddler: two quizzes, a coin toss and an AI agent that answers questions about me.',
-    migawki:
-      'A browser photo game: it is raining, people stare at their screens, and you have 36 frames and five minutes.',
     kalkulator:
       'Compares a Polish B2B contract with employment for a whole year, with taxes, leave, sick days and costs.',
     wyrocznia: 'Ask Klaudia anything. She answers only yes or no.',

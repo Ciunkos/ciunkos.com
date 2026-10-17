@@ -15,6 +15,7 @@ export const apps = [
     icon: '/hire/favicon/riddle-180.png',
     hero: true
   },
+  { id: 'przemo', path: '/przemo', icon: '/przemo/awatar-512.png', hero: true },
   {
     id: 'migawki',
     path: '/migawki',
