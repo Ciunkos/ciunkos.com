@@ -82,8 +82,9 @@
   background: linear-gradient(
     0deg,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.4) 80%
+    rgba(0, 0, 0, 0.75) 70%
   );
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
 
 .has-subheader .MainHeader .HeaderBar:not(.scrolled-top) {
@@ -138,4 +139,46 @@
 .HeaderContainer .SecondaryHeader {
   height: 56px;
   width: 100%;
+}
+
+/* Main CTA: Hire me (2026). */
+.hire-cta {
+  align-self: center;
+  min-height: 40px !important;
+  height: 40px;
+  padding: 0 18px !important;
+  border-radius: 999px;
+  background: #f59e0b !important;
+  color: #111 !important;
+  font-weight: 700;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+.hire-cta .ActionName {
+  display: flex !important;
+}
+
+.hire-cta:hover,
+.hire-cta:focus-visible {
+  background: #fbbf24 !important;
+  border-bottom: none !important;
+}
+
+@media (max-width: 479px) {
+  .hire-cta {
+    padding: 0 12px !important;
+    font-size: 12px;
+    margin-right: 8px !important;
+  }
+
+  .nav-services {
+    display: none !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .main-appbar .Logo {
+    font-size: 18px !important;
+  }
 }

@@ -16,3 +16,173 @@
     min-height: initial;
   }
 }
+
+/* 2026: links from the 2017 hero to what I build now. */
+.RecentApps {
+  margin-top: 24px;
+  max-width: 1000px;
+}
+
+.RecentCta {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 0 0 20px;
+}
+
+.HireMeButton {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  min-height: 44px;
+  padding: 0 22px;
+  border-radius: 999px;
+  background: #f59e0b;
+  color: #111 !important;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.HireMeButton:hover,
+.HireMeButton:focus-visible {
+  background: #fbbf24;
+}
+
+.HireMeLink {
+  color: #fff !important;
+  font-weight: 600;
+  text-decoration: none;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.HireMeLink:hover {
+  text-decoration: underline;
+}
+
+.RecentTitle {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+.RecentGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
+}
+
+.RecentGrid li {
+  display: block;
+}
+
+.RecentTile {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  text-align: left;
+  align-items: center;
+  gap: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(10, 12, 30, 0.55);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+  text-decoration: none;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.RecentTile:hover,
+.RecentTile:focus-visible {
+  background: rgba(48, 64, 188, 0.85);
+  transform: translateY(-1px);
+}
+
+.RecentTile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex: none;
+}
+
+.RecentTile span {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  line-height: 1.25;
+}
+
+.RecentTile strong {
+  font-size: 14px;
+}
+
+.RecentTile small {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.RecentNote {
+  margin: 14px 0 0;
+  font-size: 13px;
+  opacity: 0.85;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+@media print {
+  .RecentApps {
+    display: none;
+  }
+}
+
+/* 2026: readable hero text over the bright photo. */
+.Section.Home .SectionContent {
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.55);
+}
+
+.RecentTile,
+.HireMeButton {
+  text-shadow: none;
+}
+
+@media (max-width: 479px) {
+  .RecentGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .RecentTile {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .RecentTile img {
+    width: 32px;
+    height: 32px;
+  }
+
+  .RecentTile strong {
+    font-size: 13px;
+  }
+
+  .RecentTile small {
+    font-size: 11px;
+  }
+}

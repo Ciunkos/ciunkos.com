@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled'
 import PageIcon from 'assets/page-icon.jpg'
-import { Apps, PermContactCalendar, InfoOutline } from 'icons'
+import { Apps, PermContactCalendar, InfoOutline, Work } from 'icons'
 import HeaderBar from './HeaderBar'
 import HeaderContainer from './HeaderContainer'
 
@@ -55,6 +55,22 @@ const routes = [
     }
   },
   {
+    name: 'Services',
+    href: '/hire-me#services',
+    style: {
+      justifySelf: 'flex-end',
+      flexGrow: 0,
+      flexShrink: 1,
+      flexBasis: '160px'
+    },
+    classes: {
+      navbaritem: true,
+      headeritem: true,
+      'nav-services': true
+    },
+    icon: <Work />
+  },
+  {
     name: 'Apps',
     href: '/apps',
     style: {
@@ -98,6 +114,22 @@ const routes = [
       headeritem: true
     },
     icon: <InfoOutline />
+  },
+  {
+    name: 'Hire me',
+    href: '/hire-me',
+    style: {
+      justifySelf: 'flex-end',
+      flexGrow: 0,
+      flexShrink: 0,
+      marginLeft: 8,
+      marginRight: 16
+    },
+    classes: {
+      navbaritem: false,
+      headeritem: true,
+      'hire-cta': true
+    }
   }
 ]
 

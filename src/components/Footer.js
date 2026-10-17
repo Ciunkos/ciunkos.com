@@ -49,6 +49,34 @@ export default () => (
             <InlineLink href="/apps">Apps</InlineLink>
             <InlineLink href="/resume">Resume</InlineLink>
           </styled.View>
+          <styled.View tag="section" horizontal spacing-2 wrappable>
+            <strong>Work with me:</strong>
+            <InlineLink href="/hire-me">Hire me</InlineLink>
+            <InlineLink href="/hire-me#services">Services</InlineLink>
+            <InlineLink href="/engagement-configurator">
+              Price and start date
+            </InlineLink>
+            <InlineLink href="/hire-developers-poland">
+              Hire developers from Poland
+            </InlineLink>
+            <InlineLink href="/you-and-przemyslaw">
+              You 🤝 Przemysław?
+            </InlineLink>
+          </styled.View>
+          <styled.View tag="section" horizontal spacing-2 wrappable>
+            <strong>Free tools:</strong>
+            <InlineLink href="/business-idea-validator">
+              Business idea validator
+            </InlineLink>
+            <InlineLink href="/bimi-checker">BIMI checker</InlineLink>
+            <InlineLink href="/spf-dkim-dmarc-checker">
+              SPF, DKIM and DMARC checker
+            </InlineLink>
+            <InlineLink href="/software-cost-estimator">
+              Software cost estimator
+            </InlineLink>
+            <InlineLink href="/glossary">Glossary</InlineLink>
+          </styled.View>
           <Social />
         </styled.View>
       </styled.View>

@@ -7,6 +7,7 @@ import { Page, Section, ActionButton, InlineLink } from 'components'
 import homeBackground from 'assets/home-background.jpg'
 import { PostHeader, PostAbstract } from 'blog/post'
 import locale from './locale'
+import Recent from './Recent'
 import './styles.css'
 
 const { WelcomeMessage, BlogDescription } = styled
@@ -37,6 +38,8 @@ const HomePage = () => (
             })}
           </p>
         </WelcomeMessage>
+
+        <Recent />
       </Section.Content>
 
       <ActionButton
