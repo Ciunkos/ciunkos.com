@@ -79,10 +79,12 @@
 }
 
 .MainHeader .HeaderBar.scrolled-top {
+  /* The bar is 100vh + 64px tall and only its bottom 64px are visible, so the gradient is in pixels from the bottom. */
   background: linear-gradient(
     0deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.75) 70%
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.6) 24px,
+    rgba(0, 0, 0, 0.6) 100%
   );
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
 }
