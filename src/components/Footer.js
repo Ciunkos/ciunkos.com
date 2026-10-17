@@ -51,31 +51,37 @@ export default () => (
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
             <strong>Work with me:</strong>
-            <InlineLink href="/hire-me">Hire me</InlineLink>
-            <InlineLink href="/hire-me#services">Services</InlineLink>
-            <InlineLink href="/engagement-configurator">
+            <InlineLink href="https://ciunkos.com/hire-me">Hire me</InlineLink>
+            <InlineLink href="https://ciunkos.com/hire-me#services">
+              Services
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/engagement-configurator">
               Price and start date
             </InlineLink>
-            <InlineLink href="/hire-developers-poland">
+            <InlineLink href="https://ciunkos.com/hire-developers-poland">
               Hire developers from Poland
             </InlineLink>
-            <InlineLink href="/you-and-przemyslaw">
+            <InlineLink href="https://ciunkos.com/you-and-przemyslaw">
               You 🤝 Przemysław?
             </InlineLink>
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
             <strong>Free tools:</strong>
-            <InlineLink href="/business-idea-validator">
+            <InlineLink href="https://ciunkos.com/business-idea-validator">
               Business idea validator
             </InlineLink>
-            <InlineLink href="/bimi-checker">BIMI checker</InlineLink>
-            <InlineLink href="/spf-dkim-dmarc-checker">
+            <InlineLink href="https://ciunkos.com/bimi-checker">
+              BIMI checker
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/spf-dkim-dmarc-checker">
               SPF, DKIM and DMARC checker
             </InlineLink>
-            <InlineLink href="/software-cost-estimator">
+            <InlineLink href="https://ciunkos.com/software-cost-estimator">
               Software cost estimator
             </InlineLink>
-            <InlineLink href="/glossary">Glossary</InlineLink>
+            <InlineLink href="https://ciunkos.com/glossary">
+              Glossary
+            </InlineLink>
           </styled.View>
           <Social />
         </styled.View>

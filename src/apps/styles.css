@@ -86,3 +86,83 @@
     align-self: center;
   }
 }
+
+/* 2026 apps on top of the 2017 list. */
+.NowGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.NowGrid li {
+  display: block;
+}
+
+.NowCard {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(10, 12, 30, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: #fff !important;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.NowCard:hover,
+.NowCard:focus-visible {
+  transform: translateY(-2px);
+  background: rgba(10, 12, 30, 0.7);
+}
+
+.NowShot {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+.NowText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 12px 14px 14px;
+  text-align: left;
+}
+
+.NowHead {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.NowHead img {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.NowText small {
+  font-size: 13px;
+  line-height: 1.45;
+  opacity: 0.85;
+}
+
+.NowNote {
+  opacity: 0.8;
+}
+
+@media print {
+  .NowApps {
+    display: none;
+  }
+}

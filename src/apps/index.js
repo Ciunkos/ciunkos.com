@@ -7,6 +7,7 @@ import { ArrowForward, FileDownload } from 'icons'
 import cover from './cover.jpg'
 import './styles.css'
 import apps from './data'
+import Now from './Now'
 
 const matchDimensions = str => {
   const regex = /r(\d+)x(\d+)/g
@@ -72,6 +73,8 @@ const AppsPage = () => (
         </styled.AppList>
       </Section.Content>
     </Section>
+
+    <Now />
 
     {Object.values(apps).map(app => (
       <Section key={app.name} cover={app.cover} id={app.slug}>

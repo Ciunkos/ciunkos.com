@@ -56,7 +56,7 @@ const routes = [
   },
   {
     name: 'Services',
-    href: '/hire-me#services',
+    href: 'https://ciunkos.com/hire-me#services',
     style: {
       justifySelf: 'flex-end',
       flexGrow: 0,
@@ -117,7 +117,7 @@ const routes = [
   },
   {
     name: 'Hire me',
-    href: '/hire-me',
+    href: 'https://ciunkos.com/hire-me',
     style: {
       justifySelf: 'flex-end',
       flexGrow: 0,
