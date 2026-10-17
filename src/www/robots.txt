@@ -7,3 +7,8 @@ Sitemap: https://ciunkos.com/wyrocznia/sitemap.xml
 Sitemap: https://ciunkos.com/kalkulator-b2b-vs-uop-2026/sitemap.xml
 Sitemap: https://ciunkos.com/przemo/sitemap.xml
 Sitemap: https://ciunkos.com/hire/sitemap.xml
+Sitemap: https://ciunkos.com/business-idea-validator/a/sitemap.xml
+Sitemap: https://ciunkos.com/spf-dkim-dmarc-checker/a/sitemap.xml
+Sitemap: https://ciunkos.com/engagement-configurator/a/sitemap.xml
+Sitemap: https://ciunkos.com/ai-engineering-glossary/a/sitemap.xml
+Sitemap: https://ciunkos.com/software-cost-estimator/a/sitemap.xml
