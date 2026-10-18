@@ -33,6 +33,8 @@ export const recent = {
     migawki: ['Migawki', 'Started as a song, ended as a game'],
     bimi: ['BIMI checker', 'Will Gmail show your logo?'],
     estimator: ['Software cost estimator', '125 real projects'],
+    buildorbuy: ['Build or buy', 'SaaS vs your own app'],
+    store: ['App store ready', 'Web app to the stores'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
@@ -56,6 +58,10 @@ export const recent = {
     bimi: 'Checks the BIMI record, DMARC, the SVG Tiny PS logo and the VMC or CMC certificate, previews the logo in inboxes and fixes the SVG.',
     estimator:
       'Places your project among 125 real products, with honest ranges and an AI-agent multiplier.',
+    buildorbuy:
+      'A SaaS subscription against your own app over 1, 3 or 5 years, with the payback month and the reasons to build that are not about money.',
+    store:
+      'Paste a web app address: what is missing for the App Store and Google Play, TWA or Capacitor, and files to copy.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',

@@ -15,6 +15,8 @@ import validator from './2026/shot-2026-validator.jpg'
 import dns from './2026/shot-2026-dns.jpg'
 import configurator from './2026/shot-2026-configurator.jpg'
 import glossary from './2026/shot-2026-glossary.jpg'
+import store from './2026/shot-2026-store.jpg'
+import buildorbuy from './2026/shot-2026-buildorbuy.jpg'
 
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
@@ -29,7 +31,9 @@ const shots = {
   validator,
   dns,
   configurator,
-  glossary
+  glossary,
+  store,
+  buildorbuy
 }
 
 const Now = () => (

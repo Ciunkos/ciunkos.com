@@ -33,6 +33,8 @@ export const recent = {
     migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
     bimi: ['Sprawdź BIMI', 'Czy Gmail pokaże Twoje logo?'],
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
+    buildorbuy: ['Budować czy kupić', 'SaaS kontra własna apka'],
+    store: ['Apka do sklepu', 'Z przeglądarki do sklepów'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
@@ -56,6 +58,10 @@ export const recent = {
     bimi: 'Sprawdza rekord BIMI, DMARC, logo SVG Tiny PS i certyfikat VMC albo CMC, pokazuje logo w skrzynkach i naprawia SVG.',
     estimator:
       'Umieszcza projekt na tle 125 prawdziwych produktów, z uczciwym rozrzutem i mnożnikiem agentów AI.',
+    buildorbuy:
+      'Abonament SaaS kontra własna apka w 1, 3 albo 5 lat, z miesiącem zwrotu i powodami do budowy, które nie są pieniędzmi.',
+    store:
+      'Wklej adres apki webowej: czego brakuje do App Store i Google Play, TWA czy Capacitor, i pliki do skopiowania.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',

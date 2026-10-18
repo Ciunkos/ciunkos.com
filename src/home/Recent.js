@@ -55,6 +55,16 @@ export const apps = [
     icon: '/software-cost-estimator/a/apple-touch-icon.png'
   },
   {
+    id: 'buildorbuy',
+    path: '/software-cost-estimator/build-or-buy',
+    icon: '/software-cost-estimator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'store',
+    path: '/app-store-ready',
+    icon: '/app-store-ready/a/apple-touch-icon.png'
+  },
+  {
     id: 'validator',
     path: '/business-idea-validator',
     icon: '/business-idea-validator/a/apple-touch-icon.png'
