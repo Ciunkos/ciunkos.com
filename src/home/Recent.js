@@ -65,6 +65,26 @@ export const apps = [
     icon: '/app-store-ready/a/apple-touch-icon.png'
   },
   {
+    id: 'runbook',
+    path: '/runbook-generator',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'sla',
+    path: '/sla-calculator',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'llm',
+    path: '/local-llm-calculator',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'legacy',
+    path: '/software-cost-estimator/legacy-rewrite',
+    icon: '/software-cost-estimator/a/apple-touch-icon.png'
+  },
+  {
     id: 'validator',
     path: '/business-idea-validator',
     icon: '/business-idea-validator/a/apple-touch-icon.png'

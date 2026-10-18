@@ -17,6 +17,10 @@ import configurator from './2026/shot-2026-configurator.jpg'
 import glossary from './2026/shot-2026-glossary.jpg'
 import store from './2026/shot-2026-store.jpg'
 import buildorbuy from './2026/shot-2026-buildorbuy.jpg'
+import runbook from './2026/shot-2026-runbook.jpg'
+import sla from './2026/shot-2026-sla.jpg'
+import llm from './2026/shot-2026-llm.jpg'
+import legacy from './2026/shot-2026-legacy.jpg'
 
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
@@ -33,7 +37,11 @@ const shots = {
   configurator,
   glossary,
   store,
-  buildorbuy
+  buildorbuy,
+  runbook,
+  sla,
+  llm,
+  legacy
 }
 
 const Now = () => (

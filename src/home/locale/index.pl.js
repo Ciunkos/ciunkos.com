@@ -35,6 +35,10 @@ export const recent = {
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
     buildorbuy: ['Budować czy kupić', 'SaaS kontra własna apka'],
     store: ['Apka do sklepu', 'Z przeglądarki do sklepów'],
+    runbook: ['Instrukcja systemu', 'Dla systemu, który znasz tylko Ty'],
+    sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
+    llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
+    legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
@@ -62,6 +66,14 @@ export const recent = {
       'Abonament SaaS kontra własna apka w 1, 3 albo 5 lat, z miesiącem zwrotu i powodami do budowy, które nie są pieniędzmi.',
     store:
       'Wklej adres apki webowej: czego brakuje do App Store i Google Play, TWA czy Capacitor, i pliki do skopiowania.',
+    runbook:
+      'Odpowiedz na kilka pytań o system, który zbudowałeś sam, i dostań RUNBOOK.md oraz listę do uzupełnienia. Nic nie wychodzi z przeglądarki.',
+    sla:
+      'Opłata miesięczna, czasy reakcji dla priorytetów, budżet przestojów i zapisy do umowy dla aplikacji, na których działa firma.',
+    llm:
+      'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
+    legacy:
+      'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',

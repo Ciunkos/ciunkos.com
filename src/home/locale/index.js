@@ -35,6 +35,10 @@ export const recent = {
     estimator: ['Software cost estimator', '125 real projects'],
     buildorbuy: ['Build or buy', 'SaaS vs your own app'],
     store: ['App store ready', 'Web app to the stores'],
+    runbook: ['Runbook generator', 'For a system only you know'],
+    sla: ['SLA calculator', 'Internal apps, fee and times'],
+    llm: ['Local model or API?', 'Hardware, speed, cost'],
+    legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
@@ -62,6 +66,14 @@ export const recent = {
       'A SaaS subscription against your own app over 1, 3 or 5 years, with the payback month and the reasons to build that are not about money.',
     store:
       'Paste a web app address: what is missing for the App Store and Google Play, TWA or Capacitor, and files to copy.',
+    runbook:
+      'Answer a few questions about a system you built yourself and get a RUNBOOK.md and a to-do list. Nothing leaves your browser.',
+    sla:
+      'A monthly fee, response times per priority, a downtime budget and contract clauses for the apps a company runs on.',
+    llm:
+      'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
+    legacy:
+      'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',
