@@ -39,6 +39,9 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    mcp: ['OpenAPI to MCP tools', 'Your API in Claude and ChatGPT'],
+    ksef: ['KSeF invoice validator', 'FA(3) in your browser'],
+    rfq: ['Quoting time calculator', 'Enquiries to quotes'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
@@ -74,6 +77,12 @@ export const recent = {
       'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    mcp:
+      'Paste an OpenAPI spec and get narrow MCP tools, with the irreversible ones flagged, plus a TypeScript server skeleton.',
+    ksef:
+      'Checks a Polish FA(3) e-invoice against the official schema in your browser, with errors in plain words and a readable preview.',
+    rfq:
+      'Counts the hours spent turning customer enquiries into quotes and when an agent that drafts them would pay off.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',

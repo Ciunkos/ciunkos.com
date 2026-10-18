@@ -85,6 +85,21 @@ export const apps = [
     icon: '/software-cost-estimator/a/apple-touch-icon.png'
   },
   {
+    id: 'mcp',
+    path: '/mcp-tools-from-openapi',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'ksef',
+    path: '/ksef-invoice-validator',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
+    id: 'rfq',
+    path: '/rfq-automation-calculator',
+    icon: '/runbook-generator/a/apple-touch-icon.png'
+  },
+  {
     id: 'validator',
     path: '/business-idea-validator',
     icon: '/business-idea-validator/a/apple-touch-icon.png'

@@ -39,6 +39,9 @@ export const recent = {
     sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
     llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
     legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
+    mcp: ['Konektor MCP z OpenAPI', 'Twoje API w Claude i ChatGPT'],
+    ksef: ['Walidator faktury KSeF', 'FA(3) w przeglądarce'],
+    rfq: ['Kalkulator ofertowania', 'Od zapytań do ofert'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
@@ -74,6 +77,12 @@ export const recent = {
       'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
+    mcp:
+      'Wklej specyfikację OpenAPI i dostań wąskie narzędzia MCP z oznaczonymi nieodwracalnymi oraz szkielet serwera w TypeScript.',
+    ksef:
+      'Sprawdza e-fakturę FA(3) oficjalnym schematem w przeglądarce, z błędami opisanymi zwykłymi słowami i czytelnym podglądem.',
+    rfq:
+      'Liczy godziny na zamianę zapytań klientów w oferty i to, kiedy zwróci się agent, który przygotowuje szkice.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',
