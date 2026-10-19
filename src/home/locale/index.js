@@ -73,22 +73,17 @@ export const recent = {
       'Paste a web app address: what is missing for the App Store and Google Play, TWA or Capacitor, and files to copy.',
     runbook:
       'Answer a few questions about a system you built yourself and get a RUNBOOK.md and a to-do list. Nothing leaves your browser.',
-    sla:
-      'A monthly fee, response times per priority, a downtime budget and contract clauses for the apps a company runs on.',
-    llm:
-      'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
+    sla: 'A monthly fee, response times per priority, a downtime budget and contract clauses for the apps a company runs on.',
+    llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
     quoteDesk:
       'A customer enquiry (email, PDF, Excel or a photo of a handwritten list) matched to your own price list, unclear lines flagged, exported to Excel. Free.',
     tenant:
       'For a system built for one company and now sold to others: which multi-tenant model, the work per release and the weeks to get there.',
-    mcp:
-      'Paste an OpenAPI spec and get narrow MCP tools, with the irreversible ones flagged, plus a TypeScript server skeleton.',
-    ksef:
-      'Checks a Polish FA(3) e-invoice against the official schema in your browser, with errors in plain words and a readable preview.',
-    rfq:
-      'Counts the hours spent turning customer enquiries into quotes and when an agent that drafts them would pay off.',
+    mcp: 'Paste an OpenAPI spec and get narrow MCP tools, with the irreversible ones flagged, plus a TypeScript server skeleton.',
+    ksef: 'Checks a Polish FA(3) e-invoice against the official schema in your browser, with errors in plain words and a readable preview.',
+    rfq: 'Counts the hours spent turning customer enquiries into quotes and when an agent that drafts them would pay off.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',

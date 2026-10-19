@@ -73,22 +73,17 @@ export const recent = {
       'Wklej adres apki webowej: czego brakuje do App Store i Google Play, TWA czy Capacitor, i pliki do skopiowania.',
     runbook:
       'Odpowiedz na kilka pytań o system, który zbudowałeś sam, i dostań RUNBOOK.md oraz listę do uzupełnienia. Nic nie wychodzi z przeglądarki.',
-    sla:
-      'Opłata miesięczna, czasy reakcji dla priorytetów, budżet przestojów i zapisy do umowy dla aplikacji, na których działa firma.',
-    llm:
-      'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
+    sla: 'Opłata miesięczna, czasy reakcji dla priorytetów, budżet przestojów i zapisy do umowy dla aplikacji, na których działa firma.',
+    llm: 'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
     quoteDesk:
       'Zapytanie klienta (mail, PDF, Excel albo zdjęcie odręcznej listy) dopasowane do Twojego cennika, niejasne pozycje oznaczone, eksport do Excela. Za darmo.',
     tenant:
       'Dla systemu zbudowanego dla jednej firmy i sprzedawanego innym: który model multi-tenant, praca przy wydaniu i tygodnie budowy.',
-    mcp:
-      'Wklej specyfikację OpenAPI i dostań wąskie narzędzia MCP z oznaczonymi nieodwracalnymi oraz szkielet serwera w TypeScript.',
-    ksef:
-      'Sprawdza e-fakturę FA(3) oficjalnym schematem w przeglądarce, z błędami opisanymi zwykłymi słowami i czytelnym podglądem.',
-    rfq:
-      'Liczy godziny na zamianę zapytań klientów w oferty i to, kiedy zwróci się agent, który przygotowuje szkice.',
+    mcp: 'Wklej specyfikację OpenAPI i dostań wąskie narzędzia MCP z oznaczonymi nieodwracalnymi oraz szkielet serwera w TypeScript.',
+    ksef: 'Sprawdza e-fakturę FA(3) oficjalnym schematem w przeglądarce, z błędami opisanymi zwykłymi słowami i czytelnym podglądem.',
+    rfq: 'Liczy godziny na zamianę zapytań klientów w oferty i to, kiedy zwróci się agent, który przygotowuje szkice.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',
