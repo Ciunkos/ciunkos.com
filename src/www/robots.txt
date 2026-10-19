@@ -16,3 +16,4 @@ Sitemap: https://ciunkos.com/app-store-ready/a/sitemap.xml
 Sitemap: https://ciunkos.com/runbook-generator/a/sitemap.xml
 Sitemap: https://ciunkos.com/quote-desk/a/sitemap.xml
 Sitemap: https://ciunkos.com/ai-visibility/a/sitemap.xml
+Sitemap: https://ciunkos.com/email-list-validator/a/sitemap.xml

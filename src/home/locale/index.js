@@ -39,6 +39,7 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    listDesk: ['List Desk', 'Clean an email list'],
     aiVisibility: ['AI Visibility Desk', 'Does AI recommend you?'],
     quoteDesk: ['Quote Desk', 'Enquiry to draft quote'],
     tenant: ['Multi-tenant SaaS calculator', 'Company tool to SaaS'],
@@ -78,6 +79,8 @@ export const recent = {
     llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    listDesk:
+      'An email list checked in your browser: dead domains, null MX, disposable providers, typos and duplicates. Addresses never leave the page. Free.',
     aiVisibility:
       'Your buyers’ questions asked to an AI assistant every week with web search on: whether your brand is named, who is named instead, which pages are cited. Free.',
     quoteDesk:
