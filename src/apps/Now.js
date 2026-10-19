@@ -3,6 +3,7 @@ import React from 'react'
 import { Section } from 'components'
 import { apps } from 'home/Recent'
 import locale from 'home/locale'
+import toolIcon from './toolIcons'
 import riddle from './2026/shot-2026-riddle.jpg'
 import przemo from './2026/shot-2026-przemo.jpg'
 import migawki from './2026/shot-2026-migawki.jpg'
@@ -62,19 +63,19 @@ const Now = () => (
       <p className="NowTools">
         {locale.recent.nowTools}{' '}
         {toolApps.map((app, i) => (
-          <React.Fragment key={app.id}>
+          <span className="NowToolItem" key={app.id}>
             <a className="NowTool" href={app.href}>
               <img
-                src={vectorIcon(app.icon)}
+                src={toolIcon(app.id) || vectorIcon(app.icon)}
                 alt=""
-                width="20"
-                height="20"
+                width="22"
+                height="22"
                 loading="lazy"
               />
               {locale.recent.apps[app.id][0]}
             </a>
-            {i < toolApps.length - 1 ? ', ' : '.'}
-          </React.Fragment>
+            {i < toolApps.length - 1 ? ',' : '.'}
+          </span>
         ))}
       </p>
       <p className="NowNote">{locale.recent.nowNote}</p>
