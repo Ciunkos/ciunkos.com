@@ -1,12 +1,18 @@
 /* Renders the /apps symbol icons (src/apps/toolIcons.js) into favicon files for each tool's own site:
    <out>/<id>/favicon.svg (rounded square), favicon-32.png (transparent corners) and apple-touch-icon.png
-   (180 × 180, full square: iOS rounds the corners itself). Usage: node scripts/tool-icons.mjs <out-dir> */
+   (180 × 180, full square: iOS rounds the corners itself). Usage: node scripts/tool-icons.mjs <out-dir>
+   Uses a current Playwright from a tool repo (this repo's is too old to have its browser installed):
+   PLAYWRIGHT_REPO=~/signature-desk by default. */
+import { homedir } from 'node:os'
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { chromium } from 'playwright'
 import { ICONS, S } from '../src/apps/toolIcons.js'
 
 const out = process.argv[2]
+const repo = process.env.PLAYWRIGHT_REPO || join(homedir(), 'signature-desk')
+const { chromium } = await import(
+  join(repo, 'node_modules/@playwright/test/index.mjs')
+)
 const svg = (colour, symbol, rx) =>
   `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><rect width="32" height="32" rx="${rx}" fill="${colour}"/><g transform="translate(5 5) scale(0.9167)" ${S.replace(
     /'/g,
