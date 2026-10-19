@@ -19,7 +19,7 @@ const personJsonLd = {
   '@id': 'https://ciunkos.com/#person',
   name: 'Przemysław Zalewski',
   alternateName: 'Ciunkos',
-  url: 'https://ciunkos.com/hire-me',
+  url: 'https://ciunkos.com',
   jobTitle: 'Senior Full-Stack Engineer',
   image: 'https://ciunkos.com/hire/img/przemo-512.png',
   sameAs: [
