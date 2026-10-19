@@ -39,6 +39,7 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    tenant: ['Multi-tenant SaaS calculator', 'Company tool to SaaS'],
     mcp: ['OpenAPI to MCP tools', 'Your API in Claude and ChatGPT'],
     ksef: ['KSeF invoice validator', 'FA(3) in your browser'],
     rfq: ['Quoting time calculator', 'Enquiries to quotes'],
@@ -77,6 +78,8 @@ export const recent = {
       'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    tenant:
+      'For a system built for one company and now sold to others: which multi-tenant model, the work per release and the weeks to get there.',
     mcp:
       'Paste an OpenAPI spec and get narrow MCP tools, with the irreversible ones flagged, plus a TypeScript server skeleton.',
     ksef:

@@ -24,6 +24,7 @@ import legacy from './2026/shot-2026-legacy.jpg'
 import mcp from './2026/shot-2026-mcp.jpg'
 import ksef from './2026/shot-2026-ksef.jpg'
 import rfq from './2026/shot-2026-rfq.jpg'
+import tenant from './2026/shot-2026-tenant.jpg'
 
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
@@ -47,7 +48,8 @@ const shots = {
   legacy,
   mcp,
   ksef,
-  rfq
+  rfq,
+  tenant
 }
 
 const Now = () => (
