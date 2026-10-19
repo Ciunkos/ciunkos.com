@@ -47,7 +47,7 @@ export const apps = [
   {
     id: 'bimi',
     path: '/bimi-checker',
-    icon: '/spf-dkim-dmarc-checker/a/apple-touch-icon.png'
+    icon: '/spf-dkim-dmarc-checker/a/ikony/bimi/apple-touch-icon.png'
   },
   {
     id: 'estimator',
@@ -57,7 +57,7 @@ export const apps = [
   {
     id: 'buildorbuy',
     path: '/software-cost-estimator/build-or-buy',
-    icon: '/software-cost-estimator/a/apple-touch-icon.png'
+    icon: '/software-cost-estimator/a/ikony/buildorbuy/apple-touch-icon.png'
   },
   {
     id: 'store',
@@ -72,17 +72,17 @@ export const apps = [
   {
     id: 'sla',
     path: '/sla-calculator',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/sla/apple-touch-icon.png'
   },
   {
     id: 'llm',
     path: '/local-llm-calculator',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/llm/apple-touch-icon.png'
   },
   {
     id: 'legacy',
     path: '/software-cost-estimator/legacy-rewrite',
-    icon: '/software-cost-estimator/a/apple-touch-icon.png'
+    icon: '/software-cost-estimator/a/ikony/legacy/apple-touch-icon.png'
   },
   {
     id: 'signatureDesk',
@@ -117,22 +117,22 @@ export const apps = [
   {
     id: 'tenant',
     path: '/multi-tenant-saas-calculator',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/tenant/apple-touch-icon.png'
   },
   {
     id: 'mcp',
     path: '/mcp-tools-from-openapi',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/mcp/apple-touch-icon.png'
   },
   {
     id: 'ksef',
     path: '/ksef-invoice-validator',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/ksef/apple-touch-icon.png'
   },
   {
     id: 'rfq',
     path: '/rfq-automation-calculator',
-    icon: '/runbook-generator/a/apple-touch-icon.png'
+    icon: '/runbook-generator/a/ikony/rfq/apple-touch-icon.png'
   },
   {
     id: 'validator',

@@ -3,11 +3,11 @@
    with a white line symbol (24-unit grid, drawn here), so the list reads at a glance instead of
    showing the same face 22 times. */
 
-const S =
+export const S =
   "fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'"
 
 /* id → [background colour, symbol drawn on a 24 × 24 grid] */
-const ICONS = {
+export const ICONS = {
   bimi: [
     '#c2410c',
     "<rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'/>"
