@@ -61,6 +61,12 @@ export default () => (
             <InlineLink href="https://ciunkos.com/engagement-configurator">
               Price and start date
             </InlineLink>
+            <InlineLink href="https://ciunkos.com/hire-developer-mvp-to-product">
+              From MVP to product
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/hire-business-partner">
+              Technical co-founder
+            </InlineLink>
             <InlineLink href="https://ciunkos.com/hire-software-developer-poland">
               Hire developers from Poland
             </InlineLink>
