@@ -26,6 +26,7 @@ import ksef from './2026/shot-2026-ksef.jpg'
 import rfq from './2026/shot-2026-rfq.jpg'
 import tenant from './2026/shot-2026-tenant.jpg'
 import quoteDesk from './2026/shot-2026-quote-desk.jpg'
+import aiVisibility from './2026/shot-2026-ai-visibility.jpg'
 
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
@@ -51,7 +52,8 @@ const shots = {
   ksef,
   rfq,
   tenant,
-  quoteDesk
+  quoteDesk,
+  aiVisibility
 }
 
 const Now = () => (

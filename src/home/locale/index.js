@@ -39,6 +39,7 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    aiVisibility: ['AI Visibility Desk', 'Does AI recommend you?'],
     quoteDesk: ['Quote Desk', 'Enquiry to draft quote'],
     tenant: ['Multi-tenant SaaS calculator', 'Company tool to SaaS'],
     mcp: ['OpenAPI to MCP tools', 'Your API in Claude and ChatGPT'],
@@ -77,6 +78,8 @@ export const recent = {
     llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    aiVisibility:
+      'Your buyers’ questions asked to an AI assistant every week with web search on: whether your brand is named, who is named instead, which pages are cited. Free.',
     quoteDesk:
       'A customer enquiry (email, PDF, Excel or a photo of a handwritten list) matched to your own price list, unclear lines flagged, exported to Excel. Free.',
     tenant:
