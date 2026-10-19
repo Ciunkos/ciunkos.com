@@ -13,8 +13,8 @@ const repo = process.env.PLAYWRIGHT_REPO || join(homedir(), 'signature-desk')
 const { chromium } = await import(
   join(repo, 'node_modules/@playwright/test/index.mjs')
 )
-const svg = (color, symbol, rx) =>
-  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><rect width="32" height="32" rx="${rx}" fill="${color}"/><g transform="translate(5 5) scale(0.9167)" ${S.replace(
+const svg = (colour, symbol, rx) =>
+  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32"><rect width="32" height="32" rx="${rx}" fill="${colour}"/><g transform="translate(5 5) scale(0.9167)" ${S.replace(
     /'/g,
     '"'
   )}>${symbol.replace(/'/g, '"')}</g></svg>`
@@ -33,12 +33,12 @@ async function png(markup, size, file) {
     await page.locator('svg').screenshot({ omitBackground: true })
   )
 }
-for (const [id, [color, symbol]] of Object.entries(ICONS)) {
+for (const [id, [colour, symbol]] of Object.entries(ICONS)) {
   const dir = join(out, id)
   mkdirSync(dir, { recursive: true })
-  writeFileSync(join(dir, 'favicon.svg'), svg(color, symbol, 8) + '\n')
-  await png(svg(color, symbol, 8), 32, join(dir, 'favicon-32.png'))
-  await png(svg(color, symbol, 0), 180, join(dir, 'apple-touch-icon.png'))
+  writeFileSync(join(dir, 'favicon.svg'), svg(colour, symbol, 8) + '\n')
+  await png(svg(colour, symbol, 8), 32, join(dir, 'favicon-32.png'))
+  await png(svg(colour, symbol, 0), 180, join(dir, 'apple-touch-icon.png'))
 }
 await browser.close()
 console.log('icons:', Object.keys(ICONS).length)

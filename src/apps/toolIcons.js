@@ -1,12 +1,12 @@
 /* eslint-disable max-len -- SVG path data reads best on one line per symbol. */
-/* Symbol icons for the smaller tools on /apps: a rounded square in a color unique to each tool
+/* Symbol icons for the smaller tools on /apps: a rounded square in a colour unique to each tool
    with a white line symbol (24-unit grid, drawn here), so the list reads at a glance instead of
    showing the same face 22 times. */
 
 export const S =
   "fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'"
 
-/* id → [background color, symbol drawn on a 24 × 24 grid] */
+/* id → [background colour, symbol drawn on a 24 × 24 grid] */
 export const ICONS = {
   bimi: [
     '#c2410c',
@@ -104,8 +104,8 @@ export const ICONS = {
 const toolIcon = id => {
   const icon = ICONS[id]
   if (!icon) return null
-  const [color, symbol] = icon
-  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='${color}'/><g transform='translate(5 5) scale(0.9167)' ${S}>${symbol}</g></svg>`
+  const [colour, symbol] = icon
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='${colour}'/><g transform='translate(5 5) scale(0.9167)' ${S}>${symbol}</g></svg>`
   return `data:image/svg+xml,${encodeURIComponent(svg)}`
 }
 

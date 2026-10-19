@@ -30,7 +30,7 @@ export default class HeaderContainer extends React.PureComponent {
     const headerElement = document.getElementById('header')
 
     const task = () => {
-      // task canceled
+      // task cancelled
       if (this.frameId === -1) {
         return
       }
