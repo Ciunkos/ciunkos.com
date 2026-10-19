@@ -252,7 +252,7 @@ export default [
   },
   {
     key: 'testyPrawoJazdy',
-    name: 'Driving licence tests',
+    name: 'Driver's license tests',
     slug: 'testy-prawo-jazdy',
     url: 'testyprawojazdy.com',
     icon: testyPrawoJazdy.icon,

@@ -19,3 +19,4 @@ Sitemap: https://ciunkos.com/email-list-validator/a/sitemap.xml
 Sitemap: https://ciunkos.com/ai-prompt-testing/a/sitemap.xml
 Sitemap: https://ciunkos.com/posthog-dashboard-generator/a/sitemap.xml
 Sitemap: https://ciunkos.com/email-signature-generator/a/sitemap.xml
+Sitemap: https://ciunkos.com/email-spam-test/a/sitemap.xml

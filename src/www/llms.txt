@@ -39,6 +39,8 @@
 - [List Desk](https://ciunkos.com/email-list-validator): checks an email list in your browser for dead domains, null MX, disposable providers, typos and duplicates.
 - [Eval Desk](https://ciunkos.com/ai-prompt-testing): runs test cases for an AI assistant after a prompt change and shows what regressed, what got fixed and what is unstable. Claude models.
 - [Dashboard Desk](https://ciunkos.com/posthog-dashboard-generator): creates a growth dashboard in your own PostHog project and lists what your tracking is missing.
+- [Email Test](https://ciunkos.com/email-spam-test): send one email to a test address and get a report on one-click unsubscribe, SPF, DKIM, DMARC, the Gmail and Yahoo sender rules and spam signals, with an AI panel of three models and fixes written for an AI agent.
+- [Phishing email checker](https://ciunkos.com/phishing-email-checker): forward a suspicious email or upload the .eml file; three AI models and technical checks say whether it looks like spam or phishing and what to do.
 - [Signature Desk](https://ciunkos.com/email-signature-generator): one email signature template for a whole team, as HTML for Gmail, Outlook and Apple Mail.
 - [SPF, DKIM and DMARC checker](https://ciunkos.com/spf-dkim-dmarc-checker): grades a domain's email DNS, including MTA-STS, TLS-RPT, BIMI and DNSSEC.
 - [BIMI checker](https://ciunkos.com/bimi-checker): checks the BIMI record, DMARC, the SVG logo and the VMC or CMC certificate.
