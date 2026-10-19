@@ -28,6 +28,7 @@ import tenant from './2026/shot-2026-tenant.jpg'
 import quoteDesk from './2026/shot-2026-quote-desk.jpg'
 import aiVisibility from './2026/shot-2026-ai-visibility.jpg'
 import listDesk from './2026/shot-2026-list-desk.jpg'
+import evalDesk from './2026/shot-2026-eval-desk.jpg'
 
 /* Screenshots taken from production on 18 October 2026. */
 const shots = {
@@ -55,7 +56,8 @@ const shots = {
   tenant,
   quoteDesk,
   aiVisibility,
-  listDesk
+  listDesk,
+  evalDesk
 }
 
 const Now = () => (

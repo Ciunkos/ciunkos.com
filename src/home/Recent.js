@@ -85,6 +85,11 @@ export const apps = [
     icon: '/software-cost-estimator/a/apple-touch-icon.png'
   },
   {
+    id: 'evalDesk',
+    path: '/ai-prompt-testing',
+    icon: '/ai-prompt-testing/a/apple-touch-icon.png'
+  },
+  {
     id: 'listDesk',
     path: '/email-list-validator',
     icon: '/email-list-validator/a/apple-touch-icon.png'
