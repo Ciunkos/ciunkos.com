@@ -3,7 +3,7 @@ import { linkedIn, github, stackOverflow, twitter, facebook } from './assets'
 export default {
   linkedIn: {
     name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/przemys%C5%82aw-zalewski-46535756/',
+    url: 'https://www.linkedin.com/in/przemyslaw-zalewski-ciunkos',
     icon: linkedIn
   },
   gitHub: {
