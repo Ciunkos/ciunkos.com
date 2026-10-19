@@ -9,59 +9,20 @@ import migawki from './2026/shot-2026-migawki.jpg'
 import kalkulator from './2026/shot-2026-kalkulator.jpg'
 import wyrocznia from './2026/shot-2026-wyrocznia.jpg'
 import korpo from './2026/shot-2026-korpo.jpg'
-import bimi from './2026/shot-2026-bimi.jpg'
-import estimator from './2026/shot-2026-estimator.jpg'
-import validator from './2026/shot-2026-validator.jpg'
-import dns from './2026/shot-2026-dns.jpg'
-import configurator from './2026/shot-2026-configurator.jpg'
-import glossary from './2026/shot-2026-glossary.jpg'
-import store from './2026/shot-2026-store.jpg'
-import buildorbuy from './2026/shot-2026-buildorbuy.jpg'
-import runbook from './2026/shot-2026-runbook.jpg'
-import sla from './2026/shot-2026-sla.jpg'
-import llm from './2026/shot-2026-llm.jpg'
-import legacy from './2026/shot-2026-legacy.jpg'
-import mcp from './2026/shot-2026-mcp.jpg'
-import ksef from './2026/shot-2026-ksef.jpg'
-import rfq from './2026/shot-2026-rfq.jpg'
-import tenant from './2026/shot-2026-tenant.jpg'
-import quoteDesk from './2026/shot-2026-quote-desk.jpg'
-import aiVisibility from './2026/shot-2026-ai-visibility.jpg'
-import listDesk from './2026/shot-2026-list-desk.jpg'
-import evalDesk from './2026/shot-2026-eval-desk.jpg'
-import dashboardDesk from './2026/shot-2026-dashboard-desk.jpg'
-import signatureDesk from './2026/shot-2026-signature-desk.jpg'
 
-/* Screenshots taken from production on 18 October 2026. */
+/* Screenshots taken from production on 18 October 2026. Apps up to Korpo Tłumacz get a card;
+   the smaller tools after it are one paragraph of links with their transparent SVG icons. */
+const lastCard = apps.findIndex(app => app.id === 'korpo')
+const cardApps = apps.slice(0, lastCard + 1)
+const toolApps = apps.slice(lastCard + 1)
+const vectorIcon = icon => icon.replace(/apple-touch-icon\.png$/, 'favicon.svg')
 const shots = {
   riddle,
   przemo,
   migawki,
   kalkulator,
   wyrocznia,
-  korpo,
-  bimi,
-  estimator,
-  validator,
-  dns,
-  configurator,
-  glossary,
-  store,
-  buildorbuy,
-  runbook,
-  sla,
-  llm,
-  legacy,
-  mcp,
-  ksef,
-  rfq,
-  tenant,
-  quoteDesk,
-  aiVisibility,
-  listDesk,
-  evalDesk,
-  dashboardDesk,
-  signatureDesk
+  korpo
 }
 
 const Now = () => (
@@ -70,7 +31,7 @@ const Now = () => (
       <h2>{locale.recent.title}</h2>
       <p>{locale.recent.nowLead}</p>
       <ul className="NowGrid">
-        {apps.map(app => (
+        {cardApps.map(app => (
           <li key={app.id}>
             <a className="NowCard" href={app.href}>
               <img
@@ -98,6 +59,24 @@ const Now = () => (
           </li>
         ))}
       </ul>
+      <p className="NowTools">
+        {locale.recent.nowTools}{' '}
+        {toolApps.map((app, i) => (
+          <React.Fragment key={app.id}>
+            <a className="NowTool" href={app.href}>
+              <img
+                src={vectorIcon(app.icon)}
+                alt=""
+                width="20"
+                height="20"
+                loading="lazy"
+              />
+              {locale.recent.apps[app.id][0]}
+            </a>
+            {i < toolApps.length - 1 ? ', ' : '.'}
+          </React.Fragment>
+        ))}
+      </p>
       <p className="NowNote">{locale.recent.nowNote}</p>
     </Section.Content>
   </Section>

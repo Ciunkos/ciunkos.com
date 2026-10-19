@@ -25,6 +25,7 @@ export const recent = {
   more: 'All 2026 apps and free tools',
   nowLead:
     'Small tools and pages I built and run on Cloudflare in 2026. All free, no account needed.',
+  nowTools: 'Smaller free tools:',
   nowNote:
     'Below: the apps from my first decade, as this page showed them in 2017.',
   apps: {

@@ -161,6 +161,35 @@
   opacity: 0.8;
 }
 
+/* Smaller tools: one paragraph of links, transparent round icons in the text line. */
+.NowTools {
+  line-height: 2;
+}
+
+.NowTool {
+  display: inline-flex;
+  flex-direction: row;
+  vertical-align: middle;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  color: #fff !important;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+}
+
+.NowTool:hover,
+.NowTool:focus-visible {
+  text-decoration-color: #fff;
+}
+
+.NowTool img {
+  width: 20px;
+  height: 20px;
+  flex: none;
+}
+
 @media print {
   .NowApps {
     display: none;

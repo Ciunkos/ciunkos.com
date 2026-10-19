@@ -25,6 +25,7 @@ export const recent = {
   more: 'Wszystkie aplikacje i darmowe narzędzia z 2026',
   nowLead:
     'Małe narzędzia i strony, które zbudowałem i utrzymuję na Cloudflare w 2026. Wszystkie za darmo, bez zakładania konta.',
+  nowTools: 'Mniejsze darmowe narzędzia:',
   nowNote:
     'Niżej: aplikacje z pierwszej dekady, tak jak pokazywała je ta strona w 2017.',
   apps: {
