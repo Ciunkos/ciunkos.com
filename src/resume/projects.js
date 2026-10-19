@@ -247,12 +247,12 @@ export default [
     description: 'A game about COVID-19, polish government, and propaganda.',
     tech: [tech.js, tech.react, tech.nodeJs, tech.nginx],
     responsibilities: [
-      'I created and deployed a React-based game played by hundreds of thousands of people. I have managed to publish the game within two weeks of work. The game included over 400 actions and their effects that impact the internal simulation of infections and economy and society. I have implemented a leaderboards system to make the game more competitive.'
+      'I created and deployed a React-based game played by 100,000+ people. I have managed to publish the game within two weeks of work. The game included over 400 actions and their effects that impact the internal simulation of infections and economy and society. I have implemented a leaderboards system to make the game more competitive.'
     ]
   },
   {
     key: 'testyPrawoJazdy',
-    name: 'Driving licence tests',
+    name: 'Driver’s license tests',
     slug: 'testy-prawo-jazdy',
     url: 'testyprawojazdy.com',
     icon: testyPrawoJazdy.icon,
