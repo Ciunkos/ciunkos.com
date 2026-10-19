@@ -13,6 +13,8 @@ const Page = ({
   title,
   description,
   ogUrl,
+  ogImage,
+  jsonLd,
   ...rest
 }) => (
   <styled.Page {...rest}>
@@ -23,6 +25,11 @@ const Page = ({
       {ogUrl && <meta property="og:title" content={title} />}
       {ogUrl && <meta property="og:description" content={description} />}
       {ogUrl && <meta property="og:url" content={ogUrl} />}
+      {ogImage && <meta property="og:image" content={ogImage} />}
+      {ogImage && <meta name="twitter:card" content="summary_large_image" />}
+      {jsonLd && (
+        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+      )}
     </Helmet>
     {header}
     <main>{children}</main>

@@ -8,6 +8,40 @@ import cover from './cover.jpg'
 import './styles.css'
 import apps from './data'
 import Now from './Now'
+import { apps as nowApps } from 'home/Recent'
+import locale from 'home/locale'
+
+/* JSON-LD for /apps: the six products first, then the apps that get a card in Now.js. */
+const products = [
+  'signatureDesk',
+  'dashboardDesk',
+  'evalDesk',
+  'listDesk',
+  'aiVisibility',
+  'quoteDesk'
+]
+const lastCard = nowApps.findIndex(app => app.id === 'korpo')
+const listed = [
+  ...products.map(id => nowApps.find(app => app.id === id)),
+  ...nowApps.slice(0, lastCard + 1)
+]
+const appsJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  '@id': 'https://ciunkos.com/apps',
+  url: 'https://ciunkos.com/apps',
+  name: 'Apps and free tools by Przemysław Zalewski',
+  author: { '@id': 'https://ciunkos.com/#person' },
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: listed.map((app, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: locale.recent.apps[app.id][0],
+      url: app.href
+    }))
+  }
+}
 
 const matchDimensions = str => {
   const regex = /r(\d+)x(\d+)/g
@@ -47,6 +81,8 @@ const AppsPage = () => (
     title="Apps and free tools by Przemysław Zalewski"
     description="Free tools I run in 2026: email list validator, signature generator, PostHog dashboard, AI prompt testing, AI visibility, quote automation. Apps from 2007–2017."
     ogUrl="https://ciunkos.com/apps"
+    ogImage={new URL(cover, 'https://ciunkos.com/').href}
+    jsonLd={appsJsonLd}
   >
     <Section Apps cover={cover}>
       <Section.Content padding-2 spacing-4>

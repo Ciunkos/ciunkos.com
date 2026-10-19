@@ -29,6 +29,8 @@ export default {
   slug: 'creating-contact-forms-with-nodemailer-and-react',
   cover,
   markdown: markdownWithAssets,
+  metaDescription:
+    'Build a contact form in React and send each submission to your Gmail account with nodemailer and OAuth2, from registering the app to handling the form.',
   description:
     'Creating a contact form is a very common requested feature, almost every site has one. Creating the HTML form is easy, however there must be some back-end code to transfer those messages. I will show you how to create simple form and wire that up to send contact form submission to your Gmail account.',
   readingTime: readingTime(markdown)

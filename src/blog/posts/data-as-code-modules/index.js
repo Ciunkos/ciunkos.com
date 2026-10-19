@@ -15,6 +15,8 @@ export default {
   slug: 'data-as-code-modules',
   cover,
   markdown,
+  metaDescription:
+    'Treat data like code: import JSON, text, CSV, spreadsheets and images as ES modules with webpack, load them asynchronously and share them on npm.',
   description:
     'What would happen if you begin treating data and other assets like you threat the code? It would allow you to consume the data and without the mess of parsing, fetching and other annoyances. You would be able to use common programming features to filter and create new views. Data and code deserve equal treatment!',
   readingTime: readingTime(markdown)

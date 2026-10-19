@@ -1,8 +1,9 @@
 import React from 'react'
 
 export const page = {
-  title: 'Przemysław Zalewski - Ciunkos',
-  description: 'Przemysław Zalewski - blog, apps, resume'
+  title: 'Przemysław Zalewski (Ciunkos): senior engineer, apps and free tools',
+  description:
+    'Przemysław Zalewski (Ciunkos), senior full-stack engineer from Wrocław: the free tools and apps I run in 2026, apps from 2007 to 2017 and a JavaScript blog.'
 }
 
 export const hero = {
@@ -45,15 +46,15 @@ export const recent = {
     evalDesk: ['Eval Desk', 'Test your AI prompt'],
     listDesk: ['List Desk', 'Clean an email list'],
     aiVisibility: ['AI Visibility Desk', 'Does AI recommend you?'],
-    quoteDesk: ['Quote Desk', 'Enquiry to draft quote'],
+    quoteDesk: ['Quote Desk', 'Inquiry to draft quote'],
     tenant: ['Multi-tenant SaaS calculator', 'Company tool to SaaS'],
     mcp: ['OpenAPI to MCP tools', 'Your API in Claude and ChatGPT'],
     ksef: ['KSeF invoice validator', 'FA(3) in your browser'],
-    rfq: ['Quoting time calculator', 'Enquiries to quotes'],
+    rfq: ['Quoting time calculator', 'Inquiries to quotes'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
-    glossary: ['Glossary', 'AI, projects, email'],
+    glossary: ['Glossary', 'AI, email, analytics'],
     kalkulator: ['B2B vs UoP calculator', 'Polish contracts, 2026'],
     korpo: ['Korpo Tłumacz', 'Corporate speak into plain words'],
     wyrocznia: ['Wyrocznia', 'Ask Klaudia anything, she says yes or no']
@@ -94,19 +95,19 @@ export const recent = {
     aiVisibility:
       'Your buyers’ questions asked to an AI assistant every week with web search on: whether your brand is named, who is named instead, which pages are cited. Free.',
     quoteDesk:
-      'A customer enquiry (email, PDF, Excel or a photo of a handwritten list) matched to your own price list, unclear lines flagged, exported to Excel. Free.',
+      'A customer inquiry (email, PDF, Excel or a photo of a handwritten list) matched to your own price list, unclear lines flagged, exported to Excel. Free.',
     tenant:
       'For a system built for one company and now sold to others: which multi-tenant model, the work per release and the weeks to get there.',
     mcp: 'Paste an OpenAPI spec and get narrow MCP tools, with the irreversible ones flagged, plus a TypeScript server skeleton.',
     ksef: 'Checks a Polish FA(3) e-invoice against the official schema in your browser, with errors in plain words and a readable preview.',
-    rfq: 'Counts the hours spent turning customer enquiries into quotes and when an agent that drafts them would pay off.',
+    rfq: 'Counts the hours spent turning customer inquiries into quotes and when an agent that drafts them would pay off.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',
     configurator:
       'Pick the kind of work and its size, see hours, a price range and the earliest start date.',
     glossary:
-      'AI engineering, software projects and email in plain English, each term with one thing to do in practice.'
+      'AI engineering, software projects, email, product analytics and AI search in plain English, each term with one thing to do in practice.'
   },
   note: 'The rest of this page is kept exactly as it was in 2017, on purpose: compare it with the tiles above to see how far things have come.'
 }

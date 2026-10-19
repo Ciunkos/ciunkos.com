@@ -12,8 +12,36 @@ import './styles.css'
 
 const { WelcomeMessage, BlogDescription } = styled
 
+/* Same @id and sameAs as the Person node on /hire-me, so search engines merge the two. */
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://ciunkos.com/#person',
+  name: 'Przemysław Zalewski',
+  alternateName: 'Ciunkos',
+  url: 'https://ciunkos.com/hire-me',
+  jobTitle: 'Senior Full-Stack Engineer',
+  image: 'https://ciunkos.com/hire/img/przemo-512.png',
+  sameAs: [
+    'https://www.linkedin.com/in/przemyslaw-zalewski-ciunkos',
+    'https://x.com/Ciunkos',
+    'https://github.com/przemyslawzalewski',
+    'https://github.com/Ciunkos'
+  ],
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Wrocław',
+    addressCountry: 'PL'
+  }
+}
+
 const HomePage = () => (
-  <Page Home title={locale.page.title} description={locale.page.description}>
+  <Page
+    Home
+    title={locale.page.title}
+    description={locale.page.description}
+    jsonLd={personJsonLd}
+  >
     <Section Home cover={homeBackground} gradient="shadow">
       <Section.Content padding-2>
         <h1>{locale.hero.title}</h1>

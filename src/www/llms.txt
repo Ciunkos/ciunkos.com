@@ -34,7 +34,7 @@
 
 ## Free tools
 
-- [Quote Desk](https://ciunkos.com/quote-desk): matches a customer enquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
+- [Quote Desk](https://ciunkos.com/quote-desk): matches a customer inquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
 - [AI Visibility Desk](https://ciunkos.com/ai-visibility): asks your buyers' questions to an AI assistant every week and shows whether your brand is named and which pages are cited. Claude only today.
 - [List Desk](https://ciunkos.com/email-list-validator): checks an email list in your browser for dead domains, null MX, disposable providers, typos and duplicates.
 - [Eval Desk](https://ciunkos.com/ai-prompt-testing): runs test cases for an AI assistant after a prompt change and shows what regressed, what got fixed and what is unstable. Claude models.
@@ -52,7 +52,7 @@
 - [Multi-tenant SaaS calculator](https://ciunkos.com/multi-tenant-saas-calculator): the work needed to sell a one-company system to others.
 - [OpenAPI to MCP tools](https://ciunkos.com/mcp-tools-from-openapi): narrow MCP tools and a TypeScript server skeleton from an OpenAPI spec.
 - [KSeF invoice validator](https://ciunkos.com/ksef-invoice-validator): checks a Polish FA(3) e-invoice against the official schema in your browser.
-- [Quoting time calculator](https://ciunkos.com/rfq-automation-calculator): the hours spent turning enquiries into quotes and when automating it would pay off.
+- [Quoting time calculator](https://ciunkos.com/rfq-automation-calculator): the hours spent turning inquiries into quotes and when automating it would pay off.
 - [Business idea validator](https://ciunkos.com/business-idea-validator): an AI-scored report on a business idea with three cheap experiments.
 - [Engagement configurator](https://ciunkos.com/engagement-configurator): hours, a price range and the earliest start date for a piece of work.
 - [B2B vs UoP calculator](https://ciunkos.com/kalkulator-b2b-vs-uop-2026): a Polish B2B contract compared with employment for a whole year (Polish).
@@ -61,4 +61,4 @@
 
 ## Glossary
 
-- [Glossary](https://ciunkos.com/glossary): AI engineering, software projects and email in plain English, each term with one thing to do in practice. Polish: https://ciunkos.com/slownik
+- [Glossary](https://ciunkos.com/glossary): AI engineering, software projects, email, product analytics and AI search in plain English, each term with one thing to do in practice. Polish: https://ciunkos.com/slownik

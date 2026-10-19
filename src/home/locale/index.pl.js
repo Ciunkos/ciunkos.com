@@ -1,8 +1,10 @@
 import React from 'react'
 
 export const page = {
-  title: 'Przemysław Zalewski - Ciunkos',
-  description: 'Przemysław Zalewski - blog, aplikacje, CV'
+  title:
+    'Przemysław Zalewski (Ciunkos): senior engineer, aplikacje i narzędzia',
+  description:
+    'Przemysław Zalewski (Ciunkos), senior full-stack engineer z Wrocławia: darmowe narzędzia i aplikacje z 2026, aplikacje z lat 2007–2017 i blog o JavaScripcie.'
 }
 
 export const hero = {
@@ -53,7 +55,7 @@ export const recent = {
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
-    glossary: ['Słownik', 'AI, projekty, poczta'],
+    glossary: ['Słownik', 'AI, poczta, analityka'],
     kalkulator: ['Kalkulator B2B vs UoP', 'Umowy w Polsce, 2026'],
     korpo: ['Korpo Tłumacz', 'Korpomowa na ludzki i z powrotem'],
     wyrocznia: ['Wyrocznia', 'Zapytaj Klaudię o cokolwiek: tak albo nie']
@@ -106,7 +108,7 @@ export const recent = {
     configurator:
       'Wybierz rodzaj i wielkość pracy, zobacz godziny, widełki ceny i najbliższy termin.',
     glossary:
-      'AI, projekty software i poczta po ludzku, przy każdym haśle jedna rzecz do zrobienia.'
+      'AI, projekty software, poczta, analityka produktowa i wyszukiwanie AI po ludzku, przy każdym haśle jedna rzecz do zrobienia.'
   },
   note: 'Reszta tej strony zostaje celowo dokładnie taka jak w 2017: porównaj ją z kafelkami wyżej i zobacz, jak wiele się zmieniło.'
 }

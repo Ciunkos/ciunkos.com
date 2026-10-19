@@ -10,7 +10,11 @@ import CodeBlock from './CodeBlock'
 import Image from './Image'
 
 const Blog = ({ post }) => (
-  <Page Blog title={post.name} description={post.description}>
+  <Page
+    Blog
+    title={post.name}
+    description={post.metaDescription || post.description}
+  >
     <Section Title cover={post.cover} gradient="shadow">
       <Section.Content padding-2 spacing-4>
         <PostHeader post={post} link={false} />

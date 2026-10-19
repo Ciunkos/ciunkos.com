@@ -12,7 +12,10 @@ const appStylesPath = find(
 
 const publicPath = process.env.PUBLIC_PATH ?? '/'
 
-const template = (body = '', { title, meta, pathname }) => `<!doctype html>
+const template = (
+  body = '',
+  { title, meta, script, pathname }
+) => `<!doctype html>
 <html lang="en" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
@@ -20,6 +23,7 @@ const template = (body = '', { title, meta, pathname }) => `<!doctype html>
     <link rel="preload" href="${publicPath}${appStylesPath}" as="style">
     ${title.toString()}
     ${meta.toString()}
+    ${script.toString()}
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <link rel="apple-touch-icon" sizes="57x57" href="${publicPath}apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="${publicPath}apple-icon-60x60.png">
