@@ -85,6 +85,16 @@ export const apps = [
     icon: '/software-cost-estimator/a/ikony/legacy/apple-touch-icon.png'
   },
   {
+    id: 'emailTest',
+    path: '/email-spam-test',
+    icon: '/email-spam-test/a/apple-touch-icon.png'
+  },
+  {
+    id: 'phishingChecker',
+    path: '/phishing-email-checker',
+    icon: '/email-spam-test/a/ikony/phishing/apple-touch-icon.png'
+  },
+  {
     id: 'signatureDesk',
     path: '/email-signature-generator',
     icon: '/email-signature-generator/a/apple-touch-icon.png'

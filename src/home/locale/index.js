@@ -41,6 +41,8 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    emailTest: ['Email Test', 'Spam and unsubscribe test'],
+    phishingChecker: ['Phishing email checker', 'Is this email a scam?'],
     signatureDesk: ['Signature Desk', 'Team email signatures'],
     dashboardDesk: ['Dashboard Desk', 'PostHog growth dashboard'],
     evalDesk: ['Eval Desk', 'Test your AI prompt'],
@@ -84,6 +86,10 @@ export const recent = {
     llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    emailTest:
+      'Send one email to a test address and get a report: one-click unsubscribe, SPF, DKIM, DMARC, Gmail and Yahoo rules, spam signals and an AI panel of three models. Free.',
+    phishingChecker:
+      'Forward a suspicious email or upload the .eml file: three AI models and technical checks say if it looks like spam or phishing, and what to do. Free.',
     signatureDesk:
       'Company email signatures for the whole team: one template, the legal footer, Outlook-safe HTML for Gmail, Outlook and Apple Mail. Free, in your browser.',
     dashboardDesk:

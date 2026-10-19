@@ -40,6 +40,14 @@ export const ICONS = {
     '#a16207',
     "<path d='M20 11a8 8 0 0 0-14.6-4.5L3 9M3 4v5h5M4 13a8 8 0 0 0 14.6 4.5L21 15M21 20v-5h-5'/>"
   ],
+  emailTest: [
+    '#1d4ed8',
+    "<path d='M21 11V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7M3 7l9 6 9-6'/><path d='M15.5 18.5l2 2 4-4.5'/>"
+  ],
+  phishingChecker: [
+    '#4f46e5',
+    "<path d='M16 3v10a6 6 0 0 1-12 0v-1M4 12l-2 2M4 12l2 2'/><circle cx='16' cy='3' r='1'/><path d='M20 8v4M20 15.5v.5'/>"
+  ],
   signatureDesk: [
     '#db2777',
     "<path d='M3 20c3-1 4-6 6-6s-1 5 1 5 3-4 5-4 1 3 3 3M15 4l5 5-8 8H7v-5z'/>"

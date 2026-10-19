@@ -13,6 +13,7 @@ import locale from 'home/locale'
 
 /* JSON-LD for /apps: the six products first, then the apps that get a card in Now.js. */
 const products = [
+  'emailTest',
   'signatureDesk',
   'dashboardDesk',
   'evalDesk',

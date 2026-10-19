@@ -42,6 +42,8 @@ export const recent = {
     sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
     llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
     legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
+    emailTest: ['Email Test', 'Test maila: spam i wypis'],
+    phishingChecker: ['Czy ten mail to oszustwo?', 'Sprawdzanie phishingu'],
     signatureDesk: ['Signature Desk', 'Stopki e-mail dla firm'],
     dashboardDesk: ['Dashboard Desk', 'Dashboard wzrostu w PostHogu'],
     evalDesk: ['Eval Desk', 'Testuj prompt AI'],
@@ -85,6 +87,10 @@ export const recent = {
     llm: 'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
+    emailTest:
+      'Wyślij jednego maila na adres testowy i dostań raport: wypis jednym kliknięciem, SPF, DKIM, DMARC, zasady Gmaila i Yahoo, sygnały spamu i panel trzech modeli AI. Za darmo.',
+    phishingChecker:
+      'Przekaż podejrzanego maila albo wgraj plik .eml: trzy modele AI i sprawdzenia techniczne powiedzą, czy to spam albo phishing i co zrobić. Za darmo.',
     signatureDesk:
       'Firmowe stopki e-mail dla całego zespołu: jeden szablon, stopka prawna (KRS, NIP, kapitał), HTML odporny na Outlooka. Za darmo, w przeglądarce.',
     dashboardDesk:
