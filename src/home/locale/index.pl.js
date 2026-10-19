@@ -39,6 +39,7 @@ export const recent = {
     sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
     llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
     legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
+    quoteDesk: ['Oferta z zapytania', 'Od maila do szkicu oferty'],
     tenant: ['Kalkulator multi-tenant', 'Z narzędzia firmy do SaaS'],
     mcp: ['Konektor MCP z OpenAPI', 'Twoje API w Claude i ChatGPT'],
     ksef: ['Walidator faktury KSeF', 'FA(3) w przeglądarce'],
@@ -78,6 +79,8 @@ export const recent = {
       'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
+    quoteDesk:
+      'Zapytanie klienta (mail, PDF, Excel albo zdjęcie odręcznej listy) dopasowane do Twojego cennika, niejasne pozycje oznaczone, eksport do Excela. Za darmo.',
     tenant:
       'Dla systemu zbudowanego dla jednej firmy i sprzedawanego innym: który model multi-tenant, praca przy wydaniu i tygodnie budowy.',
     mcp:
