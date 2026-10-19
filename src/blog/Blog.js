@@ -25,7 +25,14 @@ const Blog = ({ post }) => (
             source={post.markdown}
             renderers={{
               code: CodeBlock,
-              image: Image
+              image: Image,
+              // the page header already has the h1, so headings inside a post start at h2
+              heading: ({ level, children }) =>
+                React.createElement(
+                  `h${Math.min(level + 1, 6)}`,
+                  null,
+                  children
+                )
             }}
           />
         )}

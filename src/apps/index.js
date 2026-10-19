@@ -44,8 +44,9 @@ const totalWidth = entries => {
 const AppsPage = () => (
   <Page
     Apps
-    title="Apps - Przemysław Zalewski - Ciunkos"
-    description="Sandtime.io, Promegle, Testy Prawo Jazdy, Store ᴾᴿᴼ, MusicTube and more..."
+    title="Apps and free tools by Przemysław Zalewski"
+    description="Free tools I run in 2026: email list validator, signature generator, PostHog dashboard, AI prompt testing, AI visibility, quote automation. Apps from 2007–2017."
+    ogUrl="https://ciunkos.com/apps"
   >
     <Section Apps cover={cover}>
       <Section.Content padding-2 spacing-4>

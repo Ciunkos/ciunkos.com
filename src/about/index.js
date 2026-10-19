@@ -53,7 +53,7 @@ const AboutPage = () => (
 
     <Section Contact cover={background} id="contact">
       <Section.Content padding-2 spacing-4>
-        <h1>Contact me</h1>
+        <h2>Contact me</h2>
 
         <styled.About spacing-4>
           <div className="task-result error" id="contact-error">

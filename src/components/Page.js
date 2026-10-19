@@ -12,12 +12,17 @@ const Page = ({
   footer = <Footer />,
   title,
   description,
+  ogUrl,
   ...rest
 }) => (
   <styled.Page {...rest}>
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      {ogUrl && <meta property="og:type" content="website" />}
+      {ogUrl && <meta property="og:title" content={title} />}
+      {ogUrl && <meta property="og:description" content={description} />}
+      {ogUrl && <meta property="og:url" content={ogUrl} />}
     </Helmet>
     {header}
     <main>{children}</main>

@@ -24,7 +24,7 @@ const scroll = direction => () => {
 
 const [overflowScrollBack, overflowScrollForward] = [-1, 1].map(scroll)
 
-const OverflowButton = ({ children, onClick }) => (
+const OverflowButton = ({ children, onClick, label }) => (
   <styled.OverflowButton
     style={{ paddingLeft: 8, paddingRight: 8, paddingBottom: 16 }}
   >
@@ -37,6 +37,7 @@ const OverflowButton = ({ children, onClick }) => (
       spacing-2
       style={{ minHeight: 48, height: '100%' }}
       onClick={onClick}
+      aria-label={label}
     >
       {children}
     </Button>
@@ -92,7 +93,7 @@ export default () => (
         paddingBottom: 0
       }}
     >
-      <OverflowButton onClick={overflowScrollBack}>
+      <OverflowButton onClick={overflowScrollBack} label="Scroll projects back">
         <ArrowBack />
       </OverflowButton>
 
@@ -169,7 +170,7 @@ export default () => (
 
                 <styled.ResponsibilitiesSection>
                   <styled.Subheader>My responsibilities</styled.Subheader>
-                  <styled.ul spacing-1>
+                  <styled.ul tag="ul" spacing-1>
                     {project.responsibilities.map(responsibility => (
                       <li key={responsibility}>
                         {preventWordWidows(responsibility)}
@@ -185,7 +186,10 @@ export default () => (
         <styled.OverflowLastItemFix media-no-print />
       </styled.ProjectsGrid>
 
-      <OverflowButton onClick={overflowScrollForward}>
+      <OverflowButton
+        onClick={overflowScrollForward}
+        label="Scroll projects forward"
+      >
         <ArrowForward />
       </OverflowButton>
     </styled.Row>

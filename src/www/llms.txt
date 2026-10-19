@@ -1,0 +1,64 @@
+# Przemysław Zalewski (Ciunkos)
+
+> Przemysław Zalewski, known online as Ciunkos, is an independent senior full-stack engineer based in Wrocław, Poland, working in English and Polish with clients in the US, UK and EU. He builds web apps, SaaS products and AI agents in TypeScript, React and Node.js, ships on Cloudflare and measures products in PostHog. Hire page: [ciunkos.com/hire-me](https://ciunkos.com/hire-me) (Polish: [ciunkos.com/zatrudnij-mnie](https://ciunkos.com/zatrudnij-mnie)). Resume: [ciunkos.com/resume](https://ciunkos.com/resume).
+
+## Services
+
+- [Hire me: all services](https://ciunkos.com/hire-me)
+- [React](https://ciunkos.com/hire-react-developer)
+- [Next.js](https://ciunkos.com/hire-nextjs-developer)
+- [TypeScript and Node.js](https://ciunkos.com/hire-typescript-developer)
+- [JavaScript](https://ciunkos.com/hire-javascript-developer)
+- [Cloudflare](https://ciunkos.com/hire-cloudflare-developer)
+- [Maintenance and CI/CD](https://ciunkos.com/hire-devops-developer)
+- [Full-stack and custom software](https://ciunkos.com/hire-full-stack-developer)
+- [SaaS and MVP](https://ciunkos.com/hire-saas-developer)
+- [Mobile and desktop apps](https://ciunkos.com/hire-mobile-app-developer)
+- [Email](https://ciunkos.com/hire-email-developer)
+- [AI in your company](https://ciunkos.com/hire-ai-consultant)
+- [AI and agents](https://ciunkos.com/hire-ai-developer)
+- [PostHog and product analytics](https://ciunkos.com/hire-posthog-developer)
+- [C# and .NET (legacy)](https://ciunkos.com/hire-dotnet-developer)
+- [Games](https://ciunkos.com/hire-game-developer)
+- [Vibe coding rescue: fix an AI-built app](https://ciunkos.com/vibe-coding-rescue)
+- [AI engineer on contract or full time](https://ciunkos.com/hire-ai-engineer-contract)
+- [White-label developer for AI and automation agencies](https://ciunkos.com/hire-developer-for-ai-agencies)
+- [Company login for internal apps](https://ciunkos.com/hire-developer-company-login-internal-apps)
+- [MCP connectors for Claude and ChatGPT](https://ciunkos.com/hire-mcp-connector-developer)
+- [KSeF integration](https://ciunkos.com/hire-ksef-integration-developer)
+- [Quote automation](https://ciunkos.com/hire-developer-quote-automation)
+- [From a company tool to a SaaS product](https://ciunkos.com/hire-developer-internal-tool-to-saas)
+- [A senior next to a founder who codes with AI](https://ciunkos.com/hire-senior-developer-for-founders-who-code)
+- [Hiring developers from Poland](https://ciunkos.com/hire-developers-poland)
+- [You and Przemysław? A riddle-shaped hire page](https://ciunkos.com/you-and-przemyslaw)
+
+## Free tools
+
+- [Quote Desk](https://ciunkos.com/quote-desk): matches a customer enquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
+- [AI Visibility Desk](https://ciunkos.com/ai-visibility): asks your buyers' questions to an AI assistant every week and shows whether your brand is named and which pages are cited. Claude only today.
+- [List Desk](https://ciunkos.com/email-list-validator): checks an email list in your browser for dead domains, null MX, disposable providers, typos and duplicates.
+- [Eval Desk](https://ciunkos.com/ai-prompt-testing): runs test cases for an AI assistant after a prompt change and shows what regressed, what got fixed and what is unstable. Claude models.
+- [Dashboard Desk](https://ciunkos.com/posthog-dashboard-generator): creates a growth dashboard in your own PostHog project and lists what your tracking is missing.
+- [Signature Desk](https://ciunkos.com/email-signature-generator): one email signature template for a whole team, as HTML for Gmail, Outlook and Apple Mail.
+- [SPF, DKIM and DMARC checker](https://ciunkos.com/spf-dkim-dmarc-checker): grades a domain's email DNS, including MTA-STS, TLS-RPT, BIMI and DNSSEC.
+- [BIMI checker](https://ciunkos.com/bimi-checker): checks the BIMI record, DMARC, the SVG logo and the VMC or CMC certificate.
+- [Software cost estimator](https://ciunkos.com/software-cost-estimator): places a project among real products with ranges, not a single number.
+- [Build or buy](https://ciunkos.com/software-cost-estimator/build-or-buy): a SaaS subscription against your own app over 1, 3 or 5 years.
+- [Legacy rewrite estimate](https://ciunkos.com/software-cost-estimator/legacy-rewrite): hours and cost of rewriting an old system, with and without coding agents.
+- [App store ready](https://ciunkos.com/app-store-ready): what a web app is missing for the App Store and Google Play.
+- [Runbook generator](https://ciunkos.com/runbook-generator): a RUNBOOK.md for a system only you know.
+- [SLA calculator](https://ciunkos.com/sla-calculator): monthly fee, response times and a downtime budget for internal apps.
+- [Local model or API?](https://ciunkos.com/local-llm-calculator): whether a local model fits your hardware and what it costs against an API.
+- [Multi-tenant SaaS calculator](https://ciunkos.com/multi-tenant-saas-calculator): the work needed to sell a one-company system to others.
+- [OpenAPI to MCP tools](https://ciunkos.com/mcp-tools-from-openapi): narrow MCP tools and a TypeScript server skeleton from an OpenAPI spec.
+- [KSeF invoice validator](https://ciunkos.com/ksef-invoice-validator): checks a Polish FA(3) e-invoice against the official schema in your browser.
+- [Quoting time calculator](https://ciunkos.com/rfq-automation-calculator): the hours spent turning enquiries into quotes and when automating it would pay off.
+- [Business idea validator](https://ciunkos.com/business-idea-validator): an AI-scored report on a business idea with three cheap experiments.
+- [Engagement configurator](https://ciunkos.com/engagement-configurator): hours, a price range and the earliest start date for a piece of work.
+- [B2B vs UoP calculator](https://ciunkos.com/kalkulator-b2b-vs-uop-2026): a Polish B2B contract compared with employment for a whole year (Polish).
+- [Korpo Tłumacz](https://ciunkos.com/korpo-tlumacz): translates corporate speak into plain Polish and back (Polish).
+- [All apps and tools, including apps from 2007 to 2017](https://ciunkos.com/apps)
+
+## Glossary
+
+- [Glossary](https://ciunkos.com/glossary): AI engineering, software projects and email in plain English, each term with one thing to do in practice. Polish: https://ciunkos.com/slownik

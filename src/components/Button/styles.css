@@ -73,18 +73,18 @@
 
 .primary.active {
   color: white;
-  background: rgb(14, 122, 254);
+  background: rgb(11, 107, 223);
 }
 
 @media (hover: hover) {
   .primary.active:hover,
   .primary.active:focus {
     color: white;
-    background: #1884ff;
+    background: rgb(10, 100, 210);
   }
 }
 
 .primary.active:active {
   color: white;
-  background: #1884ff;
+  background: rgb(10, 100, 210);
 }

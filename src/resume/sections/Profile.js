@@ -51,7 +51,12 @@ export default () => (
   <Section Profile cover={cover} id="profile">
     <Section.Content padding-2>
       <styled.Column middle HeadingImageContainer>
-        <styled.HeadingImage tag="img" src={ProfilePicture} transition-all />
+        <styled.HeadingImage
+          tag="img"
+          src={ProfilePicture}
+          alt="Przemysław Zalewski"
+          transition-all
+        />
       </styled.Column>
       <styled.Column HeadingContent flex-2 spacing-4>
         <Section.Title tag="h1">Przemysław Zalewski</Section.Title>
