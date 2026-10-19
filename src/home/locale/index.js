@@ -39,6 +39,7 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    signatureDesk: ['Signature Desk', 'Team email signatures'],
     dashboardDesk: ['Dashboard Desk', 'PostHog growth dashboard'],
     evalDesk: ['Eval Desk', 'Test your AI prompt'],
     listDesk: ['List Desk', 'Clean an email list'],
@@ -81,6 +82,8 @@ export const recent = {
     llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    signatureDesk:
+      'Company email signatures for the whole team: one template, the legal footer, Outlook-safe HTML for Gmail, Outlook and Apple Mail. Free, in your browser.',
     dashboardDesk:
       'A growth dashboard created in your own PostHog: channels incl. AI assistants, funnel, activation, retention, errors, plus what your tracking is missing. Free, runs in your browser.',
     evalDesk:

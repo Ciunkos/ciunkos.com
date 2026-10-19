@@ -85,6 +85,11 @@ export const apps = [
     icon: '/software-cost-estimator/a/apple-touch-icon.png'
   },
   {
+    id: 'signatureDesk',
+    path: '/email-signature-generator',
+    icon: '/email-signature-generator/a/apple-touch-icon.png'
+  },
+  {
     id: 'dashboardDesk',
     path: '/posthog-dashboard-generator',
     icon: '/posthog-dashboard-generator/a/apple-touch-icon.png'
