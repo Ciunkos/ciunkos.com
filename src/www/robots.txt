@@ -18,3 +18,4 @@ Sitemap: https://ciunkos.com/quote-desk/a/sitemap.xml
 Sitemap: https://ciunkos.com/ai-visibility/a/sitemap.xml
 Sitemap: https://ciunkos.com/email-list-validator/a/sitemap.xml
 Sitemap: https://ciunkos.com/ai-prompt-testing/a/sitemap.xml
+Sitemap: https://ciunkos.com/posthog-dashboard-generator/a/sitemap.xml

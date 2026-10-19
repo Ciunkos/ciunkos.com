@@ -39,6 +39,7 @@ export const recent = {
     sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
     llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
     legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
+    dashboardDesk: ['Dashboard Desk', 'Dashboard wzrostu w PostHogu'],
     evalDesk: ['Eval Desk', 'Testuj prompt AI'],
     listDesk: ['List Desk', 'Wyczyść listę e-mail'],
     aiVisibility: ['Widoczność w AI', 'Czy AI Cię poleca?'],
@@ -80,6 +81,8 @@ export const recent = {
     llm: 'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
+    dashboardDesk:
+      'Dashboard wzrostu utworzony w Twoim PostHogu: kanały z asystentami AI, lejek, aktywacja, retencja, błędy, plus braki w śledzeniu. Za darmo, w przeglądarce.',
     evalDesk:
       'Przypadki testowe dla asystenta AI, uruchamiane po każdej zmianie promptu: co się zepsuło, co naprawiło, które przypadki są niestabilne. Za darmo, modele Claude.',
     listDesk:
