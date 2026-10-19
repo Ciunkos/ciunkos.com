@@ -10,6 +10,9 @@ import './Footer.css'
 const AttributionLink = () => (
   <InlineLink href="https://unsplash.com">unsplash.com</InlineLink>
 )
+const CEIDG =
+  'https://www.biznes.gov.pl/pl/wyszukiwarka-firm/wpis/ceidg/2AB7BD16-7CDD-483D-B542-F7BD0E5EE64D'
+
 const RepositoryLink = () => (
   <InlineLink href="https://github.com/ciunkos/ciunkos.com">GitHub</InlineLink>
 )
@@ -86,6 +89,11 @@ export default () => (
           <Social />
         </styled.View>
       </styled.View>
+      <styled.CopyrightNotes tag="p" media-no-print>
+        Przemysław Zalewski, ul. Tęczowa 31A/56, 53-601 Wrocław, Poland · NIP
+        8952144360 · REGON 367652014 · D-U-N-S 438385453 ·{' '}
+        <InlineLink href={CEIDG}>Business register entry (CEIDG)</InlineLink>
+      </styled.CopyrightNotes>
       <styled.CopyrightNotes tag="p" media-no-print>
         <styled.SourceCode tag="span">
           Source code available on <RepositoryLink />.

@@ -26,10 +26,15 @@ const personJsonLd = {
     'https://www.linkedin.com/in/przemyslaw-zalewski-ciunkos',
     'https://x.com/Ciunkos',
     'https://github.com/przemyslawzalewski',
-    'https://github.com/Ciunkos'
+    'https://github.com/Ciunkos',
+    'https://www.biznes.gov.pl/pl/wyszukiwarka-firm/wpis/ceidg/2AB7BD16-7CDD-483D-B542-F7BD0E5EE64D'
   ],
+  taxID: '8952144360',
+  duns: '438385453',
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'ul. Tęczowa 31A/56',
+    postalCode: '53-601',
     addressLocality: 'Wrocław',
     addressCountry: 'PL'
   }
