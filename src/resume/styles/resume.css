@@ -156,6 +156,19 @@
 }
 
 @media all and (min-width: 800px) {
+  .Resume .ExperienceRow {
+    flex-wrap: nowrap;
+  }
+
+  .Resume .ExperienceMain {
+    flex: 2 1 0;
+    min-width: 0;
+  }
+
+  .Resume .ExperienceSide {
+    flex: 1 1 0;
+  }
+
   .navbaritem .ActionName {
     padding-left: 16px;
     display: flex;

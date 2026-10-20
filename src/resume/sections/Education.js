@@ -24,12 +24,16 @@ const Contracts = ({ contracts }) => (
 const JobPaths = () => (
   <styled.JobPaths spacing-3>
     <div>
-      <styled.Subheader>Since 2017</styled.Subheader>
-      <p>Full-Stack Web Developer · TypeScript, React, Node.js, AI agents</p>
+      <styled.Subheader>Since 2023</styled.Subheader>
+      <p>AI-assisted engineering · Claude Code, MCP</p>
+    </div>
+    <div>
+      <styled.Subheader Subheader>2017 - 2023</styled.Subheader>
+      <p>Full-Stack Web Developer · TypeScript, React, Node.js</p>
     </div>
     <div>
       <styled.Subheader Subheader>2012 - 2017</styled.Subheader>
-      <p>Windows App Developer · C#</p>
+      <p>Windows App Developer · C#, .NET</p>
     </div>
     <div>
       <styled.Subheader Subheader>Before 2012</styled.Subheader>
@@ -56,13 +60,13 @@ export default () => (
         .
       </p>
 
-      <styled.Row horizontal wrappable wrappable-spacing>
-        <styled.Column flex-stretch-2>
+      <styled.Row ExperienceRow horizontal wrappable wrappable-spacing>
+        <styled.Column ExperienceMain flex-stretch-2>
           <h3>Commercial work</h3>
           <Contracts contracts={contracts} />
         </styled.Column>
 
-        <styled.Column flex-stretch--1>
+        <styled.Column ExperienceSide flex-stretch--1>
           <h3>Job paths</h3>
           <JobPaths />
         </styled.Column>

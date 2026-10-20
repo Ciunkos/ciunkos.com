@@ -3,7 +3,7 @@ export default {
     name: 'JavaScript'
   },
   nodeJs: {
-    name: 'node.js',
+    name: 'Node.js',
     url: 'https://nodejs.org'
   },
   expressJs: {

@@ -3,15 +3,15 @@ import companies from './companies'
 export default [
   {
     company: companies.Sanddev,
-    title: 'Senior Full-Stack Engineer / Technical Lead',
+    title: 'Senior Full-Stack Engineer',
     date: 'July 2017 - present',
-    tech: 'TypeScript, React, Node.js, C#, AI agents'
+    tech: 'TypeScript, React, C#, AI'
   },
   {
     company: companies.PGS,
-    title: 'Client engagements: Omio, Nate, Sage',
+    title: 'Omio, Nate, Sage',
     date: 'July 2021 - March 2023',
-    tech: 'TypeScript, React, React Native, Node.js'
+    tech: 'TypeScript, React, React Native'
   },
   {
     company: companies.SelfEmployment,
