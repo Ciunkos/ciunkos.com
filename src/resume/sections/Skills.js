@@ -17,8 +17,15 @@ const Skills = ({ skills }) => (
     spacing
     vertical-spacing
   >
-    {skills.map(({ name }) => (
-      <styled.Skill key={name} tag="li" horizontal wrappable spacing>
+    {skills.map(({ name, print }) => (
+      <styled.Skill
+        key={name}
+        tag="li"
+        horizontal
+        wrappable
+        spacing
+        media-no-print={print === false}
+      >
         <styled.SkillName>{name}</styled.SkillName>
       </styled.Skill>
     ))}
@@ -27,8 +34,8 @@ const Skills = ({ skills }) => (
 
 const SkillSets = ({ children: skillSets }) => (
   <styled.SkillSets spacing-4>
-    {skillSets.map(([title, skills]) => (
-      <styled.SkillSet key={title}>
+    {skillSets.map(([title, skills, options = {}]) => (
+      <styled.SkillSet key={title} media-no-print={options.print === false}>
         <h3>{title}</h3>
         <Skills skills={skills} />
       </styled.SkillSet>
@@ -41,7 +48,9 @@ const skillSets = [
   ['JavaScript and TypeScript', skills.web],
   ['APIs and data', skills.data],
   ['C# and .NET', skills.windows],
-  ['Tools and soft skills', skills.tools]
+  ['Testing and quality', skills.testing],
+  ['Cloud, security and tooling', skills.tools],
+  ['Leadership and soft skills', skills.soft, { print: false }]
 ]
 
 // const courses = {

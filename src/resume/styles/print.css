@@ -410,6 +410,10 @@
     break-after: avoid;
   }
 
+  .SkillSet.media-no-print {
+    display: none !important;
+  }
+
   .Resume .ExperienceRow {
     flex-wrap: nowrap !important;
   }
