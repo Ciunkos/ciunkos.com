@@ -25,7 +25,7 @@ const JobPaths = () => (
   <styled.JobPaths spacing-3>
     <div>
       <styled.Subheader>Since 2023</styled.Subheader>
-      <p>AI-assisted engineering · Claude Code, MCP</p>
+      <p>Full-Stack Product Engineer · TypeScript, React, Node.js, AI agents</p>
     </div>
     <div>
       <styled.Subheader Subheader>2017 - 2023</styled.Subheader>
