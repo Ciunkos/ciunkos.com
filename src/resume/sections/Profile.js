@@ -62,14 +62,21 @@ export default () => (
         <Section.Title tag="h1">Przemysław Zalewski</Section.Title>
 
         <styled.AboutMe spacing-2>
-          <p>
+          <p className="media-no-print">
+            Senior Frontend / Full-Stack Developer from Wrocław, Poland. 15+
+            years of commercial experience, shipping React since 2017, C# and
+            .NET before that. I&nbsp;own what I&nbsp;ship, lead small teams by
+            example and put AI agents to work with guardrails and end-to-end
+            tests.
+          </p>
+          <p className="media-only-print">
             Senior Frontend / Full-Stack Developer from Wrocław, Poland. Product
             engineer with 15+ years of commercial experience, shipping React
             since 2017. Before that I&nbsp;built and ran mobile apps in C# and
             .NET. Long-term player: nine years in the same agency, running
             projects end to end, solo or with a&nbsp;team.
           </p>
-          <p>
+          <p className="media-only-print">
             I&nbsp;own what I&nbsp;ship: I&nbsp;monitor it, run it, debug it and
             page myself. Known for fast, thorough code reviews. I&nbsp;lead
             small teams. Since 2018 I&nbsp;have mentored colleagues by pairing
@@ -79,7 +86,7 @@ export default () => (
             test obsession, monitoring and observability.
           </p>
           <styled.CurrentEmployment tag="p" media-no-print>
-            Currently working for{' '}
+            Currently at{' '}
             <InlineLink
               href="https://sanddev.com"
               rel="noopener noreferrer"
@@ -87,12 +94,10 @@ export default () => (
             >
               <em>{companies.Sanddev}</em>
             </InlineLink>
+            , available from{' '}
+            <EarliestAvailabilityDate>{new Date()}</EarliestAvailabilityDate>,
+            remote preferred.
           </styled.CurrentEmployment>
-          <styled.EarliestAvailability tag="p" media-no-print>
-            Available from{' '}
-            <EarliestAvailabilityDate>{new Date()}</EarliestAvailabilityDate>.
-            Remote work preferred.
-          </styled.EarliestAvailability>
         </styled.AboutMe>
 
         <styled.Outbound>
@@ -100,7 +105,7 @@ export default () => (
           <Social />
         </styled.Outbound>
 
-        <styled.Actions>
+        <styled.Actions horizontal wrappable spacing-2>
           <Button
             tag="a"
             href="/about#contact"
@@ -111,6 +116,16 @@ export default () => (
             style={{ minHeight: 48 }}
           >
             Contact me
+          </Button>
+          <Button
+            tag="a"
+            href="/resume.pdf"
+            primary
+            center
+            middle
+            style={{ minHeight: 48 }}
+          >
+            Download PDF
           </Button>
         </styled.Actions>
       </styled.Column>
