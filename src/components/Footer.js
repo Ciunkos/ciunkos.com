@@ -102,6 +102,10 @@ export default () => (
         · <InlineLink href="tel:+48884828647">+48 884 828 647</InlineLink>
       </styled.CopyrightNotes>
       <styled.CopyrightNotes tag="p" media-no-print>
+        I reply within 24 hours on working days, personally. If I am late, the
+        first hour of work is free.
+      </styled.CopyrightNotes>
+      <styled.CopyrightNotes tag="p" media-no-print>
         Przemysław Zalewski, ul. Tęczowa 31A/56, 53-601 Wrocław, Poland · NIP
         8952144360 · REGON 367652014 · D-U-N-S 438385453 ·{' '}
         <InlineLink href={CEIDG}>Business register entry (CEIDG)</InlineLink>

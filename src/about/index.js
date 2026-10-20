@@ -68,6 +68,10 @@ const AboutPage = () => (
               </InlineLink>
               .
             </p>
+            <p>
+              I reply within 24 hours on working days, personally. If I am late,
+              the first hour of work is free.
+            </p>
           </div>
         </styled.About>
       </Section.Content>
