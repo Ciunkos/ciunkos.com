@@ -37,6 +37,7 @@ const SkillSets = ({ children: skillSets }) => (
 )
 
 const skillSets = [
+  ['AI and agents', skills.ai],
   ['Tech', [...skills.web, ...skills.windows]],
   ['Tools and soft skills', skills.tools]
 ]

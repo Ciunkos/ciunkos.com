@@ -502,5 +502,110 @@ export default {
   CircleCI: {
     name: 'CircleCI',
     url: 'https://circleci.com'
+  },
+  playwright: {
+    name: 'Playwright',
+    url: 'https://playwright.dev'
+  },
+  checkly: {
+    name: 'Checkly',
+    url: 'https://www.checklyhq.com'
+  },
+  axe: {
+    name: 'axe (accessibility)',
+    url: 'https://www.deque.com/axe/'
+  },
+  visualRegression: {
+    name: 'Visual regression testing'
+  },
+  zod: {
+    name: 'Zod',
+    url: 'https://zod.dev'
+  },
+  i18n: {
+    name: 'i18n'
+  },
+  postgreSQL: {
+    name: 'PostgreSQL',
+    url: 'https://www.postgresql.org'
+  },
+  pgvector: {
+    name: 'pgvector',
+    url: 'https://github.com/pgvector/pgvector'
+  },
+  cloudflareWorkers: {
+    name: 'Cloudflare Workers',
+    url: 'https://workers.cloudflare.com'
+  },
+  vercel: {
+    name: 'Vercel',
+    url: 'https://vercel.com'
+  },
+  postHog: {
+    name: 'PostHog',
+    url: 'https://posthog.com'
+  },
+  claudeCode: {
+    name: 'Claude Code',
+    url: 'https://claude.com/claude-code'
+  },
+  codex: {
+    name: 'Codex',
+    url: 'https://openai.com/codex'
+  },
+  agentSkills: {
+    name: 'Agent Skills'
+  },
+  mcp: {
+    name: 'Model Context Protocol (MCP)',
+    url: 'https://modelcontextprotocol.io'
+  },
+  openAIApi: {
+    name: 'OpenAI API',
+    url: 'https://platform.openai.com'
+  },
+  rag: {
+    name: 'RAG'
+  },
+  embeddings: {
+    name: 'Embeddings'
+  },
+  llmAsJudge: {
+    name: 'LLM-as-judge'
+  },
+  evals: {
+    name: 'Evals'
+  },
+  guardrails: {
+    name: 'Guardrails'
+  },
+  promptEngineering: {
+    name: 'Prompt and context engineering'
+  },
+  toolCalling: {
+    name: 'Tool-call orchestration'
+  },
+  owaspAsvs: {
+    name: 'OWASP ASVS',
+    url: 'https://owasp.org/www-project-application-security-verification-standard/'
+  },
+  oauth: {
+    name: 'OAuth 2.0'
+  },
+  imap: {
+    name: 'IMAP'
+  },
+  casa: {
+    name: 'CASA Tier 2'
+  },
+  wcag: {
+    name: 'WCAG 2.2 AA'
+  },
+  appStore: {
+    name: 'App Store'
+  },
+  openApi: {
+    name: 'OpenAPI / Swagger',
+    url: 'https://www.openapis.org'
   }
 }

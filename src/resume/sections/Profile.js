@@ -63,15 +63,20 @@ export default () => (
 
         <styled.AboutMe spacing-2>
           <p>
-            Full Stack Web Developer from Wroclaw, Poland. My daily toolbox
-            includes JavaScript, TypeScript, React, node.js, C#, and .NET.
+            Senior Frontend / Full-Stack Developer from Wrocław, Poland. Product
+            engineer with 15+ years of commercial experience, shipping React
+            since 2017. Before that I&nbsp;built and ran mobile apps in C# and
+            .NET. Long-term player: nine years in the same agency, running
+            projects end to end, solo or with a&nbsp;team.
           </p>
           <p>
-            I am fully committed to what I do, I am experienced with the full
-            product lifecycle and I lead projects and teams to achieve their
-            goals. I am product-focused, and I deliver. I love clean code,
-            functional programming, and I participate in code reviews heavily.
-            New challenges and opportunities are what I am looking for.
+            I&nbsp;own what I&nbsp;ship: I&nbsp;monitor it, run it, debug it and
+            page myself. Known for fast, thorough code reviews. I&nbsp;lead
+            small teams. Since 2018 I&nbsp;have mentored colleagues by pairing
+            with them and raising them along, not as a&nbsp;boss: I&nbsp;believe
+            in leading by example. I&nbsp;put AI agents to work on real products
+            and keep them in check with agent skills, guardrails, an end-to-end
+            test obsession, monitoring and observability.
           </p>
           <styled.CurrentEmployment tag="p" media-no-print>
             Currently working for{' '}

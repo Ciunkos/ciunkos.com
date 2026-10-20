@@ -24,21 +24,5 @@ export default {
     classes: {
       'media-only-print': true
     }
-  },
-  gitHubPersonal: {
-    name: 'GitHub (personal)',
-    value: 'github.com/Ciunkos',
-    uri: 'https://github.com/Ciunkos',
-    classes: {
-      'media-only-print': true
-    }
-  },
-  stackOverflow: {
-    name: 'StackOverflow',
-    value: 'stackoverflow.com/users/1384679',
-    uri: 'https://stackoverflow.com/users/1384679/przemys%C5%82aw-zalewski',
-    classes: {
-      'media-only-print': true
-    }
   }
 }

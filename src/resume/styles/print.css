@@ -394,4 +394,23 @@
     page-break-after: avoid;
     page-break-before: always;
   }
+
+  h3,
+  h4 {
+    page-break-after: avoid;
+  }
+
+  .SkillSet {
+    page-break-inside: avoid;
+  }
+
+  /* Experience columns stack in print: no flex gap between Commercial work and Job paths. */
+  .Resume .Row.wrappable-spacing {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .Resume .Row.wrappable-spacing > * {
+    margin: 0 0 16px !important;
+  }
 }

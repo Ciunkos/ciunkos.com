@@ -25,7 +25,7 @@ const JobPaths = () => (
   <styled.JobPaths spacing-3>
     <div>
       <styled.Subheader>Since 2017</styled.Subheader>
-      <p>Full Stack Web Developer · JavaScript</p>
+      <p>Full-Stack Web Developer · TypeScript, React, Node.js, AI agents</p>
     </div>
     <div>
       <styled.Subheader Subheader>2012 - 2017</styled.Subheader>

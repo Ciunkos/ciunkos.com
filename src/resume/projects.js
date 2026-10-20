@@ -18,16 +18,155 @@ import companies from './companies'
 import koronaKrulowIcon from './koronakrulow.png'
 import validatorIcon from './validator.png'
 import sandtimeIcon from './sandtime.png'
+import patriotMailIcon from './patriotmail.png'
 
 export default [
   {
+    key: 'agentSkills',
+    name: 'Agent skills platform',
+    client: companies.Sanddev,
+    slug: 'agent-skills',
+    timeFrame: 'September 2026 - present',
+    tech: [
+      tech.claudeCode,
+      tech.codex,
+      tech.agentSkills,
+      tech.mcp,
+      tech.typeScript,
+      tech.nodeJs,
+      tech.GitHubActions,
+      tech.owaspAsvs
+    ],
+    responsibilities: [
+      'Productized a multi-agent code audit as a Claude Code skill: repository in, client-ready PDF report on security, production readiness and maintainability out, with a priced fix plan. Ran on 10+ repositories, detailed reports of up to 365 pages.',
+      'Introduced audit-driven development: audit, fix, re-audit. It runs as a loop across our production products.',
+      'Added GEO/SEO visibility and DNS and email-security audits. Set up the shared platform on which three colleagues now ship their own skills.'
+    ],
+    print: true
+  },
+  {
+    key: 'patriotMail',
+    name: 'Patriot Mail',
+    client: companies.Sanddev,
+    url: 'patriotmail.ai',
+    href: 'https://patriotmail.ai',
+    slug: 'patriot-mail',
+    timeFrame: 'May 2025 - present',
+    icon: patriotMailIcon,
+    description:
+      'Email client: a web app plus iOS and macOS apps on the App Store.',
+    tech: [
+      tech.NextJs,
+      tech.react,
+      tech.typeScript,
+      tech.nodeJs,
+      tech.imap,
+      tech.oauth,
+      tech.playwright,
+      tech.checkly,
+      tech.postHog,
+      tech.axe,
+      tech.wcag,
+      tech.casa,
+      tech.claudeCode,
+      tech.codex,
+      tech.appStore
+    ],
+    responsibilities: [
+      'Shipped a greenfield Next.js client and, with a colleague, iOS and macOS apps to the App Store in four months.',
+      'Built the delivery pipeline: Playwright end-to-end suite, Checkly checks and PostHog observability. Output with one colleague and AI agents: 5,000+ commits a year, up from ~2,000 a year on my own.',
+      'Turned early experiments with agent-written code into a reviewed, repeatable process: an agent opened ~30% of merged pull requests in 2026 and I reviewed ~85% of them.',
+      'Passed Google\u2019s CASA Tier 2 security assessment (certification and recertification) and Yahoo\u2019s OAuth review.',
+      'Integrated IMAP and related mail protocols (dozens of RFCs). Drove WCAG 2.2 AA accessibility with axe checks.'
+    ],
+    print: true
+  },
+  {
+    key: 'aiContent',
+    name: 'AI content platforms',
+    client: `${companies.Sanddev} for undisclosed client`,
+    slug: 'ai-content-platforms',
+    timeFrame: 'November 2023 - May 2025',
+    tech: [
+      tech.typeScript,
+      tech.nodeJs,
+      tech.NextJs,
+      tech.react,
+      tech.openAIApi,
+      tech.toolCalling,
+      tech.llmAsJudge,
+      tech.rag,
+      tech.embeddings,
+      tech.pgvector,
+      tech.postgreSQL,
+      tech.cloudflareWorkers,
+      tech.vercel,
+      tech.TailwindCSS
+    ],
+    responsibilities: [
+      'Mentored a new hire from day one through daily pair sessions and code review. Fully contributing within a year.',
+      'Built an agentic content platform (2024): tool-call loop, stop conditions, best-of-n, LLM-as-judge and plagiarism checks. It published thousands of fact-checked articles with AI disclosures, plus chatbots in production.',
+      'Designed an affiliate discovery system: semantic search over pgvector with query expansion and tiered caching. It grew a seed of ~300 programs into a catalog of 10,000+.',
+      'Took over a dashboard for 300+ generated sites. Added git-backed storage, bulk operations, newsletters, AI brand and logo generation, and third-party integrations.'
+    ],
+    print: true
+  },
+  {
+    key: 'suppressionList',
+    name: 'Suppression list management platform',
+    client: `${companies.Sanddev} for a UK email and performance-marketing publisher`,
+    slug: 'suppression-list',
+    timeFrame: 'March 2023 - December 2024',
+    description:
+      'Multi-tenant SaaS for suppression lists and opt-outs, designed for terabyte-level growth. Team lead of two engineers and a QA.',
+    tech: [
+      tech.typeScript,
+      tech.nodeJs,
+      tech.postgreSQL,
+      tech.playwright,
+      tech.Docker,
+      tech.nginx,
+      tech.cloudflareWorkers,
+      tech.ciCd
+    ],
+    responsibilities: [
+      'Led the team from MVP to a full product, full time March to November 2023, then oversaw it in production through 2024.',
+      'Designed a web-native architecture for terabyte-level growth: multi-tenant PostgreSQL partitioned by tenant and list, massive imports and exports, parallel request pipelines, constant-time sign-up, zero-downtime blue/green deploys. In production: hundreds of gigabytes and millions of events.',
+      'Built the UI without a client framework: server-rendered HTML with SPA-like navigation (history API, DOM morphing) on a simple HTTP mental model, picked for high availability and a small team.',
+      'Kept opt-out pages up through backend outages (queues, workers, backfill, idempotent retries). Shipped one-click unsubscribe four months before Google and Yahoo announced the requirement. Client rated the engagement 5.0/5.0 in a public Clutch review.'
+    ],
+    print: false
+  },
+  {
+    key: 'sage',
+    name: 'Accounting MVP',
+    client: `${companies.PGS} for Sage`,
+    slug: 'sage',
+    timeFrame: 'November 2022 - March 2023',
+    description:
+      'Micro-frontends for banking and Making Tax Digital integrated into an accounting MVP on the client\u2019s design system, component library and C# backend APIs.',
+    tech: [
+      tech.typeScript,
+      tech.react,
+      tech.storybook,
+      tech.REST,
+      tech.Jest,
+      tech.CSharp
+    ],
+    responsibilities: [
+      'Integrated micro-frontends for banking and Making Tax Digital into an accounting MVP, building on the client\u2019s design system, component library and C# backend APIs.',
+      'Worked with more than a dozen people in two cross-functional teams across Spain and Poland. Joined as an engineer. My team treated me as its lead, despite no title.'
+    ],
+    print: false
+  },
+  {
     key: 'taskManager',
     name: 'Back Office Task Management System',
-    client: 'PGS Software S.A. for undisclosed client',
+    client: `${companies.PGS} for Nate (US start-up)`,
     slug: 'task-manager',
-    timeFrame: 'June 2022 - August 2022',
+    timeFrame: 'June 2022 - November 2022',
     description:
-      'I joined the project with a vision to lead my team in the journey of delivering the most business value while maintaining the best quality of the code and systems. I supported transition into CI/CD/CD workflows. I brought a massively refreshed UI. The changes resulted in great user feedback and a continuous reduction of errors and time waste.',
+      'Order-fulfillment back office for a 100+ operator team. I led four engineers while actively developing features.',
     tech: [
       tech.typeScript,
       tech.react,
@@ -49,20 +188,22 @@ export default [
       tech.CircleCI
     ],
     responsibilities: [
-      'I was responsible for the technical leadership of a team of 4 developers while also performing active development of features. My day-to-day work included bringing improvements to existing systems and swift communication within the team and across the organization. Through active and deep code review participation, I encouraged my fellow team members to follow best practices and reduce technical debt. I led many fruitful discussions and technical meetings to align on common team values. I steered the development into a data-driven and short-feedback loop and maintained the backlog and sprint plans. I have undergone massive decoupling and simplification efforts to keep the repositories maintainable. By keeping a tight eye on security and correctness, I enforced strict auth, improved observability, and logging. I participated in the cloud cost reduction process by aligning the resource usage for deployments and optimizing for performance.'
+      'Led four engineers building an order-fulfillment back office for a 100+ operator team. Moved the team to trunk-based development with CI/CD, enforced strict auth, and improved observability and logging.',
+      'Cut order handling time and duplicate fulfillment with a refreshed UI and live updates over SSE. Errors fell steadily, and a survey of 100+ operators rated the changes a clear improvement.',
+      'Stopped a parallel initiative that would not pay off, sparing the company a split-brain across two systems. Closed a public endpoint writing straight to the database and rebuilt the payments feed as a proper migration.'
     ],
-    print: true
+    print: false
   },
   {
     key: 'omio',
     name: 'Ads and Ancillaries',
-    client: 'PGS Software S.A. for Omio',
+    client: `${companies.PGS} for Omio`,
     url: 'Omio.com',
     href: 'https://www.omio.com',
     slug: 'omio',
     timeFrame: 'July 2021 - May 2022',
     description:
-      'I worked closely with other developers, product managers, designers, and stakeholders to deliver the best ad experience and coverage across multiple touchpoints and platforms (web, mobile apps, email). I delivered new features while making huge improvements to existing code and processes. Even when my role was mainly on the frontend, I was always happy to jump in and get my hands dirty with server-side code or initially unfamiliar areas such as native code in mobile apps.',
+      'Ad placements across web, React Native apps, native iOS and Android, and email, owned from design through A/B tests, feature flags and monitoring in an OKR-driven, data-first team.',
     tech: [
       tech.typeScript,
       tech.react,
@@ -92,9 +233,10 @@ export default [
       tech.confluence
     ],
     responsibilities: [
-      'I was responsible for bringing the requested features to life, actively participating in the full life cycles from idea and design discussion to implementation, A/B testing, monitoring, and continuous improvement. I consistently got rid of technology debt, improved performance and kept services and features secure and up to date. I loved doing quick, deep, and helpful code reviews. I was always there when any help was needed. During this project, I actively participated in regular meetings and cross-team technical groups to share and disseminate knowledge. I maintained close collaboration with my colleagues during joint programming sessions in pairs and larger groups.'
+      'Shipped ad placements inside other teams\u2019 code across web (React), React Native, native iOS and Android, and email, forking and fixing the React Native ad library where needed.',
+      'Owned features from design through A/B tests, feature flags and monitoring. Reported open redirects I found along the way.'
     ],
-    print: true
+    print: false
   },
   {
     key: 'profilometry',
@@ -131,9 +273,11 @@ export default [
       tech.stripe
     ],
     responsibilities: [
-      'I was responsible for full-stack software development using a React-based frontend with a C# backend to provide a web-based app that allows 3D image visualization and processing. During this project, I have learned how to work with an on-site and remote team to deliver a great product that satisfies client’s and users’ needs. I had gained experience with git workflow and collaboration with other developers. I had been performing code reviews and delivered high-quality code. I had also been responsible for the integration of external libraries and close cooperation with the APIs provider, which often resulted in a need for providing detailed bug reports and test cases. I’ve been continuously focused on providing great user experience, performance, and security, which is why I have brought in useful solutions like visual regression detection toolkit, secret leakage prevention, and optimized the build process to yield the optimal bundle and improve development experience.'
+      'Built frontend features in React with Redux (early adoption, 2017) and backend APIs in C#/.NET, in a team of five engineers and a QA, with weekly calls with the US client.',
+      'Built interactive charts and measurement widgets from scratch, synchronized with a 3D renderer I integrated and patched.',
+      'Introduced visual regression testing, shared tooling and unified formatting for the team.'
     ],
-    print: true
+    print: false
   },
   {
     key: 'sandtime',
@@ -142,10 +286,10 @@ export default [
     url: 'Sandtime.io',
     href: 'https://sandtime.io',
     slug: 'sandtime',
-    timeFrame: 'January 2019 - present',
+    timeFrame: 'July 2018 - present',
     icon: sandtimeIcon,
     description:
-      'In-house multiplatform SaaS time tracking system to improve workflows of creative people. With automatic time tracking and integrations, it makes all the parties involved in projects credible and accountable.',
+      'Multiplatform time-tracking SaaS for 4,000+ freelancers and teams.',
     tech: [
       tech.js,
       tech.react,
@@ -176,7 +320,10 @@ export default [
       tech.paddle
     ],
     responsibilities: [
-      'I was responsible for leading the project starting from creating the project vision, defining the microservices-based architecture powered by Docker containers, then by delivery of an MVP and continuous development of new features. During this project, I have also been performing a Scrum Master role and helped my teammates to deliver the desired product that meets users’ and stakeholders’ needs. I was responsible for setting up continuous integration, delivery, and deployment to shorten iteration and delivery cycles. I have introduced an end-to-end testing solution to maintain high quality and reduce risks of broken deployments. I have managed to get the app to multiple platforms and app stores (Windows, macOS, Linux, Windows Store, Mac App Store, Chrome Extension, Android, iOS) by using cross-platform tools like Electron and React Native. I was responsible for the external payment system integration and setting up a subscription model.'
+      'Founding engineer: built the product from the first commit in 2018 to its first customers, then CI/CD, end-to-end tests and subscriptions. Hands-on in 2018 to 2020, since then review, consulting and growth.',
+      'Reviewed and mentored colleagues through 800+ pull requests (2018 to 2026) and onboarded new engineers. Scrum master for four years.',
+      'Shipped to eight platforms, from app stores to a Chrome extension, with Electron and React Native.',
+      'Took over growth: SEO and AI-search visibility built from near zero, PostHog KPI dashboards, a public MCP server and REST APIs.'
     ],
     print: true
   },
@@ -188,14 +335,13 @@ export default [
     timeFrame: 'November 2019 - December 2019',
     icon: validatorIcon,
     description:
-      'Mobile app to help users capture perfect photos for ID documents. The app was submitted to the Polish government competition, GovTech, and scored 5th place.',
+      'Mobile app to help users capture valid photos for ID documents, submitted to the Polish government competition GovTech.',
     tech: [
       tech.js,
       tech.react,
       tech.tensorFlow,
       tech.tensorFlowLite,
       tech.faceApi,
-      tech.openCV,
       tech.webAssembly,
       tech.android,
       tech.kotlin,
@@ -203,7 +349,8 @@ export default [
       tech.GitLab
     ],
     responsibilities: [
-      'I was responsible for leading a small team to deliver a fully functional app that meets the competition’s requirements within a tight deadline. I have incorporated AI-based solutions and libraries to tackle the problem with near-real-time performance in mind. I have integrated React-based frontend with native Kotlin-based Android app that ran bare-metal models for extended performance on mobile, while still being able to run the app entirely on the web, fully offline. I have implemented a complex image detection and processing pipeline using face-api.js, OpenCV, TensorFlow, and custom functions. To achieve proper results, I have provided an extensive test suite, debug and visualization tools, and gathered a huge set of samples. Finally, I wrote a submission paper with a detailed report and documentation.'
+      'Led a small team to deliver a working app within a tight competition deadline: on-device face detection, landmarks and face-part segmentation with TensorFlow.js in the browser and TensorFlow Lite in a Kotlin Android app around a React WebView, fully offline.',
+      'Replaced an early OpenCV prototype with hand-written sharpness and color checks, built the test suite and debug tools, and wrote the submission report.'
     ],
     print: false
   },
@@ -214,7 +361,7 @@ export default [
     url: 'sanddev-com.github.io/std',
     href: 'https://sanddev-com.github.io/std/',
     slug: 'std',
-    timeFrame: 'October 2019 - August 2020',
+    timeFrame: 'October 2019 - 2024',
     description:
       'Modern library of statically-typed modular functions for daily use in JavaScript and TypeScript projects. It served as a place to sharpen my TypeScript skills. Extensively used across the company’s projects.',
     tech: [
@@ -463,7 +610,7 @@ export default [
     icon: fastCoffee.icon,
     description: 'Windows Phone dating app.',
     client: companies.IT4Biznes,
-    timeRange: '2014',
+    timeFrame: '2014',
     tech: [
       tech.CSharp,
       tech.XAML,

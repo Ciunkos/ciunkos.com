@@ -13,10 +13,8 @@ export default () => (
   <Section Notes>
     <Section.Content padding-2 spacing-4>
       <styled.LegalNote tag="p">
-        Wyrażam zgodę na przetwarzanie moich danych osobowych dla potrzeb
-        niezbędnych do realizacji procesu rekrutacji (zgodnie z Ustawą z dnia
-        29.08.1997 roku o Ochronie Danych Osobowych; tekst jednolity: Dz. U.
-        2016 r. poz. 922).
+        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu prowadzenia
+        rekrutacji (RODO, art. 6 ust. 1 lit. a).
       </styled.LegalNote>
 
       <styled.Extras tag="p" media-no-print>
