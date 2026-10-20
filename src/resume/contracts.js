@@ -4,14 +4,20 @@ export default [
   {
     company: companies.Sanddev,
     title: 'Senior Full-Stack Engineer',
-    date: 'July 2017 - present',
-    tech: 'TypeScript, React, C#, AI'
+    date: 'April 2023 - present',
+    tech: 'TypeScript, React, AI agents'
   },
   {
     company: companies.PGS,
     title: 'Omio, Nate, Sage',
     date: 'July 2021 - March 2023',
     tech: 'TypeScript, React, React Native'
+  },
+  {
+    company: companies.Sandstream,
+    title: 'Full-Stack Developer',
+    date: 'July 2017 - June 2021',
+    tech: 'React, Redux, C#, .NET'
   },
   {
     company: companies.SelfEmployment,

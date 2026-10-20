@@ -5,5 +5,6 @@ export default {
   PGS: 'PGS Software / Xebia',
   RedDotGames: 'Red Dot Games',
   Sanddev: 'Sanddev sp. z o.o.',
+  Sandstream: 'Sandstream Development',
   SelfEmployment: 'Self-employment'
 }
