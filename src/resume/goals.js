@@ -1,7 +1,6 @@
 export default [
-  ['Set up a Kubernetes cluster'],
-  ['Learn Haskell well', false, true],
-  ['Give a speech about programming', false, true],
+  ['Set up a Kubernetes cluster', true],
+  ['Give a speech about programming', true, true],
   ['Join a team of highly-skilled and experienced people', true],
   ['Improve my spoken English', true],
   ['Sharpen my TypeScript skills', true],
