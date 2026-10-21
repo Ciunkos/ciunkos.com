@@ -14,7 +14,7 @@ const AboutPage = () => (
     title="About me - Przemysław Zalewski - Ciunkos"
     description="Przemysław Zalewski, senior full-stack engineer and technical lead from Wrocław, Poland. TypeScript, React, Node.js and AI agents."
   >
-    <Section About cover={cover}>
+    <Section About cover={cover} priority>
       <Section.Content padding-2 spacing-4>
         <h1>About me</h1>
 
@@ -50,7 +50,7 @@ const AboutPage = () => (
         </styled.AboutMe>
 
         <styled.SocialLinks>
-          <h3>See my social profiles</h3>
+          <h2>See my social profiles</h2>
           <Social />
         </styled.SocialLinks>
       </Section.Content>

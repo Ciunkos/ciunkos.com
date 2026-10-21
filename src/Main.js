@@ -3,19 +3,7 @@ import React, { useEffect } from 'react'
 import AppContainer from './AppContainer'
 import { match } from './routes'
 import useLocation from './useLocation'
-
-let logPageView = () => {}
-
-if (typeof window !== 'undefined') {
-  /* eslint-disable global-require */
-  const ReactGA = require('react-ga')
-  ReactGA.initialize('UA-41993735-2')
-
-  logPageView = ({ pathname }) => {
-    ReactGA.set({ page: pathname })
-    ReactGA.pageview(pathname)
-  }
-}
+import { logPageView } from './analytics'
 
 const Main = ({ location: sourceLocation }) => {
   const location = useLocation(sourceLocation)
@@ -25,8 +13,8 @@ const Main = ({ location: sourceLocation }) => {
   const page = route({ location })
 
   useEffect(() => {
-    logPageView(location)
-  }, [location])
+    logPageView({ pathname })
+  }, [pathname])
 
   return <AppContainer>{page}</AppContainer>
 }

@@ -119,7 +119,7 @@ export default () => (
                     />
                   )}
                   <styled.ProjectHeadline center>
-                    <styled.ProjectName tag="h4">
+                    <styled.ProjectName tag="h3">
                       {project.name}
                     </styled.ProjectName>
                     {project.url &&
@@ -138,7 +138,7 @@ export default () => (
                       ))}
                   </styled.ProjectHeadline>
                   {project.timeFrame && (
-                    <styled.ProjectTimeFrame tag="h5">
+                    <styled.ProjectTimeFrame>
                       {project.timeFrame}
                     </styled.ProjectTimeFrame>
                   )}
@@ -194,6 +194,11 @@ export default () => (
       </OverflowButton>
     </styled.Row>
 
-    <ActionButton href="/apps" name="See more" icon={<ArrowForward />} />
+    <ActionButton
+      href="/apps"
+      name="See more"
+      context=" apps and free tools"
+      icon={<ArrowForward />}
+    />
   </Section>
 )

@@ -6,9 +6,10 @@ import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { Helmet } from 'react-helmet'
 import { writeFile } from 'fs/promises'
+import { existsSync } from 'fs'
 
 import AppContainer from '../AppContainer'
-import { match } from '../routes'
+import { match, preload, isBlogPath } from '../routes'
 import template from './template'
 
 const routes = [
@@ -33,6 +34,7 @@ const main = async () => {
       alias = `${pathname.substring(1)}.html`
     } of routes) {
       const location = { pathname }
+      await preload(pathname)
 
       const route = match(pathname)
       const page = route({ location })
@@ -40,7 +42,23 @@ const main = async () => {
 
       const renderedComponent = renderToString(element)
       const helmet = Helmet.renderStatic()
-      const html = template(renderedComponent, { ...helmet, pathname })
+      const html = template(renderedComponent, {
+        ...helmet,
+        pathname,
+        chunks: isBlogPath(pathname) ? ['blog'] : []
+      })
+
+      // every cover offers a WebP twin, so a cover without one would show no image at all
+      const missingWebp = [...html.matchAll(/srcSet="([^"]+\.webp)"/gi)]
+        .map(([, src]) => src)
+        .filter(src => !existsSync(`./dist${src}`))
+      if (missingWebp.length) {
+        throw new Error(
+          `${pathname}: no WebP for ${missingWebp.join(
+            ', '
+          )} (node scripts/webp.mjs <cover.jpg>)`
+        )
+      }
 
       await writeFile(`./dist/${alias}`, html, 'utf-8')
     }

@@ -53,7 +53,7 @@ const HomePage = () => (
     ogImageAlt="Przemysław Zalewski, senior full-stack engineer from Wrocław: the free tools and apps he runs in 2026"
     jsonLd={personJsonLd}
   >
-    <Section Home cover={homeBackground} gradient="shadow">
+    <Section Home cover={homeBackground} priority gradient="shadow">
       <Section.Content padding-2>
         <h1>{locale.hero.title}</h1>
 
@@ -102,6 +102,7 @@ const HomePage = () => (
         <ActionButton
           href={`/${post.slug}`}
           name={locale.readMore}
+          context={`: ${post.name}`}
           icon={<ArrowForward />}
         />
       </Section>

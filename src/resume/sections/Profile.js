@@ -48,7 +48,7 @@ const Bio = () => (
 )
 
 export default () => (
-  <Section Profile cover={cover} id="profile">
+  <Section Profile cover={cover} priority id="profile">
     <Section.Content padding-2>
       <styled.Column middle HeadingImageContainer>
         <styled.HeadingImage
@@ -134,6 +134,7 @@ export default () => (
     <ActionButton
       href="#education-and-experience"
       name="Learn more"
+      context=" about my education and work experience"
       icon={<ArrowDownward />}
     />
   </Section>

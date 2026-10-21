@@ -3,6 +3,7 @@ const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { StatsWriterPlugin } = require('webpack-stats-plugin')
+const { hasWebp } = require('./scripts/cover-loader.cjs')
 
 const { resolve } = path
 
@@ -43,7 +44,12 @@ module.exports = () => {
       loader: 'raw-loader'
     },
     {
+      test: hasWebp,
+      loader: resolve(__dirname, 'scripts/cover-loader.cjs')
+    },
+    {
       test: /\.(jpg|png)$/,
+      exclude: hasWebp,
       loader: 'file-loader',
       options: {
         name: '[name].[contenthash].[ext]'
@@ -60,10 +66,13 @@ module.exports = () => {
       },
       output: {
         filename: 'app-[contenthash].js',
+        chunkFilename: '[name]-[contenthash].js',
         path: distPath,
         publicPath: process.env.PUBLIC_PATH ?? '/'
       },
       devtool: 'source-map',
+      // one file per async chunk: the template adds the blog chunk to the posts by its name
+      optimization: { splitChunks: false },
       module: {
         rules: [
           ...commonLoaders,
@@ -105,6 +114,7 @@ module.exports = () => {
       output: {
         path: buildPath,
         filename: 'server.cjs',
+        chunkFilename: '[name].server.cjs',
         publicPath: process.env.PUBLIC_PATH ?? '/'
       },
       module: {

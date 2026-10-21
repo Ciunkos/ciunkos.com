@@ -51,6 +51,7 @@ const Now = () => (
                     width="32"
                     height="32"
                     loading="lazy"
+                    fetchpriority="low"
                   />
                   <strong>{locale.recent.apps[app.id][0]}</strong>
                 </span>

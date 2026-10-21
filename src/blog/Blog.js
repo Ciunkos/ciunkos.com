@@ -2,7 +2,6 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 
 import styled from 'styled'
-import './styles.css'
 import { Page, Section } from 'components'
 import relatedPosts from 'blog/related-posts'
 import { PostHeader } from 'blog/post'
@@ -15,7 +14,7 @@ const Blog = ({ post }) => (
     title={post.name}
     description={post.metaDescription || post.description}
   >
-    <Section Title cover={post.cover} gradient="shadow">
+    <Section Title cover={post.cover} priority gradient="shadow">
       <Section.Content padding-2 spacing-4>
         <PostHeader post={post} link={false} />
       </Section.Content>

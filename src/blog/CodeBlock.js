@@ -1,7 +1,6 @@
 import React from 'react'
 import Lowlight from 'react-lowlight'
 import js from 'highlight.js/lib/languages/javascript'
-import 'highlight.js/styles/atom-one-light.css'
 
 let registered = false
 

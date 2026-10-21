@@ -5,13 +5,17 @@ import 'styles/foundation'
 import 'styles/common'
 
 import Main from './Main'
+import { preload } from './routes'
+import { startAnalytics } from './analytics'
 
 const rerender = Component => {
   const root = document.getElementById('app')
   render(<Component />, root)
 }
 
-rerender(Main)
+preload(window.location.pathname).then(() => rerender(Main))
+
+startAnalytics()
 
 if (module.hot) {
   module.hot.accept('./Main', () => {

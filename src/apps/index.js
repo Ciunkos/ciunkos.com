@@ -85,7 +85,7 @@ const AppsPage = () => (
     ogImage={new URL(cover, 'https://ciunkos.com/').href}
     jsonLd={appsJsonLd}
   >
-    <Section Apps cover={cover}>
+    <Section Apps cover={cover} priority>
       <Section.Content padding-2 spacing-4>
         <h1>Apps</h1>
 
@@ -105,7 +105,12 @@ const AppsPage = () => (
               tag="a"
               title={name}
             >
-              <styled.AppIcon tag="img" src={icon} alt={name} />
+              <styled.AppIcon
+                tag="img"
+                src={icon}
+                alt={name}
+                fetchpriority="low"
+              />
             </styled.AppListItem>
           ))}
         </styled.AppList>
@@ -229,6 +234,7 @@ const AppsPage = () => (
             href={app.link}
             icon={app.download ? <FileDownload /> : <ArrowForward />}
             name={app.label || 'See more'}
+            context={`: ${app.name}`}
             rel="noopener noreferrer"
             target="_blank"
           />

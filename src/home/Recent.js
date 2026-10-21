@@ -3,6 +3,8 @@ import React from 'react'
 import locale from './locale'
 import migawkiIcon from 'apps/2026/icon-migawki.png'
 import kalkulatorIcon from 'apps/2026/icon-kalkulator.png'
+// 80 x 80 copy of /przemo/awatar-512.png (371 KB) for the 40 px tiles
+import przemoIcon from 'apps/2026/icon-przemo.png'
 
 /* Apps and tools from 2026. They live outside this SPA, so links are absolute:
    the router in styled/index.js only intercepts relative links. */
@@ -15,7 +17,7 @@ export const apps = [
     icon: '/hire/favicon/riddle-180.png',
     hero: true
   },
-  { id: 'przemo', path: '/przemo', icon: '/przemo/awatar-512.png', hero: true },
+  { id: 'przemo', path: '/przemo', icon: przemoIcon, hero: true },
   {
     id: 'migawki',
     path: '/migawki',
@@ -191,6 +193,7 @@ const Recent = () => (
                 width="40"
                 height="40"
                 loading="lazy"
+                fetchpriority="low"
               />
               <span>
                 <strong>{locale.recent.apps[app.id][0]}</strong>
