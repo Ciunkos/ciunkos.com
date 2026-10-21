@@ -12,7 +12,7 @@ const AboutPage = () => (
   <Page
     About
     title="About me - Przemysław Zalewski - Ciunkos"
-    description="Przemysław Zalewski, Full Stack Web Developer from Wroclaw, Poland"
+    description="Przemysław Zalewski, senior full-stack engineer and technical lead from Wrocław, Poland. TypeScript, React, Node.js and AI agents."
   >
     <Section About cover={cover}>
       <Section.Content padding-2 spacing-4>
@@ -20,25 +20,32 @@ const AboutPage = () => (
 
         <styled.AboutMe spacing-2>
           <p>
-            My name is Przemysław Zalewski. I am a Full Stack Web Developer from
-            Wroclaw, Poland.
+            I am Przemysław Zalewski, a senior full-stack engineer and technical
+            lead from Wrocław, Poland. I have shipped React since 2017, with
+            TypeScript and Node.js. Before that I spent ten years on C# and
+            .NET, building my own Windows Phone and Windows Store apps with
+            3.7M+ downloads.
           </p>
 
           <p>
-            Most of the time I am doing web development with JavaScript, however
-            not so long ago I have been developing Windows apps using C#. I have
-            transitioned myself for the web stack in order to spread my apps and
-            services for a much bigger audience and not wall myself in
-            Microsoft’s garden. Was that a good move? I am asking myself that
-            question every day.
+            For nine years I have run products end to end at the same agency,
+            solo or with a small team. I own what I ship: I monitor it, run it,
+            debug it and page myself. Since 2023 I have put AI agents to work on
+            real products. They get skills, guardrails, end-to-end tests and
+            observability, and I review what they ship.
           </p>
 
           <p>
-            Here, on the blog, I mostly write about React.js, node.js, and other
-            hot web technologies and present how to incorporate interesting
-            solutions in your projects. As the web stack is not so well designed
-            and is full of quirks and workarounds I’ve got many topics to
-            explore and write about. Stay tuned!
+            Recent work: Patriot Mail, an email client that went from first
+            commit to the App Store in four months, and Sandtime.io, time
+            tracking for 4,000+ freelancers and teams, where I have been the
+            founding engineer since 2018. The details are in my{' '}
+            <InlineLink href="/resume/">resume</InlineLink>.
+          </p>
+
+          <p>
+            Available from November 2026, in Wrocław or remote. Hiring for
+            TypeScript, React or AI agents? Write to me.
           </p>
         </styled.AboutMe>
 
