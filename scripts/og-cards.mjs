@@ -1,4 +1,4 @@
-/* Renders the 1200 × 630 Open Graph cards for the home page and /resume into src/assets/og-*.jpg,
+/* Renders the Open Graph cards (laid out at 1200 × 630, saved at 2× as 2400 × 1260 so LinkedIn keeps them sharp) for the home page and /resume into src/assets/og-*.jpg,
    in the same look as the /hire-me cards (dark, amber accent, portrait cutout, ciunkos.com in the corner).
    LinkedIn Featured, Slack and X show these as link thumbnails. Usage: node scripts/og-cards.mjs
    Uses a current Playwright from a tool repo (this repo's is too old to have its browser installed):
@@ -54,11 +54,11 @@ h1{font-size:72px;line-height:1.04;letter-spacing:-.02em;margin:0 0 24px;font-we
 const browser = await chromium.launch()
 const page = await browser.newPage({
   viewport: { width: 1200, height: 630 },
-  deviceScaleFactor: 1
+  deviceScaleFactor: 2
 })
 for (const card of CARDS) {
   await page.setContent(html(card))
-  writeFileSync(card.file, await page.screenshot({ type: 'jpeg', quality: 88 }))
+  writeFileSync(card.file, await page.screenshot({ type: 'jpeg', quality: 92 }))
   console.log(card.file)
 }
 await browser.close()

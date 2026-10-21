@@ -22,6 +22,9 @@ export default () => (
     description={description}
     ogUrl="https://ciunkos.com/resume"
     ogImage={new URL(ogResume, 'https://ciunkos.com/').href}
+    ogImageWidth={2400}
+    ogImageHeight={1260}
+    ogImageAlt="Resume card: Przemysław Zalewski, senior full-stack engineer with 15+ years shipping software"
     subheader={top => (
       <HeaderBar
         routes={routes}

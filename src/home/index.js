@@ -48,6 +48,9 @@ const HomePage = () => (
     description={locale.page.description}
     ogUrl="https://ciunkos.com/"
     ogImage={new URL(ogHome, 'https://ciunkos.com/').href}
+    ogImageWidth={2400}
+    ogImageHeight={1260}
+    ogImageAlt="Przemysław Zalewski, senior full-stack engineer from Wrocław: the free tools and apps he runs in 2026"
     jsonLd={personJsonLd}
   >
     <Section Home cover={homeBackground} gradient="shadow">
