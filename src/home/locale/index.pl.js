@@ -55,6 +55,7 @@ export const recent = {
     mcp: ['Konektor MCP z OpenAPI', 'Twoje API w Claude i ChatGPT'],
     ksef: ['Walidator faktury KSeF', 'FA(3) w przeglądarce'],
     rfq: ['Kalkulator ofertowania', 'Od zapytań do ofert'],
+    skills: ['Skille dla agentów', '/przemo i inne, za darmo'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
@@ -111,6 +112,8 @@ export const recent = {
     mcp: 'Wklej specyfikację OpenAPI i dostań wąskie narzędzia MCP z oznaczonymi nieodwracalnymi oraz szkielet serwera w TypeScript.',
     ksef: 'Sprawdza e-fakturę FA(3) oficjalnym schematem w przeglądarce, z błędami opisanymi zwykłymi słowami i czytelnym podglądem.',
     rfq: 'Liczy godziny na zamianę zapytań klientów w oferty i to, kiedy zwróci się agent, który przygotowuje szkice.',
+    skills:
+      'Skille dla Claude Code i Codexa: /przemo robi robotę i gada jak ja na Slacku, do tego walidator pomysłu. Za darmo, MIT.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',

@@ -148,6 +148,11 @@ export const apps = [
     icon: '/runbook-generator/a/ikony/rfq/apple-touch-icon.png'
   },
   {
+    id: 'skills',
+    path: '/skills',
+    icon: '/hire/skills/apple-touch-icon.png'
+  },
+  {
     id: 'validator',
     path: '/business-idea-validator',
     icon: '/business-idea-validator/a/apple-touch-icon.png'
