@@ -1,12 +1,12 @@
 import React from 'react'
 
 import locale from './locale'
+import migawkiIcon from 'apps/2026/icon-migawki.png'
+import kalkulatorIcon from 'apps/2026/icon-kalkulator.png'
 
 /* Apps and tools from 2026. They live outside this SPA, so links are absolute:
    the router in styled/index.js only intercepts relative links. */
 const BASE = 'https://ciunkos.com'
-
-const svgIcon = svg => `data:image/svg+xml,${svg}`
 
 export const apps = [
   {
@@ -19,17 +19,13 @@ export const apps = [
   {
     id: 'migawki',
     path: '/migawki',
-    icon: svgIcon(
-      "%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23000'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23d8342a' stroke-width='5'/%3E%3Ccircle cx='32' cy='32' r='8' fill='%23fff'/%3E%3C/svg%3E"
-    ),
+    icon: migawkiIcon,
     hero: true
   },
   {
     id: 'kalkulator',
     path: '/kalkulator-b2b-vs-uop-2026',
-    icon: svgIcon(
-      '%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%23e0642a%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-size=%2216%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22sans-serif%22 font-weight=%22700%22%3E%25%3C/text%3E%3C/svg%3E'
-    ),
+    icon: kalkulatorIcon,
     hero: false
   },
   {
@@ -164,7 +160,13 @@ export const apps = [
     path: '/glossary',
     icon: '/glossary/a/apple-touch-icon.png'
   }
-].map(app => ({ ...app, href: BASE + app.path }))
+].map(app => ({
+  ...app,
+  href: BASE + app.path,
+  /* Icon files live on ciunkos.com too: the mirror domains
+     (przemyslawzalewski.com, .pl) serve only this SPA. */
+  icon: app.icon.startsWith('/') ? BASE + app.icon : app.icon
+}))
 
 const Recent = () => (
   <div className="RecentApps">
