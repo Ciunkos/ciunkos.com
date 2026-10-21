@@ -99,7 +99,7 @@ export default () => (
         <a href="https://ciunkos.com/checks/ciunkos.com">
           <img
             src="https://ciunkos.com/checks/ciunkos.com/badge.svg?path=/"
-            width="360"
+            width="392"
             height="20"
             loading="lazy"
             decoding="async"
