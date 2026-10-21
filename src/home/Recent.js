@@ -83,6 +83,11 @@ export const apps = [
     icon: '/software-cost-estimator/a/ikony/legacy/apple-touch-icon.png'
   },
   {
+    id: 'vitalsDesk',
+    path: '/core-web-vitals-monitor',
+    icon: '/core-web-vitals-monitor/a/apple-touch-icon.png'
+  },
+  {
     id: 'emailTest',
     path: '/email-spam-test',
     icon: '/email-spam-test/a/apple-touch-icon.png'

@@ -95,6 +95,19 @@ export default () => (
           <Social />
         </styled.View>
       </styled.View>
+      <styled.VitalsBadge tag="p" media-no-print>
+        <a href="https://ciunkos.com/checks/ciunkos.com">
+          <img
+            src="https://ciunkos.com/checks/ciunkos.com/badge.svg?path=/"
+            width="360"
+            height="20"
+            loading="lazy"
+            decoding="async"
+            alt="Core Web Vitals of the ciunkos.com home page, measured daily by Vitals Desk"
+            style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
+          />
+        </a>
+      </styled.VitalsBadge>
       <styled.CopyrightNotes tag="p" media-no-print>
         <InlineLink href="mailto:ciunkos@gmail.com">
           ciunkos@gmail.com

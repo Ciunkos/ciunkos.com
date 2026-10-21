@@ -41,6 +41,7 @@ export const recent = {
     sla: ['SLA calculator', 'Internal apps, fee and times'],
     llm: ['Local model or API?', 'Hardware, speed, cost'],
     legacy: ['Legacy rewrite estimate', 'Delphi, Access, old PHP'],
+    vitalsDesk: ['Vitals Desk', 'Daily Core Web Vitals'],
     emailTest: ['Email Test', 'Spam and unsubscribe test'],
     phishingChecker: ['Phishing email checker', 'Is this email a scam?'],
     signatureDesk: ['Signature Desk', 'Team email signatures'],
@@ -86,6 +87,8 @@ export const recent = {
     llm: 'Does a model like Bielik fit in your hardware, how fast it answers, what it costs against an API and where the data lives.',
     legacy:
       'Lines of code and language to function points, hours and cost of a rewrite, with and without coding agents.',
+    vitalsDesk:
+      'A daily Core Web Vitals check of your pages on a throttled phone: LCP, CLS and TBT with a screenshot, an email when a page gets slower, and a badge for your footer. Free.',
     emailTest:
       'Send one email to a test address and get a report: one-click unsubscribe, SPF, DKIM, DMARC, Gmail and Yahoo rules, spam signals and an AI panel of three models. Free.',
     phishingChecker:

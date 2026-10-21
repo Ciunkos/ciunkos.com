@@ -41,6 +41,7 @@
 - [List Desk](https://ciunkos.com/email-list-validator): checks an email list in your browser for dead domains, null MX, disposable providers, typos and duplicates.
 - [Eval Desk](https://ciunkos.com/ai-prompt-testing): runs test cases for an AI assistant after a prompt change and shows what regressed, what got fixed and what is unstable. Claude models.
 - [Dashboard Desk](https://ciunkos.com/posthog-dashboard-generator): creates a growth dashboard in your own PostHog project and lists what your tracking is missing.
+- [Vitals Desk](https://ciunkos.com/core-web-vitals-monitor): a free daily Core Web Vitals monitor; each page is loaded three times as a throttled mid-range phone, the median LCP, CLS, TBT, FCP and TTFB are kept with a screenshot, and an email goes out when a page gets slower. Public results get an SVG badge and JSON.
 - [Email Test](https://ciunkos.com/email-spam-test): send one email to a test address and get a report on one-click unsubscribe, SPF, DKIM, DMARC, the Gmail and Yahoo sender rules and spam signals, with an AI panel of three models and fixes written for an AI agent.
 - [Phishing email checker](https://ciunkos.com/phishing-email-checker): forward a suspicious email or upload the .eml file; three AI models and technical checks say whether it looks like spam or phishing and what to do.
 - [Signature Desk](https://ciunkos.com/email-signature-generator): one email signature template for a whole team, as HTML for Gmail, Outlook and Apple Mail.

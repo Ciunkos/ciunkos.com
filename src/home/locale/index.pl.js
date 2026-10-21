@@ -42,6 +42,7 @@ export const recent = {
     sla: ['Kalkulator SLA', 'Apki wewnętrzne, opłata i czasy'],
     llm: ['Lokalny model czy API?', 'Sprzęt, szybkość, koszt'],
     legacy: ['Przepisanie systemu', 'Delphi, Access, stary PHP'],
+    vitalsDesk: ['Vitals Desk', 'Codzienne Core Web Vitals'],
     emailTest: ['Email Test', 'Test maila: spam i wypis'],
     phishingChecker: ['Czy ten mail to oszustwo?', 'Sprawdzanie phishingu'],
     signatureDesk: ['Signature Desk', 'Stopki e-mail dla firm'],
@@ -87,6 +88,8 @@ export const recent = {
     llm: 'Czy model taki jak Bielik zmieści się w Twoim sprzęcie, jak szybko odpowie, ile kosztuje w porównaniu z API i gdzie leżą dane.',
     legacy:
       'Linie kodu i język na punkty funkcyjne, godziny i koszt przepisania, z agentami kodującymi i bez.',
+    vitalsDesk:
+      'Codzienny pomiar Core Web Vitals Twoich stron na spowolnionym telefonie: LCP, CLS i TBT ze zrzutem ekranu, mail, gdy strona zwolni, i odznaka do stopki. Za darmo.',
     emailTest:
       'Wyślij jednego maila na adres testowy i dostań raport: wypis jednym kliknięciem, SPF, DKIM, DMARC, zasady Gmaila i Yahoo, sygnały spamu i panel trzech modeli AI. Za darmo.',
     phishingChecker:

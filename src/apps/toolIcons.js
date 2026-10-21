@@ -40,6 +40,7 @@ export const ICONS = {
     '#a16207',
     "<path d='M20 11a8 8 0 0 0-14.6-4.5L3 9M3 4v5h5M4 13a8 8 0 0 0 14.6 4.5L21 15M21 20v-5h-5'/>"
   ],
+  vitalsDesk: ['#dc2626', "<path d='M2 12h4l2.5-6 4 12 2.5-6H22'/>"],
   emailTest: [
     '#1d4ed8',
     "<path d='M21 11V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h7M3 7l9 6 9-6'/><path d='M15.5 18.5l2 2 4-4.5'/>"

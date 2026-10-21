@@ -11,8 +11,9 @@ import Now from './Now'
 import { apps as nowApps } from 'home/Recent'
 import locale from 'home/locale'
 
-/* JSON-LD for /apps: the six products first, then the apps that get a card in Now.js. */
+/* JSON-LD for /apps: the products first, then the apps that get a card in Now.js. */
 const products = [
+  'vitalsDesk',
   'emailTest',
   'signatureDesk',
   'dashboardDesk',
@@ -80,7 +81,7 @@ const AppsPage = () => (
   <Page
     Apps
     title="Apps and free tools by Przemysław Zalewski"
-    description="Free tools I run in 2026: email list validator, signature generator, PostHog dashboard, AI prompt testing, AI visibility, quote automation. Apps from 2007–2017."
+    description="Free tools I run in 2026: Core Web Vitals monitor, email list validator, signature generator, PostHog dashboard, AI prompt testing, AI visibility, quote automation."
     ogUrl="https://ciunkos.com/apps"
     ogImage={new URL(cover, 'https://ciunkos.com/').href}
     jsonLd={appsJsonLd}
