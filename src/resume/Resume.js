@@ -2,6 +2,7 @@ import React from 'react'
 
 import './styles'
 import { Page } from 'components'
+import ogResume from 'assets/og-resume.jpg'
 import { HeaderBar } from 'components/Header'
 import routes from './routes'
 import { description, title } from './LOCALE'
@@ -19,6 +20,8 @@ export default () => (
     Resume
     title={title}
     description={description}
+    ogUrl="https://ciunkos.com/resume"
+    ogImage={new URL(ogResume, 'https://ciunkos.com/').href}
     subheader={top => (
       <HeaderBar
         routes={routes}

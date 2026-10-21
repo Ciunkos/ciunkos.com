@@ -5,6 +5,7 @@ import styled from 'styled'
 import posts from 'blog/posts'
 import { Page, Section, ActionButton, InlineLink } from 'components'
 import homeBackground from 'assets/home-background.jpg'
+import ogHome from 'assets/og-home.jpg'
 import { PostHeader, PostAbstract } from 'blog/post'
 import locale from './locale'
 import Recent from './Recent'
@@ -45,6 +46,8 @@ const HomePage = () => (
     Home
     title={locale.page.title}
     description={locale.page.description}
+    ogUrl="https://ciunkos.com/"
+    ogImage={new URL(ogHome, 'https://ciunkos.com/').href}
     jsonLd={personJsonLd}
   >
     <Section Home cover={homeBackground} gradient="shadow">
