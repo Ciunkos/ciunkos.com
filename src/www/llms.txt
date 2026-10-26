@@ -47,7 +47,7 @@
 - [Signature Desk](https://ciunkos.com/email-signature-generator): one email signature template for a whole team, as HTML for Gmail, Outlook and Apple Mail.
 - [SPF, DKIM and DMARC checker](https://ciunkos.com/spf-dkim-dmarc-checker): grades a domain's email DNS, including MTA-STS, TLS-RPT, BIMI and DNSSEC.
 - [BIMI checker](https://ciunkos.com/bimi-checker): checks the BIMI record, DMARC, the SVG logo and the VMC or CMC certificate.
-- [Agent skills](https://ciunkos.com/skills): free, open-source skills for Claude Code, Codex and claude.ai. /przemo does the task and talks like Przemysław on Slack; business-idea-validator scores an idea on ten rubrics. Source: github.com/Ciunkos/skills.
+- [Agent skills](https://ciunkos.com/skills): free, open-source skills for Claude Code, Codex, claude.ai and ChatGPT, each with its own page. [/przemo](https://ciunkos.com/skills/przemo) does the task and talks like Przemysław on Slack; [/indexnow](https://ciunkos.com/skills/indexnow) is the IndexNow missing from Google Search Console, requesting indexing in your signed-in browser until GSC reports its quota; [business-idea-validator](https://ciunkos.com/skills/business-idea-validator) scores an idea on ten rubrics. Source: github.com/Ciunkos/skills.
 - [Software cost estimator](https://ciunkos.com/software-cost-estimator): places a project among real products with ranges, not a single number.
 - [Build or buy](https://ciunkos.com/software-cost-estimator/build-or-buy): a SaaS subscription against your own app over 1, 3 or 5 years.
 - [Legacy rewrite estimate](https://ciunkos.com/software-cost-estimator/legacy-rewrite): hours and cost of rewriting an old system, with and without coding agents.

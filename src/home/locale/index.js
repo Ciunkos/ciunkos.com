@@ -54,7 +54,7 @@ export const recent = {
     mcp: ['OpenAPI to MCP tools', 'Your API in Claude and ChatGPT'],
     ksef: ['KSeF invoice validator', 'FA(3) in your browser'],
     rfq: ['Quoting time calculator', 'Inquiries to quotes'],
-    skills: ['Agent skills', '/przemo and more, free'],
+    skills: ['Agent skills', '/przemo, /indexnow and more, free'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
@@ -112,7 +112,7 @@ export const recent = {
     ksef: 'Checks a Polish FA(3) e-invoice against the official schema in your browser, with errors in plain words and a readable preview.',
     rfq: 'Counts the hours spent turning customer inquiries into quotes and when an agent that drafts them would pay off.',
     skills:
-      'Skills for Claude Code and Codex: /przemo does the work and talks like me on Slack, plus the business idea validator. Free, MIT.',
+      'Skills for Claude Code, Codex and ChatGPT: /przemo does the work and talks like me on Slack, /indexnow asks Google Search Console to index your pages every day, plus the business idea validator. Free, MIT.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',
