@@ -63,18 +63,17 @@ export default () => (
 
         <styled.AboutMe spacing-2>
           <p className="media-no-print">
-            Senior Frontend / Full-Stack Developer from Wrocław, Poland. 15+
-            years of commercial experience, shipping React since 2017, C# and
-            .NET before that. I&nbsp;own what I&nbsp;ship, lead small teams by
-            example and put AI agents to work with guardrails and end-to-end
-            tests.
+            Senior Full-Stack Engineer from Wrocław, Poland. 15+ years of
+            commercial experience, shipping React since 2017, C# and .NET before
+            that. I&nbsp;own what I&nbsp;ship, lead small teams by example and
+            put AI agents to work with guardrails and end-to-end tests.
           </p>
           <p className="media-only-print">
-            Senior Frontend / Full-Stack Developer from Wrocław, Poland. Product
-            engineer with 15+ years of commercial experience, shipping React
-            since 2017. Before that I&nbsp;built and ran mobile apps in C# and
-            .NET. Long-term player: nine years in the same agency, running
-            projects end to end, solo or with a&nbsp;team.
+            Senior Full-Stack Engineer from Wrocław, Poland. Product engineer
+            with 15+ years of commercial experience, shipping React since 2017.
+            Before that I&nbsp;built and ran mobile apps in C# and .NET.
+            Long-term player: nine years in the same agency, running projects
+            end to end, solo or with a&nbsp;team.
           </p>
           <p className="media-only-print">
             I&nbsp;own what I&nbsp;ship: I&nbsp;monitor it, run it, debug it and

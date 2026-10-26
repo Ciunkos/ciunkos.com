@@ -3,7 +3,7 @@ import { pathToFileURL } from 'url'
 import { resolve } from 'path'
 
 const INPUT_PATH = './dist/resume.html'
-const OUTPUT_PATH = './src/www/resume.pdf'
+const OUTPUT_PATH = './dist/resume-page.pdf' // wydruk strony /resume; src/www/resume.pdf to ręcznie budowane CV (~/experimental/build-resume.sh)
 
 const main = async () => {
   try {
