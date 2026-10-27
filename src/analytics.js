@@ -1,8 +1,8 @@
 /* eslint-disable no-underscore-dangle, prefer-rest-params, func-names */
 
 /* Analytics start after the window load event, so they never compete with the first render.
-   Google Analytics (react-ga, sent to GA4) comes in its own chunk; PostHog is the same stub as on
-   the other ciunkos.com sites: array.js through the first-party proxy /hire/ph (the hire Worker),
+   Only PostHog (EU, no cookies, see ciunkos.com/privacy), the same stub as on the other
+   ciunkos.com sites: array.js through the first-party proxy /hire/ph (the hire Worker),
    800 ms after load, never for automated browsers. ?i=1 marks this browser as the owner's
    (localStorage ph_internal, events get internal: true), ?i=0 removes the mark. */
 
@@ -18,23 +18,6 @@ const afterLoad = (callback, delay = 0) => {
     })
   }
 }
-
-let ga = null
-const gaQueue = []
-
-const startGoogleAnalytics = () =>
-  afterLoad(() =>
-    import(/* webpackChunkName: "ga" */ 'react-ga').then(
-      ({ default: ReactGA }) => {
-        ReactGA.initialize('UA-41993735-2')
-        ga = ReactGA
-        gaQueue.splice(0).forEach(pathname => {
-          ga.set({ page: pathname })
-          ga.pageview(pathname)
-        })
-      }
-    )
-  )
 
 const internalFlag = () => {
   try {
@@ -59,8 +42,17 @@ const internalFlag = () => {
 
 let posthogStarted = false
 
+const optedOut = () => {
+  try {
+    return window.localStorage.getItem('ph_optout') === '1'
+  } catch (error) {
+    return false
+  }
+}
+
 const startPostHog = () => {
-  if (navigator.webdriver) return
+  // opt-out from ciunkos.com/privacy is stored per browser on the same origin
+  if (navigator.webdriver || optedOut()) return
   const internal = internalFlag()
   const p = window.posthog || []
   window.posthog = p
@@ -97,6 +89,7 @@ const startPostHog = () => {
     },
     disable_surveys: true,
     disable_session_recording: false,
+    respect_dnt: true,
     session_recording: {
       maskAllInputs: true,
       maskTextSelector: '[data-ph-mask]',
@@ -126,19 +119,11 @@ const startPostHog = () => {
 
 export const startAnalytics = () => {
   startPostHog()
-  startGoogleAnalytics()
 }
 
 let firstPageView = true
 
-export const logPageView = ({ pathname }) => {
-  if (ga) {
-    ga.set({ page: pathname })
-    ga.pageview(pathname)
-  } else {
-    gaQueue.push(pathname)
-  }
-
+export const logPageView = () => {
   // PostHog sends the first $pageview itself once loaded
   // window.posthog is the stub until array.js replaces it with the real instance
   if (posthogStarted && !firstPageView) {

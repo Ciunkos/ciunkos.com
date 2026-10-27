@@ -75,6 +75,20 @@ export default () => (
             </InlineLink>
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
+            <strong>Trust:</strong>
+            <InlineLink href="https://ciunkos.com/pricing">Pricing</InlineLink>
+            <InlineLink href="https://ciunkos.com/how-i-work">
+              How I work
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/security">
+              Security
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/privacy">Privacy</InlineLink>
+            <InlineLink href="https://ciunkos.com/trust">
+              Trust center
+            </InlineLink>
+          </styled.View>
+          <styled.View tag="section" horizontal spacing-2 wrappable>
             <strong>Free tools:</strong>
             <InlineLink href="https://ciunkos.com/business-idea-validator">
               Business idea validator
