@@ -446,7 +446,7 @@ export default [
       'Writing the front-end with React.js, Redux, and a custom styling solution',
       'Implementing message queue system and reactive immutable database solution',
       'Implementing video calling over WebRTC along with the signaling server',
-      'Automatic image classification using Yahoo’s Not Safe For Work deep neural model running on Docker',
+      'Automatic image moderation running on Docker',
       'Integrating with legacy ASP.NET long polling back-end servers and C# code'
     ]
   },
@@ -500,7 +500,7 @@ export default [
       'Creating and deploying ASP.NET based web service and API endpoints along with a landing page',
       'Designing and managing MS SQL database and integrating it with back-end service using Entity Framework',
       'Back-end crawling services for deals discovery and sending push notifications',
-      'Internationalization implementation for over 192 languages',
+      'Internationalization for a worldwide audience',
       'Deployment of multiple updates, maintenance work, and customer support'
     ]
   },
