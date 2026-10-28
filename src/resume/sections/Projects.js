@@ -200,5 +200,11 @@ export default () => (
       context=" apps and free tools"
       icon={<ArrowForward />}
     />
+    <ActionButton
+      href="/open-source"
+      name="Open source"
+      context=": fixes merged into widely used libraries"
+      icon={<ArrowForward />}
+    />
   </Section>
 )
