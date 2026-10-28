@@ -108,6 +108,12 @@ export default () => (
             <InlineLink href="https://ciunkos.com/best-ai-development-companies-in-poland">
               AI companies
             </InlineLink>
+            <InlineLink href="https://ciunkos.com/software-house-finder">
+              Software house finder
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/job-radar">
+              IT job radar
+            </InlineLink>
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
             <strong>Free tools:</strong>

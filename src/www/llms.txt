@@ -49,6 +49,10 @@ Independent rankings of Polish software development companies, built from the Na
 - [Best software houses in Rzeszów](https://ciunkos.com/best-software-houses-in-rzeszow)
 - [Best AI development companies in Poland](https://ciunkos.com/best-ai-development-companies-in-poland)
 - [Best JavaScript and TypeScript companies in Poland](https://ciunkos.com/best-javascript-development-companies-in-poland)
+- [Software house finder](https://ciunkos.com/software-house-finder): every company in the data set with filters for city, technology, industry, service, rate, size, revenue, profit and hiring; JSON data under CC BY 4.0.
+- [IT job radar](https://ciunkos.com/job-radar): open roles at these companies with the salary range from the ad and the employer's profit, GoWork reviews and layoff mentions. [Map of IT companies in Wrocław](https://ciunkos.com/radar-pracy-it/mapa-wroclawia).
+- Rankings by technology, industry and service, in Poland and per city (React, Next.js, Node.js, .NET, Java, Python, mobile, AI agents, fintech and more): full list in https://ciunkos.com/best/a/llms.txt
+- MCP server with the same data (read-only, no key): https://ciunkos.com/best/mcp
 
 ## Free tools
 
