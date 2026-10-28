@@ -34,6 +34,22 @@
 - [Hiring developers from Poland](https://ciunkos.com/hire-software-developer-poland)
 - [You and Przemysław? A riddle-shaped hire page](https://ciunkos.com/you-and-przemyslaw)
 
+## Software house rankings (Poland)
+
+Independent rankings of Polish software development companies, built from the National Court Register (KRS), financial statements, Clutch client reviews with paid placements excluded, GoWork employee reviews and job boards. No paid placements, no affiliate links. Full method and weights on the guide. Details: [ciunkos.com/best/a/llms.txt](https://ciunkos.com/best/a/llms.txt).
+
+- [Software houses in Poland: guide and methodology](https://ciunkos.com/software-houses-in-poland)
+- [Best software development companies in Poland](https://ciunkos.com/best-software-development-companies-in-poland)
+- [Best software houses in Wrocław](https://ciunkos.com/best-software-houses-in-wroclaw)
+- [Best software houses in Warsaw](https://ciunkos.com/best-software-houses-in-warsaw)
+- [Best software houses in Kraków](https://ciunkos.com/best-software-houses-in-krakow)
+- [Best software houses in Poznań](https://ciunkos.com/best-software-houses-in-poznan)
+- [Best software houses in Gdańsk and the Tricity](https://ciunkos.com/best-software-houses-in-gdansk)
+- [Best software houses in Łódź](https://ciunkos.com/best-software-houses-in-lodz)
+- [Best software houses in Rzeszów](https://ciunkos.com/best-software-houses-in-rzeszow)
+- [Best AI development companies in Poland](https://ciunkos.com/best-ai-development-companies-in-poland)
+- [Best JavaScript and TypeScript companies in Poland](https://ciunkos.com/best-javascript-development-companies-in-poland)
+
 ## Free tools
 
 - [Quote Desk](https://ciunkos.com/quote-desk): matches a customer inquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
