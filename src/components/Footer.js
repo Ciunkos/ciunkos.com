@@ -89,6 +89,18 @@ export default () => (
             </InlineLink>
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
+            <strong>Rankings:</strong>
+            <InlineLink href="https://ciunkos.com/software-houses-in-poland">
+              Software houses in Poland
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/best-software-houses-in-wroclaw">
+              Best software houses in Wrocław
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/software-house-wroclaw">
+              Software house Wrocław (PL)
+            </InlineLink>
+          </styled.View>
+          <styled.View tag="section" horizontal spacing-2 wrappable>
             <strong>Free tools:</strong>
             <InlineLink href="https://ciunkos.com/business-idea-validator">
               Business idea validator
