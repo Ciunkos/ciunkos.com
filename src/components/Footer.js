@@ -94,10 +94,19 @@ export default () => (
               Software houses in Poland
             </InlineLink>
             <InlineLink href="https://ciunkos.com/best-software-houses-in-wroclaw">
-              Best software houses in Wrocław
+              Wrocław
             </InlineLink>
-            <InlineLink href="https://ciunkos.com/software-house-wroclaw">
-              Software house Wrocław (PL)
+            <InlineLink href="https://ciunkos.com/best-software-houses-in-warsaw">
+              Warsaw
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/best-software-houses-in-krakow">
+              Kraków
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/best-software-development-companies-in-poland">
+              Best in Poland
+            </InlineLink>
+            <InlineLink href="https://ciunkos.com/best-ai-development-companies-in-poland">
+              AI companies
             </InlineLink>
           </styled.View>
           <styled.View tag="section" horizontal spacing-2 wrappable>
