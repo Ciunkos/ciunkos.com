@@ -1,16 +1,16 @@
-On 28 October 2026, Node.js 26 became the [Long Term Support](https://ciunkos.com/glossary/lts-and-end-of-life) line, eight days after Node.js 24 moved into Maintenance. New projects should start on 26, and Node.js 24 gets security fixes until 30 April 2028.
+On 28 October 2026, Node.js 26 became the [Long Term Support](https://ciunkos.com/glossary/lts-and-end-of-life) line, eight days after Node.js 24 moved into Maintenance, which means security and critical fixes only. New projects should start on 26, and Node.js 24 gets security fixes until 30 April 2028.
 
 > [!WARNING]
 > I'm not involved in the Node.js project. This post summarizes the official release notes, changelogs and docs, and links to them throughout.
 
-Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones, the V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
-
 > [!TLDR]
-> Plan to upgrade within the next few months. Most apps need a version bump, a rebuild of native addons and, on custom or distroless Linux images, `libatomic`. Run the codemods, then search by hand for `fs.W_OK`, which now fails silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
+> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of native addons and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.W_OK`, which now fails silently. In return you get Temporal, new JavaScript from V8 14.6, and Node.js 26 support until 30 April 2029.
+
+Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones, the V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
 
 ## Release schedule {#schedule}
 
-[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. If you've been testing on 26 already, nothing new will surprise you. You can check which line you're on:
+[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. Every LTS line gets a codename. If you've been testing on 26 already, nothing new will surprise you. You can check which line you're on:
 
 ```javascript
 console.log(process.version, process.release.lts)
@@ -24,9 +24,9 @@ Where each line stands, per the [Node.js release schedule](https://github.com/no
 - Node.js 22 has been in Maintenance since October 2025 and reaches end of life on 30 April 2027. If you're still on 22, it's the more urgent upgrade.
 - Node.js 25, the odd-numbered release in between, reached end of life in June 2026.
 
-![Support phases of Node.js 22, 24, 25 and 26. Node.js 22's earlier phases start before 2025, off the left edge.](./images/support-timeline.jpg)
+![Support phases of Node.js 22, 24, 25 and 26, with each line's end of life (EOL). Node.js 22's earlier phases start before 2025, off the left edge.](./images/support-timeline.jpg)
 
-You have a year and a half before Node.js 24 stops getting security patches, so nobody needs to upgrade tonight. But Temporal, the new JavaScript features and network permissions won't come to 24. Waiting for the next LTS doesn't buy much either, because Node.js 27 only becomes LTS in October 2027.
+You have a year and a half before Node.js 24 stops getting security patches, so nobody needs to upgrade tonight. But Temporal, the new JavaScript features and network restrictions in the permission model won't be backported to 24. Upgrading while 24 still has 18 months left also leaves you room to roll back if something goes wrong. Waiting for the next LTS doesn't buy much either, because Node.js 27 only becomes LTS in October 2027.
 
 ## Temporal is here {#temporal}
 
@@ -59,7 +59,7 @@ The hardest part of Temporal is choosing a type, so match it to what you know. A
 
 ![The six Temporal types you'll use most, with an example value and a typical use for each](./images/temporal-types.jpg)
 
-Existing code doesn't have to switch in one go. Every `Date` converts with [`toTemporalInstant()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant), and since 26.2.0 [file stats](https://nodejs.org/docs/latest-v26.x/api/fs.html#class-fsstats) come with `Temporal.Instant` fields next to the old `Date` ones:
+Existing code doesn't have to switch in one go. Every valid `Date` converts with [`toTemporalInstant()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant), (an invalid one throws a `RangeError`), and since 26.2.0 [file stats](https://nodejs.org/docs/latest-v26.x/api/fs.html#class-fsstats) come with `Temporal.Instant` fields next to the old `Date` ones:
 
 ```javascript
 import { statSync } from 'node:fs'
@@ -73,7 +73,7 @@ const { mtimeInstant } = statSync('package.json')
 mtimeInstant instanceof Temporal.Instant // true
 ```
 
-If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can likely replace them. The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
+If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can likely replace them. If the same code still has to run on Node.js 24, which doesn't enable Temporal, keep the library or load a polyfill such as [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill). The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
 
 ## What's new since Node.js 24 {#whats-new}
 
@@ -123,7 +123,7 @@ V8 also made [`JSON.stringify` faster](https://v8.dev/blog/json-stringify) for p
 
 ### Web Storage {#web-storage}
 
-[`localStorage` and `sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) no longer need a flag, though the API is still a release candidate. `sessionStorage` lives in memory for the life of the process. `localStorage` persists to a file you choose, which suits CLIs and code shared with the browser. Treat it as a small key-value file. The data is stored unencrypted, capped at 10 MB, and in a server it's shared across all users and requests:
+[`localStorage` and `sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) no longer need a flag, though the API is still a release candidate, Node's label for stable-but-not-final. `sessionStorage` lives in memory for the life of the process. `localStorage` persists to a file you choose, which suits CLIs and code shared with the browser. Treat it as a small key-value file. The data is stored unencrypted, capped at 10 MB, and in a server it's shared across all users and requests:
 
 ```bash
 node --localstorage-file=./storage.db app.js
@@ -138,20 +138,22 @@ localStorage.getItem('theme') // 'dark', even after a restart
 
 ### Network permissions {#permissions}
 
-The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` (for `fetch()`, in `err.cause`) unless you pass `--allow-net`, which is still marked experimental:
+The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` unless you pass `--allow-net`, which is still experimental. For `fetch()`, the code sits in `err.cause`:
 
 ```bash
 node --permission --allow-fs-read=./ --allow-net app.js
 ```
 
-Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit) (also in 24.20), runs every check without denying anything and publishes each violation on `diagnostics_channel`, so you can collect the list before you enforce it.
+Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit), arrived in 24.20 too. It runs every check without denying anything and publishes each violation on `diagnostics_channel`, Node's built-in event bus, so you can collect the list before you enforce it.
+
+Keep two things in mind. The docs call the permission model a seat belt for trusted code, and say plainly that malicious code can get around it. And under `--permission`, child processes, worker threads and native addons are blocked too, until you add `--allow-child-process`, `--allow-worker` or `--allow-addons`.
 
 ### Tooling and experiments {#tooling}
 
-- New in 26.11.0, [`--process-timeout=30s`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--process-timeoutduration) stops a process that is still running after 30 seconds with exit code 124, like `timeout(1)`, and first prints which handles kept it alive. It's useful for scripts and CI jobs that finish their work and then hang.
-- `node --build-sea=sea-config.json` builds a [single executable application](https://nodejs.org/docs/latest-v26.x/api/single-executable-applications.html) in one step, and SEA now supports ESM entry points.
-- `node:zlib` can read and write ZIP archives with [`ZipFile`](https://nodejs.org/docs/latest-v26.x/api/zlib.html#class-zlibzipfile) and `ZipBuffer`, still marked experimental.
-- Alpine Linux moved to tier 2 support in 26.11.0, and nodejs.org now publishes an official `linux-x64-musl` build next to the glibc ones.
+- New in 26.11.0, [`--process-timeout=30s`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--process-timeoutduration) stops a process that is still running after 30 seconds with exit code 124, like the Unix `timeout` command, and first prints which handles kept it alive. It's useful for scripts and CI jobs that finish their work and then hang.
+- `node --build-sea=sea-config.json` builds a [single executable application](https://nodejs.org/docs/latest-v26.x/api/single-executable-applications.html) (SEA), your app and Node.js in one binary, in one step. SEA now supports ESM entry points.
+- `node:zlib` can read and write ZIP archives with [`ZipFile`](https://nodejs.org/docs/latest-v26.x/api/zlib.html#class-zlibzipfile) and `ZipBuffer`, in early development.
+- Alpine Linux moved to tier 2 support in 26.11.0, which means full CI coverage, and nodejs.org now publishes an official `linux-x64-musl` build, the one Alpine needs, next to the glibc builds.
 - [`node:ffi`](https://nodejs.org/docs/latest-v26.x/api/ffi.html) calls native libraries without writing a C++ addon. It's experimental but on by default since 26.9.0, and under `--permission` it needs `--allow-ffi`. Still behind flags: `node:vfs` for virtual file systems, `node:bench` for benchmarks and an iterable streams API.
 
 ## Already in recent Node.js 24 releases {#helpers}
@@ -176,7 +178,7 @@ randomUUIDv7() // '01a18c3b-414f-76ff-9865-53facb82bd1e'
 
 The options differ from lodash's, so read the [`util.debounce()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utildebouncefn-wait-options) docs before you swap it in. [`util.throttle()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utilthrottlefn-limit-interval-options) is a rate limiter, `throttle(fn, limit, interval)`, that allows a number of calls per interval, unlike lodash's `throttle(fn, wait)`.
 
-If you use UUIDs as primary keys, generate [v7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for new rows. A v4 UUID lands at a random spot in the index on every insert. A v7 UUID starts with a timestamp, so new rows go to the end of a B-tree index. The trade-off is that anyone who sees the ID can read when the row was created.
+If you use UUIDs as primary keys, generate [v7](https://www.rfc-editor.org/rfc/rfc9562.html#name-uuid-version-7) for new rows. A v4 UUID lands at a random spot in the index on every insert. A v7 UUID starts with a timestamp, so new rows land near the end of a B-tree index and inserts stay mostly sequential. The trade-off is that anyone who sees the ID can read when the row was created.
 
 Also backported to 24:
 
@@ -190,9 +192,21 @@ Also backported to 24:
 
 Most applications upgrade without touching their code. The breaks below are roughly in order of how likely they are to hit you, with the error message where there is one.
 
+To see which ones apply to you, run a quick check from the root of your repository:
+
+- `ldd $(command -v node) | grep atomic` inside your image or server shows `not found` if [libatomic](#libatomic) is missing.
+- `git grep -n corepack` finds [Corepack](#corepack) in your Dockerfiles and CI.
+- `find node_modules -name '*.node'` lists compiled [native addons](#native-addons).
+- The search in [checklist step 7](#checklist) finds [removed APIs](#removed-apis).
+- `git grep -n experimental-transform-types` finds the [removed TypeScript flag](#typescript).
+- `git grep -n "'localStorage' in"` finds the [localStorage check](#localstorage) that now breaks.
+- `git grep -nE "module\.register|register\("` finds [custom loaders](#module-register).
+
+If none of these match, the upgrade is mostly a version bump.
+
 ### Missing libatomic {#libatomic}
 
-Since Node.js 25, the official Linux binaries link against `libatomic`. The official [`node:26` Docker images](https://github.com/nodejs/docker-node) (Debian slim and Alpine) already install it. Custom images, distroless setups and machines where you unpack the tarball yourself may not, and there `node` exits before running a line of your code:
+Since Node.js 25, the official Linux binaries link against `libatomic`, a small system library for atomic operations. The official [`node:26` Docker images](https://github.com/nodejs/docker-node) (Debian slim and Alpine) already install it. Custom images, distroless setups and machines where you unpack the tarball yourself may not, and there `node` exits before running a line of your code:
 
 ```text
 node: error while loading shared libraries: libatomic.so.1: cannot open shared object file: No such file or directory
@@ -224,7 +238,7 @@ Or skip Corepack and install the package manager directly with `npm install --gl
 
 ### Native addons need a rebuild {#native-addons}
 
-The native module ABI (`NODE_MODULE_VERSION`) moved from 137 in Node.js 24 to 147, per the [ABI version registry](https://github.com/nodejs/node/blob/main/doc/abi_version_registry.json). Addons built on [Node-API](https://nodejs.org/docs/latest-v26.x/api/n-api.html) are ABI-stable and keep working. Addons compiled against V8 directly, or through NAN, fail to load with a message like this:
+The native module ABI, the binary interface compiled addons link against, moved from `NODE_MODULE_VERSION` 137 in Node.js 24 to 147, per the [ABI version registry](https://github.com/nodejs/node/blob/main/doc/abi_version_registry.json). Addons built on [Node-API](https://nodejs.org/docs/latest-v26.x/api/n-api.html), Node's stable C API, keep working. Addons compiled against V8 directly, or through NAN, the older C++ helper library, fail to load with a message like this:
 
 ```text
 was compiled against a different Node.js version using
@@ -238,13 +252,15 @@ Delete `node_modules` and install again, or rebuild in place:
 npm rebuild
 ```
 
-If a package has no build for Node.js 26 yet, update it. If it's abandoned, look for a pure JavaScript or WebAssembly replacement.
+A reinstall only rebuilds if install scripts run. With pnpm 10, which skips dependency build scripts unless you allow them, or with `--ignore-scripts` in CI, allow the builds first. A compile error usually means the package needs a newer version of NAN. If a package has no build for Node.js 26 yet, update it. If it's abandoned, look for a pure JavaScript or WebAssembly replacement.
 
 ### Removed APIs {#removed-apis}
 
-These were [deprecated](https://nodejs.org/docs/latest-v26.x/api/deprecations.html), most of them for years, and are now gone. Each has a short fix, and several have an [official codemod](https://github.com/nodejs/userland-migrations) that makes the change for you.
+These were [deprecated](https://nodejs.org/docs/latest-v26.x/api/deprecations.html), most of them for years, and are now gone. Each has a short fix, and several have an [official codemod](https://github.com/nodejs/userland-migrations) that makes the change for you. Codemods rewrite files in place, so run them from the repository root on a clean git tree and review the diff.
 
-Start with the `fs` access constants, because this one fails silently. `fs.R_OK`, `fs.W_OK` and `fs.X_OK` are now `undefined`, and `fs.accessSync(file, undefined)` only checks that the file exists. A permission check that used them still passes on Node.js 26, even for a read-only file. A destructured `const { W_OK } = require('fs')` is just as silent; only `import { W_OK } from 'node:fs'` fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
+Start with the `fs` access constants, because this one fails silently. `fs.R_OK`, `fs.W_OK` and `fs.X_OK` are now `undefined`, and `fs.accessSync(file, undefined)` only checks that the file exists. A permission check that used them still passes on Node.js 26, even for a read-only file.
+
+Destructuring with `require` fails just as silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
 
 ```javascript
 // before: on Node.js 26 this passes even if the file is read-only
@@ -298,7 +314,7 @@ $ node --experimental-transform-types app.ts
 node: bad option: --experimental-transform-types
 ```
 
-Without it, Node.js rejects that syntax with `ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`. You have two ways out. Replace enums with plain objects and turn on [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly) in `tsconfig.json`, so the compiler flags anything Node.js can't strip. Or compile with `tsc`, `tsx` or `esbuild` before running.
+Without it, Node.js rejects that syntax with `ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`. You have two ways out. Replace enums with plain objects and turn on [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly) and `verbatimModuleSyntax` in `tsconfig.json`, so the compiler flags anything Node.js can't strip. Or run through a loader, `node --import=tsx app.ts`, or compile with `tsc` or `esbuild` first. Node.js itself ignores `tsconfig.json`, so `paths` aliases don't work with plain type stripping.
 
 ```typescript
 // before
@@ -312,9 +328,11 @@ const Status = { Draft: 0, Published: 1 } as const
 type Status = typeof Status[keyof typeof Status]
 ```
 
+The object version has no reverse mapping, so `Status[0]` no longer gives you `'Draft'`.
+
 ### localStorage exists on the server {#localstorage}
 
-With Web Storage on by default, `globalThis` has a [`localStorage`](https://nodejs.org/docs/latest-v26.x/api/globals.html#localstorage) property on the server. Unless you pass `--localstorage-file`, its value is `undefined`, and reading it prints `ExperimentalWarning: localStorage is not available because --localstorage-file was not provided`. Code that detects the browser by checking for the property now takes the wrong branch and crashes with `TypeError: Cannot read properties of undefined (reading 'getItem')`:
+With Web Storage on by default, `globalThis` has a [`localStorage`](https://nodejs.org/docs/latest-v26.x/api/globals.html#localstorage) property on the server. Unless you pass `--localstorage-file`, its value is `undefined`, and reading it prints `ExperimentalWarning: localStorage is not available because --localstorage-file was not provided`. Code that detects the browser by checking for the property now takes the wrong branch and crashes with `TypeError: Cannot read properties of undefined (reading 'getItem')`. The `globals` docs still say this access throws a `DOMException`, but the 26.0.0 changelog and 26.13.0 itself return `undefined`:
 
 ```javascript
 // breaks: the property exists, but its value is undefined
@@ -340,7 +358,7 @@ import { register, registerHooks } from 'node:module'
 // before: async hooks in a separate file, off the main thread
 register('./hooks.mjs', import.meta.url)
 
-// after: synchronous hooks, registered in place
+// after: synchronous hooks, in a file loaded with node --import
 registerHooks({
   resolve(specifier, context, nextResolve) {
     return nextResolve(specifier, context)
@@ -348,7 +366,7 @@ registerHooks({
 })
 ```
 
-A `load` hook that awaits a file read has to switch to `readFileSync`. The object `registerHooks()` returns has a `deregister()` method, and since 26.7.0 it also works with `using` when you only need the hooks inside one block. If the loader comes from a tool like `tsx` or your test runner, updating the tool is usually enough.
+Hooks only apply to modules loaded after they're registered, so keep them in their own file and load it first with `node --import ./register-hooks.js app.js`. A `load` hook that awaits a file read has to switch to `readFileSync`. The object `registerHooks()` returns has a `deregister()` method, and since 26.7.0 it also works with `using` when you only need the hooks inside one block. If the loader comes from a tool like `tsx` or your test runner, updating the tool is usually enough.
 
 ### Smaller changes {#smaller-changes}
 
@@ -363,20 +381,21 @@ A `load` hook that awaits a file read has to switch to `readFileSync`. The objec
 
 ## Upgrade checklist {#checklist}
 
-1. Install Node.js 26 (for example `nvm install 26`) and bump the version everywhere it's pinned: `.nvmrc`, `.node-version`, the `engines` field in `package.json`, your Dockerfile (`FROM node:26`) and the CI matrix.
-2. If you use TypeScript, bump `@types/node` to 26 and use TypeScript 6 or newer with `"lib": ["esnext"]`, which includes the Temporal types.
-3. Install [`libatomic`](#libatomic) on Linux machines and images that lack it.
-4. Replace `corepack enable` with a [global install](#corepack), if you use Corepack.
-5. Delete `node_modules`, install again, and let [native addons](#native-addons) rebuild.
-6. Run the official codemods for the [removed APIs](#removed-apis), then search for what's left by hand, since `fs.R_OK`, `fs.W_OK` and `fs.X_OK` fail silently. This lists every candidate, including destructured imports, for you to check:
+1. Add Node.js 26 to the CI matrix next to 24 and fix what fails before you switch the default.
+2. Install Node.js 26 (for example `nvm install 26`) and bump the version everywhere it's pinned: `.nvmrc`, `.node-version`, your Dockerfile (`FROM node:26`) and, for apps, the `engines` field in `package.json`. Libraries keep their lower bound.
+3. If you use TypeScript, bump `@types/node` to 26 and use TypeScript 6 or newer with `"lib": ["esnext"]`, which includes the Temporal types.
+4. Install [`libatomic`](#libatomic) on Linux machines and images that lack it.
+5. Replace `corepack enable` with a [global install](#corepack), if you use Corepack.
+6. Delete `node_modules`, install again, and let [native addons](#native-addons) rebuild. Then run `npx ls-engines` to find dependencies whose `engines` field excludes Node.js 26.
+7. Run the official codemods for the [removed APIs](#removed-apis), then search for what's left by hand, since `fs.R_OK`, `fs.W_OK` and `fs.X_OK` fail silently. This lists every candidate for you to check, and skips files git ignores:
 
    ```bash
-   grep -rnE "[RWX]_OK|SlowBuffer|_stream_|writeHeader|rmdir" --exclude-dir=node_modules . | grep -v "constants\.[RWX]_OK"
+   git grep -nwE "[RWX]_OK|SlowBuffer|_stream_[a-z]+|writeHeader|rmdir(Sync)?"
    ```
 
-7. Run your tests with `NODE_OPTIONS=--throw-deprecation`, so every deprecation fails loudly instead of scrolling past in the logs.
-8. Deploy to staging and watch for `DeprecationWarning` and `ExperimentalWarning` before you go to production.
-9. If you maintain a library, keep Node.js 24 in the CI matrix until it reaches end of life in April 2028.
+8. Run your tests with `node --trace-deprecation` to see which code, yours or a dependency's, triggers each warning. Once you've fixed or updated what you can, gate CI with `NODE_OPTIONS=--throw-deprecation`.
+9. Deploy to staging and watch for `DeprecationWarning` and `ExperimentalWarning` before you go to production.
+10. If you maintain a library, keep Node.js 24 in the CI matrix until it reaches end of life in April 2028, and Node.js 22 until April 2027.
 
 ## FAQ {#faq}
 
@@ -390,11 +409,11 @@ Node.js 24 moved to Maintenance on 20 October 2026 and reaches end of life on 30
 
 ### Should I upgrade from Node.js 24 to 26 now? {#faq-upgrade-now}
 
-Start new projects on Node.js 26 today. For existing apps, plan the upgrade within the next few months rather than waiting for April 2028. The [upgrade checklist](#checklist) covers the steps.
+Start new projects on Node.js 26 today. For existing apps, plan the upgrade within the next few months rather than waiting for April 2028, while there's still time to roll back. The [self-check](#breaking-changes) shows which breaks apply to you, and the [upgrade checklist](#checklist) covers the steps.
 
 ### Is Temporal available in Node.js 26 without a flag? {#faq-temporal}
 
-Yes. Temporal is enabled by default in Node.js 26 and available as a global, with no flag or import needed. Node.js 24 doesn't ship it.
+Yes. Temporal is enabled by default in Node.js 26 and available as a global, with no flag or import needed. Node.js 24 doesn't enable it.
 
 ### What breaks when upgrading from Node.js 24 to 26? {#faq-breaking}
 

@@ -1,4 +1,5 @@
 import cover from './cover.jpg'
+import shareImage from './share.jpg'
 import source from './index.md'
 import images from './images'
 
@@ -34,9 +35,10 @@ export default {
     }
   ],
   cover,
+  shareImage,
   markdown,
   metaDescription:
-    'Node.js 26 is LTS until April 2029. What is new since Node.js 24, including Temporal, and how to fix each breaking change when you upgrade.',
+    "Node.js 26 is LTS until April 2029. What's new since Node.js 24, including Temporal, and how to fix each breaking change when you upgrade.",
   description:
     'Node.js 26 replaced 24 as the LTS line in October 2026 and is supported until April 2029. It turns on Temporal, adds new JavaScript from V8 14.6 and removes APIs deprecated for years. Here is what you gain, what breaks on the way up from Node.js 24, and how to fix each break.',
   readingTime: readingTime(markdown)

@@ -7,7 +7,7 @@
    installed): PLAYWRIGHT_REPO=~/signature-desk by default, PLAYWRIGHT_CHANNEL=chrome
    to use the installed Chrome instead of a downloaded browser. */
 import { homedir } from 'node:os'
-import { mkdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 
 const repo = process.env.PLAYWRIGHT_REPO || join(homedir(), 'signature-desk')
@@ -407,6 +407,31 @@ h1 span{color:#7cc95d}
 <div class="grid">${temporalCards}</div>
 </body></html>`
 
+// share card for LinkedIn, X and Slack (1200 × 630): the title on the left, the cover's
+// tombstone and "26" hexagon cropped in on the right
+const shareCard = ({
+  width,
+  height,
+  cover
+}) => `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;position:relative;background:#06100a;color:#f0efec;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+.art{position:absolute;right:-40px;top:0;width:760px;height:${height}px;
+  background:url(data:image/jpeg;base64,${cover}) no-repeat;background-size:1250px auto;background-position:-480px 60px;
+  -webkit-mask-image:linear-gradient(180deg,transparent 60px,#000 180px);mask-image:linear-gradient(180deg,transparent 60px,#000 180px)}
+.fade{position:absolute;inset:0;background:linear-gradient(90deg,#06100a 38%,rgba(6,16,10,.85) 52%,rgba(6,16,10,0) 72%)}
+.text{position:absolute;left:64px;top:0;bottom:0;width:600px;display:flex;flex-direction:column;justify-content:center}
+.kicker{color:#7cc95d;text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:22px;margin-bottom:20px}
+h1{margin:0 0 22px;font-size:62px;line-height:1.05;letter-spacing:-.02em;font-weight:800}
+.sub{font-size:27px;line-height:1.35;color:#c3c2b7;margin:0}
+.url{position:absolute;left:64px;bottom:40px;font:700 20px ui-monospace,Menlo,monospace;color:#8a9a8c}
+</style></head><body>
+<div class="art"></div><div class="fade"></div>
+<div class="text"><div class="kicker">Node.js 26 LTS</div><h1>What's new since 24 and how to upgrade</h1>
+<p class="sub">Temporal, new JavaScript, and every breaking change with its fix.</p></div>
+<div class="url">ciunkos.com</div>
+</body></html>`
+
 const IMAGES = [
   {
     file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/cover.jpg',
@@ -431,6 +456,15 @@ const IMAGES = [
     width: 1200,
     height: 960,
     html: temporalTypes
+  },
+  {
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/share.jpg',
+    width: 1200,
+    height: 630,
+    html: shareCard,
+    // rendered after the cover, which it reuses
+    withCover:
+      'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/cover.jpg'
   }
 ]
 
@@ -441,7 +475,9 @@ for (const image of IMAGES) {
   // a fresh page per image: resizing one page left stale paint at the bottom of taller images
   const viewport = { width: image.width, height: image.height }
   const page = await browser.newPage({ viewport })
-  await page.setContent(image.html(image))
+  const cover =
+    image.withCover && readFileSync(image.withCover).toString('base64')
+  await page.setContent(image.html({ ...image, cover }))
   mkdirSync(dirname(image.file), { recursive: true })
   writeFileSync(
     image.file,
