@@ -146,10 +146,6 @@
   .HeadingContent {
     order: 0;
   }
-
-  .HeadingImage {
-    border-radius: 10%;
-  }
 }
 
 /* When wide enough, display navigation labels */
