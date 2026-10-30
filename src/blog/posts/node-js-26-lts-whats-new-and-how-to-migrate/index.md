@@ -9,7 +9,7 @@ Because 26 includes everything from the short-lived Node.js 25, the jump covers 
 
 ## Release schedule {#schedule}
 
-[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the LTS label switched on. If you've been testing on 26 already, nothing new will surprise you. You can check which line you're on:
+[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. If you've been testing on 26 already, nothing new will surprise you. You can check which line you're on:
 
 ```javascript
 console.log(process.version, process.release.lts)
