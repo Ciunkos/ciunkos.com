@@ -36,6 +36,8 @@ export default {
     }
   ],
   cover,
+  // phones show only part of the width; keep the gravestone and the LTS badge in view
+  coverPosition: '80% 20%',
   shareImage,
   markdown,
   metaDescription:

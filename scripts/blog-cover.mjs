@@ -437,6 +437,8 @@ const IMAGES = [
     file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/cover.jpg',
     width: W,
     height: H,
+    // rendered at 2x: on a phone the hero shows the cover about 1,300 device pixels tall
+    scale: 2,
     html: nodeLts
   },
   {
@@ -471,10 +473,18 @@ const IMAGES = [
 const browser = await chromium.launch({
   channel: process.env.PLAYWRIGHT_CHANNEL
 })
-for (const image of IMAGES) {
+// optional arguments render only the images whose path contains one of them
+const only = process.argv.slice(2)
+const selected = only.length
+  ? IMAGES.filter(image => only.some(part => image.file.includes(part)))
+  : IMAGES
+for (const image of selected) {
   // a fresh page per image: resizing one page left stale paint at the bottom of taller images
   const viewport = { width: image.width, height: image.height }
-  const page = await browser.newPage({ viewport })
+  const page = await browser.newPage({
+    viewport,
+    deviceScaleFactor: image.scale || 1
+  })
   const cover =
     image.withCover && readFileSync(image.withCover).toString('base64')
   await page.setContent(image.html({ ...image, cover }))

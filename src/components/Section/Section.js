@@ -9,9 +9,18 @@ const gradientSuffix = gradient =>
 const gradientStyle = gradient =>
   gradient ? { [`background-gradient${gradientSuffix(gradient)}`]: true } : {}
 
-const Section = ({ children, cover, priority, gradient = true, ...rest }) => (
+const Section = ({
+  children,
+  cover,
+  coverPosition,
+  priority,
+  gradient = true,
+  ...rest
+}) => (
   <styled.Section tag="section" {...rest} tabIndex={-1}>
-    {cover && <Background src={cover} priority={priority} />}
+    {cover && (
+      <Background src={cover} priority={priority} position={coverPosition} />
+    )}
     <styled.SectionContent {...gradientStyle(gradient)}>
       {children}
     </styled.SectionContent>

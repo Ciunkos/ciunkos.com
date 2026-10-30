@@ -57,7 +57,13 @@ const Blog = ({ post }) => (
     ogImageAlt={post.name}
     jsonLd={postJsonLd(post)}
   >
-    <Section Title cover={post.cover} priority gradient="shadow">
+    <Section
+      Title
+      cover={post.cover}
+      coverPosition={post.coverPosition}
+      priority
+      gradient="shadow"
+    >
       <Section.Content padding-2 spacing-4>
         <PostHeader post={post} link={false} />
       </Section.Content>

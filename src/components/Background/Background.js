@@ -11,7 +11,7 @@ const webpOf = src =>
     ? src.replace(/\.jpg$/, '.webp')
     : null
 
-const Background = ({ src, priority, children, ...rest }) => {
+const Background = ({ src, priority, position, children, ...rest }) => {
   const webp = webpOf(src)
 
   return (
@@ -25,6 +25,7 @@ const Background = ({ src, priority, children, ...rest }) => {
           fetchpriority={priority ? 'high' : undefined}
           loading={priority ? undefined : 'lazy'}
           src={src}
+          style={position ? { objectPosition: position } : undefined}
         />
       </picture>
       {children}
