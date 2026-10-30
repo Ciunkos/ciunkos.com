@@ -27,6 +27,7 @@ const markdownWithAssets = Object.entries(images).reduce(
 export default {
   name: 'Creating contact forms with nodemailer and React',
   slug: 'creating-contact-forms-with-nodemailer-and-react',
+  date: '2017-06-01',
   cover,
   markdown: markdownWithAssets,
   metaDescription:

@@ -19,6 +19,7 @@ const markdownWithAssets = markdown.replace(
 export default {
   name: 'Debugging JavaScript - The Basics',
   slug: 'debugging-javascript-the-basics',
+  date: '2017-06-01',
   cover,
   markdown: markdownWithAssets,
   metaDescription:

@@ -6,7 +6,7 @@ import posts from 'blog/posts'
 import { Page, Section, ActionButton, InlineLink } from 'components'
 import homeBackground from 'assets/home-background.jpg'
 import ogHome from 'assets/og-home.jpg'
-import { PostHeader, PostAbstract } from 'blog/post'
+import { PostHeader, PostAbstract, byPostDate } from 'blog/post'
 import locale from './locale'
 import Recent from './Recent'
 import './styles.css'
@@ -92,21 +92,23 @@ const HomePage = () => (
       <div />
     </a>
 
-    {Object.values(posts).map(post => (
-      <Section key={post.name} cover={post.cover}>
-        <Section.Content padding-2 spacing-4>
-          <PostHeader post={post} headerRole="h2" />
-          <PostAbstract post={post} />
-        </Section.Content>
+    {Object.values(posts)
+      .sort(byPostDate)
+      .map(post => (
+        <Section key={post.name} cover={post.cover}>
+          <Section.Content padding-2 spacing-4>
+            <PostHeader post={post} headerRole="h2" />
+            <PostAbstract post={post} />
+          </Section.Content>
 
-        <ActionButton
-          href={`/${post.slug}`}
-          name={locale.readMore}
-          context={`: ${post.name}`}
-          icon={<ArrowForward />}
-        />
-      </Section>
-    ))}
+          <ActionButton
+            href={`/${post.slug}`}
+            name={locale.readMore}
+            context={`: ${post.name}`}
+            icon={<ArrowForward />}
+          />
+        </Section>
+      ))}
   </Page>
 )
 

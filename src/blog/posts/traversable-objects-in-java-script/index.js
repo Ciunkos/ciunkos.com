@@ -13,6 +13,7 @@ const readingTime = str =>
 export default {
   name: 'Traversable Objects in JavaScript',
   slug: 'traversable-objects-in-java-script',
+  date: '2017-06-01',
   cover,
   markdown,
   metaDescription:

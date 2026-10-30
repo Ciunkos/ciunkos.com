@@ -13,6 +13,7 @@ const readingTime = str =>
 export default {
   name: 'Data as code modules',
   slug: 'data-as-code-modules',
+  date: '2017-06-01',
   cover,
   markdown,
   metaDescription:
