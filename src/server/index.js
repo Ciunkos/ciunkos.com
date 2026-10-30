@@ -23,7 +23,7 @@ const routes = [
   { pathname: '/data-as-code-modules', includeInSitemap: true },
   { pathname: '/debugging-javascript-the-basics', includeInSitemap: true },
   {
-    pathname: '/node-js-26-lts-whats-new-and-how-to-migrate',
+    pathname: '/node-js-26-lts-whats-new-and-how-to-upgrade',
     includeInSitemap: true
   },
   { pathname: '/resume', includeInSitemap: true },

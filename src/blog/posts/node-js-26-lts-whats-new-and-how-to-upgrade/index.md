@@ -5,7 +5,8 @@ On 28 October 2026, Node.js 26 became the [Long Term Support](https://ciunkos.co
 
 Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones, the V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
 
-> **TL;DR:** Plan the upgrade for the next few months. Most apps need a version bump, a rebuild of native addons and, on slim Linux images, `libatomic`. Search for `fs.W_OK` and friends by hand, because that break is silent. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
+> [!TLDR]
+> Plan the upgrade for the next few months. Most apps need a version bump, a rebuild of native addons and, on slim Linux images, `libatomic`. Search for `fs.W_OK` and friends by hand, because that break is silent. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
 
 ## Release schedule {#schedule}
 
@@ -21,6 +22,8 @@ Where each line stands, per the [Node.js release schedule](https://github.com/no
 - Node.js 26 is Active LTS until 20 October 2027, then gets maintenance fixes until its end of life on 30 April 2029.
 - Node.js 24 has been in Maintenance since 20 October 2026, which means security and critical bug fixes only, until 30 April 2028.
 - Node.js 25, the odd-numbered release in between, reached end of life in June 2026.
+
+![Support phases of Node.js 22, 24, 25 and 26. Node.js 22's earlier phases start before 2025, off the left edge.](./images/support-timeline.jpg)
 
 You have a year and a half before Node.js 24 stops getting security patches, so nobody needs to upgrade tonight. But Temporal, the new JavaScript features and network permissions won't come to 24.
 
@@ -50,6 +53,10 @@ Temporal.Duration.from({ hours: 1, minutes: 90 })
   .toString()
 // 'PT2H30M'
 ```
+
+The hardest part of Temporal is picking the right type. Pick the one that matches what you actually know. If you know the day but not the time, use `PlainDate`. If you know the city, use `ZonedDateTime`. If you only need a point in time, like a log timestamp, use `Instant`.
+
+![The six Temporal types you'll use most, with an example value and a typical use for each](./images/temporal-types.jpg)
 
 Existing code doesn't have to switch in one go. Every `Date` converts with [`toTemporalInstant()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant), and since 26.2.0 [file stats](https://nodejs.org/docs/latest-v26.x/api/fs.html#class-fsstats) come with `Temporal.Instant` fields next to the old `Date` ones:
 
@@ -360,7 +367,12 @@ A `load` hook that awaits a file read has to switch to `readFileSync`. The objec
 3. Install [`libatomic`](#libatomic) on Linux machines and images that lack it.
 4. Replace `corepack enable` with a [global install](#corepack), if you use Corepack.
 5. Delete `node_modules`, install again, and let [native addons](#native-addons) rebuild.
-6. Run the official codemods for the [removed APIs](#removed-apis), and search for `fs.R_OK`, `fs.W_OK` and `fs.X_OK` by hand, since those fail silently.
+6. Run the official codemods for the [removed APIs](#removed-apis), then search for what's left by hand, since `fs.R_OK`, `fs.W_OK` and `fs.X_OK` fail silently. This finds all of them, plus `SlowBuffer`, `_stream_*`, `writeHeader()` and recursive `rmdir()`:
+
+   ```bash
+   grep -rnE "fs\.[RWX]_OK|SlowBuffer|_stream_[a-z]+|writeHeader|rmdir(Sync)?\(.*recursive" src
+   ```
+
 7. Run your tests with `node --throw-deprecation`, so every deprecation fails loudly instead of scrolling past in the logs.
 8. Deploy to staging and watch for `DeprecationWarning` and `ExperimentalWarning` before you go to production.
 9. If you maintain a library, keep Node.js 24 in the CI matrix until it reaches end of life in April 2028.

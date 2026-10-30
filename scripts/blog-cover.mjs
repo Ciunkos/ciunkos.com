@@ -233,33 +233,216 @@ svg{position:absolute;inset:0}
 <div class="center"><div class="word">Temporal</div><div class="sub">is on by default in <b>Node.js 26</b></div></div>
 </body></html>`
 
+// in-post chart: the support timeline of recent Node.js lines
+// (dates from schedule.json in the nodejs/Release repository).
+// Phase colours are the validated dark categorical slots (blue, aqua, orange), labelled directly.
+const PHASES = {
+  current: { label: 'Current', color: '#3987e5' },
+  active: { label: 'Active LTS', color: '#199e70' },
+  maintenance: { label: 'Maintenance', color: '#d95926' }
+}
+
+const LINES = [
+  {
+    name: 'Node.js 22',
+    phases: [
+      ['current', '2024-04-24', '2024-10-29'],
+      ['active', '2024-10-29', '2025-10-21'],
+      ['maintenance', '2025-10-21', '2027-04-30']
+    ]
+  },
+  {
+    name: 'Node.js 24',
+    phases: [
+      ['current', '2025-05-06', '2025-10-28'],
+      ['active', '2025-10-28', '2026-10-20'],
+      ['maintenance', '2026-10-20', '2028-04-30']
+    ]
+  },
+  {
+    name: 'Node.js 25',
+    phases: [
+      ['current', '2025-10-15', '2026-04-01'],
+      ['maintenance', '2026-04-01', '2026-06-01']
+    ]
+  },
+  {
+    name: 'Node.js 26',
+    phases: [
+      ['current', '2026-05-05', '2026-10-28'],
+      ['active', '2026-10-28', '2027-10-20'],
+      ['maintenance', '2027-10-20', '2029-04-30']
+    ]
+  }
+]
+
+const supportTimeline = ({ width, height }) => {
+  const from = Date.parse('2025-01-01')
+  const to = Date.parse('2030-01-01')
+  const left = 200
+  const right = width - 60
+  const x = date =>
+    left +
+    ((Math.max(Date.parse(date), from) - from) / (to - from)) * (right - left)
+  const rowTop = 150
+  const rowGap = 110
+  const barHeight = 50
+  const years = [2025, 2026, 2027, 2028, 2029]
+  const grid = years
+    .map(year => {
+      const gx = x(`${year}-01-01`)
+      return `<line x1="${gx}" y1="120" x2="${gx}" y2="${
+        rowTop + LINES.length * rowGap - 40
+      }" stroke="#ffffff" stroke-opacity=".08"/>
+<text x="${gx}" y="108" text-anchor="middle" class="axis">${year}</text>`
+    })
+    .join('')
+  const rows = LINES.map((line, i) => {
+    const y = rowTop + i * rowGap
+    const textY = y + 34
+    const bars = line.phases
+      .map(([phase, start, end]) => {
+        // a 2px surface gap between neighbouring phases
+        const x1 = x(start) + 1
+        const labelX = x1 + 12
+        const w = Math.max(0, x(end) - x(start) - 2)
+        const { label, color } = PHASES[phase]
+        const fits = w > label.length * 12 + 20
+        const text = fits
+          ? `<text x="${labelX}" y="${textY}" class="seg">${label}</text>`
+          : ''
+        return `<rect x="${x1}" y="${y}" width="${w}" height="${barHeight}" rx="4" fill="${color}"/>${text}`
+      })
+      .join('')
+    const end = line.phases[line.phases.length - 1][2]
+    const eolX = x(end) + 12
+    const nameX = left - 24
+    const eol = new Date(end).toLocaleDateString('en-GB', {
+      month: 'short',
+      year: 'numeric',
+      timeZone: 'UTC'
+    })
+    // a surface-coloured box behind the label masks the "today" line where it crosses
+    const eolText = `EOL ${eol}`
+    const boxX = eolX - 8
+    const boxY = y + 6
+    const boxW = eolText.length * 13 + 16
+    return `<text x="${nameX}" y="${textY}" text-anchor="end" class="name">${line.name}</text>${bars}
+<rect x="${boxX}" y="${boxY}" width="${boxW}" height="38" fill="#0f2615"/>
+<text x="${eolX}" y="${textY}" class="eol">${eolText}</text>`
+  }).join('')
+  const today = x('2026-10-30')
+  const gridBottom = rowTop + LINES.length * rowGap - 40
+  const todayLabelY = gridBottom + 32
+  const legendY = height - 62
+  const legend = Object.values(PHASES)
+    .map(({ label, color }, i) => {
+      const lx = left + i * 250
+      const tx = lx + 34
+      const ty = legendY + 21
+      return `<rect x="${lx}" y="${legendY}" width="26" height="26" rx="4" fill="${color}"/><text x="${tx}" y="${ty}" class="legend">${label}</text>`
+    })
+    .join('')
+  return `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;background:#0f2615;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+svg{display:block}
+.title{fill:#f0efec;font-size:38px;font-weight:800}
+.axis{fill:#c3c2b7;font-size:26px}
+.name{fill:#f0efec;font-size:30px;font-weight:700}
+.seg{fill:#ffffff;font-size:24px;font-weight:700}
+.eol{fill:#c3c2b7;font-size:24px}
+.legend{fill:#c3c2b7;font-size:26px}
+.today{fill:#f0efec;font-size:24px;font-weight:700}
+</style></head><body>
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
+<text x="60" y="62" class="title">Node.js release lines, 2025 to 2029</text>
+${grid}
+<line x1="${today}" y1="120" x2="${today}" y2="${gridBottom}" stroke="#f0efec" stroke-width="2" stroke-dasharray="6 6"/>
+${rows}
+<text x="${today}" y="${todayLabelY}" text-anchor="middle" class="today">Today, 30 Oct 2026</text>
+${legend}
+</svg></body></html>`
+}
+
+// in-post diagram: which Temporal type to reach for
+const TEMPORAL_TYPES = [
+  ['PlainDate', '2026-10-28', 'A calendar day: a birthday, a release date'],
+  ['PlainTime', '15:00', 'A time of day: opening hours, an alarm'],
+  ['PlainDateTime', '2026-10-30T15:00', 'A wall-clock moment with no zone yet'],
+  [
+    'ZonedDateTime',
+    '2026-10-30T15:00[Europe/Warsaw]',
+    'A moment in a place: a meeting, a deadline'
+  ],
+  ['Instant', '2026-10-30T14:00:00Z', 'An exact point in time: a log entry'],
+  ['Duration', 'PT2H30M', 'A length of time: a timeout, a billing period']
+]
+
+const temporalCards = TEMPORAL_TYPES.map(
+  ([type, value, use]) =>
+    `<div class="card"><div class="type">${type}</div><div class="value">${value}</div><div class="use">${use}</div></div>`
+).join('')
+
+const temporalTypes = ({
+  width,
+  height
+}) => `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;box-sizing:border-box;padding:56px 60px;display:flex;flex-direction:column;
+  background:radial-gradient(ellipse at 50% 0%,#1f4d26 0%,#0f2615 60%,#08140b 100%);color:#f0efec;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+h1{margin:0 0 30px;font-size:46px;font-weight:800;letter-spacing:-.5px}
+h1 span{color:#7cc95d}
+.grid{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:22px}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(124,201,93,.35);border-radius:14px;padding:26px 28px;box-sizing:border-box}
+.type{font:800 38px ui-monospace,Menlo,Consolas,monospace;color:#a6e37f}
+.value{margin-top:12px;font:600 23px ui-monospace,Menlo,Consolas,monospace;color:#f0efec;background:rgba(0,0,0,.3);border-radius:8px;padding:8px 12px;display:inline-block;word-break:break-all}
+.use{margin-top:12px;font-size:27px;line-height:1.3;color:#c3c2b7}
+</style></head><body>
+<h1>Which <span>Temporal</span> type do I need?</h1>
+<div class="grid">${temporalCards}</div>
+</body></html>`
+
 const IMAGES = [
   {
-    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-migrate/cover.jpg',
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/cover.jpg',
     width: W,
     height: H,
     html: nodeLts
   },
   {
-    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-migrate/images/temporal.jpg',
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/images/temporal.jpg',
     width: 1600,
     height: 800,
     html: temporalParty
+  },
+  {
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/images/support-timeline.jpg',
+    width: 1200,
+    height: 700,
+    html: supportTimeline
+  },
+  {
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/images/temporal-types.jpg',
+    width: 1200,
+    height: 960,
+    html: temporalTypes
   }
 ]
 
 const browser = await chromium.launch({
   channel: process.env.PLAYWRIGHT_CHANNEL
 })
-const page = await browser.newPage()
 for (const image of IMAGES) {
-  await page.setViewportSize({ width: image.width, height: image.height })
+  // a fresh page per image: resizing one page left stale paint at the bottom of taller images
+  const viewport = { width: image.width, height: image.height }
+  const page = await browser.newPage({ viewport })
   await page.setContent(image.html(image))
   mkdirSync(dirname(image.file), { recursive: true })
   writeFileSync(
     image.file,
     await page.screenshot({ type: 'jpeg', quality: 90 })
   )
+  await page.close()
   console.log(image.file)
 }
 await browser.close()

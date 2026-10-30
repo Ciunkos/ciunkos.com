@@ -2,9 +2,11 @@ import cover from './cover.jpg'
 import source from './index.md'
 import images from './images'
 
-// ./images/<name>.jpg in the markdown points at the built (hashed) image
+// ./images/<file-name>.jpg in the markdown points at the built (hashed) image;
+// the auto-index names each import in camelCase (supportTimeline for support-timeline.jpg)
+const kebab = name => name.replace(/[A-Z]/g, c => `-${c.toLowerCase()}`)
 const markdown = Object.entries(images).reduce(
-  (text, [name, url]) => text.split(`./images/${name}.jpg`).join(url),
+  (text, [name, url]) => text.split(`./images/${kebab(name)}.jpg`).join(url),
   source
 )
 
@@ -19,7 +21,7 @@ const readingTime = str =>
 
 export default {
   name: "Node.js 26 is LTS: what's new since Node.js 24 and how to upgrade",
-  slug: 'node-js-26-lts-whats-new-and-how-to-migrate',
+  slug: 'node-js-26-lts-whats-new-and-how-to-upgrade',
   date: '2026-10-30',
   updated: '2026-10-30',
   authors: [
