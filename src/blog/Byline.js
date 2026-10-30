@@ -36,6 +36,8 @@ const undoDismiss = event =>
 // native popover (light dismiss, Esc) anchored to the person with CSS anchor positioning.
 export const Byline = ({ post }) => {
   useDismissOnEscape()
+  // an update on the publish day is not news
+  const updated = post.updated && post.updated !== post.date
   return (
     <div className="Byline">
       <div className="BylineAuthors">
@@ -79,8 +81,8 @@ export const Byline = ({ post }) => {
       </div>
       {post.date && (
         <span className="BylineDate">
-          {post.updated ? 'Updated' : 'Published'}{' '}
-          <strong>{formatPostDate(post.updated || post.date)}</strong>
+          {updated ? 'Updated' : 'Published'}{' '}
+          <strong>{formatPostDate(updated ? post.updated : post.date)}</strong>
         </span>
       )}
     </div>

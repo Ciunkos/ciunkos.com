@@ -244,7 +244,7 @@ blockquote {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 8px 24px;
+  gap: 8px 16px;
   padding-bottom: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   font-size: 14px;
@@ -259,7 +259,7 @@ blockquote {
   flex-shrink: 1;
   min-width: 0;
   align-items: center;
-  gap: 6px 14px;
+  gap: 6px 12px;
 }
 
 .BylineAuthor {
