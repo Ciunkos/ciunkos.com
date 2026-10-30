@@ -1,13 +1,14 @@
-/* Renders generated blog post covers (1280 × 720, the size of the photo covers)
-   into src/blog/posts/<slug>/cover.jpg. The left side stays dark because the site lays
+/* Renders generated blog post images: covers (1280 × 720, the size of the photo covers)
+   into src/blog/posts/<slug>/cover.jpg, and illustrations used inside posts into
+   src/blog/posts/<slug>/images/. On covers the left side stays dark because the site lays
    the post title and abstract over it; the art lives on the right.
    Usage: node scripts/blog-cover.mjs, then node scripts/webp.mjs <cover.jpg> for the WebP twin.
    Uses a current Playwright from a tool repo (this repo's is too old to have its browser
    installed): PLAYWRIGHT_REPO=~/signature-desk by default, PLAYWRIGHT_CHANNEL=chrome
    to use the installed Chrome instead of a downloaded browser. */
 import { homedir } from 'node:os'
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
+import { mkdirSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 
 const repo = process.env.PLAYWRIGHT_REPO || join(homedir(), 'signature-desk')
 const { chromium } = await import(
@@ -160,23 +161,105 @@ ${sparks}
 </svg>
 </body></html>`
 
-const COVERS = [
+// in-post illustration: Temporal is on by default, with fanfares
+const confetti = (width, height, count) => {
+  const colors = [
+    '#7cc95d',
+    '#a6e37f',
+    '#f5c542',
+    '#ff7a59',
+    '#5fb3f5',
+    '#ffffff'
+  ]
+  let seed = 7
+  const random = () => {
+    seed = (seed * 16807) % 2147483647
+    return seed / 2147483647
+  }
+  // keep the wordmark and the line under it clear
+  const overText = (x, y) =>
+    x > width * 0.22 &&
+    x < width * 0.78 &&
+    y > height * 0.3 &&
+    y < height * 0.72
+  return Array.from({ length: count }, (_, i) => {
+    let x
+    let y
+    do {
+      x = random() * width
+      y = random() * height
+    } while (overText(x, y))
+    const r = 5 + random() * 9
+    const rotate = Math.round(random() * 60)
+    const color = colors[i % colors.length]
+    const opacity = (0.45 + random() * 0.5).toFixed(2)
+    return `<polygon points="${hex(
+      x,
+      y,
+      r
+    )}" fill="${color}" fill-opacity="${opacity}" transform="rotate(${rotate} ${x.toFixed(
+      1
+    )} ${y.toFixed(1)})"/>`
+  }).join('')
+}
+
+const temporalParty = ({
+  width,
+  height
+}) => `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;
+  background:radial-gradient(ellipse at 50% 42%,#2a6a2e 0%,#12301a 45%,#060f09 100%);color:#fff}
+svg{position:absolute;inset:0}
+.center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
+.word{font-size:200px;font-weight:900;letter-spacing:-8px;line-height:1;
+  background:linear-gradient(180deg,#ffffff 0%,#d8f5c4 55%,#7cc95d 100%);-webkit-background-clip:text;color:transparent;
+  filter:drop-shadow(0 10px 30px rgba(124,201,93,.45))}
+.sub{font-size:44px;font-weight:700;color:#d8f5c4;letter-spacing:.5px}
+.sub b{color:#06100a;background:#7cc95d;border-radius:12px;padding:2px 16px;margin-left:6px}
+.emoji{position:absolute;font-size:150px;line-height:1;filter:drop-shadow(0 12px 20px rgba(0,0,0,.45))}
+.small{font-size:84px}
+.note{position:absolute;right:120px;bottom:70px;transform:rotate(7deg);background:#fff3a8;color:#5a4a00;
+  font:700 40px ui-monospace,Menlo,Consolas,monospace;padding:22px 30px;border-radius:6px;box-shadow:0 14px 30px rgba(0,0,0,.45)}
+.note s{text-decoration-thickness:5px;text-decoration-color:#d9381e}
+</style></head><body>
+<svg width="${width}" height="${height}">${confetti(width, height, 70)}</svg>
+<div class="emoji" style="left:70px;top:300px;transform:scaleX(-1) rotate(-18deg)">🎺</div>
+<div class="emoji" style="right:70px;top:300px;transform:rotate(-18deg)">🎺</div>
+<div class="emoji small" style="left:190px;top:90px;transform:rotate(-12deg)">🎉</div>
+<div class="emoji small" style="right:190px;top:90px;transform:scaleX(-1) rotate(-12deg)">🎉</div>
+<div class="emoji small" style="left:150px;bottom:70px">🥳</div>
+<div class="emoji small" style="left:660px;top:40px">🎊</div>
+<div class="note"><s>new Date()</s></div>
+<div class="center"><div class="word">Temporal</div><div class="sub">is on by default in <b>Node.js 26</b></div></div>
+</body></html>`
+
+const IMAGES = [
   {
     file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-migrate/cover.jpg',
+    width: W,
+    height: H,
     html: nodeLts
+  },
+  {
+    file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-migrate/images/temporal.jpg',
+    width: 1600,
+    height: 800,
+    html: temporalParty
   }
 ]
 
 const browser = await chromium.launch({
   channel: process.env.PLAYWRIGHT_CHANNEL
 })
-const page = await browser.newPage({ viewport: { width: W, height: H } })
-for (const cover of COVERS) {
-  await page.setContent(cover.html())
+const page = await browser.newPage()
+for (const image of IMAGES) {
+  await page.setViewportSize({ width: image.width, height: image.height })
+  await page.setContent(image.html(image))
+  mkdirSync(dirname(image.file), { recursive: true })
   writeFileSync(
-    cover.file,
+    image.file,
     await page.screenshot({ type: 'jpeg', quality: 90 })
   )
-  console.log(cover.file)
+  console.log(image.file)
 }
 await browser.close()

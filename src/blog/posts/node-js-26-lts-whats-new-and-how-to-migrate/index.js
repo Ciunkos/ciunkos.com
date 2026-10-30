@@ -1,5 +1,12 @@
 import cover from './cover.jpg'
-import markdown from './index.md'
+import source from './index.md'
+import images from './images'
+
+// ./images/<name>.jpg in the markdown points at the built (hashed) image
+const markdown = Object.entries(images).reduce(
+  (text, [name, url]) => text.split(`./images/${name}.jpg`).join(url),
+  source
+)
 
 const sum = (a, b) => a + b
 const readingTime = str =>
