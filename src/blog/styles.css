@@ -308,6 +308,18 @@ blockquote {
   line-height: 1.45;
 }
 
+/* closed: hidden. base.css makes every div display: flex, which overrides the browser's own
+   [popover]:not(:popover-open) { display: none } */
+.AuthorPopover:not(:popover-open) {
+  display: none;
+}
+
+@supports not selector(:popover-open) {
+  .AuthorPopover {
+    display: none;
+  }
+}
+
 /* opened by click or tap: in the top layer, anchored under the person */
 .AuthorPopover:popover-open {
   position-anchor: var(--anchor);
@@ -325,7 +337,7 @@ blockquote {
 }
 
 @media (hover: hover) {
-  /* hover and keyboard focus: the same card as an absolutely positioned child, shown
+  /* hover: the same card as an absolutely positioned child, shown
      after a short hover intent and hidden after a short grace period */
   .AuthorPopover:not(:popover-open) {
     display: block;
@@ -340,23 +352,45 @@ blockquote {
     transition: opacity 0.12s ease 0.2s, visibility 0s linear 0.32s;
   }
 
-  .BylineAuthor:hover > .AuthorPopover:not(:popover-open),
-  .BylineAuthor:focus-within > .AuthorPopover:not(:popover-open) {
+  .BylineAuthor:not([data-dismissed]):hover
+    > .AuthorPopover:not(:popover-open) {
     visibility: visible;
     opacity: 1;
     transition: opacity 0.12s ease 0.15s, visibility 0s linear 0.15s;
   }
 
-  /* the triangle safe area: a transparent wedge from the person down to the card keeps
-     the hover alive while the pointer crosses the gap diagonally */
-  .AuthorPopover:not(:popover-open)::before {
+  /* where anchor positioning works, the hover card is placed like the popover and flips
+     to the left when it would run off the right edge */
+  @supports (anchor-name: --a) {
+    /* the global layout makes every element position: relative; here the card's
+       containing block has to be the column, not the person, or there's no room to flip */
+    .Byline,
+    .BylineAuthors,
+    .BylineAuthor {
+      position: static;
+    }
+
+    .AuthorPopover:not(:popover-open) {
+      top: auto;
+      left: auto;
+      position-anchor: var(--anchor);
+      position-area: bottom span-right;
+      position-try-fallbacks: flip-inline;
+      margin-top: 8px;
+    }
+  }
+
+  /* the triangle safe area: a transparent wedge under the person, widening towards the
+     card on both sides, keeps the hover alive while the pointer crosses the gap
+     diagonally, whichever side the card opens on */
+  .BylinePerson::after {
     content: '';
     position: absolute;
-    bottom: 100%;
-    left: 0;
-    width: 100%;
-    height: 12px;
-    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 100%);
+    top: 100%;
+    left: -60px;
+    right: -60px;
+    height: 10px;
+    clip-path: polygon(60px 0, calc(100% - 60px) 0, 100% 100%, 0 100%);
   }
 }
 
@@ -509,19 +543,27 @@ blockquote {
   line-height: 34px;
 }
 
+.Markdown .HeadingWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
 .Markdown .HeadingAnchor {
   display: inline;
-  margin-left: 0.3em;
-  color: rgba(0, 0, 0, 0.3);
+  color: rgba(0, 0, 0, 0.55);
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 22px;
   font-weight: 400;
   text-decoration: none;
   opacity: 0;
   transition: opacity 0.15s;
 }
 
-.Markdown h3:hover .HeadingAnchor,
-.Markdown h4:hover .HeadingAnchor,
-.Markdown .HeadingAnchor:focus {
+.Markdown .HeadingWrap:hover .HeadingAnchor,
+.Markdown .HeadingAnchor:focus-visible {
   opacity: 1;
 }
 
@@ -554,20 +596,20 @@ blockquote {
 }
 
 .CalloutLabel::before {
-  content: '⚠ ';
+  content: '⚠ ' / '';
 }
 
 .Callout.note .CalloutLabel::before,
 .Callout.important .CalloutLabel::before {
-  content: 'ⓘ ';
+  content: 'ⓘ ' / '';
 }
 
 .Callout.tip .CalloutLabel::before {
-  content: '💡 ';
+  content: '💡 ' / '';
 }
 
 .Callout.tldr .CalloutLabel::before {
-  content: '⚡ ';
+  content: '⚡ ' / '';
 }
 
 /* links to glossary terms: a dashed underline, like the glossary links on the hire pages */
@@ -590,4 +632,11 @@ blockquote {
 .Markdown pre code.hljs.text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+/* keyboard focus has to be visible; defaults.css sets :focus { outline: 0 } site-wide */
+.Blog :focus-visible {
+  outline: 2px solid rgb(10, 100, 210);
+  outline-offset: 2px;
+  border-radius: 3px;
 }

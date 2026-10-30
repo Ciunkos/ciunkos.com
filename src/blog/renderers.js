@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { textOf } from './markdown'
+
 const CALLOUT_LABELS = {
   note: 'Note',
   tip: 'Tip',
@@ -10,22 +12,27 @@ const CALLOUT_LABELS = {
 }
 
 // the page header already has the h1, so headings inside a post start at h2;
-// every heading gets a stable id (see headingIds in markdown.js) and a # link to copy
+// every heading gets a stable id (see headingIds in markdown.js) and a # link to copy,
+// next to the heading rather than inside it, so it isn't read as part of the heading
 export const Heading = ({ level, node, children }) => {
   const id = node.data && node.data.id
-  return React.createElement(
+  const heading = React.createElement(
     `h${Math.min(level + 1, 6)}`,
     { id },
-    children,
-    id && (
+    children
+  )
+  if (!id) return heading
+  return (
+    <div className="HeadingWrap">
+      {heading}
       <a
         className="HeadingAnchor"
         href={`#${id}`}
-        aria-label="Link to this section"
+        aria-label={`Permalink: ${textOf(node)}`}
       >
         #
       </a>
-    )
+    </div>
   )
 }
 
@@ -34,10 +41,16 @@ export const InlineCode = ({ value }) => (
 )
 
 export const Callout = ({ kind, children }) => (
-  <aside className={`Callout ${kind}`}>
-    <span className="CalloutLabel">{CALLOUT_LABELS[kind]}</span>
+  <div
+    className={`Callout ${kind}`}
+    role="note"
+    aria-label={CALLOUT_LABELS[kind]}
+  >
+    <span className="CalloutLabel" aria-hidden="true">
+      {CALLOUT_LABELS[kind]}
+    </span>
     {children}
-  </aside>
+  </div>
 )
 
 const isGlossary = href =>

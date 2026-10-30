@@ -2,7 +2,8 @@
 /* react-markdown 5 AST plugins for blog posts. They change the markdown AST in place
    before rendering, and the custom renderers in Blog.js receive the changed nodes. */
 
-const textOf = node => node.value || (node.children || []).map(textOf).join('')
+export const textOf = node =>
+  node.value || (node.children || []).map(textOf).join('')
 
 const slugify = text =>
   text
