@@ -1,6 +1,7 @@
 import React from 'react'
 import Lowlight from 'react-lowlight'
 import js from 'highlight.js/lib/languages/javascript'
+import bash from 'highlight.js/lib/languages/bash'
 
 let registered = false
 
@@ -15,6 +16,7 @@ export default class CodeBlock extends React.PureComponent {
 
       Lowlight.registerLanguage('js', js)
       Lowlight.registerLanguage('javascript', js)
+      Lowlight.registerLanguage('bash', bash)
     }
   }
 

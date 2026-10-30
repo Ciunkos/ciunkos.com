@@ -217,3 +217,94 @@ blockquote {
     box-shadow: 0 7px 14px rgba(0, 0, 0, 0.12), 0 5px 5px rgba(0, 0, 0, 0.11);
   }
 }
+
+/* bylines: under the title and "About the contributors" after the post */
+.Byline,
+.Contributors {
+  font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+    Geneva, Arial, sans-serif;
+}
+
+.Byline {
+  display: grid;
+  gap: 16px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.BylineRole {
+  margin-bottom: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.AuthorCard {
+  display: flex;
+  /* the global layout makes every div a column */
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.AuthorCard > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.AuthorCard img {
+  flex: none;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.AuthorCard strong,
+.AuthorCard h4 {
+  display: block;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.AuthorCard p {
+  margin: 2px 0 4px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(0, 0, 0, 0.66);
+}
+
+.AuthorCard.large {
+  gap: 16px;
+  padding: 16px 0;
+}
+
+.AuthorCard.large h4 {
+  font-size: 18px;
+}
+
+.AuthorLinks {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 13px;
+}
+
+.AuthorLinks a {
+  color: rgb(10, 100, 210);
+}
+
+.BylineDate {
+  flex-direction: row;
+  gap: 4px;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.Contributors {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
