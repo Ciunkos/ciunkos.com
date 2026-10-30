@@ -2,12 +2,12 @@
   margin-bottom: 8px;
 }
 
-.Markdown > pre > code {
+.Markdown pre > code {
   font-size: 80%;
 }
 
 /* the pre scrolls (and takes focus), not the code inside it */
-.Markdown > pre > code.hljs {
+.Markdown pre > code.hljs {
   overflow-x: visible;
 }
 
@@ -51,7 +51,7 @@
   color: #8a5f00;
 }
 
-.Markdown > pre {
+.Markdown pre {
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
@@ -460,7 +460,35 @@ blockquote {
 }
 
 /* ```text blocks hold terminal output, which reads better wrapped than scrolled */
-.Markdown > pre code.hljs.text {
+.Markdown pre code.hljs.text {
   white-space: pre-wrap;
   overflow-wrap: anywhere;
+}
+
+/* "> [!TLDR]": the summary at the top of a post, in Node green and a little larger */
+.Callout.tldr {
+  --callout: #3c873a;
+  padding: 16px 20px 18px;
+  border-left-width: 6px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #eef7ea 0%, #f7fbf5 100%);
+  box-shadow: 0 1px 2px rgba(60, 135, 58, 0.12);
+}
+
+/* the label sits in a small pill above the summary */
+.Callout.tldr .CalloutLabel {
+  display: inline-block;
+  align-self: flex-start;
+  margin-bottom: 8px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--callout);
+  color: white;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.Callout.tldr .CalloutLabel::before {
+  content: '⚡ ';
 }

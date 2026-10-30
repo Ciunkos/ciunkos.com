@@ -38,7 +38,15 @@ export const headingIds = root => {
   })
 }
 
-export const CALLOUT_KINDS = ['note', 'tip', 'important', 'warning', 'caution']
+// GitHub's five kinds, plus tldr for the summary at the top of a post
+export const CALLOUT_KINDS = [
+  'note',
+  'tip',
+  'important',
+  'warning',
+  'caution',
+  'tldr'
+]
 
 // GitHub alerts: a blockquote starting with "[!WARNING]" becomes a callout node
 export const callouts = root =>

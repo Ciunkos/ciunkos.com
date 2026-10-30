@@ -5,7 +5,8 @@ const CALLOUT_LABELS = {
   tip: 'Tip',
   important: 'Important',
   warning: 'Warning',
-  caution: 'Caution'
+  caution: 'Caution',
+  tldr: 'TL;DR'
 }
 
 // the page header already has the h1, so headings inside a post start at h2;
