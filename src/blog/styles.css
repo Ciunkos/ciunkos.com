@@ -76,13 +76,12 @@
   text-decoration-skip: ink;
 }
 
-p code,
-h1 code,
-h2 code,
-h3 code {
+/* inline code in paragraphs, list items, headings and callouts */
+:not(pre) > code {
   background: #f3f3f3;
-  padding: 2px 6px;
+  padding: 1px 5px;
   border-radius: 4px;
+  font-size: 0.85em;
 }
 
 .Markdown > h1 {
@@ -135,8 +134,9 @@ code.hljs {
 }
 
 blockquote {
-  padding: 8px;
+  padding: 12px 16px;
   background: oldlace;
+  border-radius: 4px;
 }
 
 .Markdown {
@@ -307,4 +307,142 @@ blockquote {
   margin-top: 48px;
   padding-top: 24px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* lists: the global layout makes ul, ol and li column flexboxes, which breaks inline code
+   into separate lines and hides the markers */
+.Markdown ul,
+.Markdown ol {
+  display: block;
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.Markdown ul {
+  list-style: disc;
+}
+
+.Markdown ol {
+  list-style: decimal;
+}
+
+.Markdown li {
+  display: list-item;
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.Markdown li > p {
+  display: inline;
+}
+
+.Markdown li::marker {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+/* headings: ## renders as h3, ### as h4 */
+.Markdown h3,
+.Markdown h4 {
+  scroll-margin-top: 80px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.Markdown h3 {
+  margin-top: 40px;
+  margin-bottom: 0;
+  font-size: 28px;
+  line-height: 36px;
+}
+
+.Markdown h4 {
+  margin-top: 24px;
+  margin-bottom: 0;
+  font-size: 22px;
+  line-height: 30px;
+}
+
+.Markdown .HeadingAnchor {
+  display: inline;
+  margin-left: 0.3em;
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 400;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.Markdown h3:hover .HeadingAnchor,
+.Markdown h4:hover .HeadingAnchor,
+.Markdown .HeadingAnchor:focus {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .Markdown .HeadingAnchor {
+    opacity: 1;
+  }
+}
+
+/* GitHub-style alerts from "> [!WARNING]" */
+.Callout {
+  --callout: #0969da;
+  padding: 12px 16px;
+  border-left: 4px solid var(--callout);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--callout) 7%, white);
+}
+
+.Callout.tip {
+  --callout: #1a7f37;
+}
+
+.Callout.important {
+  --callout: #8250df;
+}
+
+.Callout.warning {
+  --callout: #9a6700;
+}
+
+.Callout.caution {
+  --callout: #cf222e;
+}
+
+.CalloutLabel {
+  margin-bottom: 4px;
+  color: var(--callout);
+  font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
+    Geneva, Arial, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.CalloutLabel::before {
+  content: '⚠ ';
+}
+
+.Callout.note .CalloutLabel::before,
+.Callout.important .CalloutLabel::before {
+  content: 'ⓘ ';
+}
+
+.Callout.tip .CalloutLabel::before {
+  content: '💡 ';
+}
+
+/* links to glossary terms: a dashed underline, like the glossary links on the hire pages */
+.Markdown a.GlossaryLink {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: underline dashed;
+  text-decoration-color: rgba(10, 100, 210, 0.7);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+.Markdown a.GlossaryLink:hover,
+.Markdown a.GlossaryLink:focus-visible {
+  color: rgb(10, 100, 210);
+  text-decoration-style: solid;
 }

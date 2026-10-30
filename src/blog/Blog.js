@@ -9,6 +9,8 @@ import CodeBlock from './CodeBlock'
 import Image from './Image'
 import { Byline, Contributors } from './Byline'
 import { postAuthors } from './authors'
+import { astPlugins } from './markdown'
+import { Heading, Callout, Link } from './renderers'
 
 const SITE = 'https://ciunkos.com/'
 
@@ -63,16 +65,13 @@ const Blog = ({ post }) => (
           <ReactMarkdown
             className="Markdown spacing-4"
             source={withoutTitle(post.markdown)}
+            astPlugins={astPlugins}
             renderers={{
               code: CodeBlock,
               image: Image,
-              // the page header already has the h1, so headings inside a post start at h2
-              heading: ({ level, children }) =>
-                React.createElement(
-                  `h${Math.min(level + 1, 6)}`,
-                  null,
-                  children
-                )
+              heading: Heading,
+              callout: Callout,
+              link: Link
             }}
           />
         )}
