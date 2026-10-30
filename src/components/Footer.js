@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import styled from 'styled'
 import PageIcon from 'assets/page-icon.jpg'
@@ -16,6 +16,46 @@ const CEIDG =
 const RepositoryLink = () => (
   <InlineLink href="https://github.com/ciunkos/ciunkos.com">GitHub</InlineLink>
 )
+
+const VITALS_BADGE = 'https://ciunkos.com/checks/ciunkos.com/badge.svg?path=/'
+const VITALS_LABEL =
+  'Core Web Vitals of the ciunkos.com home page, measured daily by Vitals Desk'
+
+// the badge is drawn by a separate service that can take seconds to answer, so it is
+// only requested after the page's load event and never holds the page back; the
+// placeholder keeps its 392 by 20 box so nothing moves when it arrives
+const VitalsBadge = () => {
+  const [src, setSrc] = useState(null)
+
+  useEffect(() => {
+    const show = () => setSrc(VITALS_BADGE)
+    if (document.readyState === 'complete') {
+      show()
+      return undefined
+    }
+    window.addEventListener('load', show, { once: true })
+    return () => window.removeEventListener('load', show)
+  }, [])
+
+  const box = { display: 'block', width: 392, maxWidth: '100%', height: 'auto' }
+
+  return (
+    <a href="https://ciunkos.com/checks/ciunkos.com" aria-label={VITALS_LABEL}>
+      {src ? (
+        <img
+          src={src}
+          width="392"
+          height="20"
+          decoding="async"
+          alt={VITALS_LABEL}
+          style={box}
+        />
+      ) : (
+        <span style={{ ...box, aspectRatio: '392 / 20' }} />
+      )}
+    </a>
+  )
+}
 
 export default () => (
   <Section Notes>
@@ -137,17 +177,7 @@ export default () => (
         </styled.View>
       </styled.View>
       <styled.VitalsBadge tag="p" media-no-print>
-        <a href="https://ciunkos.com/checks/ciunkos.com">
-          <img
-            src="https://ciunkos.com/checks/ciunkos.com/badge.svg?path=/"
-            width="392"
-            height="20"
-            loading="lazy"
-            decoding="async"
-            alt="Core Web Vitals of the ciunkos.com home page, measured daily by Vitals Desk"
-            style={{ display: 'block', maxWidth: '100%', height: 'auto' }}
-          />
-        </a>
+        <VitalsBadge />
       </styled.VitalsBadge>
       <styled.CopyrightNotes tag="p" media-no-print>
         <InlineLink href="mailto:ciunkos@gmail.com">
