@@ -18,7 +18,7 @@ const readingTime = str =>
   )
 
 export default {
-  name: "Node.js 26 is LTS: what's new since Node 24 and how to upgrade",
+  name: "Node.js 26 is LTS: what's new since Node.js 24 and how to upgrade",
   slug: 'node-js-26-lts-whats-new-and-how-to-migrate',
   date: '2026-10-30',
   updated: '2026-10-30',
@@ -28,14 +28,14 @@ export default {
       id: 'claude',
       role: 'Co-authored by',
       description:
-        'AI model by Anthropic. Researched the Node.js release notes and changelogs, ran every code sample on Node.js 26.13.0 and drafted the text.'
+        'AI model by Anthropic. Researched the Node.js release notes, changelogs and docs, tested the code samples on Node.js 26.13.0 and drafted the text.'
     }
   ],
   cover,
   markdown,
   metaDescription:
-    'Node.js 26 is LTS until April 2029. What changed since Node 24, from Temporal to built-in debounce, and how to fix every breaking change when you upgrade.',
+    'Node.js 26 is LTS until April 2029. What is new since Node.js 24, including Temporal, and how to fix each breaking change when you upgrade.',
   description:
-    'Node.js 24 just went into Maintenance, and Node.js 26 is the new LTS. JavaScript finally gets a date API that behaves, a few npm packages become built-ins, and some long-deprecated APIs are gone. What changed, what can break when you upgrade, and the one-line fix for each break.',
+    'Node.js 26 replaced 24 as the LTS line in October 2026 and is supported until April 2029. It turns on Temporal, adds new JavaScript from V8 14.6 and removes APIs deprecated for years. Here is what you gain, what breaks on the way up from Node.js 24, and how to fix each break.',
   readingTime: readingTime(markdown)
 }
