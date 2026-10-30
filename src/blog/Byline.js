@@ -38,11 +38,12 @@ export const Byline = ({ post }) => {
   useDismissOnEscape()
   // an update on the publish day is not news
   const updated = post.updated && post.updated !== post.date
+  const authors = postAuthors(post)
   return (
     <div className="Byline">
       <div className="BylineAuthors">
         <span className="BylineLabel">{post.bylineLabel || 'Written by'}:</span>
-        {postAuthors(post).map(author => {
+        {authors.map((author, index) => {
           // also the anchor name, so only characters valid in a CSS ident
           const id = `author-${post.slug}-${author.id}`.replace(
             /[^a-z0-9-]/gi,
@@ -55,15 +56,17 @@ export const Byline = ({ post }) => {
               style={{ '--anchor': `--${id}` }}
               onPointerLeave={undoDismiss}
             >
-              <button
-                type="button"
-                className="BylinePerson"
-                popovertarget={id}
-                aria-label={author.bylineAvatarOnly ? author.name : undefined}
-              >
+              {authors.length > 1 && index === authors.length - 1 && (
+                <span className="BylineConjunction">and </span>
+              )}
+              <button type="button" className="BylinePerson" popovertarget={id}>
+                {author.bylineAvatarOnly && (
+                  <span className="visually-hidden">{author.name}</span>
+                )}
                 <img src={author.avatar} alt="" width="28" height="28" />
                 {!author.bylineAvatarOnly && <span>{author.name}</span>}
               </button>
+              {authors.length > 2 && index < authors.length - 1 && ','}
               <div
                 id={id}
                 popover="auto"

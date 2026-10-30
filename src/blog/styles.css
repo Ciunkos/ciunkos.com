@@ -297,6 +297,11 @@ blockquote {
 .BylineAuthor {
   display: inline-flex;
   flex-direction: row;
+  align-items: center;
+}
+
+.BylineConjunction {
+  margin-right: 8px;
 }
 
 .BylinePerson {
