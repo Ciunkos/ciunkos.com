@@ -22,6 +22,10 @@ const routes = [
   },
   { pathname: '/data-as-code-modules', includeInSitemap: true },
   { pathname: '/debugging-javascript-the-basics', includeInSitemap: true },
+  {
+    pathname: '/node-js-26-lts-whats-new-and-how-to-migrate',
+    includeInSitemap: true
+  },
   { pathname: '/resume', includeInSitemap: true },
   { pathname: '/traversable-objects-in-java-script', includeInSitemap: true },
   { pathname: '/not-found', alias: '404.html', includeInSitemap: false }
