@@ -123,7 +123,7 @@ V8 also made [`JSON.stringify()` faster](https://v8.dev/blog/json-stringify) for
 
 ### Web Storage {#web-storage}
 
-[`localStorage` and `sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) no longer need a flag, though the API is still a release candidate, the Node.js label for stable-but-not-final. `sessionStorage` lives in memory for the life of the process. `localStorage` persists to a file you choose, which suits CLIs and code shared with the browser. Treat it as a small key-value file. The data is stored unencrypted, capped at 10 MB, and on a server it's shared across all users and requests. Pass the file with `--localstorage-file`:
+[`localStorage` and `sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) no longer need a flag, though the API is still a release candidate, the last experimental stage before stable. `sessionStorage` lives in memory for the life of the process. `localStorage` persists to a file you choose, which suits CLIs and code shared with the browser. Treat it as a small key-value file. The data is stored unencrypted, capped at 10 MB, and on a server it's shared across all users and requests. Pass the file with `--localstorage-file`:
 
 ```bash
 node --localstorage-file=./storage.db app.js
@@ -155,7 +155,7 @@ Keep two things in mind. The docs call the permission model a seat belt for trus
 - New in 26.11.0, [`--process-timeout=30s`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--process-timeoutduration) stops a process that is still running after 30 seconds with exit code 124, like the Unix `timeout` command. Before exiting, it prints which handles kept the process alive. It's useful for scripts and CI jobs that finish their work and then hang.
 - `node --build-sea=sea-config.json` builds a [single executable application](https://nodejs.org/docs/latest-v26.x/api/single-executable-applications.html) (SEA) in one step, packing your app and Node.js into one binary. SEA now supports ESM entry points.
 - `node:zlib` can read and write ZIP archives with [`ZipFile`](https://nodejs.org/docs/latest-v26.x/api/zlib.html#class-zlibzipfile) and `ZipBuffer`. Both are in early development.
-- Alpine Linux moved to tier 2 support in 26.11.0, which means full CI coverage. nodejs.org now publishes the official `linux-x64-musl` build that Alpine needs next to the glibc builds.
+- Alpine Linux moved to tier 2 support in 26.11.0, which means full CI coverage. The official `linux-x64-musl` build that Alpine needs has been on nodejs.org since 26.8.0, and since 24.20.0 for Node.js 24.
 - [`node:ffi`](https://nodejs.org/docs/latest-v26.x/api/ffi.html) calls native libraries without writing a C++ addon. It's experimental but on by default since 26.9.0, and under `--permission` it needs `--allow-ffi`. Still behind flags: `node:vfs` for virtual file systems, `node:bench` for benchmarks and an iterable streams API.
 
 ## Already in recent Node.js 24 releases {#helpers}
@@ -196,13 +196,13 @@ Most applications upgrade without touching their code. The breaks below are roug
 
 To see which ones apply to you, run this self-check from the root of your repository:
 
-- `ldd $(command -v node) | grep atomic` inside your image or server shows `not found` if [libatomic](#libatomic) is missing.
+- `node -v` inside your image or on your server fails with a `libatomic.so.1` error if [libatomic](#libatomic) is missing.
 - `git grep -n corepack` finds [Corepack](#corepack) in your Dockerfiles and CI.
 - `find node_modules -name '*.node'` lists compiled [native addons](#native-addons).
 - The search in [checklist step 7](#checklist) finds [removed APIs](#removed-apis).
 - `git grep -n experimental-transform-types` finds the [removed TypeScript flag](#typescript).
-- `git grep -n "'localStorage' in"` finds the [localStorage check](#localstorage) that now breaks.
-- `git grep -nE "module\.register|register\("` finds [custom loaders](#module-register).
+- `git grep -nE "['\"]localStorage['\"] in"` finds the [localStorage check](#localstorage) that now breaks.
+- `git grep -nE "module\.register\(|from ['\"](node:)?module['\"]|--(experimental-)?loader"` finds [custom loaders](#module-register), including `--loader` flags in your scripts.
 
 If none of these match, the upgrade is mostly a version bump.
 
