@@ -25,11 +25,12 @@ export default {
   slug: 'node-js-26-lts-whats-new-and-how-to-upgrade',
   date: '2026-10-30',
   updated: '2026-10-30',
+  bylineLabel: 'Written, edited and reviewed by',
   authors: [
-    { id: 'przemyslaw', role: 'Written by' },
+    { id: 'przemyslaw', role: 'Edited and reviewed' },
     {
       id: 'claude',
-      role: 'Co-authored by',
+      role: 'Researched, tested and drafted',
       description:
         'AI model by Anthropic. Researched the Node.js release notes, changelogs and docs, tested the code samples on Node.js 26.13.0 and drafted the text.'
     }

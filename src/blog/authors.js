@@ -31,7 +31,7 @@ const authors = {
   }
 }
 
-const defaultAuthors = [{ id: 'przemyslaw', role: 'Written by' }]
+const defaultAuthors = [{ id: 'przemyslaw', role: 'Author' }]
 
 export const postAuthors = post =>
   (post.authors || defaultAuthors).map(({ id, ...perPost }) => ({

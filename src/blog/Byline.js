@@ -14,29 +14,53 @@ const AuthorLinks = ({ links }) => (
   </styled.AuthorLinks>
 )
 
-// under the post title: who wrote it, in which role, and when it was last updated
+// under the post title, on one line: who wrote it and when it was last updated.
+// Each person opens a card: on hover or focus with CSS alone, and on click or tap as a
+// native popover (light dismiss, Esc) anchored to the person with CSS anchor positioning.
 export const Byline = ({ post }) => (
-  <styled.Byline>
-    {postAuthors(post).map(author => (
-      <styled.BylineAuthor key={author.id}>
-        <styled.BylineRole>{author.role}:</styled.BylineRole>
-        <styled.AuthorCard>
-          <img src={author.avatar} alt="" width="40" height="40" />
-          <div>
-            <strong>{author.name}</strong>
-            <p>{author.description}</p>
-            <AuthorLinks links={author.links} />
-          </div>
-        </styled.AuthorCard>
-      </styled.BylineAuthor>
-    ))}
+  <div className="Byline">
+    <div className="BylineAuthors">
+      <span className="BylineLabel">{post.bylineLabel || 'Written by'}:</span>
+      {postAuthors(post).map(author => {
+        const id = `author-${post.slug}-${author.id}`
+        return (
+          <span
+            key={author.id}
+            className="BylineAuthor"
+            style={{ '--anchor': `--${id}` }}
+          >
+            <button type="button" className="BylinePerson" popovertarget={id}>
+              <img src={author.avatar} alt="" width="28" height="28" />
+              <span>{author.name}</span>
+            </button>
+            <div
+              id={id}
+              popover="auto"
+              role="dialog"
+              aria-label={`About ${author.name}`}
+              className="AuthorPopover"
+            >
+              <div className="AuthorPopoverHead">
+                <img src={author.avatar} alt="" width="48" height="48" />
+                <div>
+                  <strong>{author.name}</strong>
+                  <span>{author.role}</span>
+                </div>
+              </div>
+              <p>{author.description}</p>
+              <AuthorLinks links={author.links} />
+            </div>
+          </span>
+        )
+      })}
+    </div>
     {post.date && (
-      <styled.BylineDate>
+      <span className="BylineDate">
         {post.updated ? 'Updated' : 'Published'}{' '}
         <strong>{formatPostDate(post.updated || post.date)}</strong>
-      </styled.BylineDate>
+      </span>
     )}
-  </styled.Byline>
+  </div>
 )
 
 // after the post: the same people, larger, without roles or dates
