@@ -13,8 +13,7 @@ Node.js 26 also includes everything from the short-lived Node.js 25, so this pos
 [Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. Every LTS line gets a codename. If you already run 26.12.1, only the label changes. To check which line you're on:
 
 ```javascript
-const { version, release } = process
-console.log(version, release.lts)
+console.log(process.version, process.release.lts)
 // v26.13.0 Lithium
 ```
 
@@ -38,28 +37,19 @@ Node.js 24 gets security patches for another year and a half. Temporal, the new 
 [Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) solves each of them. Its values are immutable, it does math in any named time zone, and it has a separate type for each kind of value: `PlainDate` for a calendar day, `ZonedDateTime` for a moment in a specific place and `Duration` for a span of time. In Node.js 26 it's a global, on by default:
 
 ```javascript
-const { PlainDate } = Temporal
-const release = PlainDate.from('2026-10-28')
-const endOfLife = PlainDate.from('2029-04-30')
+const release = Temporal.PlainDate.from('2026-10-28')
+const endOfLife = Temporal.PlainDate.from('2029-04-30')
 
-release
-  .until(endOfLife, { largestUnit: 'years' })
-  .toString()
+release.until(endOfLife, { largestUnit: 'years' }).toString()
 // 'P2Y6M2D' - 2 years, 6 months and 2 days
 
-const meeting = Temporal.ZonedDateTime.from(
-  '2026-10-30T15:00[Europe/Warsaw]'
-)
-meeting
-  .withTimeZone('America/Los_Angeles')
-  .toPlainTime()
-  .toString()
-// '07:00:00' - 8 hours behind this week, not
-// the usual 9, because the US leaves summer
-// time a week after Europe
+const warsaw = '2026-10-30T15:00[Europe/Warsaw]'
+const meeting = Temporal.ZonedDateTime.from(warsaw)
+meeting.withTimeZone('America/Los_Angeles').toPlainTime().toString()
+// '07:00:00' - 8 hours behind this week, not the usual 9,
+// because the US leaves summer time a week after Europe
 
-const parts = { hours: 1, minutes: 90 }
-Temporal.Duration.from(parts)
+Temporal.Duration.from({ hours: 1, minutes: 90 })
   .round({ largestUnit: 'hours' })
   .toString()
 // 'PT2H30M'
@@ -74,16 +64,13 @@ You can move existing code over gradually. Every valid `Date` converts with [`to
 ```javascript
 import { statSync } from 'node:fs'
 
-const legacy = new Date('2026-10-28T12:00Z')
+const legacy = new Date('2026-10-28T12:00:00Z')
 const instant = legacy.toTemporalInstant()
-instant
-  .toZonedDateTimeISO('Europe/Warsaw')
-  .toString()
+instant.toZonedDateTimeISO('Europe/Warsaw').toString()
 // '2026-10-28T13:00:00+01:00[Europe/Warsaw]'
 
-const stats = statSync('package.json')
-stats.mtimeInstant instanceof Temporal.Instant
-// true
+const { mtimeInstant } = statSync('package.json')
+mtimeInstant instanceof Temporal.Instant // true
 ```
 
 If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can usually replace it. If the same code still has to run on Node.js 24, which doesn't enable Temporal, keep the library or load a polyfill such as [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill). The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
@@ -103,14 +90,9 @@ for (const [author, title] of [
   ['lin', 'UUIDv7'],
   ['ada', 'using']
 ]) {
-  byAuthor
-    .getOrInsertComputed(author, () => [])
-    .push(title)
+  byAuthor.getOrInsertComputed(author, () => []).push(title)
 }
-// Map(2) {
-//   'ada' => ['Temporal', 'using'],
-//   'lin' => ['UUIDv7']
-// }
+// Map(2) { 'ada' => ['Temporal', 'using'], 'lin' => ['UUIDv7'] }
 ```
 
 The computed version only calls the factory when the key is missing. `getOrInsert(author, [])` would build a new empty array on every iteration and throw most of them away.
@@ -131,15 +113,10 @@ Iterator.concat(['a', 'b'], drafts())
 `Uint8Array` now converts to and from base64 and hex, with [`fromBase64()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64) and [`toHex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/toHex). That helps in code shared with the browser, which has no `Buffer`:
 
 ```javascript
-const bytes = Uint8Array.fromBase64(
-  'SGVsbG8sIE5vZGUgMjY='
-)
-new TextDecoder().decode(bytes)
-// 'Hello, Node 26'
-
-const pair = new Uint8Array([1, 255])
-pair.toHex() // '01ff'
-pair.toBase64() // 'Af8='
+const bytes = Uint8Array.fromBase64('SGVsbG8sIE5vZGUgMjY=')
+new TextDecoder().decode(bytes) // 'Hello, Node 26'
+new Uint8Array([1, 255]).toHex() // '01ff'
+new Uint8Array([1, 255]).toBase64() // 'Af8='
 ```
 
 V8 also made [`JSON.stringify()` faster](https://v8.dev/blog/json-stringify) for plain objects, with no code changes needed.
@@ -154,8 +131,7 @@ node --localstorage-file=./storage.db app.js
 
 ```javascript
 localStorage.setItem('theme', 'dark')
-// later, even after a restart
-localStorage.getItem('theme') // 'dark'
+localStorage.getItem('theme') // 'dark', even after a restart
 ```
 
 [`ErrorEvent`](https://developer.mozilla.org/en-US/docs/Web/API/ErrorEvent) is a global now, and an experimental Web Worker API sits behind `--experimental-web-worker`. On the server, `localStorage` can break browser detection; see [the breaking changes](#localstorage).
@@ -165,8 +141,7 @@ localStorage.getItem('theme') // 'dark'
 The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` unless you pass `--allow-net`. The flag is still experimental:
 
 ```bash
-node --permission --allow-fs-read=./ \
-  --allow-net app.js
+node --permission --allow-fs-read=./ --allow-net app.js
 ```
 
 For `fetch()`, the error code sits in `err.cause`.
@@ -194,18 +169,13 @@ import { writeFile } from 'node:fs/promises'
 import { debounce } from 'node:util'
 import { randomUUIDv7 } from 'node:crypto'
 
-const save = debounce(
-  text => writeFile('draft.txt', text),
-  500
-)
+const save = debounce(text => writeFile('draft.txt', text), 500)
 save('H')
 save('He')
 await save('Hello')
-// one write of 'Hello', and all three calls
-// resolve with its result
+// one write of 'Hello', and all three calls resolve with its result
 
-randomUUIDv7()
-// '01a18c3b-414f-76ff-9865-53facb82bd1e'
+randomUUIDv7() // '01a18c3b-414f-76ff-9865-53facb82bd1e'
 ```
 
 The options differ from lodash's, so read the [`util.debounce()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utildebouncefn-wait-options) docs before you swap it in. [`util.throttle()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utilthrottlefn-limit-interval-options) is a rate limiter: `throttle(fn, limit, interval)` allows `limit` calls per `interval`. Lodash's `throttle(fn, wait)` works differently.
@@ -302,8 +272,7 @@ Start with the `fs` access constants, because they fail silently. `fs.R_OK`, `fs
 Destructuring them, as in `const { W_OK } = require('node:fs')`, also fails silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
 
 ```javascript
-// before: on Node.js 26 this passes
-// even if the file is read-only
+// before: on Node.js 26 this passes even if the file is read-only
 fs.accessSync(file, fs.W_OK)
 // after
 fs.accessSync(file, fs.constants.W_OK)
@@ -325,10 +294,7 @@ The [`recursive` option of `fs.rmdir()`](https://nodejs.org/docs/latest-v26.x/ap
 // before
 fs.rmdirSync(dir, { recursive: true })
 // after
-fs.rmSync(dir, {
-  recursive: true,
-  force: true
-})
+fs.rmSync(dir, { recursive: true, force: true })
 ```
 
 ```bash
@@ -367,12 +333,8 @@ enum Status {
 }
 
 // after
-const Status = {
-  Draft: 0,
-  Published: 1
-} as const
-type Key = keyof typeof Status
-type Status = (typeof Status)[Key]
+const Status = { Draft: 0, Published: 1 } as const
+type Status = typeof Status[keyof typeof Status]
 ```
 
 The object version has no reverse mapping, so `Status[0]` no longer gives you `'Draft'`.
@@ -382,8 +344,7 @@ The object version has no reverse mapping, so `Status[0]` no longer gives you `'
 With Web Storage on by default, `globalThis` has a [`localStorage`](https://nodejs.org/docs/latest-v26.x/api/globals.html#localstorage) property on the server. Unless you pass `--localstorage-file`, its value is `undefined`, and reading it prints `ExperimentalWarning: localStorage is not available because --localstorage-file was not provided`. The `globals` docs still say this access throws a `DOMException`, but the 26.0.0 changelog and 26.13.0 itself both give `undefined`. Code that detects the browser by checking for the property now takes the wrong branch and crashes with `TypeError: Cannot read properties of undefined (reading 'getItem')`:
 
 ```javascript
-// breaks: the property exists,
-// but its value is undefined
+// breaks: the property exists, but its value is undefined
 if ('localStorage' in globalThis) {
   localStorage.getItem('token')
 }
@@ -401,17 +362,12 @@ If your tests run in jsdom or mock `localStorage` (for example with `jest-locals
 Custom loaders registered with `module.register()` still work, but every run now prints a [`DEP0205`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0205) warning. The replacement, [`module.registerHooks()`](https://nodejs.org/docs/latest-v26.x/api/module.html#moduleregisterhooksoptions), is a release candidate rather than stable. It runs synchronously on the main thread and handles both `import` and `require()`:
 
 ```javascript
-import {
-  register,
-  registerHooks
-} from 'node:module'
+import { register, registerHooks } from 'node:module'
 
-// before: async hooks in a separate file,
-// off the main thread
+// before: async hooks in a separate file, off the main thread
 register('./hooks.mjs', import.meta.url)
 
-// after: synchronous hooks, in a file
-// loaded with node --import
+// after: synchronous hooks, in a file loaded with node --import
 registerHooks({
   resolve(specifier, context, nextResolve) {
     return nextResolve(specifier, context)
