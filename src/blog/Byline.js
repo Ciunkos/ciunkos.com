@@ -55,9 +55,14 @@ export const Byline = ({ post }) => {
               style={{ '--anchor': `--${id}` }}
               onPointerLeave={undoDismiss}
             >
-              <button type="button" className="BylinePerson" popovertarget={id}>
+              <button
+                type="button"
+                className="BylinePerson"
+                popovertarget={id}
+                aria-label={author.bylineAvatarOnly ? author.name : undefined}
+              >
                 <img src={author.avatar} alt="" width="28" height="28" />
-                <span>{author.name}</span>
+                {!author.bylineAvatarOnly && <span>{author.name}</span>}
               </button>
               <div
                 id={id}

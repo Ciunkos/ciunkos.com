@@ -33,6 +33,12 @@ export default {
       role: 'Researched, tested and drafted',
       description:
         'AI model by Anthropic. Researched the Node.js release notes, changelogs and docs, tested the code samples on Node.js 26.13.0 and drafted the text.'
+    },
+    {
+      id: 'chatgpt',
+      role: 'Edited and reviewed',
+      description:
+        'AI assistant by OpenAI. Performed an adversarial technical review, edited the upgrade guidance, checked official sources and tested the code examples on Node.js 26.13.0.'
     }
   ],
   cover,

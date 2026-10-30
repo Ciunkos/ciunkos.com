@@ -75,6 +75,10 @@ mtimeInstant instanceof Temporal.Instant // true
 
 If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can usually replace it. If the same code still has to run on Node.js 24, which doesn't enable Temporal, keep the library or load a polyfill such as [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill). The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
 
+Upgrading Node.js doesn't itself require a TypeScript compiler upgrade. For [built-in Temporal types](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html#new-types-for-temporal), use TypeScript 6 or newer and enable `esnext` in `compilerOptions.lib`. Keep any existing library entries and environment types you need, such as `dom` for browser code.
+
+When moving to TypeScript 6, also include `node` in `compilerOptions.types` alongside any other global type packages you use, such as `jest`: [TypeScript 6 no longer loads installed `@types` packages automatically](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-6-0.html).
+
 ## What's new since Node.js 24 {#whats-new}
 
 Node.js 26 ships V8 14.6 (up from 13.6) and [Undici](https://github.com/nodejs/undici) 8 behind the built-in [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch). npm stays on version 11. Node.js 24 kept getting backports through 2026, so this section compares against the latest 24.x release. If your 24 is older, also read [Already in recent Node.js 24 releases](#helpers).
@@ -155,7 +159,7 @@ The permission model has limits. The docs call it a seat belt for trusted code a
 - New in 26.11.0, [`--process-timeout=30s`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--process-timeoutduration) stops a process that is still running after 30 seconds with exit code 124, like the Unix `timeout` command. Before exiting, it prints which handles kept the process alive. It's useful for scripts and CI jobs that finish their work and then hang.
 - `node --build-sea=sea-config.json` builds a [single executable application](https://nodejs.org/docs/latest-v26.x/api/single-executable-applications.html) (SEA) in one step, packing your app and Node.js into one binary. SEA now supports ESM entry points.
 - `node:zlib` can read and write ZIP archives with [`ZipFile`](https://nodejs.org/docs/latest-v26.x/api/zlib.html#class-zlibzipfile) and `ZipBuffer`. Both are in early development.
-- Alpine Linux moved to tier 2 support in 26.11.0, which means full CI coverage. The official `linux-x64-musl` build that Alpine needs has been on nodejs.org since 26.8.0, and since 24.20.0 for Node.js 24.
+- Alpine Linux on x64 moved to tier 2 support in 26.11.0, which means full CI coverage for systems with musl 1.2.5 or newer and kernel 6.12 or newer, per the [official platform table](https://github.com/nodejs/node/blob/v26.13.0/BUILDING.md#platform-list). The official `linux-x64-musl` build has been on nodejs.org since 26.8.0, and since 24.20.0 for Node.js 24.
 - [`node:ffi`](https://nodejs.org/docs/latest-v26.x/api/ffi.html) calls native libraries without writing a C++ addon. It's experimental, but it has been on by default since 26.9.0. Under `--permission` it needs `--allow-ffi`. Still behind flags: `node:vfs` for virtual file systems, `node:bench` for benchmarks and an iterable streams API.
 
 ## Already in recent Node.js 24 releases {#helpers}
@@ -194,7 +198,7 @@ Also backported to 24:
 
 Most applications upgrade without touching their code. The breaks below are roughly in order of how likely they are to hit you, with the error message where there is one.
 
-To see which ones apply to you, install Node.js 26 in your image or on your server and run `node -v`. A `libatomic.so.1` error means [libatomic](#libatomic) is missing. Then run these searches from the root of your repository:
+Start by installing Node.js 26 in your image or on your server and running `node -v`. A `libatomic.so.1` error means [libatomic](#libatomic) is missing. These searches from the root of your repository can help you find common upgrade problems:
 
 ```bash
 # Corepack in Dockerfiles and CI
@@ -205,13 +209,15 @@ find node_modules -name '*.node'
 git grep -nwE "[RWX]_OK|SlowBuffer|_stream_[a-z]+|writeHeader|rmdir(Sync)?"
 # the removed TypeScript flag
 git grep -n experimental-transform-types
+# permission flags in scripts, Dockerfiles and CI
+git grep -nE -- '--(experimental-)?permission'
 # the localStorage check that now breaks
 git grep -nE "['\"]localStorage['\"] in"
 # custom loaders, including --loader flags
 git grep -nE "module\.register\(|register\(.*(import\.meta\.url|pathToFileURL)|--(experimental-)?loader"
 ```
 
-Each match points to a section below: [Corepack](#corepack), [native addons](#native-addons), [removed APIs](#removed-apis), the [TypeScript flag](#typescript), the [`localStorage` check](#localstorage) and [custom loaders](#module-register). If nothing matches, the upgrade is mostly a version bump.
+Check matches against the relevant sections: [Corepack](#corepack), [native addons](#native-addons), [removed APIs](#removed-apis), the [TypeScript flag](#typescript), [network permissions](#permissions), the [`localStorage` check](#localstorage) and [custom loaders](#module-register). Also check `NODE_OPTIONS` supplied by your deployment environment, which may not appear in the repository. These searches are an initial screen: they can miss aliases, dependency code and configuration outside git. Even if nothing matches, run your tests and check staging before switching production.
 
 ### Missing libatomic {#libatomic}
 
@@ -261,7 +267,7 @@ Delete `node_modules` and install again, or rebuild in place:
 npm rebuild
 ```
 
-A reinstall only rebuilds if install scripts run. pnpm 10 skips dependency build scripts unless you allow them, and so does `--ignore-scripts` in CI. In either case, allow the builds first. A compile error usually means the package needs a newer version of NAN. If a package has no build for Node.js 26 yet, update it. If it's abandoned, look for a pure JavaScript or WebAssembly replacement.
+A reinstall only rebuilds if install scripts run. pnpm 10 skips dependency build scripts unless you allow them, and so does `--ignore-scripts` in CI. In either case, allow the builds first. If compilation fails, check the package's supported Node.js versions and build requirements. Addons that use NAN may need a newer NAN version. If a package has no build for Node.js 26 yet, update it. If it's abandoned, look for a pure JavaScript or WebAssembly replacement.
 
 ### Removed APIs {#removed-apis}
 
@@ -390,17 +396,17 @@ Hooks only apply to modules loaded after they're registered, so keep them in the
 
 1. Add Node.js 26 to the CI matrix next to 24 and fix what fails before you switch the default.
 2. Install Node.js 26 (for example `nvm install 26`) and bump the version everywhere it's pinned: `.nvmrc`, `.node-version`, your Dockerfile (`FROM node:26`) and, for apps, the `engines` field in `package.json`. Libraries keep their lower bound.
-3. If you use TypeScript, bump `@types/node` to 26 and use TypeScript 6 or newer with `"lib": ["esnext"]`, which includes the Temporal types.
+3. If you use TypeScript, use `@types/node` 26 for an app targeting only Node.js 26. For libraries supporting older Node.js versions, keep the types aligned with the oldest version you support. A compiler upgrade is optional; see the [Temporal section](#temporal) if you want built-in Temporal types.
 4. Install [`libatomic`](#libatomic) on Linux machines and images that lack it.
-5. If you use Corepack, replace `corepack enable` with a [global install](#corepack).
+5. If you use Corepack, [install it from npm](#corepack) before running `corepack enable`.
 6. Delete `node_modules`, install again and let [native addons](#native-addons) rebuild. Then run `npx ls-engines` to find dependencies whose `engines` field excludes Node.js 26.
-7. Run the official codemods for the [removed APIs](#removed-apis), then search for what's left by hand, since `fs.R_OK`, `fs.W_OK` and `fs.X_OK` fail silently. This command lists every candidate for you to check and skips files git ignores:
+7. Run the official codemods for the [removed APIs](#removed-apis), then search for what's left by hand, since `fs.R_OK`, `fs.W_OK` and `fs.X_OK` fail silently. This command finds common usages in tracked files; aliases and dependency code need separate checks:
 
    ```bash
    git grep -nwE "[RWX]_OK|SlowBuffer|_stream_[a-z]+|writeHeader|rmdir(Sync)?"
    ```
 
-8. Run your tests with `node --trace-deprecation` to see which code, yours or a dependency's, triggers each warning. Once you've fixed or updated what you can, gate CI with `NODE_OPTIONS=--throw-deprecation`.
+8. Run your test command with `NODE_OPTIONS=--trace-deprecation` to see which code, yours or a dependency's, triggers each warning. Only enable `NODE_OPTIONS=--throw-deprecation` as a CI gate after resolving all deprecation warnings exercised by the suite, including those from dependencies: each warning becomes an error.
 9. Deploy to staging and watch for `DeprecationWarning` and `ExperimentalWarning` before you go to production.
 10. If you maintain a library, keep Node.js 24 in the CI matrix until it reaches end of life in April 2028, and Node.js 22 until April 2027.
 
@@ -416,7 +422,7 @@ Node.js 24 moved to Maintenance on 20 October 2026 and reaches end of life on 30
 
 ### Should I upgrade from Node.js 24 to 26 now? {#faq-upgrade-now}
 
-Start new projects on Node.js 26 today. For existing apps, plan the upgrade within the next few months, while Node.js 24 is still supported and rolling back is easy. The [self-check](#breaking-changes) shows which breaks apply to you, and the [upgrade checklist](#checklist) covers the steps.
+Start new projects on Node.js 26 today. For existing apps, plan the upgrade within the next few months, while Node.js 24 is still supported and rolling back is easy. The [self-check](#breaking-changes) helps you find common upgrade problems, and the [upgrade checklist](#checklist) covers testing and staging before production.
 
 ### Is Temporal available in Node.js 26 without a flag? {#faq-temporal}
 

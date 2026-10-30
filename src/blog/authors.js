@@ -1,4 +1,4 @@
-import { claudeLogo, profilePicture } from 'assets'
+import { chatgptLogo, claudeLogo, profilePicture } from 'assets'
 import social from 'social/data'
 
 /* People (and models) shown in post bylines. A post lists them in `authors` as
@@ -19,15 +19,29 @@ const authors = {
     ]
   },
   claude: {
-    name: 'Claude Opus 5.5',
+    name: 'Claude',
     avatar: claudeLogo,
+    bylineAvatarOnly: true,
     description: 'AI model by Anthropic.',
     jsonLd: {
       '@type': 'SoftwareApplication',
-      name: 'Claude Opus 5.5',
+      name: 'Claude',
       creator: { '@type': 'Organization', name: 'Anthropic' }
     },
     links: [{ name: 'Website', href: 'https://www.anthropic.com/claude' }]
+  },
+  chatgpt: {
+    name: 'ChatGPT',
+    // Official Blossom mark from https://openai.com/brand/.
+    avatar: chatgptLogo,
+    bylineAvatarOnly: true,
+    description: 'AI assistant by OpenAI.',
+    jsonLd: {
+      '@type': 'SoftwareApplication',
+      name: 'ChatGPT',
+      creator: { '@type': 'Organization', name: 'OpenAI' }
+    },
+    links: [{ name: 'Website', href: 'https://chatgpt.com/' }]
   }
 }
 
