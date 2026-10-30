@@ -82,6 +82,9 @@
   padding: 0.1em 0.3em;
   border-radius: 4px;
   font-size: 0.85em;
+  /* a long message that wraps keeps its padding and corners on every line */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 /* short code like --experimental-web-worker must not break at its hyphens;
@@ -149,13 +152,14 @@ blockquote {
   font-family: Georgia, Cambria, 'Times New Roman', Times, serif;
 }
 
+/* the site's system font stack (defaults.css); production pages don't load Roboto */
 .Markdown h1,
 .Markdown h2,
 .Markdown h3,
 .Markdown h4,
 .Markdown h5 {
-  font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
-    Geneva, Arial, sans-serif;
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .Markdown a {
@@ -228,8 +232,8 @@ blockquote {
 /* bylines: under the title and "About the contributors" after the post */
 .Byline,
 .Contributors {
-  font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
-    Geneva, Arial, sans-serif;
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .Byline {
@@ -420,8 +424,8 @@ blockquote {
 .CalloutLabel {
   margin-bottom: 4px;
   color: var(--callout);
-  font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
-    Geneva, Arial, sans-serif;
+  font-family: system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 15px;
   font-weight: 700;
 }
