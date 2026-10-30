@@ -32,11 +32,11 @@ const template = (
     ${script.toString()}
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="format-detection" content="telephone=no"/>
-    <link rel="icon" href="${publicPath}favicon.ico" sizes="any">
-    <link rel="icon" type="image/png" sizes="32x32" href="${publicPath}favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="${publicPath}round-icon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="${publicPath}apple-icon-180x180.png">
-    <link rel="manifest" href="${publicPath}manifest.json">
+    <link rel="icon" href="${publicPath}favicon.ico?v=20261030" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="${publicPath}favicon-32x32.png?v=20261030">
+    <link rel="icon" type="image/png" sizes="192x192" href="${publicPath}round-icon-192x192.png?v=20261030">
+    <link rel="apple-touch-icon" sizes="180x180" href="${publicPath}apple-icon-180x180.png?v=20261030">
+    <link rel="manifest" href="${publicPath}manifest.json?v=20261030">
     <meta name="application-name" content="Ciunkos.com">
     <meta name="apple-mobile-web-app-title" content="Ciunkos.com">
     <meta name="theme-color" content="#3040BC">
