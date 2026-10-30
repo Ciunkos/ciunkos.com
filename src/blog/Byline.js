@@ -42,7 +42,7 @@ export const Byline = ({ post }) => {
   return (
     <div className="Byline">
       <div className="BylineAuthors">
-        <span className="BylineLabel">{post.bylineLabel || 'Written by'}:</span>
+        <span className="BylineLabel">{post.bylineLabel || 'Written by'}:</span>{' '}
         {authors.map((author, index) => {
           // also the anchor name, so only characters valid in a CSS ident
           const id = `author-${post.slug}-${author.id}`.replace(
@@ -50,40 +50,49 @@ export const Byline = ({ post }) => {
             '-'
           )
           return (
-            <span
-              key={author.id}
-              className="BylineAuthor"
-              style={{ '--anchor': `--${id}` }}
-              onPointerLeave={undoDismiss}
-            >
-              {authors.length > 1 && index === authors.length - 1 && (
-                <span className="BylineConjunction">and </span>
-              )}
-              <button type="button" className="BylinePerson" popovertarget={id}>
-                {author.bylineAvatarOnly && (
-                  <span className="visually-hidden">{author.name}</span>
-                )}
-                <img src={author.avatar} alt="" width="28" height="28" />
-                {!author.bylineAvatarOnly && <span>{author.name}</span>}
-              </button>
-              {authors.length > 2 && index < authors.length - 1 && ','}
-              <div
-                id={id}
-                popover="auto"
-                aria-labelledby={`${id}-name`}
-                className="AuthorPopover"
+            <React.Fragment key={author.id}>
+              {index > 0 && ' '}
+              {index > 0 && index === authors.length - 1 && 'and '}
+              <span
+                className="BylineAuthor"
+                style={{ '--anchor': `--${id}` }}
+                onPointerLeave={undoDismiss}
               >
-                <div className="AuthorPopoverHead">
-                  <img src={author.avatar} alt="" width="48" height="48" />
-                  <div>
-                    <strong id={`${id}-name`}>{author.name}</strong>
-                    <span>{author.role}</span>
+                <button
+                  type="button"
+                  className="BylinePerson"
+                  popovertarget={id}
+                >
+                  {author.bylineAvatarOnly && (
+                    <span className="visually-hidden">{author.name}</span>
+                  )}
+                  <img src={author.avatar} alt="" width="28" height="28" />
+                  {!author.bylineAvatarOnly && (
+                    <>
+                      {' '}
+                      <span>{author.name}</span>
+                    </>
+                  )}
+                </button>
+                <div
+                  id={id}
+                  popover="auto"
+                  aria-labelledby={`${id}-name`}
+                  className="AuthorPopover"
+                >
+                  <div className="AuthorPopoverHead">
+                    <img src={author.avatar} alt="" width="48" height="48" />
+                    <div>
+                      <strong id={`${id}-name`}>{author.name}</strong>
+                      <span>{author.role}</span>
+                    </div>
                   </div>
+                  <p>{author.description}</p>
+                  <AuthorLinks links={author.links} />
                 </div>
-                <p>{author.description}</p>
-                <AuthorLinks links={author.links} />
-              </div>
-            </span>
+              </span>
+              {authors.length > 2 && index < authors.length - 1 && ','}
+            </React.Fragment>
           )
         })}
       </div>

@@ -284,31 +284,15 @@ blockquote {
 }
 
 .BylineAuthors {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: block;
   /* the global layout sets flex-shrink: 0 on divs, which kept this row from wrapping */
   flex-shrink: 1;
   min-width: 0;
-  align-items: center;
-  gap: 6px 12px;
-}
-
-.BylineAuthor {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.BylineConjunction {
-  margin-right: 8px;
+  line-height: 2;
 }
 
 .BylinePerson {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 8px;
+  display: inline-block;
   padding: 0;
   border: 0;
   background: none;
@@ -320,6 +304,7 @@ blockquote {
 }
 
 .BylinePerson img {
+  vertical-align: middle;
   border-radius: 50%;
   object-fit: cover;
 }
