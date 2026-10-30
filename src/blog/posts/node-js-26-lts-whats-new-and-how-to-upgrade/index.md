@@ -4,16 +4,17 @@ On 28 October 2026, Node.js 26 became the Active [Long Term Support](https://ciu
 > I'm not involved in the Node.js project. This post summarizes the official release notes, changelogs and docs, and links to them throughout.
 
 > [!TLDR]
-> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of any native addons not built on Node-API and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.R_OK`, `fs.W_OK` and `fs.X_OK`, which now fail silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
+> Upgrade in the next few months. Node.js 24 gets security fixes until April 2028, so there's no rush. Most apps need a version bump, a rebuild of any native addons not built on Node-API and, on custom or distroless Linux images, `libatomic`. Run the official codemods for the removed APIs, then search by hand for `fs.R_OK`, `fs.W_OK` and `fs.X_OK`, which now fail silently. Node.js 26 adds Temporal and new JavaScript from V8 14.6, and is supported until 30 April 2029.
 
-Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones. The V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
+Node.js 26 also includes everything from the short-lived Node.js 25, so this post covers both releases. The biggest addition is Temporal, a date and time API that handles time zones. The V8 engine adds several language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
 
 ## Release schedule {#schedule}
 
-[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. Every LTS line gets a codename. If you've been testing on 26 already, nothing new will surprise you. You can check which line you're on:
+[Node.js 26.13.0 'Lithium'](https://nodejs.org/en/blog/release/v26.13.0) is the same code as 26.12.1 with the [LTS](https://ciunkos.com/glossary/lts-and-end-of-life) label switched on. Every LTS line gets a codename. If you already run 26.12.1, only the label changes. To check which line you're on:
 
 ```javascript
-console.log(process.version, process.release.lts)
+const { version, release } = process
+console.log(version, release.lts)
 // v26.13.0 Lithium
 ```
 
@@ -26,54 +27,66 @@ Where each line stands, per the [Node.js release schedule](https://github.com/no
 
 ![Support phases of Node.js 22, 24, 25 and 26, with each line's end of life (EOL). Node.js 22's earlier phases start before 2025, off the left edge.](./images/support-timeline.jpg)
 
-You have a year and a half before Node.js 24 stops getting security patches, so nobody needs to upgrade tonight. But Temporal, the new JavaScript features and network restrictions in the permission model won't be backported to 24. Upgrading early also leaves you room to roll back if something goes wrong. Waiting for the next LTS doesn't buy much either, because Node.js 27 only becomes LTS in October 2027.
+Node.js 24 gets security patches for another year and a half. Temporal, the new JavaScript features and network restrictions in the permission model won't be backported to it, though. Upgrading early also leaves time to roll back if something goes wrong. Waiting for Node.js 27 doesn't help much, because it becomes LTS only in October 2027.
 
 ## Temporal is here {#temporal}
 
 ![After 31 years of new Date(), JavaScript gets a real date and time API](./images/temporal.jpg)
 
-[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) has been JavaScript's most apologized-for API since 1995. It's mutable, so passing a date into a function can change it behind your back. It can only do math in UTC and the server's local time zone; any other zone is formatting only. And it can't represent a plain calendar date, like a birthday, without inventing a time of day you never asked for.
+[`Date`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) has been in JavaScript since 1995, with three well-known problems. It's mutable, so a function you pass a date to can change it. It can only do math in UTC and the server's local time zone; other zones are for formatting only. And it can't hold a plain calendar date, like a birthday, because every `Date` also carries a time of day.
 
-[Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) fixes all three. Its values are immutable, it does math in any time zone by name, and it has separate types for separate ideas: `PlainDate` for a calendar day, `ZonedDateTime` for a moment in a specific place, `Duration` for a span of time. In Node.js 26 it's a global, on by default:
+[Temporal](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal) solves each of them. Its values are immutable, it does math in any named time zone, and it has a separate type for each kind of value: `PlainDate` for a calendar day, `ZonedDateTime` for a moment in a specific place and `Duration` for a span of time. In Node.js 26 it's a global, on by default:
 
 ```javascript
-const release = Temporal.PlainDate.from('2026-10-28')
-const endOfLife = Temporal.PlainDate.from('2029-04-30')
+const { PlainDate } = Temporal
+const release = PlainDate.from('2026-10-28')
+const endOfLife = PlainDate.from('2029-04-30')
 
-release.until(endOfLife, { largestUnit: 'years' }).toString()
+release
+  .until(endOfLife, { largestUnit: 'years' })
+  .toString()
 // 'P2Y6M2D' - 2 years, 6 months and 2 days
 
-const warsaw = '2026-10-30T15:00[Europe/Warsaw]'
-const meeting = Temporal.ZonedDateTime.from(warsaw)
-meeting.withTimeZone('America/Los_Angeles').toPlainTime().toString()
-// '07:00:00' - 8 hours behind this week, not the usual 9,
-// because the US leaves summer time a week after Europe
+const meeting = Temporal.ZonedDateTime.from(
+  '2026-10-30T15:00[Europe/Warsaw]'
+)
+meeting
+  .withTimeZone('America/Los_Angeles')
+  .toPlainTime()
+  .toString()
+// '07:00:00' - 8 hours behind this week, not
+// the usual 9, because the US leaves summer
+// time a week after Europe
 
-Temporal.Duration.from({ hours: 1, minutes: 90 })
+const parts = { hours: 1, minutes: 90 }
+Temporal.Duration.from(parts)
   .round({ largestUnit: 'hours' })
   .toString()
 // 'PT2H30M'
 ```
 
-The hardest part of Temporal is choosing a type, so match it to what you know. A day with no time, like a birthday, is a `PlainDate`. A date, a time and a time zone, like a 15:00 meeting in Warsaw, make a `ZonedDateTime`. A point in time with no place, like a log timestamp, is an `Instant`.
+To pick a type, start from what you know. A day with no time, like a birthday, is a `PlainDate`. A date, a time and a time zone, like a 15:00 meeting in Warsaw, make a `ZonedDateTime`. A point in time with no place, like a log timestamp, is an `Instant`.
 
 ![The six Temporal types you'll use most, with an example value and a typical use for each](./images/temporal-types.jpg)
 
-Existing code doesn't have to switch in one go. Every valid `Date` converts with [`toTemporalInstant()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant), and an invalid one throws a `RangeError`. Since 26.2.0, [file stats](https://nodejs.org/docs/latest-v26.x/api/fs.html#class-fsstats) also come with `Temporal.Instant` fields next to the old `Date` ones:
+You can move existing code over gradually. Every valid `Date` converts with [`toTemporalInstant()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toTemporalInstant), and an invalid one throws a `RangeError`. Since 26.2.0, [file stats](https://nodejs.org/docs/latest-v26.x/api/fs.html#class-fsstats) also come with `Temporal.Instant` fields next to the old `Date` ones:
 
 ```javascript
 import { statSync } from 'node:fs'
 
-const legacy = new Date('2026-10-28T12:00:00Z')
+const legacy = new Date('2026-10-28T12:00Z')
 const instant = legacy.toTemporalInstant()
-instant.toZonedDateTimeISO('Europe/Warsaw').toString()
+instant
+  .toZonedDateTimeISO('Europe/Warsaw')
+  .toString()
 // '2026-10-28T13:00:00+01:00[Europe/Warsaw]'
 
-const { mtimeInstant } = statSync('package.json')
-mtimeInstant instanceof Temporal.Instant // true
+const stats = statSync('package.json')
+stats.mtimeInstant instanceof Temporal.Instant
+// true
 ```
 
-If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can likely replace them. If the same code still has to run on Node.js 24, which doesn't enable Temporal, keep the library or load a polyfill such as [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill). The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
+If you use `date-fns`, `dayjs` or `luxon` only for time zones and date math, Temporal can usually replace it. If the same code still has to run on Node.js 24, which doesn't enable Temporal, keep the library or load a polyfill such as [`temporal-polyfill`](https://www.npmjs.com/package/temporal-polyfill). The [Temporal cookbook](https://tc39.es/proposal-temporal/docs/cookbook.html) has recipes for the common cases.
 
 ## What's new since Node.js 24 {#whats-new}
 
@@ -90,14 +103,19 @@ for (const [author, title] of [
   ['lin', 'UUIDv7'],
   ['ada', 'using']
 ]) {
-  byAuthor.getOrInsertComputed(author, () => []).push(title)
+  byAuthor
+    .getOrInsertComputed(author, () => [])
+    .push(title)
 }
-// Map(2) { 'ada' => ['Temporal', 'using'], 'lin' => ['UUIDv7'] }
+// Map(2) {
+//   'ada' => ['Temporal', 'using'],
+//   'lin' => ['UUIDv7']
+// }
 ```
 
 The computed version only calls the factory when the key is missing. `getOrInsert(author, [])` would build a new empty array on every iteration and throw most of them away.
 
-[`Iterator.concat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/concat) stitches several iterables into one lazy iterator. Nothing is copied, and you can chain the [iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator) straight onto it:
+[`Iterator.concat()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/concat) stitches several iterables into one lazy iterator. It copies nothing, and the [iterator helpers](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator) work on the result:
 
 ```javascript
 function* drafts() {
@@ -110,16 +128,21 @@ Iterator.concat(['a', 'b'], drafts())
 // ['A', 'B', 'DRAFT-1']
 ```
 
-`Uint8Array` converts to and from base64 and hex on its own, with [`fromBase64()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64) and [`toHex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/toHex). That helps code shared with the browser, which has no `Buffer`:
+`Uint8Array` now converts to and from base64 and hex, with [`fromBase64()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/fromBase64) and [`toHex()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array/toHex). That helps in code shared with the browser, which has no `Buffer`:
 
 ```javascript
-const bytes = Uint8Array.fromBase64('SGVsbG8sIE5vZGUgMjY=')
-new TextDecoder().decode(bytes) // 'Hello, Node 26'
-new Uint8Array([1, 255]).toHex() // '01ff'
-new Uint8Array([1, 255]).toBase64() // 'Af8='
+const bytes = Uint8Array.fromBase64(
+  'SGVsbG8sIE5vZGUgMjY='
+)
+new TextDecoder().decode(bytes)
+// 'Hello, Node 26'
+
+const pair = new Uint8Array([1, 255])
+pair.toHex() // '01ff'
+pair.toBase64() // 'Af8='
 ```
 
-V8 also made [`JSON.stringify()` faster](https://v8.dev/blog/json-stringify) for plain objects. You get that one without changing any code.
+V8 also made [`JSON.stringify()` faster](https://v8.dev/blog/json-stringify) for plain objects, with no code changes needed.
 
 ### Web Storage {#web-storage}
 
@@ -131,24 +154,26 @@ node --localstorage-file=./storage.db app.js
 
 ```javascript
 localStorage.setItem('theme', 'dark')
-localStorage.getItem('theme') // 'dark', even after a restart
+// later, even after a restart
+localStorage.getItem('theme') // 'dark'
 ```
 
-[`ErrorEvent`](https://developer.mozilla.org/en-US/docs/Web/API/ErrorEvent) is a global now, and an experimental Web Worker API sits behind `--experimental-web-worker`. One catch with `localStorage` on the server is covered in [the breaking changes](#localstorage).
+[`ErrorEvent`](https://developer.mozilla.org/en-US/docs/Web/API/ErrorEvent) is a global now, and an experimental Web Worker API sits behind `--experimental-web-worker`. On the server, `localStorage` can break browser detection; see [the breaking changes](#localstorage).
 
 ### Network permissions {#permissions}
 
 The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` unless you pass `--allow-net`. The flag is still experimental:
 
 ```bash
-node --permission --allow-fs-read=./ --allow-net app.js
+node --permission --allow-fs-read=./ \
+  --allow-net app.js
 ```
 
 For `fetch()`, the error code sits in `err.cause`.
 
-Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit), was backported too, so you can use it on Node.js 24.20.0 and later. It runs every check without denying anything and publishes each violation on `diagnostics_channel`, the Node.js built-in event bus, so you can collect the list before you enforce it.
+Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit), was backported too and works on Node.js 24.20.0 and later. It runs every check without denying anything and publishes each violation on `diagnostics_channel`, the Node.js built-in event bus. That lets you collect the list before you enforce it.
 
-Keep two things in mind. The docs call the permission model a seat belt for trusted code, and say plainly that malicious code can get around it. And under `--permission`, child processes, worker threads and native addons are blocked too, until you add `--allow-child-process`, `--allow-worker` or `--allow-addons`.
+The permission model has limits. The docs call it a seat belt for trusted code and state that malicious code can get around it. Under `--permission`, child processes, worker threads and native addons are blocked as well, until you add `--allow-child-process`, `--allow-worker` or `--allow-addons`.
 
 ### Tooling and experiments {#tooling}
 
@@ -169,13 +194,18 @@ import { writeFile } from 'node:fs/promises'
 import { debounce } from 'node:util'
 import { randomUUIDv7 } from 'node:crypto'
 
-const save = debounce(text => writeFile('draft.txt', text), 500)
+const save = debounce(
+  text => writeFile('draft.txt', text),
+  500
+)
 save('H')
 save('He')
 await save('Hello')
-// one write of 'Hello', and all three calls resolve with its result
+// one write of 'Hello', and all three calls
+// resolve with its result
 
-randomUUIDv7() // '01a18c3b-414f-76ff-9865-53facb82bd1e'
+randomUUIDv7()
+// '01a18c3b-414f-76ff-9865-53facb82bd1e'
 ```
 
 The options differ from lodash's, so read the [`util.debounce()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utildebouncefn-wait-options) docs before you swap it in. [`util.throttle()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utilthrottlefn-limit-interval-options) is a rate limiter: `throttle(fn, limit, interval)` allows `limit` calls per `interval`. Lodash's `throttle(fn, wait)` works differently.
@@ -187,24 +217,31 @@ Also backported to 24:
 - Incoming HTTP requests have [`req.signal`](https://nodejs.org/docs/latest-v26.x/api/http.html#messagesignal), an [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal) that fires when the client disconnects. Pass it to `fetch()` or a database query, and the work stops when nobody is waiting for it.
 - `process.permission.drop()` lets a process give up permissions it no longer needs, for example after reading its config files.
 - `node --test --test-randomize` runs tests in random order to expose tests that only pass because another one ran first. The [test runner](https://nodejs.org/docs/latest-v26.x/api/test.html) can also mark tests as expected to fail, and `context.log()` writes into the report.
-- [Subpath imports](https://nodejs.org/docs/latest-v26.x/api/packages.html#subpath-imports) can start with `#/`, so `#/utils/date.js` can map straight onto your `src` folder.
+- [Subpath imports](https://nodejs.org/docs/latest-v26.x/api/packages.html#subpath-imports) can start with `#/`, so `#/utils/date.js` can map to a file in your `src` folder.
 - [`util.styleText()`](https://nodejs.org/docs/latest-v26.x/api/util.html#utilstyletextformat-text-options) accepts hex colors, like `styleText('#ff8800', 'warning')`.
 
 ## Breaking changes {#breaking-changes}
 
 Most applications upgrade without touching their code. The breaks below are roughly in order of how likely they are to hit you, with the error message where there is one.
 
-To see which ones apply to you, run this self-check. All but the first command run from the root of your repository:
+To see which ones apply to you, install Node.js 26 in your image or on your server and run `node -v`. A `libatomic.so.1` error means [libatomic](#libatomic) is missing. Then run these searches from the root of your repository:
 
-- Install Node.js 26 in your image or on your server and run `node -v`. A `libatomic.so.1` error means [libatomic](#libatomic) is missing.
-- `git grep -n corepack` finds [Corepack](#corepack) in your Dockerfiles and CI.
-- `find node_modules -name '*.node'` lists compiled [native addons](#native-addons).
-- The search in [checklist step 7](#checklist) finds [removed APIs](#removed-apis).
-- `git grep -n experimental-transform-types` finds the [removed TypeScript flag](#typescript).
-- `git grep -nE "['\"]localStorage['\"] in"` finds the [`localStorage` check](#localstorage) that now breaks.
-- `git grep -nE "module\.register\(|register\(.*(import\.meta\.url|pathToFileURL)|--(experimental-)?loader"` finds [custom loaders](#module-register), including `--loader` flags in your scripts.
+```bash
+# Corepack in Dockerfiles and CI
+git grep -n corepack
+# compiled native addons
+find node_modules -name '*.node'
+# removed APIs
+git grep -nwE "[RWX]_OK|SlowBuffer|_stream_[a-z]+|writeHeader|rmdir(Sync)?"
+# the removed TypeScript flag
+git grep -n experimental-transform-types
+# the localStorage check that now breaks
+git grep -nE "['\"]localStorage['\"] in"
+# custom loaders, including --loader flags
+git grep -nE "module\.register\(|register\(.*(import\.meta\.url|pathToFileURL)|--(experimental-)?loader"
+```
 
-If none of these match, the upgrade is mostly a version bump.
+Each match points to a section below: [Corepack](#corepack), [native addons](#native-addons), [removed APIs](#removed-apis), the [TypeScript flag](#typescript), the [`localStorage` check](#localstorage) and [custom loaders](#module-register). If nothing matches, the upgrade is mostly a version bump.
 
 ### Missing libatomic {#libatomic}
 
@@ -262,10 +299,11 @@ These were [deprecated](https://nodejs.org/docs/latest-v26.x/api/deprecations.ht
 
 Start with the `fs` access constants, because they fail silently. `fs.R_OK`, `fs.W_OK` and `fs.X_OK` are now `undefined`, and `fs.accessSync(file, undefined)` only checks that the file exists. A permission check that used them still passes on Node.js 26, even for a read-only file.
 
-Destructuring them, as in `const { W_OK } = require('node:fs')`, fails just as silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
+Destructuring them, as in `const { W_OK } = require('node:fs')`, also fails silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
 
 ```javascript
-// before: on Node.js 26 this passes even if the file is read-only
+// before: on Node.js 26 this passes
+// even if the file is read-only
 fs.accessSync(file, fs.W_OK)
 // after
 fs.accessSync(file, fs.constants.W_OK)
@@ -287,7 +325,10 @@ The [`recursive` option of `fs.rmdir()`](https://nodejs.org/docs/latest-v26.x/ap
 // before
 fs.rmdirSync(dir, { recursive: true })
 // after
-fs.rmSync(dir, { recursive: true, force: true })
+fs.rmSync(dir, {
+  recursive: true,
+  force: true
+})
 ```
 
 ```bash
@@ -307,7 +348,7 @@ const { Readable } = require('node:stream')
 
 Also removed: `assert.CallTracker` (use `mock.fn()` from `node:test`), the `multipleResolves` process event, `assert.fail()` with more than one argument, the callback of `worker.terminate()` (it returns a promise) and creating `node:repl` classes without `new`.
 
-### No more --experimental-transform-types {#typescript}
+### TypeScript transform flag removed {#typescript}
 
 Running `.ts` files directly still works, because type stripping is stable. What's gone is the flag that also transformed enums, namespaces and parameter properties:
 
@@ -326,8 +367,12 @@ enum Status {
 }
 
 // after
-const Status = { Draft: 0, Published: 1 } as const
-type Status = typeof Status[keyof typeof Status]
+const Status = {
+  Draft: 0,
+  Published: 1
+} as const
+type Key = keyof typeof Status
+type Status = (typeof Status)[Key]
 ```
 
 The object version has no reverse mapping, so `Status[0]` no longer gives you `'Draft'`.
@@ -337,7 +382,8 @@ The object version has no reverse mapping, so `Status[0]` no longer gives you `'
 With Web Storage on by default, `globalThis` has a [`localStorage`](https://nodejs.org/docs/latest-v26.x/api/globals.html#localstorage) property on the server. Unless you pass `--localstorage-file`, its value is `undefined`, and reading it prints `ExperimentalWarning: localStorage is not available because --localstorage-file was not provided`. The `globals` docs still say this access throws a `DOMException`, but the 26.0.0 changelog and 26.13.0 itself both give `undefined`. Code that detects the browser by checking for the property now takes the wrong branch and crashes with `TypeError: Cannot read properties of undefined (reading 'getItem')`:
 
 ```javascript
-// breaks: the property exists, but its value is undefined
+// breaks: the property exists,
+// but its value is undefined
 if ('localStorage' in globalThis) {
   localStorage.getItem('token')
 }
@@ -355,12 +401,17 @@ If your tests run in jsdom or mock `localStorage` (for example with `jest-locals
 Custom loaders registered with `module.register()` still work, but every run now prints a [`DEP0205`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0205) warning. The replacement, [`module.registerHooks()`](https://nodejs.org/docs/latest-v26.x/api/module.html#moduleregisterhooksoptions), is a release candidate rather than stable. It runs synchronously on the main thread and handles both `import` and `require()`:
 
 ```javascript
-import { register, registerHooks } from 'node:module'
+import {
+  register,
+  registerHooks
+} from 'node:module'
 
-// before: async hooks in a separate file, off the main thread
+// before: async hooks in a separate file,
+// off the main thread
 register('./hooks.mjs', import.meta.url)
 
-// after: synchronous hooks, in a file loaded with node --import
+// after: synchronous hooks, in a file
+// loaded with node --import
 registerHooks({
   resolve(specifier, context, nextResolve) {
     return nextResolve(specifier, context)
@@ -417,7 +468,7 @@ Yes. Temporal is enabled by default in Node.js 26 and available as a global, wit
 
 ### What breaks when upgrading from Node.js 24 to 26? {#faq-breaking}
 
-The usual suspects are `libatomic` on custom or distroless Linux images, the missing Corepack, native addons built against V8 directly and removed APIs like `SlowBuffer` and `fs.R_OK`. The `fs.R_OK` check fails silently. [Breaking changes](#breaking-changes) covers each one with its fix.
+The common breaks are a missing `libatomic` on custom or distroless Linux images, Corepack no longer shipping, native addons built against V8 directly and removed APIs like `SlowBuffer` and `fs.R_OK`. The `fs.R_OK` check fails silently. [Breaking changes](#breaking-changes) covers each one with its fix.
 
 ### Do I need to rebuild native addons for Node.js 26? {#faq-native-modules}
 
@@ -425,7 +476,7 @@ Only if they aren't built on Node-API. Addons compiled against V8 directly, or t
 
 ## Need a hand? {#hire}
 
-In a large or long-lived Node.js codebase, these changes pile up across native addons, custom loaders, old dependencies on removed internals and a Node.js version pinned in five places. That's the kind of work I take on for clients. If you'd rather hand it off, [see how I work](https://ciunkos.com/hire-me).
+In a large or long-lived Node.js codebase, these changes add up: native addons, custom loaders, old dependencies on removed internals and a Node.js version pinned in five places. I do this kind of upgrade for clients. If you'd rather hand it off, [see how I work](https://ciunkos.com/hire-me).
 
 ## Sources {#sources}
 
