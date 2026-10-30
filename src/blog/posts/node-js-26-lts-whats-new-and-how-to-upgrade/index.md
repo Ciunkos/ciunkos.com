@@ -4,7 +4,7 @@ On 28 October 2026, Node.js 26 became the [Long Term Support](https://ciunkos.co
 > I'm not involved in the Node.js project. This post summarizes the official release notes, changelogs and docs, and links to them throughout.
 
 > [!TLDR]
-> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of native addons and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.W_OK`, which now fails silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
+> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of native addons and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.R_OK`, `fs.W_OK` and `fs.X_OK`, which now fail silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
 
 Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones. The V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
 
@@ -194,15 +194,15 @@ Also backported to 24:
 
 Most applications upgrade without touching their code. The breaks below are roughly in order of how likely they are to hit you, with the error message where there is one.
 
-To see which ones apply to you, run this self-check from the root of your repository:
+To see which ones apply to you, run this self-check. All but the first command run from the root of your repository:
 
-- `node -v` inside your image or on your server fails with a `libatomic.so.1` error if [libatomic](#libatomic) is missing.
+- Install Node.js 26 in your image or on your server and run `node -v`. A `libatomic.so.1` error means [libatomic](#libatomic) is missing.
 - `git grep -n corepack` finds [Corepack](#corepack) in your Dockerfiles and CI.
 - `find node_modules -name '*.node'` lists compiled [native addons](#native-addons).
 - The search in [checklist step 7](#checklist) finds [removed APIs](#removed-apis).
 - `git grep -n experimental-transform-types` finds the [removed TypeScript flag](#typescript).
 - `git grep -nE "['\"]localStorage['\"] in"` finds the [localStorage check](#localstorage) that now breaks.
-- `git grep -nE "module\.register\(|from ['\"](node:)?module['\"]|--(experimental-)?loader"` finds [custom loaders](#module-register), including `--loader` flags in your scripts.
+- `git grep -nE "module\.register\(|register\(.*(import\.meta\.url|pathToFileURL)|--(experimental-)?loader"` finds [custom loaders](#module-register), including `--loader` flags in your scripts.
 
 If none of these match, the upgrade is mostly a version bump.
 
