@@ -428,7 +428,7 @@ h1{margin:0 0 22px;font-size:62px;line-height:1.05;letter-spacing:-.02em;font-we
 </style></head><body>
 <div class="art"></div><div class="fade"></div>
 <div class="text"><div class="kicker">Node.js 26 LTS</div><h1>What's new since 24 and how to upgrade</h1>
-<p class="sub">Temporal, new JavaScript, and every breaking change with its fix.</p></div>
+<p class="sub">Temporal, new JavaScript and every breaking change with its fix.</p></div>
 <div class="url">ciunkos.com</div>
 </body></html>`
 

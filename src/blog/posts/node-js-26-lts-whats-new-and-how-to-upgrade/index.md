@@ -1,10 +1,10 @@
-On 28 October 2026, Node.js 26 became the [Long Term Support](https://ciunkos.com/glossary/lts-and-end-of-life) line. Eight days earlier, Node.js 24 moved into Maintenance, which means security and critical bug fixes only. New projects should start on 26, and Node.js 24 gets security fixes until 30 April 2028.
+On 28 October 2026, Node.js 26 became the Active [Long Term Support](https://ciunkos.com/glossary/lts-and-end-of-life) line. Eight days earlier, Node.js 24 moved into Maintenance, which means security and critical bug fixes only. New projects should start on 26, and Node.js 24 gets security fixes until 30 April 2028.
 
 > [!WARNING]
 > I'm not involved in the Node.js project. This post summarizes the official release notes, changelogs and docs, and links to them throughout.
 
 > [!TLDR]
-> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of native addons and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.R_OK`, `fs.W_OK` and `fs.X_OK`, which now fail silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
+> Plan to upgrade within the next few months; Node.js 24 is safe until April 2028, so there's time to do it calmly. Most apps need a version bump, a rebuild of any native addons not built on Node-API and, on custom or distroless Linux images, `libatomic`. Run the official codemods, which rewrite removed APIs for you, then search by hand for `fs.R_OK`, `fs.W_OK` and `fs.X_OK`, which now fail silently. In return you get Temporal, new JavaScript from V8 14.6 and support until 30 April 2029.
 
 Because 26 includes everything from the short-lived Node.js 25, the jump covers two releases. JavaScript gets Temporal, a date and time API that handles time zones. The V8 engine brings a handful of language features, and a few long-deprecated APIs are gone. If you only need the migration steps, skip to [Breaking changes](#breaking-changes) or the [checklist](#checklist).
 
@@ -138,7 +138,7 @@ localStorage.getItem('theme') // 'dark', even after a restart
 
 ### Network permissions {#permissions}
 
-The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` unless you pass `--allow-net`, which is still experimental:
+The [permission model](https://nodejs.org/docs/latest-v26.x/api/permissions.html) can now restrict network access. With `--permission` on, network calls fail with `ERR_ACCESS_DENIED` unless you pass `--allow-net`. The flag is still experimental:
 
 ```bash
 node --permission --allow-fs-read=./ --allow-net app.js
@@ -146,7 +146,7 @@ node --permission --allow-fs-read=./ --allow-net app.js
 
 For `fetch()`, the error code sits in `err.cause`.
 
-Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit), is also in 24.20 and later. It runs every check without denying anything and publishes each violation on `diagnostics_channel`, the Node.js built-in event bus, so you can collect the list before you enforce it.
+Audit mode, [`--permission-audit`](https://nodejs.org/docs/latest-v26.x/api/cli.html#--permission-audit), was backported too, so you can use it on Node.js 24.20.0 and later. It runs every check without denying anything and publishes each violation on `diagnostics_channel`, the Node.js built-in event bus, so you can collect the list before you enforce it.
 
 Keep two things in mind. The docs call the permission model a seat belt for trusted code, and say plainly that malicious code can get around it. And under `--permission`, child processes, worker threads and native addons are blocked too, until you add `--allow-child-process`, `--allow-worker` or `--allow-addons`.
 
@@ -156,7 +156,7 @@ Keep two things in mind. The docs call the permission model a seat belt for trus
 - `node --build-sea=sea-config.json` builds a [single executable application](https://nodejs.org/docs/latest-v26.x/api/single-executable-applications.html) (SEA) in one step, packing your app and Node.js into one binary. SEA now supports ESM entry points.
 - `node:zlib` can read and write ZIP archives with [`ZipFile`](https://nodejs.org/docs/latest-v26.x/api/zlib.html#class-zlibzipfile) and `ZipBuffer`. Both are in early development.
 - Alpine Linux moved to tier 2 support in 26.11.0, which means full CI coverage. The official `linux-x64-musl` build that Alpine needs has been on nodejs.org since 26.8.0, and since 24.20.0 for Node.js 24.
-- [`node:ffi`](https://nodejs.org/docs/latest-v26.x/api/ffi.html) calls native libraries without writing a C++ addon. It's experimental but on by default since 26.9.0, and under `--permission` it needs `--allow-ffi`. Still behind flags: `node:vfs` for virtual file systems, `node:bench` for benchmarks and an iterable streams API.
+- [`node:ffi`](https://nodejs.org/docs/latest-v26.x/api/ffi.html) calls native libraries without writing a C++ addon. It's experimental, but it has been on by default since 26.9.0. Under `--permission` it needs `--allow-ffi`. Still behind flags: `node:vfs` for virtual file systems, `node:bench` for benchmarks and an iterable streams API.
 
 ## Already in recent Node.js 24 releases {#helpers}
 
@@ -201,7 +201,7 @@ To see which ones apply to you, run this self-check. All but the first command r
 - `find node_modules -name '*.node'` lists compiled [native addons](#native-addons).
 - The search in [checklist step 7](#checklist) finds [removed APIs](#removed-apis).
 - `git grep -n experimental-transform-types` finds the [removed TypeScript flag](#typescript).
-- `git grep -nE "['\"]localStorage['\"] in"` finds the [localStorage check](#localstorage) that now breaks.
+- `git grep -nE "['\"]localStorage['\"] in"` finds the [`localStorage` check](#localstorage) that now breaks.
 - `git grep -nE "module\.register\(|register\(.*(import\.meta\.url|pathToFileURL)|--(experimental-)?loader"` finds [custom loaders](#module-register), including `--loader` flags in your scripts.
 
 If none of these match, the upgrade is mostly a version bump.
@@ -262,7 +262,7 @@ These were [deprecated](https://nodejs.org/docs/latest-v26.x/api/deprecations.ht
 
 Start with the `fs` access constants, because they fail silently. `fs.R_OK`, `fs.W_OK` and `fs.X_OK` are now `undefined`, and `fs.accessSync(file, undefined)` only checks that the file exists. A permission check that used them still passes on Node.js 26, even for a read-only file.
 
-Destructuring with `require` fails just as silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
+Destructuring them, as in `const { W_OK } = require('node:fs')`, fails just as silently. Only an ESM named import, `import { W_OK } from 'node:fs'`, fails loudly, with a `SyntaxError` at load. `fs.F_OK` is gone too, but it was the default anyway. Move to [`fs.constants`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0176):
 
 ```javascript
 // before: on Node.js 26 this passes even if the file is read-only
@@ -303,7 +303,7 @@ const Readable = require('_stream_readable')
 const { Readable } = require('node:stream')
 ```
 
-[`response.writeHeader()`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0063) was never documented, but old code still calls it, and it now throws `res.writeHeader is not a function`. Use `response.writeHead()`.
+[`response.writeHeader()`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0063) was never documented, but old code still calls it. It now throws `TypeError: res.writeHeader is not a function`. Use `response.writeHead()`.
 
 Also removed: `assert.CallTracker` (use `mock.fn()` from `node:test`), the `multipleResolves` process event, `assert.fail()` with more than one argument, the callback of `worker.terminate()` (it returns a promise) and creating `node:repl` classes without `new`.
 
@@ -316,7 +316,7 @@ $ node --experimental-transform-types app.ts
 node: bad option: --experimental-transform-types
 ```
 
-Without it, Node.js rejects that syntax with `ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`. You have two ways out. Replace enums with plain objects and turn on [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly) and `verbatimModuleSyntax` in `tsconfig.json`, so the compiler flags anything Node.js can't strip. Or run through a loader, `node --import=tsx app.ts`, or compile with `tsc` or `esbuild` first. Node.js itself ignores `tsconfig.json`, so `paths` aliases don't work with plain type stripping.
+Without it, Node.js rejects that syntax with `ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX`. You have two ways out. Replace enums with plain objects and turn on [`erasableSyntaxOnly`](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly) and `verbatimModuleSyntax` in `tsconfig.json`, so the compiler flags anything Node.js can't strip. Or keep the syntax and let a tool handle it: run through a loader (`node --import=tsx app.ts`) or compile with `tsc` or `esbuild` first. Node.js itself ignores `tsconfig.json`, so `paths` aliases don't work with plain type stripping.
 
 ```typescript
 // before
@@ -348,7 +348,7 @@ if (typeof window !== 'undefined') {
 }
 ```
 
-If your tests mock `localStorage`, for example with `jest-localstorage-mock`, or run in jsdom, check that the mock still replaces the new global. If you don't want Web Storage on the server at all, run Node.js with `--no-experimental-webstorage`.
+If your tests run in jsdom or mock `localStorage` (for example with `jest-localstorage-mock`), check that the mock still replaces the new global. If you don't want Web Storage on the server at all, run Node.js with `--no-experimental-webstorage`.
 
 ### module.register() is deprecated {#module-register}
 
@@ -373,9 +373,7 @@ Hooks only apply to modules loaded after they're registered, so keep them in the
 ### Smaller changes {#smaller-changes}
 
 - If you already run with `--permission`, network access is now denied by default. `fetch()` and other network calls fail with `ERR_ACCESS_DENIED` until you add [`--allow-net`](#permissions).
-- `assert.deepStrictEqual()` and `util.isDeepStrictEqual()` now fail when comparing two different promises, and treat two invalid dates as equal.
 - `crypto.createHash('shake256')` without an `outputLength` prints a [`DEP0198`](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0198) deprecation warning, so pass the length explicitly.
-- Passing a Web Crypto `CryptoKey` to `node:crypto` functions like `createHmac()` or `sign()` is [deprecated](https://nodejs.org/docs/latest-v26.x/api/deprecations.html#DEP0203) and will throw in a future version.
 - AES-GCM decryption with an authentication tag shorter than 16 bytes needs an explicit `authTagLength`.
 - In 26.11.0, [`node:sqlite`](https://nodejs.org/docs/latest-v26.x/api/sqlite.html) renamed `DatabaseSync` to `Database` and `StatementSync` to `Statement`. The old names still work as deprecated aliases.
 - Building Node.js from source needs GCC 13.2 and Python 3.10 or newer. POWER8 and IBM z13 CPUs are no longer supported.
@@ -427,7 +425,7 @@ Only if they aren't built on Node-API. Addons compiled against V8 directly, or t
 
 ## Need a hand? {#hire}
 
-In a large or long-lived Node.js codebase, these changes pile up across native addons, custom loaders, old dependencies on removed internals and a CI matrix with five places to bump. That's the kind of work I take on for clients. If you'd rather hand it off, [see how I work](https://ciunkos.com/hire-me).
+In a large or long-lived Node.js codebase, these changes pile up across native addons, custom loaders, old dependencies on removed internals and a Node.js version pinned in five places. That's the kind of work I take on for clients. If you'd rather hand it off, [see how I work](https://ciunkos.com/hire-me).
 
 ## Sources {#sources}
 
