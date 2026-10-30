@@ -294,7 +294,7 @@ const supportTimeline = ({ width, height }) => {
       return `<line x1="${gx}" y1="120" x2="${gx}" y2="${
         rowTop + LINES.length * rowGap - 40
       }" stroke="#ffffff" stroke-opacity=".08"/>
-<text x="${gx}" y="108" text-anchor="middle" class="axis">${year}</text>`
+<text x="${gx}" y="110" text-anchor="middle" class="axis">${year}</text>`
     })
     .join('')
   const rows = LINES.map((line, i) => {
@@ -333,11 +333,11 @@ const supportTimeline = ({ width, height }) => {
   }).join('')
   const today = x('2026-10-30')
   const gridBottom = rowTop + LINES.length * rowGap - 40
-  const todayLabelY = gridBottom + 32
+  const todayLabelY = gridBottom + 36
   const legendY = height - 62
   const legend = Object.values(PHASES)
     .map(({ label, color }, i) => {
-      const lx = left + i * 250
+      const lx = left + i * 280
       const tx = lx + 34
       const ty = legendY + 21
       return `<rect x="${lx}" y="${legendY}" width="26" height="26" rx="4" fill="${color}"/><text x="${tx}" y="${ty}" class="legend">${label}</text>`
@@ -347,12 +347,12 @@ const supportTimeline = ({ width, height }) => {
 body{margin:0;width:${width}px;height:${height}px;overflow:hidden;background:#0f2615;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
 svg{display:block}
 .title{fill:#f0efec;font-size:38px;font-weight:800}
-.axis{fill:#c3c2b7;font-size:26px}
+.axis{fill:#c3c2b7;font-size:30px}
 .name{fill:#f0efec;font-size:30px;font-weight:700}
 .seg{fill:#ffffff;font-size:24px;font-weight:700}
 .eol{fill:#c3c2b7;font-size:24px}
-.legend{fill:#c3c2b7;font-size:26px}
-.today{fill:#f0efec;font-size:24px;font-weight:700}
+.legend{fill:#c3c2b7;font-size:30px}
+.today{fill:#f0efec;font-size:28px;font-weight:700}
 </style></head><body>
 <svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg">
 <text x="60" y="62" class="title">Node.js release lines, 2025 to 2029</text>
@@ -365,16 +365,21 @@ ${legend}
 }
 
 // in-post diagram: which Temporal type to reach for
+// one meeting, 15:00 in Warsaw on 30 October 2026, seen through each type
 const TEMPORAL_TYPES = [
-  ['PlainDate', '2026-10-28', 'A calendar day: a birthday, a release date'],
+  ['PlainDate', '2026-10-30', 'A calendar day: a birthday, a release date'],
   ['PlainTime', '15:00', 'A time of day: opening hours, an alarm'],
-  ['PlainDateTime', '2026-10-30T15:00', 'A wall-clock moment with no zone yet'],
+  [
+    'PlainDateTime',
+    '2026-10-30T15:00',
+    'A date and time with no zone: a form input'
+  ],
   [
     'ZonedDateTime',
     '2026-10-30T15:00[Europe/Warsaw]',
-    'A moment in a place: a meeting, a deadline'
+    'A date and time in a place: a meeting, a deadline'
   ],
-  ['Instant', '2026-10-30T14:00:00Z', 'An exact point in time: a log entry'],
+  ['Instant', '2026-10-30T14:00Z', 'An exact point in time: a log entry'],
   ['Duration', 'PT2H30M', 'A length of time: a timeout, a billing period']
 ]
 
