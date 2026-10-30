@@ -13,6 +13,7 @@ const Page = ({
   title,
   description,
   ogUrl,
+  ogType = 'website',
   ogImage,
   ogImageWidth,
   ogImageHeight,
@@ -24,7 +25,7 @@ const Page = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
-      {ogUrl && <meta property="og:type" content="website" />}
+      {ogUrl && <meta property="og:type" content={ogType} />}
       {ogUrl && <meta property="og:title" content={title} />}
       {ogUrl && <meta property="og:description" content={description} />}
       {ogUrl && <meta property="og:url" content={ogUrl} />}

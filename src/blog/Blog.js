@@ -16,6 +16,11 @@ const SITE = 'https://ciunkos.com/'
 
 const postUrl = post => new URL(post.slug, SITE).href
 const coverUrl = post => new URL(post.cover, SITE).href
+// a post can bring a 1200 × 630 share card; otherwise links show the 1280 × 720 cover
+const shareImage = post =>
+  post.shareImage
+    ? { url: new URL(post.shareImage, SITE).href, width: 1200, height: 630 }
+    : { url: coverUrl(post), width: 1280, height: 720 }
 
 // the first author wrote the post, the others are contributors (co-authors)
 const postJsonLd = post => {
@@ -45,10 +50,10 @@ const Blog = ({ post }) => (
     title={post.name}
     description={post.metaDescription || post.description}
     ogUrl={postUrl(post)}
-    ogImage={coverUrl(post)}
-    // every cover is 1280 × 720
-    ogImageWidth={1280}
-    ogImageHeight={720}
+    ogType="article"
+    ogImage={shareImage(post).url}
+    ogImageWidth={shareImage(post).width}
+    ogImageHeight={shareImage(post).height}
     ogImageAlt={post.name}
     jsonLd={postJsonLd(post)}
   >
