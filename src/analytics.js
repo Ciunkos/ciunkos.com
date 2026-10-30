@@ -3,8 +3,9 @@
 /* Analytics start after the window load event, so they never compete with the first render.
    Only PostHog (EU, no cookies, see ciunkos.com/privacy), the same stub as on the other
    ciunkos.com sites: array.js through the first-party proxy /hire/ph (the hire Worker),
-   800 ms after load, never for automated browsers. ?i=1 marks this browser as the owner's
-   (localStorage ph_internal, events get internal: true), ?i=0 removes the mark. */
+   800 ms after load, never for automated browsers or in development builds.
+   ?i=1 marks this browser as the owner's (localStorage ph_internal, events get
+   internal: true), ?i=0 removes the mark. */
 
 const POSTHOG_TOKEN = 'phc_NTIsY2sy7inHkYFtbqmWdHGtjVxadeNU69NBNzroD3R'
 const POSTHOG_HOST = '/hire/ph'
@@ -51,6 +52,8 @@ const optedOut = () => {
 }
 
 const startPostHog = () => {
+  // the /hire/ph proxy only exists in production, the dev server would answer with HTML
+  if (process.env.NODE_ENV !== 'production') return
   // opt-out from ciunkos.com/privacy is stored per browser on the same origin
   if (navigator.webdriver || optedOut()) return
   const internal = internalFlag()
