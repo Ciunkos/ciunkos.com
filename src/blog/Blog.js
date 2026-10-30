@@ -10,7 +10,7 @@ import Image from './Image'
 import { Byline, Contributors } from './Byline'
 import { postAuthors } from './authors'
 import { astPlugins } from './markdown'
-import { Heading, Callout, Link } from './renderers'
+import { Heading, InlineCode, Callout, Link } from './renderers'
 
 const SITE = 'https://ciunkos.com/'
 
@@ -70,6 +70,7 @@ const Blog = ({ post }) => (
               code: CodeBlock,
               image: Image,
               heading: Heading,
+              inlineCode: InlineCode,
               callout: Callout,
               link: Link
             }}

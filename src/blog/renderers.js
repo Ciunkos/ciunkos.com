@@ -28,6 +28,10 @@ export const Heading = ({ level, node, children }) => {
   )
 }
 
+export const InlineCode = ({ value }) => (
+  <code className={value.length <= 32 ? 'nowrap' : undefined}>{value}</code>
+)
+
 export const Callout = ({ kind, children }) => (
   <aside className={`Callout ${kind}`}>
     <span className="CalloutLabel">{CALLOUT_LABELS[kind]}</span>

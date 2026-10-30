@@ -2,6 +2,8 @@ import React from 'react'
 import Lowlight from 'react-lowlight'
 import js from 'highlight.js/lib/languages/javascript'
 import bash from 'highlight.js/lib/languages/bash'
+import plaintext from 'highlight.js/lib/languages/plaintext'
+import typescript from 'highlight.js/lib/languages/typescript'
 
 let registered = false
 
@@ -17,6 +19,9 @@ export default class CodeBlock extends React.PureComponent {
       Lowlight.registerLanguage('js', js)
       Lowlight.registerLanguage('javascript', js)
       Lowlight.registerLanguage('bash', bash)
+      Lowlight.registerLanguage('typescript', typescript)
+      // terminal output and error messages: no highlighting, long lines wrap
+      Lowlight.registerLanguage('text', plaintext)
     }
   }
 

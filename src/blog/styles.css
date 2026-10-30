@@ -79,9 +79,15 @@
 /* inline code in paragraphs, list items, headings and callouts */
 :not(pre) > code {
   background: #f3f3f3;
-  padding: 1px 5px;
+  padding: 0.1em 0.3em;
   border-radius: 4px;
   font-size: 0.85em;
+}
+
+/* short code like --experimental-web-worker must not break at its hyphens;
+   long error messages still wrap at spaces (see InlineCode in renderers.js) */
+:not(pre) > code.nowrap {
+  white-space: nowrap;
 }
 
 .Markdown > h1 {
@@ -146,7 +152,8 @@ blockquote {
 .Markdown h1,
 .Markdown h2,
 .Markdown h3,
-.Markdown h4 {
+.Markdown h4,
+.Markdown h5 {
   font-family: Roboto, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans',
     Geneva, Arial, sans-serif;
 }
@@ -329,6 +336,7 @@ blockquote {
 .Markdown li {
   display: list-item;
   margin-bottom: 10px;
+  line-height: 1.6;
   padding-left: 4px;
 }
 
@@ -349,17 +357,17 @@ blockquote {
 }
 
 .Markdown h3 {
-  margin-top: 40px;
+  margin-top: 48px;
   margin-bottom: 0;
-  font-size: 28px;
-  line-height: 36px;
+  font-size: 34px;
+  line-height: 42px;
 }
 
 .Markdown h4 {
-  margin-top: 24px;
+  margin-top: 32px;
   margin-bottom: 0;
-  font-size: 22px;
-  line-height: 30px;
+  font-size: 26px;
+  line-height: 34px;
 }
 
 .Markdown .HeadingAnchor {
@@ -445,4 +453,10 @@ blockquote {
 .Markdown a.GlossaryLink:focus-visible {
   color: rgb(10, 100, 210);
   text-decoration-style: solid;
+}
+
+/* ```text blocks hold terminal output, which reads better wrapped than scrolled */
+.Markdown > pre code.hljs.text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
