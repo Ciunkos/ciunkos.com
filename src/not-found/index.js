@@ -2,10 +2,15 @@ import React from 'react'
 
 import styled from 'styled'
 import { Page, Section, Button, InlineLink } from 'components'
+import cover from 'about/background.jpg'
 
 const NotFoundPage = () => (
-  <Page NotFound title="Page not found">
-    <Section cover="https://source.unsplash.com/random">
+  <Page
+    NotFound
+    title="Page not found - ciunkos.com"
+    description="This page does not exist on ciunkos.com. Go to the home page, the apps and free tools, the resume or the hire page of Przemysław Zalewski."
+  >
+    <Section cover={cover}>
       <Section.Content padding-2 spacing-4>
         <h1>Ooops!</h1>
         <p>

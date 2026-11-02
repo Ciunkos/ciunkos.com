@@ -1,6 +1,6 @@
 # Data as code modules
 
-What would happen if you begin treating data and other assets like you treat the code? It would allow you to consume the data and without the mess of parsing, fetching and other annoyances. You would be able to use common programming features to filter and create new views. Data and code deserve equal treatment!
+Treat data like code: keep JSON, text, CSV, spreadsheets and images in your repository and import them as ES modules. Webpack loaders parse them at build time, so you skip the fetching and parsing code and use ordinary language features to filter them and create new views. Data and code deserve equal treatment!
 
 ## ES6 imports and exports
 
@@ -92,3 +92,7 @@ Just imagine you could `import Wikipedia from 'wikipedia.org/en/articles'` and d
 ```javascript
 <article>{Wikipedia.Code_as_data}</article>
 ```
+
+---
+
+Want help with a build setup or a front-end that has outgrown it? [Hire me](/hire-me): I work in TypeScript, React and Node.js.

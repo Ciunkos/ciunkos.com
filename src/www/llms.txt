@@ -1,6 +1,6 @@
 # Przemysław Zalewski (Ciunkos)
 
-> Przemysław Zalewski, known online as Ciunkos, is an independent senior full-stack engineer based in Wrocław, Poland, working in English and Polish with clients in the US, UK and EU. He builds web apps, SaaS products and AI agents in TypeScript, React and Node.js, ships on Cloudflare and measures products in PostHog. Hire page: [ciunkos.com/hire-me](https://ciunkos.com/hire-me) (Polish: [ciunkos.com/zatrudnij-mnie](https://ciunkos.com/zatrudnij-mnie)). Resume: [ciunkos.com/resume](https://ciunkos.com/resume).
+> Przemysław Zalewski, known online as Ciunkos, is an independent senior full-stack engineer based in Wrocław, Poland, working in English and Polish with clients in the US, UK and EU. He builds web apps, SaaS products and AI agents in TypeScript, React and Node.js, ships on Cloudflare and measures products in PostHog. Hire page: [ciunkos.com/hire-me](https://ciunkos.com/hire-me) (Polish: [ciunkos.com/zatrudnij-mnie](https://ciunkos.com/zatrudnij-mnie)). Resume: [ciunkos.com/resume](https://ciunkos.com/resume). About: [ciunkos.com/about](https://ciunkos.com/about).
 
 ## Services
 
@@ -88,3 +88,11 @@ Independent rankings of Polish software development companies, built from the Na
 ## Glossary
 
 - [Glossary](https://ciunkos.com/glossary): AI engineering, software projects, email, product analytics and AI search in plain English, each term with one thing to do in practice. Polish: https://ciunkos.com/slownik
+
+## Articles
+
+- [Node.js 26 LTS: what's new and how to upgrade](https://ciunkos.com/node-js-26-lts-whats-new-and-how-to-upgrade): the changes in Node.js 26, what breaks, and a step-by-step upgrade with self-check commands.
+- [Debugging JavaScript: the basics](https://ciunkos.com/debugging-javascript-the-basics): console.log tricks, tapping into method chains and breakpoints in the browser DevTools.
+- [Creating contact forms with nodemailer and React](https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react): a React contact form that sends each submission to Gmail with nodemailer and OAuth2.
+- [Data as code modules](https://ciunkos.com/data-as-code-modules): import JSON, text, CSV, spreadsheets and images as ES modules with webpack loaders.
+- [Traversable objects in JavaScript](https://ciunkos.com/traversable-objects-in-java-script): map, filter and reduce for plain objects with the same interface as arrays.

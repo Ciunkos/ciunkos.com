@@ -10,6 +10,8 @@ import apps from './data'
 import Now from './Now'
 import { apps as nowApps } from 'home/Recent'
 import locale from 'home/locale'
+import dates from '../dates.json'
+import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
 
 /* JSON-LD for /apps: the products first, then the apps that get a card in Now.js. */
 const products = [
@@ -27,23 +29,35 @@ const listed = [
   ...products.map(id => nowApps.find(app => app.id === id)),
   ...nowApps.slice(0, lastCard + 1)
 ]
-const appsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  '@id': 'https://ciunkos.com/apps',
-  url: 'https://ciunkos.com/apps',
-  name: 'Apps and free tools by Przemysław Zalewski',
-  author: { '@id': 'https://ciunkos.com/#person' },
-  mainEntity: {
-    '@type': 'ItemList',
-    itemListElement: listed.map((app, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      name: locale.recent.apps[app.id][0],
-      url: app.href
-    }))
-  }
-}
+const URL_APPS = 'https://ciunkos.com/apps'
+const appsJsonLd = graph(
+  {
+    '@type': 'CollectionPage',
+    '@id': URL_APPS,
+    url: URL_APPS,
+    name: 'Apps and free tools by Przemysław Zalewski',
+    inLanguage: 'en',
+    isPartOf: websiteRef,
+    author: personRef,
+    publisher: personRef,
+    breadcrumb: { '@id': `${URL_APPS}#breadcrumb` },
+    datePublished: dates['/apps'].published,
+    dateModified: dates['/apps'].modified,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: listed.map((app, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: locale.recent.apps[app.id][0],
+        url: app.href
+      }))
+    }
+  },
+  breadcrumbs(URL_APPS, [
+    ['ciunkos.com', 'https://ciunkos.com/'],
+    ['Apps', URL_APPS]
+  ])
+)
 
 const matchDimensions = str => {
   const regex = /r(\d+)x(\d+)/g
@@ -85,10 +99,11 @@ const AppsPage = () => (
     ogUrl="https://ciunkos.com/apps"
     ogImage={new URL(cover, 'https://ciunkos.com/').href}
     jsonLd={appsJsonLd}
+    updated={dates['/apps'].modified}
   >
     <Section Apps cover={cover} priority>
       <Section.Content padding-2 spacing-4>
-        <h1>Apps</h1>
+        <h1>Apps and free tools</h1>
 
         <styled.AppList
           horizontal

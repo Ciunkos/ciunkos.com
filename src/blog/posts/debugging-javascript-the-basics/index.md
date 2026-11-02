@@ -1,6 +1,6 @@
-# Debugging Javascript - The Basics
+# Debugging JavaScript - The Basics
 
-When it comes to debugging a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let’s explore what we can do about it and bravely fight nasty bugs!
+Debugging JavaScript starts with three tools: `console.log`, tapping into method chains, and breakpoints in the browser DevTools, set with the `debugger` statement or in the Sources view. JavaScript trades static type safety for dynamic freedom, so knowing these tools well matters. Let’s explore what each one does and bravely fight nasty bugs!
 
 ## Debugging with `console.log`
 
@@ -163,3 +163,7 @@ const example = (data = [1, 2, 3]) => {
 By placing breakpoints with the DevTools you are free of code modifications and can debug ad-hoc issues. However, without proper source mapping the code you will likely see in the sources panel won't reasemble the original code. In order to fix that you must enable source mapping and turn it on in order to debug transpiled and minified code.
 
 I will show you how in the following article, along with more information about how to debug node.js applications, handle transpiled code and setting your editor to allow seamless debugging. Stay tuned!
+
+---
+
+Stuck on a bug in a production JavaScript or TypeScript app? [Hire me](/hire-me) for a code review or a fix.

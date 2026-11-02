@@ -10,36 +10,28 @@ import { PostHeader, PostAbstract, byPostDate } from 'blog/post'
 import locale from './locale'
 import Recent from './Recent'
 import './styles.css'
+import dates from '../dates.json'
+import { graph, personRef, websiteRef } from 'utils/schema'
 
 const { WelcomeMessage, BlogDescription } = styled
 
-/* Same @id and sameAs as the Person node on /hire-me, so search engines merge the two. */
-const personJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': 'https://ciunkos.com/#person',
-  name: 'Przemysław Zalewski',
-  alternateName: 'Ciunkos',
-  url: 'https://ciunkos.com',
-  jobTitle: 'Senior Full-Stack Engineer',
-  image: 'https://ciunkos.com/hire/img/przemo-512.png',
-  sameAs: [
-    'https://www.linkedin.com/in/przemyslaw-zalewski-ciunkos',
-    'https://x.com/Ciunkos',
-    'https://github.com/przemyslawzalewski',
-    'https://github.com/Ciunkos',
-    'https://www.biznes.gov.pl/pl/wyszukiwarka-firm/wpis/ceidg/2AB7BD16-7CDD-483D-B542-F7BD0E5EE64D'
-  ],
-  taxID: '8952144360',
-  duns: '438385453',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'ul. Tęczowa 31A/56',
-    postalCode: '53-601',
-    addressLocality: 'Wrocław',
-    addressCountry: 'PL'
-  }
-}
+const SITE_URL = 'https://ciunkos.com/'
+
+const homeJsonLd = graph({
+  '@type': 'WebPage',
+  '@id': SITE_URL,
+  url: SITE_URL,
+  name: locale.page.title,
+  description: locale.page.description,
+  inLanguage: 'en',
+  isPartOf: websiteRef,
+  about: personRef,
+  mainEntity: personRef,
+  author: personRef,
+  publisher: personRef,
+  datePublished: dates['/'].published,
+  dateModified: dates['/'].modified
+})
 
 const HomePage = () => (
   <Page
@@ -51,7 +43,8 @@ const HomePage = () => (
     ogImageWidth={2400}
     ogImageHeight={1260}
     ogImageAlt="Przemysław Zalewski, senior full-stack engineer from Wrocław: the free tools and apps he runs in 2026"
-    jsonLd={personJsonLd}
+    jsonLd={homeJsonLd}
+    updated={dates['/'].modified}
   >
     <Section Home cover={homeBackground} priority gradient="shadow">
       <Section.Content padding-2>

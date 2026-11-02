@@ -1,14 +1,14 @@
 # Traversable Objects in JavaScript
 
-Objects in JavaScript are commonly used as dictionary data structure and by that there is strong need to process them in the functional way. However, there are no easy way to `map`, `filter` and `reduce` them like arrays. Therefore many great libraries come with many helper functions, but most of them lack common interface with ease of processing arrays.
+JavaScript objects are often used as dictionaries, yet they have no `map`, `filter` or `reduce` like arrays do. Many libraries add helper functions, but most lack the common interface that makes arrays easy to process. This post builds that interface for objects: mapping, filtering and reducing with the same callback signature as arrays.
 
-JavaScript arrays comforms to the [following interface](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) when it comes to mapping:
+JavaScript arrays conforms to the [following interface](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) when it comes to mapping:
 
 > `currentValue` - The current element being processed in the array.
 > `index` - The index of the current element being processed in the array.
 > `array` - The array map was called upon.
 
-Most of the time only `currentValue` is used, but the `index` argument comes handy in many situations. I belive strongly that the interace should be more generic and allow all the built-in functions to work with objects seamlessly.
+Most of the time only `currentValue` is used, but the `index` argument comes handy in many situations. I believe strongly that the interface should be more generic and allow all the built-in functions to work with objects seamlessly.
 
 ## Mapping
 
@@ -23,7 +23,7 @@ const map = f => object =>
 
 ## Filtering
 
-To filter and object we can compose mapping function and change the reduction or use generic Functor mapping to produce single or no value. By using the `undefined` value as a result of mapping function filtered properies will become `undefined` mimicing standard behavior.
+To filter an object we can compose mapping function and change the reduction or use generic Functor mapping to produce single or no value. By using the `undefined` value as a result of mapping function filtered properties will become `undefined` mimicking standard behavior.
 
 ```javascript
 const pass = f => value => f(value) ? value : undefined
@@ -32,7 +32,7 @@ const filter = map(pass)
 
 ## Reducing
 
-To filter and object we can compose mapping function and change the reduction or use generic Functor mapping to produce single or no value. By using the `undefined` value as a result of mapping function filtered properies will become `undefined` mimicing standard behavior.
+To filter an object we can compose mapping function and change the reduction or use generic Functor mapping to produce single or no value. By using the `undefined` value as a result of mapping function filtered properties will become `undefined` mimicking standard behavior.
 
 ```javascript
 const reduce = f => init => object =>
@@ -69,6 +69,6 @@ class Traversable {
 }
 ```
 
-# Monads
+---
 
-# Implementations
+Need a senior engineer for functional TypeScript or a React codebase? [Hire me](/hire-me).

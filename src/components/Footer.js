@@ -57,11 +57,30 @@ const VitalsBadge = () => {
   )
 }
 
-export default () => (
+// a real last-content-change date (from git), the same value as the page's dateModified
+const formatDate = iso =>
+  new Intl.DateTimeFormat('en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    timeZone: 'UTC'
+  }).format(new Date(`${iso}T00:00:00Z`))
+
+export const Updated = ({ date }) => (
+  <p className="PageUpdated" data-ld-updated>
+    Updated <time dateTime={date}>{formatDate(date)}</time> by{' '}
+    <InlineLink href="/about" rel="author">
+      Przemysław Zalewski
+    </InlineLink>
+  </p>
+)
+
+export default ({ updated }) => (
   <Section Notes>
     <Section.Content padding-2 spacing-4>
       <styled.View tag="footer" spacing-4 media-no-print>
         <styled.View spacing-3>
+          {updated && <Updated date={updated} />}
           <styled.View tag="section" horizontal>
             <styled.Icon media-large style={{ paddingRight: 12 }}>
               <styled.PageIcon

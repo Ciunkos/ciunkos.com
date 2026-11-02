@@ -9,7 +9,8 @@ const Page = ({
   children,
   subheader,
   header = <Header subheader={subheader} />,
-  footer = <Footer />,
+  updated,
+  footer = <Footer updated={updated} />,
   title,
   description,
   ogUrl,
@@ -42,10 +43,14 @@ const Page = ({
       )}
       {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
       {ogImage && <meta name="twitter:card" content="summary_large_image" />}
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
       {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
       {jsonLd && (
-        <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
+        <script type="application/ld+json">
+          {JSON.stringify(jsonLd).replace(/</g, '\\u003c')}
+        </script>
       )}
     </Helmet>
     {header}

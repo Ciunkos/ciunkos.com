@@ -6,6 +6,8 @@ import ogResume from 'assets/og-resume.jpg'
 import { HeaderBar } from 'components/Header'
 import routes from './routes'
 import { description, title } from './LOCALE'
+import dates from '../dates.json'
+import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
 import {
   Profile,
   Education,
@@ -14,6 +16,30 @@ import {
   Interests,
   Notes
 } from './sections'
+
+const URL_RESUME = 'https://ciunkos.com/resume'
+const resumeJsonLd = graph(
+  {
+    '@type': 'ProfilePage',
+    '@id': URL_RESUME,
+    url: URL_RESUME,
+    name: title,
+    description,
+    inLanguage: 'en',
+    isPartOf: websiteRef,
+    mainEntity: personRef,
+    about: personRef,
+    author: personRef,
+    publisher: personRef,
+    breadcrumb: { '@id': `${URL_RESUME}#breadcrumb` },
+    datePublished: dates['/resume'].published,
+    dateModified: dates['/resume'].modified
+  },
+  breadcrumbs(URL_RESUME, [
+    ['ciunkos.com', 'https://ciunkos.com/'],
+    ['Resume', URL_RESUME]
+  ])
+)
 
 export default () => (
   <Page
@@ -25,6 +51,8 @@ export default () => (
     ogImageWidth={2400}
     ogImageHeight={1260}
     ogImageAlt="Resume card: Przemysław Zalewski, senior full-stack engineer with 15+ years shipping software"
+    jsonLd={resumeJsonLd}
+    updated={dates['/resume'].modified}
     subheader={top => (
       <HeaderBar
         routes={routes}

@@ -7,12 +7,48 @@ import { MailOutline } from 'icons'
 import Social from 'social'
 import cover from './cover.jpg'
 import background from './background.jpg'
+import dates from '../dates.json'
+import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
+
+const URL_ABOUT = 'https://ciunkos.com/about'
+const TITLE = 'About Przemysław Zalewski (Ciunkos), senior full-stack engineer'
+const DESCRIPTION =
+  'Przemysław Zalewski, senior full-stack engineer and technical lead from Wrocław, Poland. TypeScript, React, Node.js and AI agents.'
+
+const aboutJsonLd = graph(
+  {
+    '@type': 'ProfilePage',
+    '@id': URL_ABOUT,
+    url: URL_ABOUT,
+    name: TITLE,
+    description: DESCRIPTION,
+    inLanguage: 'en',
+    isPartOf: websiteRef,
+    mainEntity: personRef,
+    about: personRef,
+    author: personRef,
+    publisher: personRef,
+    breadcrumb: { '@id': `${URL_ABOUT}#breadcrumb` },
+    datePublished: dates['/about'].published,
+    dateModified: dates['/about'].modified
+  },
+  breadcrumbs(URL_ABOUT, [
+    ['ciunkos.com', 'https://ciunkos.com/'],
+    ['About', URL_ABOUT]
+  ])
+)
 
 const AboutPage = () => (
   <Page
     About
-    title="About me - Przemysław Zalewski - Ciunkos"
-    description="Przemysław Zalewski, senior full-stack engineer and technical lead from Wrocław, Poland. TypeScript, React, Node.js and AI agents."
+    title={TITLE}
+    description={DESCRIPTION}
+    ogUrl={URL_ABOUT}
+    ogType="profile"
+    ogImage={new URL(cover, 'https://ciunkos.com/').href}
+    ogImageAlt="Przemysław Zalewski"
+    jsonLd={aboutJsonLd}
+    updated={dates['/about'].modified}
   >
     <Section About cover={cover} priority>
       <Section.Content padding-2 spacing-4>
@@ -40,12 +76,16 @@ const AboutPage = () => (
             commit to the App Store in four months, and Sandtime.io, time
             tracking for 4,000+ freelancers and teams, where I have been the
             founding engineer since 2018. The details are in my{' '}
-            <InlineLink href="/resume/">resume</InlineLink>.
+            <InlineLink href="/resume">resume</InlineLink>.
           </p>
 
           <p>
             Available from November 2026, in Wrocław or remote. Hiring for
-            TypeScript, React or AI agents? Write to me.
+            TypeScript, React or AI agents? See{' '}
+            <InlineLink href="https://ciunkos.com/hire-me">
+              services, rates and the earliest start date
+            </InlineLink>
+            , or write to me below.
           </p>
         </styled.AboutMe>
 

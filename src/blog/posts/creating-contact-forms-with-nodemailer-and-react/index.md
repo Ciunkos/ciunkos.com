@@ -1,6 +1,6 @@
 # Creating contact forms with nodemailer and React
 
-Creating a contact form is a very common requested feature, almost every site has one. Creating the HTML form is easy, however there must be some back-end code to transfer those messages. I will show you how to create simple form and wire that up to send contact form submission to your Gmail account.
+A contact form needs two parts: the HTML form and back-end code that delivers each message. This guide builds the form in React and sends every submission to your Gmail inbox with nodemailer and OAuth2, from registering the app in Google Cloud to handling the form on the server.
 
 ## Rendering contact form with React
 
@@ -30,7 +30,7 @@ The contact form will be extended with event handling, validation and submission
 Many of you use Gmail on daily basis and receive tons of emails. You might want to use dedicated email provider for the contact form but most likely your private account will be enough. I will show you how to configure your Gmail account so the contact form submissions will land right in your inbox.
 If you would like to use SMTP or use plain user/pass authentication head up for the [official example](https://nodemailer.com/about/#tl-dr).
 
-### Registering application on [Google Clould Platform](https://console.cloud.google.com)
+### Registering application on [Google Cloud Platform](https://console.cloud.google.com)
 
 Navigate to [Google Cloud Platform Console](https://console.cloud.google.com) and sign in with the account you wish to receive emails.
 
@@ -188,3 +188,7 @@ Working example and source code of this article is available on [GitHub](https:/
 Just download or clone this repository, `npm install` and you can fiddle with sending emails.
 
 ![Full view of the received e-mail](./images/result.jpg)
+
+---
+
+Need a contact form, an email flow or a whole app built? [Hire me](/hire-me): I build web apps in TypeScript, React and Node.js.

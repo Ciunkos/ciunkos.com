@@ -20,11 +20,12 @@ export default {
   name: 'Debugging JavaScript - The Basics',
   slug: 'debugging-javascript-the-basics',
   date: '2017-06-01',
+  updated: '2026-11-02',
   cover,
   markdown: markdownWithAssets,
   metaDescription:
     'The basics of debugging JavaScript: console.log tricks, tapping into method chains and breakpoints in DevTools, set with debugger or in the sources view.',
   description:
-    'When it comes to debug a JavaScript code the first thing is to cry in despair because of the lack of proper tools. It is kind of trade-off between wild dynamic programming vs more static and type safe code. Let’s explore what we can do about it and bravely fight nasty bugs!',
+    'Debugging JavaScript starts with three tools: `console.log`, tapping into method chains, and breakpoints in the browser DevTools, set with the `debugger` statement or in the Sources view. JavaScript trades static type safety for dynamic freedom, so knowing these tools well matters. Let’s explore what each one does and bravely fight nasty bugs!',
   readingTime: readingTime(markdownWithAssets)
 }

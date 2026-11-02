@@ -11,6 +11,7 @@ import { Byline, Contributors } from './Byline'
 import { postAuthors } from './authors'
 import { astPlugins } from './markdown'
 import { Heading, InlineCode, Callout, Link } from './renderers'
+import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
 
 const SITE = 'https://ciunkos.com/'
 
@@ -25,20 +26,31 @@ const shareImage = post =>
 // the first author wrote the post, the others are contributors (co-authors)
 const postJsonLd = post => {
   const [author, ...contributors] = postAuthors(post).map(a => a.jsonLd)
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: post.name,
-    description: post.metaDescription || post.description,
-    url: postUrl(post),
-    mainEntityOfPage: postUrl(post),
-    image: coverUrl(post),
-    inLanguage: 'en',
-    ...(post.date && { datePublished: post.date }),
-    ...(post.updated && { dateModified: post.updated }),
-    author,
-    ...(contributors.length && { contributor: contributors })
-  }
+  const url = postUrl(post)
+  return graph(
+    {
+      '@type': 'BlogPosting',
+      '@id': url,
+      headline: post.name,
+      description: post.metaDescription || post.description,
+      url,
+      mainEntityOfPage: url,
+      image: coverUrl(post),
+      inLanguage: 'en',
+      isPartOf: websiteRef,
+      ...(post.date && { datePublished: post.date }),
+      // a post that was never revised was last modified when it was published
+      dateModified: post.updated || post.date,
+      author,
+      publisher: personRef,
+      ...(contributors.length && { contributor: contributors }),
+      wordCount: post.markdown ? post.markdown.split(/\s+/).length : undefined
+    },
+    breadcrumbs(url, [
+      ['ciunkos.com', SITE],
+      [post.name, url]
+    ])
+  )
 }
 
 // the page header already shows the title, so a leading "# Title" line in the markdown is dropped

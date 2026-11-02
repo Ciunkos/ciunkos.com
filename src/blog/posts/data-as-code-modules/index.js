@@ -14,11 +14,12 @@ export default {
   name: 'Data as code modules',
   slug: 'data-as-code-modules',
   date: '2017-06-01',
+  updated: '2026-11-02',
   cover,
   markdown,
   metaDescription:
     'Treat data like code: import JSON, text, CSV, spreadsheets and images as ES modules with webpack, load them asynchronously and share them on npm.',
   description:
-    'What would happen if you begin treating data and other assets like you threat the code? It would allow you to consume the data and without the mess of parsing, fetching and other annoyances. You would be able to use common programming features to filter and create new views. Data and code deserve equal treatment!',
+    'Treat data like code: keep JSON, text, CSV, spreadsheets and images in your repository and import them as ES modules. Webpack loaders parse them at build time, so you skip the fetching and parsing code and use ordinary language features to filter them and create new views. Data and code deserve equal treatment!',
   readingTime: readingTime(markdown)
 }

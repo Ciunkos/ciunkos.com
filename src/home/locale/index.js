@@ -7,10 +7,10 @@ export const page = {
 }
 
 export const hero = {
-  title: 'Ooh, hello there!',
+  title: 'Przemysław Zalewski, senior full-stack engineer',
   paragraphs: [
-    'Assorted ramblings poured from my mind onto the page... This is kind of a blog.',
-    'Topics include JavaScript, React, functional programming and app development.'
+    'I build web apps, SaaS products and AI agents in TypeScript, React and Node.js. I work from Wrocław, Poland, for clients in the US, UK and EU.',
+    'Here you will find the free tools I run in 2026, my apps from 2007 to 2017 and a blog about JavaScript, React and app development.'
   ],
   note: ({ aboutLink, outboundLink }) => (
     <>
