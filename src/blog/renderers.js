@@ -11,13 +11,14 @@ const CALLOUT_LABELS = {
   tldr: 'TL;DR'
 }
 
-// the page header already has the h1, so headings inside a post start at h2;
+// the page header already has the h1 and posts start their sections at ##, so ## is h2
+// (a stray # also becomes h2) and levels never skip, which axe's heading-order checks;
 // every heading gets a stable id (see headingIds in markdown.js) and a # link to copy,
 // next to the heading rather than inside it, so it isn't read as part of the heading
 export const Heading = ({ level, node, children }) => {
   const id = node.data && node.data.id
   const heading = React.createElement(
-    `h${Math.min(level + 1, 6)}`,
+    `h${Math.min(Math.max(level, 2), 6)}`,
     { id },
     children
   )

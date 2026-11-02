@@ -90,6 +90,17 @@
   color: #8a5f00;
 }
 
+.hljs .hljs-attr,
+.hljs .hljs-number,
+.hljs .hljs-variable,
+.hljs .hljs-template-variable,
+.hljs .hljs-type,
+.hljs .hljs-selector-attr,
+.hljs .hljs-selector-class,
+.hljs .hljs-selector-pseudo {
+  color: #7a5300;
+}
+
 .Markdown a {
   font-weight: 600;
   display: inline;
@@ -133,11 +144,6 @@
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.072px;
-}
-
-.Markdown h2 {
-  margin-top: 16px;
-  font-size: 28px;
 }
 
 @media screen and (min-width: 640px) {
@@ -568,22 +574,22 @@ blockquote {
   color: rgba(0, 0, 0, 0.45);
 }
 
-/* headings: ## renders as h3, ### as h4 */
-.Markdown h3,
-.Markdown h4 {
+/* headings: ## renders as h2, ### as h3 */
+.Markdown h2,
+.Markdown h3 {
   scroll-margin-top: 80px;
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
-.Markdown h3 {
+.Markdown h2 {
   margin-top: 48px;
   margin-bottom: 0;
   font-size: 34px;
   line-height: 42px;
 }
 
-.Markdown h4 {
+.Markdown h3 {
   margin-top: 32px;
   margin-bottom: 0;
   font-size: 26px;

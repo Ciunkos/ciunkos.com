@@ -77,7 +77,9 @@ export const Updated = ({ date }) => (
 
 export default ({ updated }) => (
   <Section Notes>
-    <Section.Content padding-2 spacing-4>
+    {/* inside a <section> the footer loses its contentinfo role, so the whole block
+        (links, badge, contact, company details) is marked as the contentinfo landmark */}
+    <Section.Content padding-2 spacing-4 role="contentinfo">
       <styled.View tag="footer" spacing-4 media-no-print>
         <styled.View spacing-3>
           {updated && <Updated date={updated} />}
