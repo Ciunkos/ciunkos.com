@@ -195,9 +195,10 @@ export const pelnaData = (d) => (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.
 export function dataLokalna(iso, lang) {
   return new Intl.DateTimeFormat(lang === 'pl' ? 'pl-PL' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(iso.slice(0, 10) + 'T00:00:00Z'));
 }
+/* Bez opacity: kolor i kontrast dziedziczy po otoczeniu (stopka), które ma już kontrast sprawdzony przez axe. */
 export function znacznikDaty(iso, lang) {
   const d = iso.slice(0, 10);
-  return `<p class="ld-updated" data-ld-updated style="margin:.75rem auto;font-size:.85em;opacity:.75;text-align:center">${lang === 'pl' ? 'Aktualizacja' : 'Updated'}: <time datetime="${escHtml(d)}">${escHtml(dataLokalna(d, lang))}</time> · ${lang === 'pl' ? 'autor' : 'by'} <a href="${BAZA}/about" rel="author">${IMIE}</a></p>`;
+  return `<p class="ld-updated" data-ld-updated style="margin:.75rem auto;font-size:.85em;text-align:center">${lang === 'pl' ? 'Aktualizacja' : 'Updated'}: <time datetime="${escHtml(d)}">${escHtml(dataLokalna(d, lang))}</time> · ${lang === 'pl' ? 'autor' : 'by'} <a href="${BAZA}/about" rel="author">${IMIE}</a></p>`;
 }
 function wstawDate(html, iso, lang, gdzie) {
   const p = znacznikDaty(iso, lang);
