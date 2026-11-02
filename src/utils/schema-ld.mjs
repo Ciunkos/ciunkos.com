@@ -186,7 +186,11 @@ export function wybierzStrone(graf, url) {
   return graf.find((n) => jest(n, TYPY_WEBPAGE) && zgodny(n)) || graf.find((n) => jest(n, TYPY_STRONY) && zgodny(n) && !jest(n, ['FAQPage'])) || graf.find((n) => jest(n, TYPY_WEBPAGE));
 }
 function zgodnyLubKotwica(n, url) { const id = bezSlasha(n['@id'] || n.url); return id === bezSlasha(url); }
-function usunPuste(v) { return JSON.parse(JSON.stringify(v)); }
+function usunPuste(v) { return JSON.parse(JSON.stringify(v), (k, x) => (DATY.includes(k) ? pelnaData(x) : x)); }
+
+/* Google chce daty z czasem i strefą (Article: datePublished/dateModified). Sama data → północ UTC. */
+const DATY = ['datePublished', 'dateModified', 'dateCreated', 'uploadDate'];
+export const pelnaData = (d) => (typeof d === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(d) ? d + 'T00:00:00+00:00' : d);
 
 export function dataLokalna(iso, lang) {
   return new Intl.DateTimeFormat(lang === 'pl' ? 'pl-PL' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(iso.slice(0, 10) + 'T00:00:00Z'));

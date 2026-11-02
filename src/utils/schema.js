@@ -7,7 +7,8 @@ import {
   WEBSITE,
   PERSON_ID,
   WEBSITE_ID,
-  BAZA
+  BAZA,
+  pelnaData
 } from './schema-ld.mjs'
 
 export const SITE = BAZA
@@ -26,7 +27,22 @@ export const breadcrumbs = (url, items) => ({
 })
 
 /* One @graph per page: the page's own nodes, then the shared entities. */
+// Google wants Article dates with a time and timezone, so a bare date becomes midnight UTC
+const DATES = ['datePublished', 'dateModified']
+const withFullDates = node =>
+  Object.fromEntries(
+    Object.entries(node).map(([key, value]) => [
+      key,
+      DATES.includes(key) ? pelnaData(value) : value
+    ])
+  )
+
 export const graph = (...nodes) => ({
   '@context': 'https://schema.org',
-  '@graph': [...nodes.filter(Boolean), PERSON, BUSINESS, WEBSITE]
+  '@graph': [
+    ...nodes.filter(Boolean).map(withFullDates),
+    PERSON,
+    BUSINESS,
+    WEBSITE
+  ]
 })
