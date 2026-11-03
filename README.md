@@ -32,7 +32,7 @@ npm run build
 
 ## PostHog SDK (self-hosted, pinned, lean)
 
-Every site on ciunkos.com loads PostHog from `/vendor/posthog/<version>/posthog.js` with an SRI
+Every site on ciunkos.com loads PostHog from `/vendor/posthog/<build>/posthog.js` (build = `<version>-<sha256 prefix>`) with an SRI
 hash, never from PostHog. The Workers' `/ph/*` proxies only pass events and JSON config.
 
 The file is built by `scripts/vendor-posthog.mjs` from `scripts/posthog/entry.ts`: PostHog's
@@ -43,7 +43,7 @@ fetch more code. Same queue contract as PostHog's `array.js` snippet.
 
 - `posthog-js` is pinned exactly in `package.json`. Dependabot proposes updates weekly, 7 days
   after release. On its PR, `.github/workflows/vendor-posthog.yml` builds and commits the new
-  `src/www/vendor/posthog/<version>/`, `versions.json` and `src/utils/posthog-sdk.mjs`.
+  `src/www/vendor/posthog/<build>/`, `versions.json` and `src/utils/posthog-sdk.mjs`.
 - Manually: `npm ci --ignore-scripts && npm run vendor:posthog`.
 - `node scripts/vendor-posthog.mjs --check --rebuild` proves the vendored file is reproducible.
 - Old versions stay in `src/www/vendor/posthog/` until no Worker points at them.

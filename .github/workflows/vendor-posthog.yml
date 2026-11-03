@@ -1,5 +1,5 @@
 # A Dependabot PR that bumps posthog-js only changes package.json and the lockfile.
-# This vendors the new SDK into src/www/vendor/posthog/<version>/ (keeping old versions),
+# This vendors the new SDK into src/www/vendor/posthog/<version>-<hash>/ (keeping old builds),
 # updates versions.json and src/utils/posthog-sdk.mjs, and pushes that to the PR branch,
 # so the PR shows the exact file and SRI hash that will be served.
 # After merging and the Pages deploy: node scripts/check-posthog-copies.mjs --fix, then deploy the Workers.

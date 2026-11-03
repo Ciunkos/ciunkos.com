@@ -4,7 +4,7 @@ import { POSTHOG_SDK } from './utils/posthog-sdk.mjs'
 /* Analytics start after the window load event, so they never compete with the first render.
    Only PostHog (EU, no cookies, see ciunkos.com/privacy), the same stub as on the other
    ciunkos.com sites, 800 ms after load, never for automated browsers or in development builds.
-   The SDK is self-hosted, pinned and lean: /vendor/posthog/<version>/posthog.js
+   The SDK is self-hosted, pinned and lean: /vendor/posthog/<build>/posthog.js
    (scripts/vendor-posthog.mjs), loaded with an SRI hash, without an external script loader,
    so PostHog can't push code to the page. Only events go to PostHog, through the
    first-party proxy /hire/ph (the hire Worker).

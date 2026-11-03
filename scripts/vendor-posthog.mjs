@@ -1,20 +1,20 @@
 /* vendor-posthog.mjs: the self-hosted PostHog SDK for every site on ciunkos.com.
 
-   Builds scripts/posthog/entry.ts (a lean SDK: only the parts these sites use) with the pinned
-   esbuild into src/www/vendor/posthog/<version>/posthog.js, served at
-   https://ciunkos.com/vendor/posthog/<version>/posthog.js and loaded with an SRI hash.
+   Builds scripts/posthog/entry.ts (a lean SDK: only the parts these sites use) with the locked
+   esbuild into src/www/vendor/posthog/<id>/posthog.js, served at
+   https://ciunkos.com/vendor/posthog/<id>/posthog.js and loaded with an SRI hash.
 
    Inputs, all pinned:
-   - posthog-js from npm (exact pin in package.json, tarball checked by npm ci against the
-     lockfile sha512): the prebuilt rrweb recorder and the dependencies' ESM builds.
+   - posthog-js from npm (the version locked in package-lock.json, tarball checked by npm ci
+     against the lockfile sha512; package.json keeps a ^ range, .npmrc min-release-age=7): the prebuilt rrweb recorder and the dependencies' ESM builds.
    - PostHog's TypeScript source at the commit tagged posthog-js@<version>, fetched with git
      (content-addressed, so the commit SHA in versions.json pins every byte). The npm package
      only ships pre-minified bundles, which esbuild can't tree-shake.
-   - esbuild, exact pin in package.json.
+   - esbuild, locked in package-lock.json.
 
-   Every vendored version stays in the repo: a Pages deploy replaces all files, and the Workers
-   of the other repos may still point at an older version until they redeploy.
-   versions.json lists each version with its commit and SRI hash; src/utils/posthog-sdk.mjs holds
+   Every vendored build stays in the repo: a Pages deploy replaces all files, and the Workers
+   of the other repos may still point at an older build until they redeploy.
+   versions.json lists each build (id <version>-<sha256 prefix>) with its commit and SRI hash; src/utils/posthog-sdk.mjs holds
    the current one and is copied to ~/<repo>/src/shared/posthog-sdk.mjs by check-posthog-copies.mjs.
 
    node scripts/vendor-posthog.mjs           build and vendor the pinned version
@@ -54,14 +54,17 @@ const git = (cwd, ...gitArgs) =>
   execFileSync('git', gitArgs, { cwd, encoding: 'utf8' }).trim()
 
 const pkg = readJson(join(ROOT, 'package.json'))
-const pin = pkg.devDependencies?.['posthog-js']
-if (!/^\d+\.\d+\.\d+$/.test(pin || ''))
-  fail(`package.json must pin posthog-js to an exact version, found ${pin}`)
-const locked = readJson(join(ROOT, 'package-lock.json')).packages?.[
+/* The pin is the locked version: package.json keeps a ^ range and npm (min-release-age=7 in
+   .npmrc) resolves it; npm ci then installs exactly what package-lock.json records. */
+const range = pkg.devDependencies?.['posthog-js']
+const pin = readJson(join(ROOT, 'package-lock.json')).packages?.[
   'node_modules/posthog-js'
 ]?.version
-if (locked !== pin)
-  fail(`package-lock.json has posthog-js ${locked}, pin is ${pin}`)
+if (!range) fail('package.json has no posthog-js devDependency')
+if (!/^\d+\.\d+\.\d+$/.test(pin || ''))
+  fail(
+    `package-lock.json has no posthog-js version (found ${pin}); run npm install`
+  )
 
 const manifest = existsSync(MANIFEST)
   ? readJson(MANIFEST)
@@ -208,50 +211,64 @@ export const POSTHOG_SDK = ${JSON.stringify(
   ).replace(/"([a-z]+)":/g, '$1:')}
 `
 
+/* Builds are keyed by an id, not by the posthog-js version alone: <version>-<first 8 hex of
+   sha256>. The served path is immutable for a year, so a rebuild of the same version from
+   different inputs (a transitive dependency moved) must get a new URL, or cached copies would
+   fail the SRI check. Older ids stay for Workers that still point at them. */
+const fileOf = entry => join(ROOT, 'src/www', entry.src)
+const builtOf = entry => join(ROOT, 'dist', entry.src)
+const versionOf = (id, entry) => entry.version || id
+const current = () => manifest.versions[manifest.current]
+
 if (!check) {
-  const commit = manifest.versions[pin]?.commit || resolveCommit(pin)
+  const known = Object.entries(manifest.versions).find(
+    ([id, entry]) => versionOf(id, entry) === pin
+  )?.[1]
+  const commit = known?.commit || resolveCommit(pin)
   const remote = resolveCommit(pin)
   if (remote !== commit)
     fail(
       `tag posthog-js@${pin} moved from ${commit} to ${remote}; investigate before vendoring`
     )
   const { bytes, esbuild } = await build(pin, commit)
-  const dir = join(VENDOR, pin)
+  const id = `${pin}-${createHash('sha256').update(bytes).digest('hex').slice(0, 8)}`
+  const dir = join(VENDOR, id)
   mkdirSync(dir, { recursive: true })
   writeFileSync(join(dir, 'posthog.js'), bytes)
   writeFileSync(join(dir, 'LICENSE.txt'), licenses())
-  manifest.versions[pin] = {
-    src: `/vendor/posthog/${pin}/posthog.js`,
+  manifest.versions[id] = {
+    version: pin,
+    src: `/vendor/posthog/${id}/posthog.js`,
     integrity: sri(bytes),
     commit,
     esbuild,
     entry: 'scripts/posthog/entry.ts',
     vendored:
-      manifest.versions[pin]?.vendored || new Date().toISOString().slice(0, 10)
+      manifest.versions[id]?.vendored || new Date().toISOString().slice(0, 10)
   }
-  manifest.current = pin
+  manifest.current = id
   writeFileSync(MANIFEST, `${JSON.stringify(manifest, null, 2)}\n`)
-  writeFileSync(MODULE, moduleText({ version: pin, ...manifest.versions[pin] }))
+  writeFileSync(MODULE, moduleText({ version: pin, ...current() }))
   const gzip = (await import('node:zlib')).gzipSync(bytes, { level: 9 }).length
   console.log(
-    `vendored posthog-js ${pin} (${commit.slice(0, 7)}): ${
-      manifest.versions[pin].src
-    }, ${bytes.length} B, ${gzip} B gzip, ${manifest.versions[pin].integrity}`
+    `vendored posthog-js ${pin} as ${id} (${commit.slice(0, 7)}): ${
+      current().src
+    }, ${bytes.length} B, ${gzip} B gzip, ${current().integrity}`
   )
 }
 
-/* Check (also runs after vendoring): every listed version is on disk with its hash,
-   the current one is the pin, and the module matches it. */
-if (manifest.current !== pin)
+/* Check (also runs after vendoring): every listed build is on disk with its hash,
+   the current one is the locked version, and the module matches it. */
+if (!current() || versionOf(manifest.current, current()) !== pin)
   fail(
-    `versions.json current is ${manifest.current}, pin is ${pin}; run node scripts/vendor-posthog.mjs`
+    `versions.json current is ${manifest.current}, locked posthog-js is ${pin}; run node scripts/vendor-posthog.mjs`
   )
-for (const [version, entry] of Object.entries(manifest.versions)) {
-  const file = join(VENDOR, version, 'posthog.js')
+for (const entry of Object.values(manifest.versions)) {
+  const file = fileOf(entry)
   if (!existsSync(file)) fail(`missing ${file}`)
   if (sri(readFileSync(file)) !== entry.integrity)
     fail(`${file} does not match its integrity in versions.json`)
-  const built = join(ROOT, 'dist/vendor/posthog', version, 'posthog.js')
+  const built = builtOf(entry)
   if (
     args.has('--dist') &&
     (!existsSync(built) || sri(readFileSync(built)) !== entry.integrity)
@@ -260,24 +277,24 @@ for (const [version, entry] of Object.entries(manifest.versions)) {
       `${built} is missing or was rewritten by the build; browsers would reject it`
     )
 }
-const expected = moduleText({ version: pin, ...manifest.versions[pin] })
+const expected = moduleText({ version: pin, ...current() })
 if (!existsSync(MODULE) || readFileSync(MODULE, 'utf8') !== expected)
   fail(
     'src/utils/posthog-sdk.mjs is out of date; run node scripts/vendor-posthog.mjs'
   )
 if (check && args.has('--rebuild')) {
-  const { bytes } = await build(pin, manifest.versions[pin].commit)
-  if (sri(bytes) !== manifest.versions[pin].integrity)
+  const { bytes } = await build(pin, current().commit)
+  if (sri(bytes) !== current().integrity)
     fail(
-      `rebuilding ${pin} gives ${sri(bytes)}, vendored file is ${
-        manifest.versions[pin].integrity
-      }`
+      `rebuilding ${manifest.current} gives ${sri(bytes)}, vendored file is ${
+        current().integrity
+      }; the inputs changed, so run node scripts/vendor-posthog.mjs for a new build id`
     )
-  console.log(`rebuild of posthog-js ${pin} is byte-identical`)
+  console.log(`rebuild of ${manifest.current} is byte-identical`)
 }
 if (check)
   console.log(
-    `posthog-js ${pin} vendored and verified (${
+    `posthog-js ${pin} vendored as ${manifest.current} and verified (${
       Object.keys(manifest.versions).length
-    } version(s) kept)`
+    } build(s) kept)`
   )
