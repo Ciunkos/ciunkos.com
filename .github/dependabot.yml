@@ -1,0 +1,34 @@
+# Weekly dependency PRs. A release has to be public for a while before Dependabot proposes it,
+# so a compromised publish is usually caught and pulled first.
+# posthog-js PRs get the vendored SDK committed by .github/workflows/vendor-posthog.yml.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Warsaw
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+    open-pull-requests-limit: 5
+    groups:
+      posthog:
+        patterns:
+          - posthog-js
+      dependencies:
+        patterns:
+          - '*'
+        exclude-patterns:
+          - posthog-js
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '07:00'
+      timezone: Europe/Warsaw
+    cooldown:
+      default-days: 7

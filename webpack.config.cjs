@@ -97,7 +97,20 @@ module.exports = () => {
           filename: 'styles-[contenthash].css'
         }),
         new CopyPlugin({
-          patterns: [{ from: './src/www/', to: './' }]
+          patterns: [
+            {
+              from: './src/www/',
+              to: './',
+              globOptions: { ignore: ['**/vendor/**'] }
+            },
+            // Vendored files are served byte for byte: pages load them with an SRI hash,
+            // so Terser must not touch them (it minifies copied .js assets too).
+            {
+              from: './src/www/vendor/',
+              to: './vendor/',
+              info: { minimized: true }
+            }
+          ]
         }),
         new StatsWriterPlugin({
           filename: '../build/stats.json'

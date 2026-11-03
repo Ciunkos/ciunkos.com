@@ -1,0 +1,13 @@
+{
+  "current": "1.439.0",
+  "versions": {
+    "1.439.0": {
+      "src": "/vendor/posthog/1.439.0/posthog.js",
+      "integrity": "sha384-9cdELCHBZKXBrGGEvTYpbKRdte+z15fWeLn58mKiFfp/Yu/QMvyVR/EehTNBMk2P",
+      "commit": "b98cf1f29a232e0ddb488bb2bd822c762cb2f270",
+      "esbuild": "0.28.2",
+      "entry": "scripts/posthog/entry.ts",
+      "vendored": "2026-11-03"
+    }
+  }
+}

@@ -1,9 +1,13 @@
 /* eslint-disable no-underscore-dangle, prefer-rest-params, func-names */
+import { POSTHOG_SDK } from './utils/posthog-sdk.mjs'
 
 /* Analytics start after the window load event, so they never compete with the first render.
    Only PostHog (EU, no cookies, see ciunkos.com/privacy), the same stub as on the other
-   ciunkos.com sites: array.js through the first-party proxy /hire/ph (the hire Worker),
-   800 ms after load, never for automated browsers or in development builds.
+   ciunkos.com sites, 800 ms after load, never for automated browsers or in development builds.
+   The SDK is self-hosted, pinned and lean: /vendor/posthog/<version>/posthog.js
+   (scripts/vendor-posthog.mjs), loaded with an SRI hash, without an external script loader,
+   so PostHog can't push code to the page. Only events go to PostHog, through the
+   first-party proxy /hire/ph (the hire Worker).
    ?i=1 marks this browser as the owner's (localStorage ph_internal, events get
    internal: true), ?i=0 removes the mark. */
 
@@ -71,7 +75,8 @@ const startPostHog = () => {
     const script = document.createElement('script')
     script.async = true
     script.crossOrigin = 'anonymous'
-    script.src = `${options.api_host}/static/array.js`
+    script.integrity = POSTHOG_SDK.integrity
+    script.src = POSTHOG_SDK.src
     afterLoad(() => document.head.appendChild(script), 800)
     p._i.push([token, options])
   }
@@ -91,6 +96,7 @@ const startPostHog = () => {
       element_allowlist: ['a', 'button', 'summary', 'input', 'select', 'label']
     },
     disable_surveys: true,
+    disable_external_dependency_loading: true,
     disable_session_recording: false,
     respect_dnt: true,
     session_recording: {
