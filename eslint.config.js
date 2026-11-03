@@ -1,14 +1,23 @@
 import js from '@eslint/js'
 import stylistic from '@stylistic/eslint-plugin'
-import { createNodeResolver, importX } from 'eslint-plugin-import-x'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import react from 'eslint-plugin-react'
+import eslintReact from '@eslint-react/eslint-plugin'
+import jsxA11y from 'eslint-plugin-jsx-a11y-x'
 import reactHooks from 'eslint-plugin-react-hooks'
 import globals from 'globals'
+import { createRequire } from 'node:module'
+
+/* eslint-plugin-import-x's ESM build imports makeRe from minimatch, which minimatch 11 (the
+   GHSA-g3hv-75wg-m249 fix, forced by package.json overrides) no longer exports, so the import
+   fails. Its CommonJS build reads makeRe only inside no-internal-modules, a rule left off here. */
+const { createNodeResolver, importX } = createRequire(import.meta.url)(
+  'eslint-plugin-import-x'
+)
 
 /* The Airbnb style this repo always followed, as a flat config. eslint-config-airbnb stopped at
    ESLint 8, so its rules are listed here (core, react, jsx-a11y, import), minus the formatting
-   ones Prettier owns; the few formatting rules the repo set itself come from @stylistic. */
+   ones Prettier owns; the few formatting rules the repo set itself come from @stylistic.
+   The react and jsx-a11y rules run on @eslint-react and eslint-plugin-jsx-a11y-x, which, unlike
+   eslint-plugin-react and eslint-plugin-jsx-a11y, don't pull in minimatch 3. */
 
 // globals that are easy to use by mistake in place of a local variable
 const confusingBrowserGlobals = [
@@ -192,9 +201,17 @@ const airbnbCore = {
   ],
   'no-unneeded-ternary': ['error', { defaultAssignment: false }],
   'no-unused-expressions': 'error',
+  /* `import React` is no longer needed with the automatic JSX runtime, but removing it from the
+     page sources would move their visible "Updated" dates (scripts/dates.mjs) without a content
+     change, so it is allowed to stay unused. */
   'no-unused-vars': [
     'error',
-    { args: 'after-used', ignoreRestSiblings: true, caughtErrors: 'none' }
+    {
+      args: 'after-used',
+      ignoreRestSiblings: true,
+      caughtErrors: 'none',
+      varsIgnorePattern: '^React$'
+    }
   ],
   'no-use-before-define': [
     'error',
@@ -234,47 +251,100 @@ const airbnbCore = {
   yoda: 'error'
 }
 
+// eslint-plugin-react rules missing from @eslint-react
+const local = {
+  rules: {
+    // react/jsx-no-duplicate-props with ignoreCase: @eslint-react leaves this one to TypeScript
+    'jsx-no-duplicate-props': {
+      meta: {
+        type: 'problem',
+        schema: [],
+        messages: { duplicate: "Duplicate prop '{{name}}'." }
+      },
+      create: context => ({
+        JSXOpeningElement(node) {
+          const seen = new Set()
+          node.attributes.forEach(attribute => {
+            if (attribute.type !== 'JSXAttribute') return
+            const name = context.sourceCode.getText(attribute.name)
+            if (seen.has(name.toLowerCase())) {
+              context.report({
+                node: attribute,
+                messageId: 'duplicate',
+                data: { name }
+              })
+            }
+            seen.add(name.toLowerCase())
+          })
+        }
+      })
+    }
+  }
+}
+
+/* eslint-plugin-react's recommended rules and Airbnb's react rules, mapped to @eslint-react, and
+   to @stylistic for JSX formatting. Not carried over: rules for APIs React 19 removed
+   (createClass, isMounted, string refs: prefer-es6-class, no-is-mounted, no-string-refs);
+   jsx-uses-vars, jsx-uses-react and jsx-no-undef (ESLint's own scope analysis covers JSX now);
+   no-unused-state for class state (@eslint-react's rule of that name checks useState);
+   jsx-no-target-blank for dynamic hrefs (browsers imply noopener for target="_blank" now);
+   and the style/perf ones nothing else implements: destructuring-assignment, jsx-no-bind,
+   no-this-in-sfc, no-typos, no-redundant-should-component-update, prefer-stateless-function,
+   require-render-return. */
 const airbnbReact = {
-  'react/button-has-type': 'error',
-  'react/destructuring-assignment': ['error', 'always'],
-  'react/display-name': 'off',
-  'react/jsx-boolean-value': ['error', 'never'],
-  'react/jsx-curly-brace-presence': [
+  '@eslint-react/dom-no-dangerously-set-innerhtml': 'warn', // react/no-danger
+  '@eslint-react/dom-no-dangerously-set-innerhtml-with-children': 'error',
+  '@eslint-react/dom-no-find-dom-node': 'error',
+  '@eslint-react/dom-no-missing-button-type': 'error', // react/button-has-type
+  '@eslint-react/dom-no-render-return-value': 'error',
+  '@eslint-react/dom-no-string-style-prop': 'error', // react/style-prop-object
+  '@eslint-react/dom-no-unknown-property': 'error',
+  '@eslint-react/dom-no-unsafe-target-blank': 'error', // react/jsx-no-target-blank
+  '@eslint-react/dom-no-void-elements-with-children': 'error',
+  '@eslint-react/jsx-no-children-prop': 'error',
+  '@eslint-react/jsx-no-comment-textnodes': 'error',
+  '@eslint-react/no-access-state-in-setstate': 'error',
+  '@eslint-react/no-array-index-key': 'error',
+  '@eslint-react/no-direct-mutation-state': 'error',
+  '@eslint-react/no-missing-key': 'error', // react/jsx-key
+  '@eslint-react/no-set-state-in-component-did-update': 'error',
+  '@eslint-react/no-set-state-in-component-will-update': 'error',
+  '@eslint-react/no-unused-state': 'error', // the useState version
+  // react/no-deprecated: legacy lifecycles and ReactDOM.render/hydrate
+  '@eslint-react/dom-no-hydrate': 'error',
+  '@eslint-react/dom-no-render': 'error',
+  '@eslint-react/no-component-will-mount': 'error',
+  '@eslint-react/no-component-will-receive-props': 'error',
+  '@eslint-react/no-component-will-update': 'error',
+  '@stylistic/jsx-curly-brace-presence': [
     'error',
     { props: 'never', children: 'never' }
   ],
-  'react/jsx-fragments': ['error', 'syntax'],
-  'react/jsx-no-bind': [
+  '@stylistic/jsx-pascal-case': ['error', { allowAllCaps: true }],
+  '@stylistic/jsx-self-closing-comp': 'error',
+  'local/jsx-no-duplicate-props': 'error',
+  // react/jsx-boolean-value 'never' and react/jsx-fragments 'syntax'
+  'no-restricted-syntax': [
     'error',
     {
-      ignoreRefs: true,
-      allowArrowFunctions: true,
-      allowFunctions: false,
-      allowBind: false,
-      ignoreDOMComponents: true
+      selector: "JSXAttribute > JSXExpressionContainer > Literal[raw='true']",
+      message: 'Omit the value of a boolean attribute.'
+    },
+    {
+      selector:
+        "JSXOpeningElement[attributes.length=0] > JSXMemberExpression[object.name='React'][property.name='Fragment']",
+      message: 'Use the <></> shorthand for a fragment without a key.'
+    },
+    {
+      selector:
+        "JSXOpeningElement[attributes.length=0] > JSXIdentifier[name='Fragment']",
+      message: 'Use the <></> shorthand for a fragment without a key.'
     }
-  ],
-  'react/jsx-no-duplicate-props': ['error', { ignoreCase: true }],
-  'react/jsx-no-target-blank': ['error', { enforceDynamicLinks: 'always' }],
-  'react/jsx-pascal-case': ['error', { allowAllCaps: true }],
-  'react/no-access-state-in-setstate': 'error',
-  'react/no-array-index-key': 'error',
-  'react/no-danger': 'warn',
-  'react/no-did-update-set-state': 'error',
-  'react/no-redundant-should-component-update': 'error',
-  'react/no-this-in-sfc': 'error',
-  'react/no-typos': 'error',
-  'react/no-unused-state': 'error',
-  'react/no-will-update-set-state': 'error',
-  'react/prefer-es6-class': ['error', 'always'],
-  'react/prefer-stateless-function': ['error', { ignorePureComponents: true }],
-  'react/self-closing-comp': 'error',
-  'react/style-prop-object': 'error',
-  'react/void-dom-elements-no-children': 'error'
+  ]
 }
 
 const airbnbA11y = {
-  'jsx-a11y/control-has-associated-label': [
+  'jsx-a11y-x/control-has-associated-label': [
     'error',
     {
       labelAttributes: ['label'],
@@ -302,9 +372,9 @@ const airbnbA11y = {
       depth: 5
     }
   ],
-  'jsx-a11y/label-has-associated-control': ['error', { assert: 'both' }],
-  'jsx-a11y/lang': 'error',
-  'jsx-a11y/no-autofocus': ['error', { ignoreNonDOM: true }]
+  'jsx-a11y-x/label-has-associated-control': ['error', { assert: 'both' }],
+  'jsx-a11y-x/lang': 'error',
+  'jsx-a11y-x/no-autofocus': ['error', { ignoreNonDOM: true }]
 }
 
 const airbnbImport = {
@@ -339,21 +409,10 @@ const repoRules = {
       'newlines-between': 'always'
     }
   ],
-  'jsx-a11y/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
+  'jsx-a11y-x/anchor-is-valid': ['warn', { aspects: ['invalidHref'] }],
   'no-console': 'off',
   'no-await-in-loop': 'off',
-  'no-restricted-syntax': 'off',
   'no-shadow': 'off',
-  'react/jsx-filename-extension': 'off',
-  'react/jsx-props-no-spreading': 'off',
-  'react/no-multi-comp': 'off',
-  'react/no-unescaped-entities': 'off',
-  'react/prop-types': 'off',
-  'react/sort-comp': 'off',
-  'react/state-in-constructor': 'off',
-  'react/static-property-placement': 'off',
-  // the automatic JSX runtime needs no React in scope
-  'react/react-in-jsx-scope': 'off',
   '@stylistic/arrow-parens': ['error', 'as-needed'],
   '@stylistic/comma-dangle': ['error', 'never'],
   '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
@@ -386,12 +445,11 @@ export default [
     ]
   },
   js.configs.recommended,
-  react.configs.flat.recommended,
   reactHooks.configs.flat.recommended,
-  jsxA11y.flatConfigs.recommended,
+  jsxA11y.configs.recommended,
   importX.flatConfigs.recommended,
   {
-    plugins: { '@stylistic': stylistic },
+    plugins: { '@eslint-react': eslintReact, '@stylistic': stylistic, local },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
@@ -400,8 +458,6 @@ export default [
     },
     linterOptions: { reportUnusedDisableDirectives: 'error' },
     settings: {
-      // an explicit version: eslint-plugin-react's 'detect' calls an API that ESLint 10 removed
-      react: { version: '19.3' },
       // bare imports like 'components' or 'blog/posts' resolve from src, as in webpack
       'import-x/resolver-next': [
         createNodeResolver({ modules: ['src', 'node_modules'] })

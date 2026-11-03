@@ -39,6 +39,7 @@
     "@babel/core": "^8.0.9",
     "@babel/preset-env": "^8.0.7",
     "@babel/preset-react": "^8.0.1",
+    "@eslint-react/eslint-plugin": "^5.28.8",
     "@eslint/js": "^10.0.1",
     "@stylistic/eslint-plugin": "^5.10.0",
     "babel-loader": "^10.1.1",
@@ -47,8 +48,7 @@
     "esbuild": "0.28.2",
     "eslint": "^10.13.0",
     "eslint-plugin-import-x": "^4.17.1",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-jsx-a11y-x": "^0.2.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.13.0",
     "html-webpack-plugin": "^5.6.8",
@@ -85,18 +85,13 @@
   ],
   "locale": "en",
   "overrides": {
-    "eslint-plugin-jsx-a11y": {
-      "eslint": "$eslint"
-    },
-    "eslint-plugin-react": {
-      "eslint": "$eslint"
-    },
     "react-custom-scrollbars-2": {
       "react": "$react",
       "react-dom": "$react-dom"
     },
     "react-side-effect": {
       "react": "$react"
-    }
+    },
+    "minimatch": "11.0.1"
   }
 }
