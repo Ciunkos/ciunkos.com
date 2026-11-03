@@ -1,0 +1,41 @@
+# A Dependabot PR that bumps posthog-js only changes package.json and the lockfile.
+# This vendors the new SDK into src/www/vendor/posthog/<version>/ (keeping old versions),
+# updates versions.json and src/utils/posthog-sdk.mjs, and pushes that to the PR branch,
+# so the PR shows the exact file and SRI hash that will be served.
+# After merging and the Pages deploy: node scripts/check-posthog-copies.mjs --fix, then deploy the Workers.
+name: Vendor PostHog SDK
+
+on:
+  pull_request:
+    paths:
+      - package.json
+      - package-lock.json
+
+permissions:
+  contents: write
+
+jobs:
+  vendor:
+    if: github.actor == 'dependabot[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 20.x
+      - run: npm ci --ignore-scripts
+      - run: node scripts/vendor-posthog.mjs
+      - run: node scripts/vendor-posthog.mjs --check --rebuild
+      - run: npm run build
+        env:
+          CI: true
+      - name: Commit the vendored SDK
+        run: |
+          git add src/www/vendor/posthog src/utils/posthog-sdk.mjs
+          git diff --cached --quiet && exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m "Vendor posthog-js $(node -p "require('./package.json').devDependencies['posthog-js']")"
+          git push

@@ -2,24 +2,25 @@ name: Node CI
 
 on: [push]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [20.x]
-
     steps:
-      - uses: actions/checkout@v4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: npm install, build, and test
-        run: |
-          npm ci
-          npm run check
-          npm run build
+          node-version: 20.x
+      # No install scripts: they are how npm supply-chain worms run.
+      - run: npm ci --ignore-scripts
+      # Dependabot's posthog-js bump fails this until vendor-posthog.yml commits the new SDK.
+      - name: Vendored PostHog SDK matches the pin
+        if: github.actor != 'dependabot[bot]'
+        run: node scripts/vendor-posthog.mjs --check
+      - run: npm run check
+      - run: npm run build
         env:
           CI: true
