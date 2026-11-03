@@ -12,3 +12,6 @@
   Cache-Control: public, max-age=31536000, immutable
 /*.webp
   Cache-Control: public, max-age=31536000, immutable
+# HSTS preload for ciunkos.com only. This Pages project also serves other domains, so the rule is host-scoped.
+https://ciunkos.com/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
