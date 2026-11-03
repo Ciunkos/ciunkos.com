@@ -41,7 +41,12 @@ const main = async () => {
       const page = route({ location })
       const element = <AppContainer>{page}</AppContainer>
 
-      const renderedComponent = renderToString(element)
+      // React puts a <link rel="preload" as="image"> for every eagerly loaded <img> in front
+      // of the markup; the pages choose their own preloads, so these are dropped
+      const renderedComponent = renderToString(element).replace(
+        /^(<link rel="preload" as="image"[^>]*\/>)+/,
+        ''
+      )
       const helmet = Helmet.renderStatic()
       const html = template(renderedComponent, {
         ...helmet,

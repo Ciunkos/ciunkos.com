@@ -27,24 +27,16 @@ export default class CodeBlock extends React.PureComponent {
 
   componentDidMount() {
     // a scrollable code block has to be reachable from the keyboard
-    const { inline } = this.props
-    if (!inline && this.pre.current) {
+    if (this.pre.current) {
       this.pre.current.setAttribute('tabindex', '0')
     }
   }
 
   render() {
-    const { language, value, inline } = this.props
+    const { language, value } = this.props
 
     const languageCode = (language === 'javascript' ? 'js' : language) || 'js'
 
-    return (
-      <Lowlight
-        ref={this.pre}
-        language={languageCode}
-        value={value}
-        inline={inline}
-      />
-    )
+    return <Lowlight ref={this.pre} language={languageCode} value={value} />
   }
 }

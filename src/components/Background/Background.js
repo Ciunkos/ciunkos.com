@@ -22,7 +22,7 @@ const Background = ({ src, priority, position, children, ...rest }) => {
           alt=""
           className="BackgroundImage"
           decoding="async"
-          fetchpriority={priority ? 'high' : undefined}
+          fetchPriority={priority ? 'high' : undefined}
           loading={priority ? undefined : 'lazy'}
           src={src}
           style={position ? { objectPosition: position } : undefined}

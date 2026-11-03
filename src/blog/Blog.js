@@ -5,12 +5,10 @@ import styled from 'styled'
 import { Page, Section } from 'components'
 import relatedPosts from 'blog/related-posts'
 import { PostHeader } from 'blog/post'
-import CodeBlock from './CodeBlock'
-import Image from './Image'
 import { Byline, Contributors } from './Byline'
 import { postAuthors } from './authors'
-import { astPlugins } from './markdown'
-import { Heading, InlineCode, Callout, Link } from './renderers'
+import { remarkPlugins } from './markdown'
+import components from './renderers'
 import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
 
 const SITE = 'https://ciunkos.com/'
@@ -85,19 +83,14 @@ const Blog = ({ post }) => (
       <Section.Content padding-2 spacing-4>
         <Byline post={post} />
         {post.markdown && (
-          <ReactMarkdown
-            className="Markdown spacing-4"
-            source={withoutTitle(post.markdown)}
-            astPlugins={astPlugins}
-            renderers={{
-              code: CodeBlock,
-              image: Image,
-              heading: Heading,
-              inlineCode: InlineCode,
-              callout: Callout,
-              link: Link
-            }}
-          />
+          <div className="Markdown spacing-4">
+            <ReactMarkdown
+              remarkPlugins={remarkPlugins}
+              components={components}
+            >
+              {withoutTitle(post.markdown)}
+            </ReactMarkdown>
+          </div>
         )}
         <Contributors post={post} />
       </Section.Content>

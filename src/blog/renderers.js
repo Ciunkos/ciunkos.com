@@ -1,5 +1,7 @@
 import React from 'react'
 
+import CodeBlock from './CodeBlock'
+import Image from './Image'
 import { textOf } from './markdown'
 
 const CALLOUT_LABELS = {
@@ -15,8 +17,8 @@ const CALLOUT_LABELS = {
 // (a stray # also becomes h2) and levels never skip, which axe's heading-order checks;
 // every heading gets a stable id (see headingIds in markdown.js) and a # link to copy,
 // next to the heading rather than inside it, so it isn't read as part of the heading
-export const Heading = ({ level, node, children }) => {
-  const id = node.data && node.data.id
+export const Heading = ({ node, id, children }) => {
+  const level = Number(node.tagName.slice(1))
   const heading = React.createElement(
     `h${Math.min(Math.max(level, 2), 6)}`,
     { id },
@@ -37,9 +39,28 @@ export const Heading = ({ level, node, children }) => {
   )
 }
 
-export const InlineCode = ({ value }) => (
-  <code className={value.length <= 32 ? 'nowrap' : undefined}>{value}</code>
-)
+// a code block is <pre><code class="language-js">: CodeBlock highlights it with its own <pre>,
+// so the code component below only renders inline code
+export const Pre = ({ node }) => {
+  const [code] = node.children
+  const languageClass = (code.properties.className || []).find(name =>
+    name.startsWith('language-')
+  )
+  return (
+    <CodeBlock
+      language={languageClass && languageClass.slice('language-'.length)}
+      // the block's text ends with a line break
+      value={textOf(code).replace(/\n$/, '')}
+    />
+  )
+}
+
+export const InlineCode = ({ children }) => {
+  const value = String(children)
+  return (
+    <code className={value.length <= 32 ? 'nowrap' : undefined}>{value}</code>
+  )
+}
 
 export const Callout = ({ kind, children }) => (
   <div
@@ -73,3 +94,26 @@ export const Link = ({ href, title, children }) => (
     {children}
   </a>
 )
+
+// an image on its own line is a figure-like block, which can't sit inside a <p>
+const Paragraph = ({ node, children }) =>
+  node.children.length === 1 && node.children[0].tagName === 'img' ? (
+    children
+  ) : (
+    <p>{children}</p>
+  )
+
+// element name → component, for react-markdown
+const headings = Object.fromEntries(
+  ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].map(tag => [tag, Heading])
+)
+
+export default {
+  ...headings,
+  pre: Pre,
+  code: InlineCode,
+  img: Image,
+  a: Link,
+  p: Paragraph,
+  callout: Callout
+}

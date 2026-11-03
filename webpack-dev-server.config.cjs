@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const CopyPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
 const { hasWebp } = require('./scripts/cover-loader.cjs')
 
 const buildPath = path.resolve(__dirname, 'dev')
@@ -43,17 +44,12 @@ module.exports = () => ({
       {
         test: /\.(jpg|png)$/,
         exclude: hasWebp,
-        loader: 'file-loader',
-        options: {
-          name: '[name].[contenthash].[ext]'
+        type: 'asset/resource',
+        generator: {
+          filename: '[name].[contenthash:32][ext]'
         }
       },
-      {
-        test: /\.json$/,
-        use: 'json-loader',
-        type: 'javascript/auto'
-      },
-      { test: /\.(md|txt)$/, loader: 'raw-loader' },
+      { test: /\.(md|txt)$/, type: 'asset/source' },
       {
         test: /\.css$/,
         use: [

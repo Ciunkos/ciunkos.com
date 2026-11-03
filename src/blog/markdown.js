@@ -1,6 +1,7 @@
 /* eslint-disable no-param-reassign */
-/* react-markdown 5 AST plugins for blog posts. They change the markdown AST in place
-   before rendering, and the custom renderers in Blog.js receive the changed nodes. */
+/* remark plugins for blog posts. They change the markdown AST (mdast) in place before
+   react-markdown turns it into HTML elements; data.hName and data.hProperties pick the element
+   and its props, which the components in renderers.js receive. */
 
 export const textOf = node =>
   node.value || (node.children || []).map(textOf).join('')
@@ -32,10 +33,8 @@ export const headingIds = root => {
     if (match) last.value = last.value.slice(0, match.index)
     const base = match ? match[1] : slugify(textOf(heading)) || 'section'
     seen[base] = (seen[base] || 0) + 1
-    heading.data = {
-      ...heading.data,
-      id: seen[base] > 1 ? `${base}-${seen[base]}` : base
-    }
+    const id = seen[base] > 1 ? `${base}-${seen[base]}` : base
+    heading.data = { ...heading.data, hProperties: { id } }
   })
 }
 
@@ -62,7 +61,12 @@ export const callouts = root =>
     first.value = first.value.slice(match[0].length)
     if (!first.value) paragraph.children.shift()
     if (!paragraph.children.length) quote.children.shift()
-    parent.children[index] = { type: 'callout', kind, children: quote.children }
+    parent.children[index] = {
+      type: 'callout',
+      children: quote.children,
+      data: { hName: 'callout', hProperties: { kind } }
+    }
   })
 
-export const astPlugins = [headingIds, callouts]
+// a remark plugin returns the transform it runs on the tree
+export const remarkPlugins = [() => headingIds, () => callouts]

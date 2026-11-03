@@ -1,4 +1,4 @@
-/* eslint-disable max-len -- SVG path data reads best on one line per symbol. */
+/* eslint-disable @stylistic/max-len -- SVG path data reads best on one line per symbol. */
 /* Symbol icons for the smaller tools on /apps: a rounded square in a color unique to each tool
    with a white line symbol (24-unit grid, drawn here), so the list reads at a glance instead of
    showing the same face 22 times. */

@@ -25,7 +25,6 @@ class ErrorBoundary extends Component {
           </div>
           <div className="actions spacing">
             <a
-              tag="a"
               onClick={event => {
                 event.preventDefault()
                 if (typeof window !== 'undefined') {
@@ -33,25 +32,14 @@ class ErrorBoundary extends Component {
                 }
               }}
               href={typeof window !== 'undefined' && window.location.href}
-              primary
-              active
-              center
-              middle
               style={{ minHeight: 48 }}
             >
               Refresh the page
             </a>
-            <a
-              tag="a"
-              href="/about#contact"
-              primary
-              center
-              middle
-              style={{ minHeight: 48 }}
-            >
+            <a href="/about#contact" style={{ minHeight: 48 }}>
               Contact me
             </a>
-            <a tag="a" href="/" primary center middle style={{ minHeight: 48 }}>
+            <a href="/" style={{ minHeight: 48 }}>
               Back to home
             </a>
           </div>

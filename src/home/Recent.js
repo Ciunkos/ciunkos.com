@@ -203,7 +203,7 @@ const Recent = () => (
                 width="40"
                 height="40"
                 loading="lazy"
-                fetchpriority="low"
+                fetchPriority="low"
               />
               <span>
                 <strong>{locale.recent.apps[app.id][0]}</strong>

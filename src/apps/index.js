@@ -125,7 +125,7 @@ const AppsPage = () => (
                 tag="img"
                 src={icon}
                 alt={name}
-                fetchpriority="low"
+                fetchPriority="low"
               />
             </styled.AppListItem>
           ))}

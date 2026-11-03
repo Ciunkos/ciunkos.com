@@ -4803,7 +4803,6 @@ export const StarHalf = props => (
 )
 
 export default {
-  /* eslint-disable no-underscore-dangle */
   _3dRotation,
   Accessibility,
   Accessible,
@@ -4842,7 +4841,6 @@ export default {
   ChangeHistory,
   CheckCircle,
   ChromeReaderMode,
-  /* eslint-disable no-underscore-dangle */
   _class,
   Code,
   CompareArrows,
@@ -4850,7 +4848,6 @@ export default {
   CreditCard,
   Dashboard,
   DateRange,
-  /* eslint-disable no-underscore-dangle */
   _delete,
   DeleteForever,
   Description,
@@ -5748,7 +5745,6 @@ export default {
   PersonOutline,
   PlusOne,
   Poll,
-  /* eslint-disable no-underscore-dangle */
   _public,
   School,
   SentimentDissatisfied,

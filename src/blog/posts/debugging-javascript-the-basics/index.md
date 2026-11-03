@@ -87,7 +87,7 @@ const logValues => (obj) =>
   })
 ```
 
-Then just use `logValues({variable})`, leveraging [object property shorthand]() syntax.
+Then just use `logValues({variable})`, leveraging [object property shorthand](<>) syntax.
 
 todo: mention [nameof] operator from C#
 

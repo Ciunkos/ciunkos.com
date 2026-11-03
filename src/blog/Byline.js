@@ -61,7 +61,7 @@ export const Byline = ({ post }) => {
                 <button
                   type="button"
                   className="BylinePerson"
-                  popovertarget={id}
+                  popoverTarget={id}
                 >
                   {author.bylineAvatarOnly && (
                     <span className="visually-hidden">{author.name}</span>
