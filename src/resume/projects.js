@@ -26,7 +26,7 @@ export default [
     name: 'Agent skills platform',
     client: companies.Sanddev,
     slug: 'agent-skills',
-    timeFrame: 'September 2026 - present',
+    timeFrame: 'September 2026 - October 2026',
     tech: [
       tech.claudeCode,
       tech.codex,
@@ -40,7 +40,7 @@ export default [
     responsibilities: [
       'Productized a multi-agent code audit as a Claude Code skill: repository in, client-ready PDF report on security, production readiness and maintainability out, with a priced fix plan. Ran on 10+ repositories, detailed reports of up to 365 pages.',
       'Introduced audit-driven development: audit, fix, re-audit. It runs as a loop across our production products.',
-      'Added GEO/SEO visibility and DNS and email-security audits. Set up the shared platform on which three colleagues now ship their own skills.'
+      'Added GEO/SEO visibility and DNS and email-security audits. Set up the shared platform (versioning, GitHub releases, AI-generated changelogs) on which three colleagues now ship their own skills.'
     ],
     print: true
   },
@@ -51,7 +51,7 @@ export default [
     url: 'patriotmail.ai',
     href: 'https://patriotmail.ai',
     slug: 'patriot-mail',
-    timeFrame: 'May 2025 - present',
+    timeFrame: 'May 2025 - October 2026',
     icon: patriotMailIcon,
     description:
       'Email client: a web app plus iOS and macOS apps on the App Store.',
@@ -73,11 +73,11 @@ export default [
       tech.appStore
     ],
     responsibilities: [
-      'Shipped a greenfield Next.js client and, with a colleague, iOS and macOS apps to the App Store in four months.',
-      'Built the delivery pipeline: Playwright end-to-end suite, Checkly checks and PostHog observability. Output with one colleague and AI agents: 5,000+ commits a year, up from ~2,000 a year on my own.',
-      'Turned early experiments with agent-written code into a reviewed, repeatable process: an agent opened ~30% of merged pull requests in 2026 and I reviewed ~85% of them.',
-      'Passed Google\u2019s CASA Tier 2 security assessment (certification and recertification) and Yahoo\u2019s OAuth review.',
-      'Integrated IMAP and related mail protocols (dozens of RFCs). Drove WCAG 2.2 AA accessibility with axe checks.'
+      'Shipped a greenfield Next.js client and, with a colleague, iOS and macOS apps: App Store since April 2026.',
+      'Built the delivery pipeline: Playwright end-to-end suite, Checkly checks and PostHog observability, so changes ship to production in near real time. Commits across two products grew from under 1,000 in 2025 to 7,500+ by October 2026; GitHub contributions from about 3,000 to 8,500+ (~3x).',
+      'In 2026 coding agents (Claude Code, Codex) built about two thirds of merged pull requests across two products, nearly all through my review or merge. Mine: 260+ merged, 300+ reviews of others\u2019.',
+      'Led Google\u2019s CASA Tier 2 assessment, passed twice (January 2026, October 2026 yearly reassessment), and Yahoo\u2019s OAuth review; fixed third-party pentest findings.',
+      'Integrated IMAP and related mail protocols (dozens of RFCs). Drove WCAG 2.2 AA behind an axe gate.'
     ],
     print: true
   },
@@ -286,7 +286,7 @@ export default [
     url: 'Sandtime.io',
     href: 'https://sandtime.io',
     slug: 'sandtime',
-    timeFrame: 'July 2018 - present',
+    timeFrame: 'July 2018 - October 2026',
     icon: sandtimeIcon,
     description:
       'Multiplatform time-tracking SaaS for 4,000+ freelancers and teams.',
@@ -323,7 +323,8 @@ export default [
       'Founding engineer: built the product from the first commit in 2018 to its first customers, then CI/CD, end-to-end tests and subscriptions. Hands-on in 2018 to 2020, since then review, consulting and growth.',
       'Reviewed and mentored colleagues through 800+ pull requests (2018 to 2026) and onboarded new engineers. Scrum master for four years.',
       'Shipped to eight platforms, from app stores to a Chrome extension, with Electron and React Native.',
-      'Took over growth: SEO and AI-search visibility built from near zero, PostHog KPI dashboards, a public MCP server and REST APIs.'
+      'Took over growth: SEO and AI-search visibility built from near zero, PostHog KPI dashboards, a public MCP server and REST APIs.',
+      'Restarted delivery in 2026 after three years of maintenance: from about 60 commits in 2025 to 4,800+ (~80x), 270+ tagged releases in 10 months, about 99% of support answered by me.'
     ],
     print: true
   },

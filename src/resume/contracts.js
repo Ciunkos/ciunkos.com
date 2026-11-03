@@ -4,7 +4,7 @@ export default [
   {
     company: companies.Sanddev,
     title: 'Senior Full-Stack Engineer',
-    date: 'April 2023 - present',
+    date: 'April 2023 - October 2026',
     tech: 'TypeScript, React, AI agents'
   },
   {

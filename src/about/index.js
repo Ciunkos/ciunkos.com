@@ -72,16 +72,16 @@ const AboutPage = () => (
           </p>
 
           <p>
-            Recent work: Patriot Mail, an email client that went from first
-            commit to the App Store in four months, and Sandtime.io, time
-            tracking for 4,000+ freelancers and teams, where I have been the
-            founding engineer since 2018. The details are in my{' '}
+            Recent work: Patriot Mail, an email client with iOS and macOS apps
+            on the App Store since April 2026, and Sandtime.io, time tracking
+            for 4,000+ freelancers and teams, where I have been the founding
+            engineer since 2018. The details are in my{' '}
             <InlineLink href="/resume">resume</InlineLink>.
           </p>
 
           <p>
-            Available from November 2026, in Wrocław or remote. Hiring for
-            TypeScript, React or AI agents? See{' '}
+            Available now, in Wrocław or remote. Hiring for TypeScript, React or
+            AI agents? See{' '}
             <InlineLink href="https://ciunkos.com/hire-me">
               services, rates and the earliest start date
             </InlineLink>

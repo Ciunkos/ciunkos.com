@@ -1,38 +1,12 @@
 import React from 'react'
 
 import styled from 'styled'
-import { Section, ActionButton, InlineLink, Button, linkIf } from 'components'
+import { Section, ActionButton, Button, linkIf } from 'components'
 import ProfilePicture from 'assets/profile-picture.jpg'
 import bio from 'resume/bio'
 import { ArrowDownward } from 'icons'
 import Social from 'social'
-import companies from '../companies'
 import { profile as cover } from './covers'
-
-const NOTICE_RECEIVED_AT = new Date('2026-09-03T12:00:00.000Z')
-const PERIOD_OF_NOTICE_DAYS = 60
-const AVAILABILITY_BUFFER_DAYS = 0
-
-const yearMonthDateFormatter = new Intl.DateTimeFormat(['en-US', 'en'], {
-  month: 'long',
-  year: 'numeric'
-})
-
-const EarliestAvailabilityDate = ({ children: now }) => {
-  const estimatedAvailability = new Date(NOTICE_RECEIVED_AT ?? now)
-  estimatedAvailability.setDate(
-    estimatedAvailability.getDate() +
-      PERIOD_OF_NOTICE_DAYS +
-      AVAILABILITY_BUFFER_DAYS
-  )
-
-  const formattedYearMonth = yearMonthDateFormatter.format(
-    estimatedAvailability,
-    { month: '2-digit', year: 'numeric' }
-  )
-
-  return formattedYearMonth
-}
 
 const Bio = () => (
   <styled.Bio spacing>
@@ -80,22 +54,14 @@ export default () => (
             page myself. Known for fast, thorough code reviews. I&nbsp;lead
             small teams. Since 2018 I&nbsp;have mentored colleagues by pairing
             with them and raising them along, not as a&nbsp;boss: I&nbsp;believe
-            in leading by example. I&nbsp;put AI agents to work on real products
-            and keep them in check with agent skills, guardrails, an end-to-end
-            test obsession, monitoring and observability.
+            in leading by example. Agentic engineering by default: given
+            a&nbsp;goal, I&nbsp;ship it end to end with coding agents under
+            skills, guardrails, end-to-end tests and observability. Product
+            engineer, not a&nbsp;ticket mover. Generalist: TypeScript, React and
+            Node.js daily, 10+ years of C#/.NET, Python when needed.
           </p>
           <styled.CurrentEmployment tag="p" media-no-print>
-            Currently at{' '}
-            <InlineLink
-              href="https://sanddev.com"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <em>{companies.Sanddev}</em>
-            </InlineLink>
-            , available from{' '}
-            <EarliestAvailabilityDate>{new Date()}</EarliestAvailabilityDate>,
-            remote preferred.
+            Available now, remote preferred.
           </styled.CurrentEmployment>
         </styled.AboutMe>
 
