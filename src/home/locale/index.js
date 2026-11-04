@@ -1,9 +1,9 @@
 import React from 'react'
 
 export const page = {
-  title: 'Przemysław Zalewski (Ciunkos): senior engineer, apps and free tools',
+  title: 'Przemysław Zalewski: full-stack and AI engineer, remote from Poland',
   description:
-    'Przemysław Zalewski (Ciunkos), senior full-stack engineer from Wrocław: the free tools and apps I run in 2026, apps from 2007 to 2017 and a JavaScript blog.'
+    'Przemysław Zalewski (Ciunkos), senior full-stack and AI engineer in Wrocław, Poland: web apps and AI agents for UK, EU and US clients, free tools and a blog.'
 }
 
 export const hero = {

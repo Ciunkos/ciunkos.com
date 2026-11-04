@@ -1,10 +1,9 @@
 import React from 'react'
 
 export const page = {
-  title:
-    'Przemysław Zalewski (Ciunkos): senior engineer, aplikacje i narzędzia',
+  title: 'Przemysław Zalewski: full-stack i AI engineer, zdalnie z Polski',
   description:
-    'Przemysław Zalewski (Ciunkos), senior full-stack engineer z Wrocławia: darmowe narzędzia i aplikacje z 2026, aplikacje z lat 2007–2017 i blog o JavaScripcie.'
+    'Przemysław Zalewski (Ciunkos), senior full-stack i AI engineer z Wrocławia: aplikacje webowe i agenci AI dla klientów z UK, UE i USA, darmowe narzędzia i blog.'
 }
 
 export const hero = {
