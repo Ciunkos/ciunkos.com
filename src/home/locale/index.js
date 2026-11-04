@@ -55,6 +55,7 @@ export const recent = {
     ksef: ['KSeF invoice validator', 'FA(3) in your browser'],
     rfq: ['Quoting time calculator', 'Inquiries to quotes'],
     skills: ['Agent skills', '/przemo, /indexnow and more, free'],
+    posthogBlocker: ['PostHog Blocker ⛔🦔', 'Keep your visits out of PostHog'],
     validator: ['Business idea validator', 'AI report, free'],
     dns: ['SPF, DKIM, DMARC checker', 'Email DNS grade'],
     configurator: ['Engagement configurator', 'Price and start date'],
@@ -113,6 +114,8 @@ export const recent = {
     rfq: 'Counts the hours spent turning customer inquiries into quotes and when an agent that drafts them would pay off.',
     skills:
       'Skills for Claude Code, Codex and ChatGPT: /przemo does the work and talks like me on Slack, /indexnow asks Google Search Console to index your pages every day, plus the business idea validator. Free, MIT.',
+    posthogBlocker:
+      'A browser extension that stops PostHog on every site, including first-party proxies, renamed SDK files and SDKs bundled into the app, so your own visits stay out of your project. Free, MIT.',
     validator:
       'Ten rubrics scored by AI with quotes from your idea, a fixed-rule verdict and three cheap experiments.',
     dns: 'Grades a domain’s email DNS: SPF with nested lookups, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI and DNSSEC.',

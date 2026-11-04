@@ -55,6 +55,7 @@ export const recent = {
     ksef: ['Walidator faktury KSeF', 'FA(3) w przeglądarce'],
     rfq: ['Kalkulator ofertowania', 'Od zapytań do ofert'],
     skills: ['Skille dla agentów', '/przemo, /indexnow i inne, za darmo'],
+    posthogBlocker: ['PostHog Blocker ⛔🦔', 'Twoje wizyty poza PostHogiem'],
     validator: ['Walidator pomysłu', 'Raport AI, za darmo'],
     dns: ['Sprawdź SPF, DKIM, DMARC', 'Ocena DNS poczty'],
     configurator: ['Konfigurator współpracy', 'Cena i termin startu'],
@@ -113,6 +114,8 @@ export const recent = {
     rfq: 'Liczy godziny na zamianę zapytań klientów w oferty i to, kiedy zwróci się agent, który przygotowuje szkice.',
     skills:
       'Skille dla Claude Code, Codexa i ChatGPT: /przemo robi robotę i gada jak ja na Slacku, /indexnow codziennie prosi Google Search Console o indeksację Twoich stron, do tego walidator pomysłu. Za darmo, MIT.',
+    posthogBlocker:
+      'Rozszerzenie przeglądarki, które zatrzymuje PostHoga na każdej stronie, także przez proxy w domenie strony, przemianowane pliki SDK i SDK wbudowane w aplikację, więc Twoje wizyty nie trafiają do projektu. Za darmo, MIT.',
     validator:
       'Dziesięć rubryk ocenianych przez AI z cytatami z pomysłu, werdykt ze stałej reguły i trzy tanie eksperymenty.',
     dns: 'Ocenia DNS poczty: SPF z zagnieżdżonymi odwołaniami, DKIM, DMARC, MTA-STS, TLS-RPT, BIMI i DNSSEC.',

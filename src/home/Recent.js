@@ -7,7 +7,8 @@ import kalkulatorIcon from 'apps/2026/icon-kalkulator.png'
 import przemoIcon from 'apps/2026/icon-przemo.png'
 
 /* Apps and tools from 2026. They live outside this SPA, so links are absolute:
-   the router in styled/index.js only intercepts relative links. */
+   the router in styled/index.js only intercepts relative links. An entry hosted elsewhere
+   gives its own absolute href instead of a path. */
 const BASE = 'https://ciunkos.com'
 
 export const apps = [
@@ -153,6 +154,12 @@ export const apps = [
     icon: '/hire/skills/apple-touch-icon.png'
   },
   {
+    id: 'posthogBlocker',
+    // a browser extension with no page on ciunkos.com: the link goes to its repository
+    href: 'https://github.com/Ciunkos/posthog-blocker',
+    icon: 'https://raw.githubusercontent.com/Ciunkos/posthog-blocker/main/icons/icon-128.png'
+  },
+  {
     id: 'validator',
     path: '/business-idea-validator',
     icon: '/business-idea-validator/a/apple-touch-icon.png'
@@ -174,7 +181,7 @@ export const apps = [
   }
 ].map(app => ({
   ...app,
-  href: BASE + app.path,
+  href: app.href || BASE + app.path,
   /* Icon files live on ciunkos.com too: the mirror domains
      (przemyslawzalewski.com, .pl) serve only this SPA. */
   icon: app.icon.startsWith('/') ? BASE + app.icon : app.icon

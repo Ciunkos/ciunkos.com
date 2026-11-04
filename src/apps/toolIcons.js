@@ -87,6 +87,10 @@ export const ICONS = {
     '#d97757',
     "<rect x='2' y='4' width='20' height='16' rx='2'/><path d='M6 9l3 3-3 3M12 15h6'/>"
   ],
+  posthogBlocker: [
+    '#7c2d12',
+    "<circle cx='12' cy='12' r='9'/><path d='M7.5 12h9'/>"
+  ],
   validator: [
     '#ca8a04',
     "<path d='M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.7.5 1.2 1.3 1.3 2.1h4.4c.1-.8.6-1.6 1.3-2.1A6 6 0 0 0 12 3z'/>"
