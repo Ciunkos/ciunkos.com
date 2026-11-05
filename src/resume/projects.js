@@ -273,7 +273,7 @@ export default [
       tech.stripe
     ],
     responsibilities: [
-      'Built frontend features in React with Redux (early adoption, 2017) and backend APIs in C#/.NET, in a team of five engineers and a QA, with weekly calls with the US client.',
+      'Built frontend features in React with Redux (early adoption, 2017) and backend APIs in C#/.NET, in a team of five engineers and a QA, with weekly calls with the US client’s representative for four years.',
       'Built interactive charts and measurement widgets from scratch, synchronized with a 3D renderer I integrated and patched.',
       'Introduced visual regression testing, shared tooling and unified formatting for the team.'
     ],
