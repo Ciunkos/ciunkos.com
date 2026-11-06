@@ -26,10 +26,12 @@ export const recent = {
   more: 'Wszystkie aplikacje i darmowe narzędzia z 2026',
   nowLead:
     'Małe narzędzia i strony, które zbudowałem i utrzymuję na Cloudflare w 2026. Wszystkie za darmo, bez zakładania konta.',
+  memelibHref: 'https://ciunkos.com/memylib',
   nowTools: 'Mniejsze darmowe narzędzia:',
   nowNote:
     'Niżej: aplikacje z pierwszej dekady, tak jak pokazywała je ta strona w 2017.',
   apps: {
+    memelib: ['Memylib', 'Moja kolekcja memów i GIF-ów do rozmów'],
     riddle: ['Ty i Przemysław?', 'Zagadka: strona rekrutacyjna'],
     przemo: ['Przemo', 'Flack: napisz do mnie-AI, zawsze odpisze'],
     migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
@@ -65,6 +67,8 @@ export const recent = {
     wyrocznia: ['Wyrocznia', 'Zapytaj Klaudię o cokolwiek: tak albo nie']
   },
   long: {
+    memelib:
+      'Moja kolekcja memów i GIF-ów do rozmów. Szukaj po polsku lub angielsku, przeglądaj reakcje i kopiuj albo pobierz coś na odpowiedź.',
     migawki:
       'Zaczęło się od piosenki z EP-ki „Migawki”, skończyło na abstrakcyjnej grze w deszczowym, nocnym mieście. Jedyne, co widzisz, to migawki.',
     przemo:

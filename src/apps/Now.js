@@ -10,11 +10,15 @@ import migawki from './2026/shot-2026-migawki.jpg'
 import kalkulator from './2026/shot-2026-kalkulator.jpg'
 import wyrocznia from './2026/shot-2026-wyrocznia.jpg'
 import korpo from './2026/shot-2026-korpo.jpg'
+import memelib from './2026/shot-2026-memelib.jpg'
+import memelibIcon from './2026/icon-memelib.png'
 
-/* Screenshots taken from production on 18 October 2026. Apps up to Korpo Tłumacz get a card;
-   the smaller tools after it are one paragraph of links with their transparent SVG icons. */
+/* Production screenshots. Memelib is the final card; smaller tools stay in the link list. */
 const lastCard = apps.findIndex(app => app.id === 'korpo')
-const cardApps = apps.slice(0, lastCard + 1)
+const cardApps = [
+  ...apps.slice(0, lastCard + 1),
+  { id: 'memelib', href: locale.recent.memelibHref, icon: memelibIcon }
+]
 const toolApps = apps.slice(lastCard + 1)
 const vectorIcon = icon => icon.replace(/apple-touch-icon\.png$/, 'favicon.svg')
 const shots = {
@@ -23,7 +27,8 @@ const shots = {
   migawki,
   kalkulator,
   wyrocznia,
-  korpo
+  korpo,
+  memelib
 }
 
 const Now = () => (

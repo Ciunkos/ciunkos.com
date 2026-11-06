@@ -26,10 +26,12 @@ export const recent = {
   more: 'All 2026 apps and free tools',
   nowLead:
     'Small tools and pages I built and run on Cloudflare in 2026. All free, no account needed.',
+  memelibHref: 'https://ciunkos.com/memelib',
   nowTools: 'Smaller free tools:',
   nowNote:
     'Below: the apps from my first decade, as this page showed them in 2017.',
   apps: {
+    memelib: ['Memelib', 'My collection of memes and reaction GIFs'],
     riddle: ['You 🤝 Przemysław?', 'Riddle me this: a hire page'],
     przemo: ['Przemo', 'Flack: DM the AI me, it always replies'],
     migawki: ['Migawki', 'Started as a song, ended as a game'],
@@ -65,6 +67,8 @@ export const recent = {
     wyrocznia: ['Wyrocznia', 'Ask Klaudia anything, she says yes or no']
   },
   long: {
+    memelib:
+      'My collection of memes and reaction GIFs. Search in Polish or English, browse reactions, and copy or download a favorite for the conversation.',
     migawki:
       'It began as a song from an EP called Migawki and ended as an abstract browser game in a rainy night city. All you see are snapshots.',
     przemo:
