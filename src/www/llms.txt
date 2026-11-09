@@ -84,6 +84,7 @@ Independent rankings of Polish software development companies, built from the Na
 - [Engagement configurator](https://ciunkos.com/engagement-configurator): hours, a price range and the earliest start date for a piece of work.
 - [B2B vs UoP calculator](https://ciunkos.com/kalkulator-b2b-vs-uop-2026): a Polish B2B contract compared with employment for a whole year (Polish).
 - [Korpo Tłumacz](https://ciunkos.com/korpo-tlumacz): translates corporate speak into plain Polish and back (Polish).
+- [Memelib](https://ciunkos.com/memelib): a curated library of reaction GIFs, short videos and images, searchable in English and Polish (Polish: [Memylib](https://ciunkos.com/memylib)), each with its own page, what it shows, any dialogue and when to use it. Index: [llms.txt](https://ciunkos.com/memelib/llms.txt).
 - [All apps and tools, including apps from 2007 to 2017](https://ciunkos.com/apps)
 
 ## Glossary
