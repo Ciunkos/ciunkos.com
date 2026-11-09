@@ -207,6 +207,8 @@ export const SITE_FOOTER_CSS = `.cf-foot{max-width:none;width:auto;margin:56px 0
 @media (prefers-color-scheme:dark){.cf-foot{--cf-bg:#191814;--cf-fg:#ece8dd;--cf-muted:#a49e90;--cf-line:#34322b;--cf-accent:#d7f34b;--cf-accent-fg:#191814}}
 .cf-foot :is(div,section,nav,ul,li,p,h2){font-family:inherit;letter-spacing:normal;display:block;flex-direction:row;align-items:normal;justify-content:normal;flex-shrink:1;text-align:left;position:static;margin:0;padding:0;max-width:none;width:auto;border:0;background:none}
 .cf-foot :is(a,span,time){display:inline;flex-direction:row;align-items:normal;justify-content:normal;position:static;color:inherit;text-decoration:none;font:inherit;background:none;border:0;padding:0;margin:0}
+/* Page themes often colour links with selectors like :root[data-theme=x] a:not(.btn) (0,3,1); the quadrupled class keeps footer links readable on every theme. */
+.cf-foot.cf-foot.cf-foot.cf-foot a{color:inherit}.cf-foot.cf-foot.cf-foot.cf-foot a.cf-primary{color:var(--cf-accent-fg)}.cf-foot.cf-foot.cf-foot.cf-foot .cf-group h2 a{color:var(--cf-muted)}
 .cf-foot *{box-sizing:border-box}.cf-foot a:hover{text-decoration:underline;text-underline-offset:3px}.cf-foot a:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
 .cf-foot .cf-wrap{max-width:1280px;margin:0 auto;padding:48px 24px 32px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
 .cf-foot .cf-brand{display:grid;gap:10px;max-width:640px}.cf-foot .cf-name{font-size:22px;font-weight:700;letter-spacing:-.01em}.cf-foot .cf-name span{font-weight:400;color:var(--cf-muted)}.cf-foot .cf-summary{color:var(--cf-muted)}
