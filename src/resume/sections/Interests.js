@@ -3,7 +3,7 @@ import React from 'react'
 import styled from 'styled'
 import { CheckBox, CheckBoxOutlineBlank } from 'icons'
 import { Section } from 'components'
-import goals from 'resume/goals'
+import goals, { pastGoals } from 'resume/goals'
 import interests from 'resume/interests'
 import { interests as cover } from './covers'
 
@@ -88,7 +88,7 @@ export default () => (
       <h2>Interests and future goals</h2>
 
       <p className="media-no-print">
-        I am always ready to learn new things and explore new opportunities.
+        Where I&apos;m heading in 2027, and what I closed in 2026.
       </p>
 
       <styled.InterestsAndGoals spacing-4>
@@ -101,6 +101,10 @@ export default () => (
         <styled.GoalsSection media-no-print={pendingGoals(goals).length < 3}>
           <h3>My goals</h3>
           <Goals goals={goals} media-no-print />
+          <details className="PastGoals media-no-print">
+            <summary>See past goals</summary>
+            <Goals goals={pastGoals} />
+          </details>
           <InlineGoals goals={pendingGoals(goals)} media-only-print />
         </styled.GoalsSection>
       </styled.InterestsAndGoals>
