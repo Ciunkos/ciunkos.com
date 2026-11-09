@@ -46,7 +46,12 @@ const HomePage = () => (
     jsonLd={homeJsonLd}
     updated={dates['/'].modified}
   >
-    <Section Home cover={homeBackground} priority gradient="shadow">
+    <Section
+      Home
+      cover={homeBackground}
+      priority="decorative"
+      gradient="shadow"
+    >
       <Section.Content padding-2>
         <h1>{locale.hero.title}</h1>
 

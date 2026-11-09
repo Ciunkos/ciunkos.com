@@ -12,11 +12,21 @@ const appStylesPath = find(
 
 const publicPath = process.env.PUBLIC_PATH ?? '/'
 
+// Scripts start downloading after the first paint. Lighthouse (lantern) counts every script
+// requested before the observed LCP paint into simulated LCP, so the 482 KB app bundle made LCP
+// on / bimodal (0.95 s or 4.1 s, depending on whether the bundle request or the paint came
+// first). The page is prerendered, so the first paint needs no JS; the loader inserts the
+// bundles in order (async=false, like defer) on the first-contentful-paint entry, with rAF and
+// 1.5 s fallbacks (a background tab never paints).
+const afterPaint = src =>
+  `<script type="text/x-after-paint" data-src="${src}"></script>`
+const LOADER = `<script>(function(){var d=0;function go(){if(d)return;d=1;document.querySelectorAll('script[type="text/x-after-paint"]').forEach(function(o){var s=document.createElement('script');s.src=o.getAttribute('data-src');s.async=false;o.replaceWith(s)})}function later(){setTimeout(go,0)}try{if(performance.getEntriesByName('first-contentful-paint').length)later();else new PerformanceObserver(function(l){if(l.getEntriesByName('first-contentful-paint').length)later()}).observe({type:'paint',buffered:true})}catch(e){requestAnimationFrame(later)}setTimeout(go,1500)})()</script>`
+
 // async chunks a page needs before its first render (the blog chunk on the posts)
 const chunkScripts = (chunks = []) =>
   chunks
     .map(chunk => find(stats.assetsByChunkName[chunk], /\.js$/))
-    .map(path => `<script defer src="${publicPath}${path}"></script>`)
+    .map(path => afterPaint(`${publicPath}${path}`))
     .join('')
 
 const template = (
@@ -50,9 +60,7 @@ const template = (
   <body style="background: #3040bc">
     <div id="app">${body}</div>
   </body>
-  ${chunkScripts(
-    chunks
-  )}<script defer src="${publicPath}${appSourcePath}"></script>
+  ${chunkScripts(chunks)}${afterPaint(`${publicPath}${appSourcePath}`)}${LOADER}
 </html>`
 
 export default template
