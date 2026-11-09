@@ -183,14 +183,14 @@ const ext = (h) => /^https?:/.test(h);
 
 /** One footer for every ciunkos.com page.
  *  lang: 'en' | 'pl'; updated: ISO date of the page's last content change (optional);
- *  current: this page's path, marked aria-current; alternate: {en, pl} paths of this page in both languages
+ *  current: this page's path; the link with exactly this href (no #fragment) gets aria-current; alternate: {en, pl} paths of this page in both languages
  *  (adds a language switch); note: one app-specific small-print sentence; an empty <p data-vitals> is left for apps that
  *  lazy-load the Core Web Vitals badge into it; extra: [{title, links:[{label, href}]}]
  *  app-specific groups shown first. */
 export function siteFooter({ lang = 'en', updated, current = '', alternate, note = '', extra = [] } = {}) {
   const ui = UI[lang] || UI.en, l = lang === 'pl' ? 'pl' : 'en', c = FOOTER_CONTACT;
   const a = (href, label, where = 'footer') => {
-    const cur = !ext(href) && href.split('#')[0] === current;
+    const cur = !ext(href) && !href.includes('#') && href === current;
     return `<a href="${esc(href)}"${cur ? ' aria-current="page"' : ''}${ext(href) ? ' rel="noopener"' : ''} data-track="footer_link_clicked" data-where="${where}">${esc(label)}</a>`;
   };
   const group = (g) => `<nav class="cf-group" aria-labelledby="cf-${esc(g.id)}"><h2 id="cf-${esc(g.id)}">${g.hub ? a(g.hub[l], g.title[l], 'footer-heading') : esc(g.title[l])}</h2><ul>${g.links.map((x) => `<li>${a(x.href[l], x.label[l])}</li>`).join('')}</ul></nav>`;
@@ -205,7 +205,7 @@ export function siteFooter({ lang = 'en', updated, current = '', alternate, note
 
 export const SITE_FOOTER_CSS = `.cf-foot{max-width:none;width:auto;margin:56px 0 0;padding:0;display:block;--cf-bg:#f4f1ea;--cf-fg:#25231e;--cf-muted:#6b665b;--cf-line:#dcd7cb;--cf-accent:#d7f34b;--cf-accent-fg:#25231e;background:var(--cf-bg);color:var(--cf-fg);border-top:1px solid var(--cf-line);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;text-align:left}
 @media (prefers-color-scheme:dark){.cf-foot{--cf-bg:#191814;--cf-fg:#ece8dd;--cf-muted:#a49e90;--cf-line:#34322b;--cf-accent:#d7f34b;--cf-accent-fg:#191814}}
-.cf-foot :is(div,section,nav,ul,li,p,h2){display:block;flex-direction:row;align-items:normal;justify-content:normal;flex-shrink:1;text-align:left;position:static;margin:0;padding:0;max-width:none;width:auto;border:0;background:none}
+.cf-foot :is(div,section,nav,ul,li,p,h2){font-family:inherit;letter-spacing:normal;display:block;flex-direction:row;align-items:normal;justify-content:normal;flex-shrink:1;text-align:left;position:static;margin:0;padding:0;max-width:none;width:auto;border:0;background:none}
 .cf-foot :is(a,span,time){display:inline;flex-direction:row;align-items:normal;justify-content:normal;position:static;color:inherit;text-decoration:none;font:inherit;background:none;border:0;padding:0;margin:0}
 .cf-foot *{box-sizing:border-box}.cf-foot a:hover{text-decoration:underline;text-underline-offset:3px}.cf-foot a:focus-visible{outline:2px solid currentColor;outline-offset:2px;border-radius:4px}
 .cf-foot .cf-wrap{max-width:1280px;margin:0 auto;padding:48px 24px 32px;display:grid;grid-template-columns:minmax(0,1fr);gap:40px}
@@ -214,7 +214,7 @@ export const SITE_FOOTER_CSS = `.cf-foot{max-width:none;width:auto;margin:56px 0
 .cf-foot .cf-contact,.cf-foot .cf-small{font-size:14px}.cf-foot .cf-small{color:var(--cf-muted)}.cf-foot .cf-social{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:4px;font-size:14px;font-weight:600}
 .cf-foot .cf-groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:32px 28px;border-top:1px solid var(--cf-line);padding-top:32px}
 .cf-foot .cf-group h2{margin:0 0 8px;font-size:13px;line-height:1.4;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cf-muted)}
-.cf-foot .cf-group ul{list-style:none}.cf-foot .cf-group li{list-style:none}.cf-foot .cf-group li a{display:flex;align-items:center;min-height:32px;font-size:14px;line-height:1.3}.cf-foot .cf-group a[aria-current]{font-weight:700}
+.cf-foot .cf-group ul{list-style:none}.cf-foot .cf-group li{list-style:none}.cf-foot .cf-group li a{display:flex;align-items:center;min-height:32px;padding:4px 0;font-size:14px;line-height:1.3}.cf-foot .cf-group a[aria-current]{font-weight:700}
 .cf-foot .cf-legal{border-top:1px solid var(--cf-line);padding-top:20px;font-size:12px;color:var(--cf-muted);display:grid;gap:6px}.cf-foot .cf-legal span{white-space:nowrap}.cf-foot .cf-legal a{text-decoration:underline;text-underline-offset:2px}.cf-foot .cf-vitals:empty{display:none}.cf-foot .cf-vitals img{display:block;max-width:100%;height:auto}
 @media (max-width:600px){.cf-foot .cf-wrap{padding:36px 16px 28px;gap:28px}.cf-foot .cf-groups{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}.cf-foot .cf-group li a{font-size:13.5px}}
 @media print{.cf-foot{display:none}}`;
