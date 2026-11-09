@@ -7,18 +7,26 @@ export default [
     'Run long-lived agents on durable execution: Temporal and Cloudflare Workflows',
     false
   ],
-  ['Add trajectory evals to every agent I ship, not only output checks', false],
   ['Get hands-on again with a hyperscaler cloud, starting with AWS', false],
   ['Refresh C#/.NET and Azure', false],
   ['Get production-ready in Python for agent work', false],
-  ['Lead customer discovery and workshops in English', false],
-  ['Give a talk on harness and loop engineering at an AI meetup', false],
   [
     'Harness engineering: coding agents author two thirds of merged PRs, under review and tests',
     true
   ],
   ['Loop engineering: audit, fix, re-audit across production products', true],
-  ['Ship a public MCP server (Sandtime.io)', true]
+  ['Ship a public MCP server (Sandtime.io)', true],
+  [
+    'Productize a multi-agent code audit: 10+ repositories, reports of up to 365 pages',
+    true
+  ],
+  [
+    'Restart Sandtime.io delivery: ~80x more commits, 270+ releases in 10 months',
+    true
+  ],
+  ['Launch Patriot Mail on the App Store (iOS and macOS)', true],
+  ['Pass Google CASA Tier 2 twice, and Yahoo OAuth review', true],
+  ['Gate WCAG 2.2 AA with automated axe checks', true]
 ]
 
 export const pastGoals = [
