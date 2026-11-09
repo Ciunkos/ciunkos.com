@@ -1,11 +1,4 @@
-footer {
-  line-height: 1.7em;
-}
-
-footer .Logo {
-  align-items: center;
-}
-
-footer .Logo .InlineLink {
-  font-weight: 300;
+/* The footer itself is styled by SITE_FOOTER_CSS from src/utils/site-footer.mjs (shared ciunkos.com footer). */
+.SiteFooter {
+  display: block;
 }
