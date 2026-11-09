@@ -11,22 +11,24 @@ export default [
   ['Refresh C#/.NET and Azure', false],
   ['Get production-ready in Python for agent work', false],
   [
-    'Harness engineering: coding agents author two thirds of merged PRs, under review and tests',
-    true
-  ],
-  ['Loop engineering: audit, fix, re-audit across production products', true],
-  ['Ship a public MCP server (Sandtime.io)', true],
-  [
-    'Productize a multi-agent code audit: 10+ repositories, reports of up to 365 pages',
+    'Harness engineering: coding agents author two thirds of merged pull requests, under review and tests',
     true
   ],
   [
-    'Restart Sandtime.io delivery: ~80x more commits, 270+ releases in 10 months',
+    'Loop engineering: audit, fix, re-audit, running continuously across production products',
     true
   ],
-  ['Launch Patriot Mail on the App Store (iOS and macOS)', true],
-  ['Pass Google CASA Tier 2 twice, and Yahoo OAuth review', true],
-  ['Gate WCAG 2.2 AA with automated axe checks', true]
+  [
+    'Turn a multi-agent code audit into a product: reports of up to 365 pages',
+    true
+  ],
+  [
+    'Restart a dormant SaaS: ~80x more commits, 270+ releases in 10 months',
+    true
+  ],
+  ['Launch native iOS and macOS apps on the App Store', true],
+  ['Ship a public MCP server', true],
+  ['Pass an independent security assessment, twice', true]
 ]
 
 export const pastGoals = [
