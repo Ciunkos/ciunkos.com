@@ -23,7 +23,7 @@ export default [
     true
   ],
   [
-    'Restart a dormant SaaS: ~80x more commits, 270+ releases in 10 months',
+    'Build and run a SaaS with real customers, from the first commit to 4,000+ users',
     true
   ],
   ['Launch native iOS and macOS apps on the App Store', true],
