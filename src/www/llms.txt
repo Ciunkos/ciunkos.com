@@ -57,6 +57,7 @@ Independent rankings of Polish software development companies, built from the Na
 ## Free tools
 
 - [Quote Desk](https://ciunkos.com/quote-desk): matches a customer inquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
+- [Job Finder AI](https://ciunkos.com/job-finder-ai): upload a CV and get IT job offers from Polish and remote boards that match it, each checked against its source before it is shown; an assistant then tailors the list. Nothing about the visitor is stored. Polish version: https://ciunkos.com/szukacz-pracy-ai
 - [AI Visibility Desk](https://ciunkos.com/ai-visibility): asks your buyers' questions to an AI assistant every week and shows whether your brand is named and which pages are cited. Claude only today.
 - [List Desk](https://ciunkos.com/email-list-validator): checks an email list in your browser for dead domains, null MX, disposable providers, typos and duplicates.
 - [Eval Desk](https://ciunkos.com/ai-prompt-testing): runs test cases for an AI assistant after a prompt change and shows what regressed, what got fixed and what is unstable. Claude models.

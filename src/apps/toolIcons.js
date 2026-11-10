@@ -62,6 +62,10 @@ export const ICONS = {
     '#16a34a',
     "<path d='M10 6h11M10 12h11M10 18h11M3 6l1.5 1.5L7 5M3 12l1.5 1.5L7 11M3 18l1.5 1.5L7 17'/>"
   ],
+  jobFinder: [
+    '#1f3d6b',
+    "<circle cx='11' cy='11' r='6.5'/><path d='M16 16l5 5M8.5 11l1.8 1.8 3.2-3.4'/>"
+  ],
   aiVisibility: [
     '#9333ea',
     "<path d='M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12z'/><circle cx='12' cy='12' r='3'/>"

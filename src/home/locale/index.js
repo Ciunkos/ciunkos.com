@@ -50,6 +50,7 @@ export const recent = {
     dashboardDesk: ['Dashboard Desk', 'PostHog growth dashboard'],
     evalDesk: ['Eval Desk', 'Test your AI prompt'],
     listDesk: ['List Desk', 'Clean an email list'],
+    jobFinder: ['Job Finder AI', 'Offers from your CV'],
     aiVisibility: ['AI Visibility Desk', 'Does AI recommend you?'],
     quoteDesk: ['Quote Desk', 'Inquiry to draft quote'],
     tenant: ['Multi-tenant SaaS calculator', 'Company tool to SaaS'],
@@ -107,6 +108,8 @@ export const recent = {
       'Test cases for an AI assistant, run after every prompt change: what regressed, what got fixed, which cases are unstable. Free, Claude models.',
     listDesk:
       'An email list checked in your browser: dead domains, null MX, disposable providers, typos and duplicates. Addresses never leave the page. Free.',
+    jobFinder:
+      'Upload a CV and get IT job offers that match it, each checked against its source so closed postings drop out. Then tailor the list with an assistant. Nothing is stored. Free.',
     aiVisibility:
       'Your buyers’ questions asked to an AI assistant every week with web search on: whether your brand is named, who is named instead, which pages are cited. Free.',
     quoteDesk:

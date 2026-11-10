@@ -3,10 +3,7 @@ export default [
     'Land a Forward Deployed Engineer role: build agents with customers, inside their stack',
     false
   ],
-  [
-    'Run long-lived agents on durable execution: Temporal and Cloudflare Workflows',
-    false
-  ],
+  ['Run long-lived agents on durable execution with Temporal', false],
   ['Get hands-on again with a hyperscaler cloud, starting with AWS', false],
   ['Refresh C#/.NET and Azure', false],
   ['Get production-ready in Python for agent work', false],
@@ -28,6 +25,10 @@ export default [
   ],
   ['Launch native iOS and macOS apps on the App Store', true],
   ['Ship a public MCP server', true],
+  [
+    'Run agent workflows on durable execution in production: Cloudflare Workflows',
+    true
+  ],
   ['Pass an independent security assessment, twice', true]
 ]
 

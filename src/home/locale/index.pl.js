@@ -50,6 +50,7 @@ export const recent = {
     dashboardDesk: ['Dashboard Desk', 'Dashboard wzrostu w PostHogu'],
     evalDesk: ['Eval Desk', 'Testuj prompt AI'],
     listDesk: ['List Desk', 'Wyczyść listę e-mail'],
+    jobFinder: ['Szukacz pracy AI', 'Oferty z Twojego CV'],
     aiVisibility: ['Widoczność w AI', 'Czy AI Cię poleca?'],
     quoteDesk: ['Oferta z zapytania', 'Od maila do szkicu oferty'],
     tenant: ['Kalkulator multi-tenant', 'Z narzędzia firmy do SaaS'],
@@ -107,6 +108,8 @@ export const recent = {
       'Przypadki testowe dla asystenta AI, uruchamiane po każdej zmianie promptu: co się zepsuło, co naprawiło, które przypadki są niestabilne. Za darmo, modele Claude.',
     listDesk:
       'Lista e-mail sprawdzona w przeglądarce: martwe domeny, null MX, skrzynki jednorazowe, literówki i duplikaty. Adresy nie opuszczają strony. Za darmo.',
+    jobFinder:
+      'Wrzucasz CV i dostajesz dopasowane oferty pracy w IT, każda sprawdzona u źródła, więc zamknięte ogłoszenia odpadają. Potem doprecyzowujesz listę z asystentem. Niczego nie zapisujemy. Za darmo.',
     aiVisibility:
       'Pytania Twoich klientów zadawane asystentowi AI co tydzień z wyszukiwaniem: czy marka pada z nazwy, kto pada zamiast niej, które strony są cytowane. Za darmo.',
     quoteDesk:

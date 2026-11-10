@@ -118,8 +118,10 @@ export const FOOTER_GROUPS = [
     L(P('Software house finder', 'Wyszukiwarka software house’ów'), P('/software-house-finder', '/wyszukiwarka-software-house'))
   ] },
   { id: 'jobs', title: P('IT job market', 'Rynek pracy IT'), hub: P('/job-radar', '/radar-pracy-it'), links: [
+    L(P('Job Finder AI: offers from your CV', 'Szukacz pracy AI: oferty z CV'), P('/job-finder-ai', '/szukacz-pracy-ai')),
     L(P('IT job radar', 'Radar pracy IT'), P('/job-radar', '/radar-pracy-it')),
-    L(P('Wrocław IT map', 'Mapa IT Wrocławia'), '/radar-pracy-it/mapa-wroclawia'),
+    L(P('Wrocław IT map', 'Mapa IT Wrocławia'), P('/job-radar/wroclaw-map', '/radar-pracy-it/mapa-wroclawia')),
+    L(P('B2B vs employment calculator (PL)', 'Kalkulator B2B vs UoP'), '/kalkulator-b2b-vs-uop-2026'),
     L(P('Hiring from Poland', 'Programista z Polski'), P('/hire-software-developer-poland', '/zatrudnij-programiste-z-polski'))
   ] },
   { id: 'pl', title: P('In Polish', 'Po polsku'), hub: P('/korpo-tlumacz'), links: [

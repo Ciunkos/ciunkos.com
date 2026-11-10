@@ -124,6 +124,11 @@ export const apps = [
     icon: '/ai-visibility/a/apple-touch-icon.png'
   },
   {
+    id: 'jobFinder',
+    path: '/job-finder-ai',
+    icon: '/job-finder-ai/a/apple-touch-icon.png'
+  },
+  {
     id: 'quoteDesk',
     path: '/quote-desk',
     icon: '/quote-desk/a/apple-touch-icon.png'
