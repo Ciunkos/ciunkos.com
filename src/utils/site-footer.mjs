@@ -119,6 +119,7 @@ export const FOOTER_GROUPS = [
   ] },
   { id: 'jobs', title: P('IT job market', 'Rynek pracy IT'), hub: P('/job-radar', '/radar-pracy-it'), links: [
     L(P('Job Finder AI: offers from your CV', 'Szukacz pracy AI: oferty z CV'), P('/job-finder-ai', '/szukacz-pracy-ai')),
+    L(P('IT job market in numbers', 'Rynek pracy IT w liczbach'), P('/job-finder-ai/it-job-market-poland', '/szukacz-pracy-ai/rynek-pracy-it')),
     L(P('IT job radar', 'Radar pracy IT'), P('/job-radar', '/radar-pracy-it')),
     L(P('Wrocław IT map', 'Mapa IT Wrocławia'), P('/job-radar/wroclaw-map', '/radar-pracy-it/mapa-wroclawia')),
     L(P('B2B vs employment calculator (PL)', 'Kalkulator B2B vs UoP'), '/kalkulator-b2b-vs-uop-2026'),
