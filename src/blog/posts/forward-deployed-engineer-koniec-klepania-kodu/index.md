@@ -77,6 +77,8 @@ W Sandtime przejąłem wzrost i zbudowałem widoczność w wyszukiwarkach i w wy
 
 Wąskie gardło się przesunęło. Kod jest tani. Drogie jest wiedzieć, co zbudować, wpiąć to w prawdziwe systemy firmy i sprawić, żeby ludzie tego używali. Jedno wdrożenie FDE w Qualcommie [skróciło wielodniowe procesy do minut](https://www.databricks.com/blog/forward-deployed-engineering-delivering-business-outcomes-ai). Qualcommowi nie brakowało kodu.
 
+Klepanie kodu się skończyło. Programowanie ma się dobrze, bo [kodowanie to nie programowanie](https://lnkd.in/p/d9ymUTAa). AI robi coraz więcej, a równocześnie coraz więcej jest do zrobienia.
+
 ```chart
 day-shift
 ```
@@ -181,7 +183,7 @@ To są opinie. Nie mam na nie źródeł i mogę się mylić. Mam nadzieję, że 
 
 **„Architektura i security zostaną dla ludzi” to gówno prawda.** To samo mówiono dwa lata temu o pisaniu kodu.
 
-**Firmy staną się hive mindem.** Google już nim jest. Większość biznesu może działać jako masa agentów z zarządem na górze. Później może i bez zarządu.
+**Firmy staną się hive mindem.** Google już nim jest: [rozszerzeń do Chrome nie sprawdza żaden człowiek](https://lnkd.in/p/dzDxxS-5). Większość biznesu może działać jako masa agentów z zarządem na górze. Później może i bez zarządu.
 
 **Jedno się nie zestarzeje.** Programistom zawsze dobrze płacono, bo oczekiwano od nas zmian. Technologia rotowała co kilka lat i nie dało się stać w miejscu.
 

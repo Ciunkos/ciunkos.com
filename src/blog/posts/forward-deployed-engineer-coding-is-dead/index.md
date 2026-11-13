@@ -77,6 +77,8 @@ On Sandtime I took over growth and built search and AI-search visibility from ne
 
 So the bottleneck moved. Code is cheap. Knowing what to build, wiring it into a company's real systems and getting people to use it is the expensive part. One FDE engagement at Qualcomm [cut multi-day workflows to minutes](https://www.databricks.com/blog/forward-deployed-engineering-delivering-business-outcomes-ai). Nobody at Qualcomm was short of code.
 
+Coding is dead. Programming is fine, because [coding is not programming](https://lnkd.in/p/d9ymUTAa). AI does more of the work every month, and every month there is more work to do.
+
 ```chart
 day-shift
 ```
@@ -181,7 +183,7 @@ These are opinions. I have no sources for them and I may be wrong. I hope I'm wr
 
 **"Architecture and security will stay with humans" is bullshit.** People said the same about writing code two years ago.
 
-**Companies will become hive minds.** Google already is one. Most of a business could run as a mass of agents with a board on top. Later, maybe without the board.
+**Companies will become hive minds.** Google already is one: [no human reviews a Chrome extension](https://lnkd.in/p/dzDxxS-5) any more. Most of a business could run as a mass of agents with a board on top. Later, maybe without the board.
 
 **One thing will not age.** Programmers were always well paid because we were expected to change. The technology rotated every few years, and you could not stand still.
 
