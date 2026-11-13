@@ -769,7 +769,7 @@
   color: var(--viz-ink-2);
 }
 
-/* the homage meme */
+/* a reaction clip from MemeLib */
 .Meme {
   margin: 8px auto;
   max-width: 460px;
@@ -782,63 +782,11 @@
     sans-serif;
 }
 
-.MemeFrame {
-  position: relative;
-  display: grid;
-  place-items: end center;
-  aspect-ratio: 1;
-  overflow: hidden;
-  border-radius: 10px;
-  background: radial-gradient(circle at 50% 40%, #ffd98a, #f08a3c 70%, #c75a1c);
-}
-
-.MemeFrame img {
-  width: 78%;
-  height: auto;
-  transform: rotate(-4deg) translateY(6%);
-}
-
-.MemeText {
-  position: absolute;
-  left: 0;
-  right: 0;
-  color: #fff;
-  font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
-  font-size: clamp(34px, 11vw, 62px);
-  line-height: 1;
-  letter-spacing: 0.01em;
-  text-align: center;
-  text-shadow:
-    -2px -2px 0 #000,
-    2px -2px 0 #000,
-    -2px 2px 0 #000,
-    2px 2px 0 #000,
-    0 3px 0 #000;
-}
-
-.MemeText.top {
-  top: 4%;
-}
-
-.MemeText.bottom {
-  bottom: 4%;
-}
-
 .Meme figcaption {
   margin-top: 8px;
   color: #6f6d68;
   font-size: 14px;
   text-align: center;
-}
-
-@media (hover: hover) and (prefers-reduced-motion: no-preference) {
-  .MemeFrame img {
-    transition: transform 0.3s cubic-bezier(0.2, 1.3, 0.3, 1);
-  }
-
-  .MemeFrame:hover img {
-    transform: rotate(3deg) translateY(2%) scale(1.04);
-  }
 }
 
 /* the offer at the end, and the head that leans in */

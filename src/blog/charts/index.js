@@ -6,7 +6,6 @@ import FdeShare from './FdeShare'
 import Hire from './Hire'
 import Layoffs from './Layoffs'
 import Loop from './Loop'
-import Meme from './Meme'
 import MemeLib from './MemeLib'
 import OpeningsVsHires from './OpeningsVsHires'
 import Pay from './Pay'
@@ -30,7 +29,6 @@ const CHARTS = {
   'day-shift': DayShift,
   shifts: Shifts,
   'they-took-our-jobs': () => <MemeLib id="they-took-our-jobs" />,
-  'they-took-my-job': Meme,
   'let-it-go': () => <MemeLib id="let-it-go" />,
   'red-flags': RedFlags,
   layoffs: Layoffs,

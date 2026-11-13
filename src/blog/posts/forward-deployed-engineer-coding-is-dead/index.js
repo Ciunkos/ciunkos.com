@@ -17,7 +17,7 @@ export default {
   alternate: 'forward-deployed-engineer-koniec-klepania-kodu',
   date: '2026-11-13',
   updated: '2026-11-13',
-  bylineLabel: 'Written and reviewed by',
+  bylineLabel: 'Written, researched and reviewed by',
   authors: [
     {
       id: 'przemyslaw',
@@ -27,9 +27,15 @@ export default {
     },
     {
       id: 'claude',
-      role: 'Researched, drafted and built the figures',
+      role: 'Fact-checked, drafted and built the figures',
       description:
         'AI model by Anthropic. Checked the figures against their sources, drafted the text from Przemysław’s interview and built the interactive figures.'
+    },
+    {
+      id: 'chatgpt',
+      role: 'Interviewed and researched',
+      description:
+        'AI assistant by OpenAI. Ran the voice interview with Przemysław that this post is built on and wrote the deep-research reports behind it.'
     }
   ],
   cover,

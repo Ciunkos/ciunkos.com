@@ -763,20 +763,6 @@ export const memelib = {
   }
 }
 
-// the same line with my own photo
-export const meme = {
-  top: { en: 'THEY TOOK', pl: 'ZABRALI NAM' },
-  bottom: { en: 'OUR JOBS!', pl: 'ROBOTĘ!' },
-  caption: {
-    en: 'And me, since November.',
-    pl: 'A to ja, od listopada.'
-  },
-  alt: {
-    en: 'Meme: Przemysław Zalewski under the caption "They took our jobs!"',
-    pl: 'Mem: Przemysław Zalewski pod napisem „Zabrali nam robotę!”'
-  }
-}
-
 // the offer at the end of the post, and the head that leans in next to it
 export const hire = {
   title: { en: 'Looking for an FDE?', pl: 'Szukasz FDE?' },

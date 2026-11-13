@@ -16,7 +16,7 @@ export default {
   alternate: 'forward-deployed-engineer-coding-is-dead',
   date: '2026-11-13',
   updated: '2026-11-13',
-  bylineLabel: 'Napisali i sprawdzili',
+  bylineLabel: 'Napisali, zbadali i sprawdzili',
   authors: [
     {
       id: 'przemyslaw',
@@ -26,9 +26,15 @@ export default {
     },
     {
       id: 'claude',
-      role: 'Research, szkic i wykresy',
+      role: 'Weryfikacja liczb, szkic i wykresy',
       description:
         'Model AI od Anthropic. Sprawdził liczby w źródłach, napisał szkic na podstawie wywiadu z Przemysławem i zbudował interaktywne wykresy.'
+    },
+    {
+      id: 'chatgpt',
+      role: 'Wywiad i research',
+      description:
+        'Asystent AI od OpenAI. Przeprowadził z Przemysławem wywiad głosowy, na którym opiera się ten wpis, i przygotował raporty deep research.'
     }
   ],
   cover,

@@ -42,10 +42,6 @@ poland
 
 Ogłoszenia wróciły w 2025. Na ogłoszenie dla juniora front-end wciąż przypada 146 aplikacji. Polskie liczby śledzę na własnym [radarze pracy IT](https://ciunkos.com/radar-pracy-it).
 
-```chart
-they-took-my-job
-```
-
 Na meetupie w tym tygodniu przedstawiłem się jako programista bezklientowy. Ludzie się zaśmiali. Potem kilka osób zapytało, od kiedy szukam.
 
 ## Kim jest Forward Deployed Engineer? {#what-is-fde}
