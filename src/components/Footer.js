@@ -46,7 +46,7 @@ const useVitalsBadge = () => {
   }, [])
 }
 
-const Footer = ({ updated }) => {
+const Footer = ({ updated, lang = 'en', alternate }) => {
   useVitalsBadge()
   return (
     <>
@@ -58,7 +58,7 @@ const Footer = ({ updated }) => {
         // trusted HTML built from the shared footer's own constants
         // eslint-disable-next-line @eslint-react/dom-no-dangerously-set-innerhtml
         dangerouslySetInnerHTML={{
-          __html: siteFooter({ lang: 'en', updated, note: NOTE })
+          __html: siteFooter({ lang, alternate, updated, note: NOTE })
         }}
       />
     </>

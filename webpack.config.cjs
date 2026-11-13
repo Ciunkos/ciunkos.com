@@ -44,6 +44,14 @@ module.exports = () => {
       test: hasWebp,
       loader: resolve(__dirname, 'scripts/cover-loader.cjs')
     },
+    // a WebP imported directly (the cutout in blog/charts); cover twins come from cover-loader
+    {
+      test: /\.webp$/,
+      type: 'asset/resource',
+      generator: {
+        filename: '[name].[contenthash:32][ext]'
+      }
+    },
     {
       test: /\.(jpg|png)$/,
       exclude: hasWebp,

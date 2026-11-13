@@ -31,14 +31,15 @@ const chunkScripts = (chunks = []) =>
 
 const template = (
   body = '',
-  { title, meta, script, pathname, chunks }
+  { title, meta, link, script, pathname, chunks, lang = 'en' }
 ) => `<!doctype html>
-<html lang="en" style="background: #3040bc">
+<html lang="${lang}" style="background: #3040bc">
   <head>
     <meta charset="utf-8">
     <link rel="preload" href="${publicPath}${appStylesPath}" as="style">
     ${title.toString()}
     ${meta.toString()}
+    ${link.toString()}
     ${script.toString()}
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="format-detection" content="telephone=no"/>

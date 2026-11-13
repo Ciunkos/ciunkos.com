@@ -3,12 +3,15 @@ import ReactMarkdown from 'react-markdown'
 
 import styled from 'styled'
 import { Page, Section } from 'components'
+import Footer from 'components/Footer'
 import relatedPosts from 'blog/related-posts'
 import { PostHeader } from 'blog/post'
 import { Byline, Contributors } from './Byline'
 import { postAuthors } from './authors'
 import { remarkPlugins } from './markdown'
 import components from './renderers'
+import { LangContext, postLang, stringsFor } from './i18n'
+import { postAlternates, footerAlternate } from './alternates'
 import { graph, breadcrumbs, personRef, websiteRef } from 'utils/schema'
 
 const SITE = 'https://ciunkos.com/'
@@ -34,7 +37,7 @@ const postJsonLd = post => {
       url,
       mainEntityOfPage: url,
       image: coverUrl(post),
-      inLanguage: 'en',
+      inLanguage: postLang(post),
       isPartOf: websiteRef,
       ...(post.date && { datePublished: post.date }),
       // a post that was never revised was last modified when it was published
@@ -54,10 +57,28 @@ const postJsonLd = post => {
 // the page header already shows the title, so a leading "# Title" line in the markdown is dropped
 const withoutTitle = markdown => markdown.replace(/^# .*\n+/, '')
 
+// the post in the other language, linked right under the byline
+const OtherLanguage = ({ post }) => {
+  const alternate = footerAlternate(post)
+  const lang = postLang(post)
+  const other = lang === 'pl' ? 'en' : 'pl'
+  if (!alternate || !alternate[other]) return null
+  return (
+    <p className="OtherLanguage">
+      <a href={alternate[other]} hrefLang={other} lang={other}>
+        {stringsFor(lang).otherLanguage} →
+      </a>
+    </p>
+  )
+}
+
 const Blog = ({ post }) => (
   <Page
     Blog
-    title={post.name}
+    // a post can give search results a plainer title than its headline
+    title={post.metaTitle || post.name}
+    alternates={postAlternates(post)}
+    footer={<Footer lang={postLang(post)} alternate={footerAlternate(post)} />}
     description={post.metaDescription || post.description}
     ogUrl={postUrl(post)}
     ogType="article"
@@ -82,14 +103,17 @@ const Blog = ({ post }) => (
     <Section PostContent gradient={false}>
       <Section.Content padding-2 spacing-4>
         <Byline post={post} />
+        <OtherLanguage post={post} />
         {post.markdown && (
-          <div className="Markdown spacing-4">
-            <ReactMarkdown
-              remarkPlugins={remarkPlugins}
-              components={components}
-            >
-              {withoutTitle(post.markdown)}
-            </ReactMarkdown>
+          <div className="Markdown spacing-4" lang={postLang(post)}>
+            <LangContext.Provider value={postLang(post)}>
+              <ReactMarkdown
+                remarkPlugins={remarkPlugins}
+                components={components}
+              >
+                {withoutTitle(post.markdown)}
+              </ReactMarkdown>
+            </LangContext.Provider>
           </div>
         )}
         <Contributors post={post} />
@@ -99,7 +123,7 @@ const Blog = ({ post }) => (
     {relatedPosts[post.slug] && (
       <Section RelatedPosts id="related-posts">
         <Section.Content padding-2 spacing-4>
-          <h2>Related posts</h2>
+          <h2>{stringsFor(postLang(post)).relatedPosts}</h2>
 
           <styled.Row RelatedPostsView style={{ color: 'black' }}>
             {Object.entries(relatedPosts[post.slug] || {}).map(

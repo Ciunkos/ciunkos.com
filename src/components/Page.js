@@ -20,6 +20,8 @@ const Page = ({
   ogImageHeight,
   ogImageAlt,
   jsonLd,
+  // other language versions of this page: [{ lang: 'pl', href }]
+  alternates,
   ...rest
 }) => (
   <styled.Page {...rest}>
@@ -47,6 +49,9 @@ const Page = ({
       <meta name="twitter:description" content={description} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
       {ogImageAlt && <meta name="twitter:image:alt" content={ogImageAlt} />}
+      {(alternates || []).map(({ lang, href }) => (
+        <link key={lang} rel="alternate" hrefLang={lang} href={href} />
+      ))}
       {jsonLd && (
         <script type="application/ld+json">
           {JSON.stringify(jsonLd).replace(/</g, '\\u003c')}

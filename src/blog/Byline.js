@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled'
 import { postAuthors } from './authors'
 import { formatPostDate } from './post'
+import { postLang, stringsFor } from './i18n'
 
 const AuthorLinks = ({ links }) => (
   <styled.AuthorLinks>
@@ -39,10 +40,14 @@ export const Byline = ({ post }) => {
   // an update on the publish day is not news
   const updated = post.updated && post.updated !== post.date
   const authors = postAuthors(post)
+  const lang = postLang(post)
+  const strings = stringsFor(lang)
   return (
     <div className="Byline">
       <div className="BylineAuthors">
-        <span className="BylineLabel">{post.bylineLabel || 'Written by'}:</span>{' '}
+        <span className="BylineLabel">
+          {post.bylineLabel || strings.writtenBy}:
+        </span>{' '}
         {authors.map((author, index) => {
           // also the anchor name, so only characters valid in a CSS ident
           const id = `author-${post.slug}-${author.id}`.replace(
@@ -52,7 +57,9 @@ export const Byline = ({ post }) => {
           return (
             <React.Fragment key={author.id}>
               {index > 0 && ' '}
-              {index > 0 && index === authors.length - 1 && 'and '}
+              {index > 0 &&
+                index === authors.length - 1 &&
+                (lang === 'pl' ? 'i ' : 'and ')}
               <span
                 className="BylineAuthor"
                 style={{ '--anchor': `--${id}` }}
@@ -98,8 +105,10 @@ export const Byline = ({ post }) => {
       </div>
       {post.date && (
         <span className="BylineDate">
-          {updated ? 'Updated' : 'Published'}{' '}
-          <strong>{formatPostDate(updated ? post.updated : post.date)}</strong>
+          {updated ? strings.updated : strings.published}{' '}
+          <strong>
+            {formatPostDate(updated ? post.updated : post.date, lang)}
+          </strong>
         </span>
       )}
     </div>
@@ -109,7 +118,7 @@ export const Byline = ({ post }) => {
 // after the post: the same people, larger, without roles or dates
 export const Contributors = ({ post }) => (
   <styled.Contributors tag="section">
-    <h3>About the contributors</h3>
+    <h3>{stringsFor(postLang(post)).contributors}</h3>
     {postAuthors(post).map(author => (
       <styled.AuthorCard key={author.id} large>
         <img src={author.avatar} alt="" width="64" height="64" />

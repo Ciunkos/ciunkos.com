@@ -2,22 +2,17 @@ import React from 'react'
 
 import CodeBlock from './CodeBlock'
 import Image from './Image'
+import Chart from './charts'
 import { textOf } from './markdown'
-
-const CALLOUT_LABELS = {
-  note: 'Note',
-  tip: 'Tip',
-  important: 'Important',
-  warning: 'Warning',
-  caution: 'Caution',
-  tldr: 'TL;DR'
-}
+import { useStrings } from './i18n'
+import przemoFace from './charts/przemo-cutout.webp'
 
 // the page header already has the h1 and posts start their sections at ##, so ## is h2
 // (a stray # also becomes h2) and levels never skip, which axe's heading-order checks;
 // every heading gets a stable id (see headingIds in markdown.js) and a # link to copy,
 // next to the heading rather than inside it, so it isn't read as part of the heading
 export const Heading = ({ node, id, children }) => {
+  const strings = useStrings()
   const level = Number(node.tagName.slice(1))
   const heading = React.createElement(
     `h${Math.min(Math.max(level, 2), 6)}`,
@@ -31,7 +26,7 @@ export const Heading = ({ node, id, children }) => {
       <a
         className="HeadingAnchor"
         href={`#${id}`}
-        aria-label={`Permalink: ${textOf(node)}`}
+        aria-label={`${strings.permalink}: ${textOf(node)}`}
       >
         #
       </a>
@@ -62,18 +57,29 @@ export const InlineCode = ({ children }) => {
   )
 }
 
-export const Callout = ({ kind, children }) => (
-  <div
-    className={`Callout ${kind}`}
-    role="note"
-    aria-label={CALLOUT_LABELS[kind]}
-  >
-    <span className="CalloutLabel" aria-hidden="true">
-      {CALLOUT_LABELS[kind]}
-    </span>
-    {children}
-  </div>
-)
+// "> [!PRZEMO]" is an aside in the author's voice, with his face next to it
+export const Callout = ({ kind, children }) => {
+  const label = useStrings().callouts[kind]
+  return (
+    <div className={`Callout ${kind}`} role="note" aria-label={label}>
+      {kind === 'przemo' && (
+        <img
+          className="CalloutFace"
+          src={przemoFace}
+          alt=""
+          width="56"
+          height="56"
+          loading="lazy"
+          decoding="async"
+        />
+      )}
+      <span className="CalloutLabel" aria-hidden="true">
+        {label}
+      </span>
+      {children}
+    </div>
+  )
+}
 
 const isGlossary = href =>
   /^(https:\/\/ciunkos\.com)?\/(glossary|slownik)\//.test(href)
@@ -115,5 +121,6 @@ export default {
   img: Image,
   a: Link,
   p: Paragraph,
-  callout: Callout
+  callout: Callout,
+  chart: Chart
 }

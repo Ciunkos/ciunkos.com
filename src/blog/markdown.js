@@ -45,7 +45,8 @@ export const CALLOUT_KINDS = [
   'important',
   'warning',
   'caution',
-  'tldr'
+  'tldr',
+  'przemo'
 ]
 
 // GitHub alerts: a blockquote starting with "[!WARNING]" becomes a callout node
@@ -68,5 +69,19 @@ export const callouts = root =>
     }
   })
 
+// A fenced block with the language "chart" names an interactive figure from blog/charts:
+//   ```chart
+//   role-shift
+//   ```
+// react-markdown drops raw HTML, so this is how a post places a React component
+export const charts = root =>
+  visit(root, 'code', (code, index, parent) => {
+    if (code.lang !== 'chart') return
+    parent.children[index] = {
+      type: 'chart',
+      data: { hName: 'chart', hProperties: { name: code.value.trim() } }
+    }
+  })
+
 // a remark plugin returns the transform it runs on the tree
-export const remarkPlugins = [() => headingIds, () => callouts]
+export const remarkPlugins = [() => headingIds, () => callouts, () => charts]

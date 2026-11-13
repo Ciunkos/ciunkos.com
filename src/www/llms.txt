@@ -95,6 +95,7 @@ Independent rankings of Polish software development companies, built from the Na
 
 ## Articles
 
+- [Coding is dead. Long live the Forward Deployed Engineer](https://ciunkos.com/forward-deployed-engineer-coding-is-dead): what a Forward Deployed Engineer (FDE) does, what the role pays in the US and Poland, why front-end and mobile openings halved in 2026 and how to move into the role; also in Polish at https://ciunkos.com/forward-deployed-engineer-koniec-klepania-kodu.
 - [Node.js 26 LTS: what's new and how to upgrade](https://ciunkos.com/node-js-26-lts-whats-new-and-how-to-upgrade): the changes in Node.js 26, what breaks, and a step-by-step upgrade with self-check commands.
 - [Debugging JavaScript: the basics](https://ciunkos.com/debugging-javascript-the-basics): console.log tricks, tapping into method chains and breakpoints in the browser DevTools.
 - [Creating contact forms with nodemailer and React](https://ciunkos.com/creating-contact-forms-with-nodemailer-and-react): a React contact form that sends each submission to Gmail with nodemailer and OAuth2.

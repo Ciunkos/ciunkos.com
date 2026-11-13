@@ -432,7 +432,123 @@ h1{margin:0 0 22px;font-size:62px;line-height:1.05;letter-spacing:-.02em;font-we
 <div class="url">ciunkos.com</div>
 </body></html>`
 
+/* "Coding is dead. Long live the Forward Deployed Engineer.": the chart from the post as the
+   art. Four orange bars shrink to the left of a zero line, one blue bar runs off the right
+   edge, and the author's cutout leans in from the corner. The left side stays dark for the
+   title. Numbers: TrueUp via Lenny's Newsletter, the same as the post's first figure. */
+const FDE_BARS = [
+  ['Forward deployed', 361, '+361%'],
+  ['Security', 34, '+34%'],
+  ['Backend', 4.2, '+4%'],
+  ['Mobile', -39, '−39%'],
+  ['iOS', -46, '−46%'],
+  ['Android', -47, '−47%'],
+  ['Front-end', -51, '−51%']
+]
+const fdeFace = () =>
+  readFileSync(
+    join(homedir(), 'hire/public/hire/img/przemo-wycinek-512.png')
+  ).toString('base64')
+
+const fdeChart = ({ zero, top, row, unit, labels = true, values = true }) =>
+  FDE_BARS.map(([name, value, text], index) => {
+    const y = top + index * row
+    const up = value > 0
+    const width = Math.abs(value) * unit
+    const x = up ? zero + 3 : zero - 3 - width
+    const fill = up ? '#3987e5' : '#eb6834'
+    const lead = index === 0
+    return `<rect x="${x}" y="${y}" width="${width}" height="${row * 0.56}" rx="6" fill="${fill}"/>
+<text x="${up ? zero - 16 : zero + 16}" y="${y + row * 0.4}" text-anchor="${up ? 'end' : 'start'}" fill="${lead ? '#ffffff' : '#b9c2e6'}" font-size="${lead ? 27 : 23}" font-weight="${lead ? 800 : 600}">${labels ? name : ''}</text>
+<text x="${up ? Math.min(x + width + 12, 1180) : x - 12}" y="${y + row * 0.4}" text-anchor="${up && x + width < 1180 ? 'start' : 'end'}" fill="#ffffff" font-size="23" font-weight="800">${lead || !values ? '' : text}</text>`
+  }).join('')
+
+const fdeCover = () => `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${W}px;height:${H}px;overflow:hidden;background:#0b1030;position:relative;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+svg{display:block}
+img{position:absolute;right:-70px;bottom:-40px;width:400px;transform:rotate(-9deg);
+  filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
+</style></head><body>
+<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" dominant-baseline="central">
+<defs>
+  <radialGradient id="glow" cx="0.78" cy="0.3" r="0.8">
+    <stop offset="0" stop-color="#2a3aa8"/>
+    <stop offset="0.5" stop-color="#141c5c"/>
+    <stop offset="1" stop-color="#090d28"/>
+  </radialGradient>
+  <linearGradient id="left" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#090d28"/>
+    <stop offset="0.34" stop-color="#090d28" stop-opacity="0.9"/>
+    <stop offset="0.5" stop-color="#090d28" stop-opacity="0"/>
+  </linearGradient>
+</defs>
+<rect width="${W}" height="${H}" fill="url(#glow)"/>
+${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<line x1="${640 + i * 90}" x2="${640 + i * 90}" y1="150" y2="650" stroke="#ffffff" stroke-opacity="0.06"/>`).join('')}
+<g opacity="0.8">${fdeChart({ zero: 900, top: 120, row: 76, unit: 2.9, labels: false, values: false })}</g>
+<line x1="900" x2="900" y1="96" y2="660" stroke="#ffffff" stroke-opacity="0.8" stroke-width="3"/>
+<rect width="${W}" height="${H}" fill="url(#left)"/>
+</svg>
+<img src="data:image/png;base64,${fdeFace()}" alt="">
+</body></html>`
+
+const FDE_SHARE = {
+  en: {
+    title: 'Coding is dead. Long live the FDE.',
+    sub: 'Front-end jobs halved in a year. FDE openings grew 4.6x. What the role is and how to get there.'
+  },
+  pl: {
+    title: 'Koniec klepania kodu. Niech żyje FDE.',
+    sub: 'Ofert dla front-endu ubyło o połowę. Ofert FDE przybyło 4,6 raza. Czym jest ta rola i jak do niej dojść.'
+  }
+}
+const fdeShare = ({
+  width,
+  height,
+  text = FDE_SHARE.en
+}) => `<!doctype html><html><head><meta charset="utf-8"><style>
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;position:relative;background:#0b1030;color:#f0efec;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+svg{position:absolute;right:0;top:0}
+.fade{position:absolute;inset:0;background:linear-gradient(90deg,#0b1030 44%,rgba(11,16,48,.7) 52%,rgba(11,16,48,0) 60%)}
+img{position:absolute;right:-60px;bottom:-40px;width:340px;transform:rotate(-9deg);filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
+.text{position:absolute;left:64px;top:0;bottom:0;width:640px;display:flex;flex-direction:column;justify-content:center}
+.kicker{color:#7fb2ff;text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:22px;margin-bottom:20px}
+h1{margin:0 0 22px;font-size:60px;line-height:1.05;letter-spacing:-.02em;font-weight:800}
+.sub{font-size:27px;line-height:1.35;color:#c3c8e6;margin:0}
+.url{position:absolute;left:64px;bottom:40px;font:700 20px ui-monospace,Menlo,monospace;color:#8f97c4}
+</style></head><body>
+<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" dominant-baseline="central">
+${fdeChart({ zero: 860, top: 150, row: 58, unit: 2.4, labels: false })}
+<line x1="860" x2="860" y1="130" y2="560" stroke="#ffffff" stroke-width="3"/>
+</svg>
+<div class="fade"></div>
+<img src="data:image/png;base64,${fdeFace()}" alt="">
+<div class="text"><div class="kicker">Forward Deployed Engineer</div><h1>${text.title}</h1>
+<p class="sub">${text.sub}</p></div>
+<div class="url">ciunkos.com</div>
+</body></html>`
+
 const IMAGES = [
+  {
+    file: 'src/blog/posts/forward-deployed-engineer-coding-is-dead/cover.jpg',
+    width: W,
+    height: H,
+    scale: 2,
+    html: fdeCover
+  },
+  {
+    file: 'src/blog/posts/forward-deployed-engineer-coding-is-dead/share.jpg',
+    width: 1200,
+    height: 630,
+    html: fdeShare
+  },
+  {
+    file: 'src/blog/posts/forward-deployed-engineer-koniec-klepania-kodu/share.jpg',
+    width: 1200,
+    height: 630,
+    html: options => fdeShare({ ...options, text: FDE_SHARE.pl })
+  },
   {
     file: 'src/blog/posts/node-js-26-lts-whats-new-and-how-to-upgrade/cover.jpg',
     width: W,

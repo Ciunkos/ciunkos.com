@@ -91,6 +91,8 @@ const HomePage = () => (
     </a>
 
     {Object.values(posts)
+      // a post's Polish twin is reached from the post itself, not listed here
+      .filter(post => (post.lang || 'en') === 'en')
       .sort(byPostDate)
       .map(post => (
         <Section key={post.name} cover={post.cover}>

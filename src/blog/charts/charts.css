@@ -1,0 +1,1123 @@
+/* Figures in posts (blog/charts). One light surface, like the rest of the blog. Colours are the
+   first slots of the palette the site's other charts use: blue for what grows, orange for
+   what shrinks, grey for context. Text is always ink, never a series colour. */
+.Viz {
+  --viz-surface: #fcfcfb;
+  --viz-line: #e4e2dc;
+  --viz-ink: #0b0b0b;
+  --viz-ink-2: #52514e;
+  --viz-ink-3: #6f6d68;
+  --viz-up: #2a78d6;
+  --viz-down: #eb6834;
+  --viz-aqua: #1baf7a;
+  --viz-neutral: #b9b7b0;
+  margin: 8px 0;
+  padding: 18px 18px 14px;
+  background: var(--viz-surface);
+  border: 1px solid var(--viz-line);
+  border-radius: 10px;
+  color: var(--viz-ink);
+  font-family:
+    system,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .Viz {
+    padding: 22px 24px 16px;
+  }
+}
+
+.VizHead {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 12px;
+}
+
+.VizTitle {
+  font-size: 19px;
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.VizSub {
+  color: var(--viz-ink-2);
+  font-size: 14px;
+}
+
+.VizControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.VizButton {
+  appearance: none;
+  padding: 7px 14px;
+  border: 1px solid #c9c7c0;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--viz-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.VizButton:hover {
+  border-color: var(--viz-ink-2);
+}
+
+.VizButton[aria-pressed='true'],
+.VizButton[aria-checked='true'] {
+  background: var(--viz-ink);
+  border-color: var(--viz-ink);
+  color: #fff;
+}
+
+.VizPlot {
+  position: relative;
+}
+
+.VizSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.VizSvg text {
+  fill: var(--viz-ink);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+.VizSvg .VizTick {
+  fill: var(--viz-ink-3);
+  font-size: 12px;
+}
+
+.VizSvg .VizLabel.lead,
+.VizSvg .VizValue {
+  font-weight: 700;
+}
+
+.VizSvg .VizValue.inside {
+  fill: #fff;
+}
+
+.VizGrid {
+  stroke: var(--viz-line);
+  stroke-width: 1;
+}
+
+.VizZero {
+  stroke: var(--viz-ink);
+  stroke-width: 1.5;
+}
+
+.VizBar.up {
+  fill: var(--viz-up);
+}
+
+.VizBar.down {
+  fill: var(--viz-down);
+}
+
+.VizBreak {
+  fill: none;
+  stroke: var(--viz-surface);
+  stroke-width: 4;
+  stroke-linejoin: round;
+}
+
+.VizHit {
+  fill: transparent;
+}
+
+.VizRow {
+  outline: none;
+  transition: opacity 0.15s;
+}
+
+.VizRow.dim {
+  opacity: 0.38;
+}
+
+.VizRow:focus-visible .VizHit {
+  stroke: rgb(10, 100, 210);
+  stroke-width: 2;
+}
+
+.VizReadout {
+  min-height: 2.9em;
+  margin: 10px 0 0;
+  color: var(--viz-ink-2);
+  font-size: 14px;
+}
+
+.VizTable {
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+.VizTable summary {
+  width: fit-content;
+  color: var(--viz-ink-2);
+  cursor: pointer;
+}
+
+.VizTableScroll {
+  overflow-x: auto;
+}
+
+.VizTable table {
+  margin-top: 8px;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.VizTable th,
+.VizTable td {
+  padding: 4px 16px 4px 0;
+  border-bottom: 1px solid var(--viz-line);
+  text-align: left;
+  font-weight: 400;
+}
+
+.VizTable thead th {
+  color: var(--viz-ink-2);
+  font-weight: 600;
+}
+
+.VizSource {
+  margin: 10px 0 0;
+  color: var(--viz-ink-3);
+  font-size: 12.5px;
+}
+
+.Markdown .VizSource a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* "> [!PRZEMO]": an aside with the author's face */
+.Callout.przemo {
+  position: relative;
+  padding-left: 84px;
+  min-height: 84px;
+  background: #eef3fb;
+}
+
+.CalloutFace {
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #cfdcf2;
+  object-fit: cover;
+  object-position: 50% 12%;
+}
+
+.Callout.przemo .CalloutLabel::before {
+  content: none;
+}
+
+.OtherLanguage {
+  margin: -8px 0 0;
+  font-size: 15px;
+}
+
+@media print {
+  .VizControls,
+  .VizTable summary {
+    display: none;
+  }
+}
+
+/* lines, dots and the 100 baseline (openings against hires) */
+.VizBase {
+  stroke: var(--viz-ink-3);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+.VizLine {
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.VizLine.up {
+  stroke: var(--viz-up);
+}
+
+.VizLine.down {
+  stroke: var(--viz-down);
+}
+
+.VizDot {
+  stroke: var(--viz-surface);
+  stroke-width: 2;
+}
+
+.VizDot.up {
+  fill: var(--viz-up);
+}
+
+.VizDot.down {
+  fill: var(--viz-down);
+}
+
+.VizDot.base,
+.VizDot.neutral {
+  fill: var(--viz-ink-2);
+}
+
+/* headline numbers under a plot */
+.Markdown .VizTiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 10px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Markdown .VizTiles li {
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--viz-line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.VizTiles strong {
+  display: block;
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.VizTiles span {
+  display: block;
+  margin-top: 4px;
+  color: var(--viz-ink-2);
+  font-size: 13.5px;
+}
+
+.VizTilesTitle {
+  margin: 18px 0 0;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* 100 dots, 10 by 10 on a phone and 20 by 5 on a desktop */
+.VizWaffle {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 6px;
+  max-width: 300px;
+}
+
+@media screen and (min-width: 640px) {
+  .VizWaffle {
+    grid-template-columns: repeat(20, 1fr);
+    max-width: none;
+  }
+}
+
+.VizWaffle span {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--viz-neutral);
+  transition: opacity 0.2s;
+}
+
+.VizWaffle span.fde {
+  background: var(--viz-up);
+  box-shadow: 0 0 0 3px rgba(42, 120, 214, 0.22);
+}
+
+/* the calculator */
+.VizCalc {
+  display: grid;
+  gap: 18px;
+}
+
+@media screen and (min-width: 640px) {
+  .VizCalc {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+}
+
+.VizFields {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+.VizField {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 12px;
+  align-items: baseline;
+}
+
+.VizField label {
+  color: var(--viz-ink-2);
+  font-size: 14px;
+}
+
+.VizField output {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.VizField input {
+  grid-column: 1 / -1;
+  width: 100%;
+  height: 28px;
+  margin: 0;
+  accent-color: var(--viz-up);
+  cursor: pointer;
+}
+
+.VizResult {
+  padding: 16px 18px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--viz-line);
+}
+
+.Markdown .VizResult p {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  align-items: baseline;
+  margin: 0 0 10px;
+  color: var(--viz-ink-2);
+  font-size: 14px;
+}
+
+.VizResult strong {
+  color: var(--viz-ink);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+}
+
+.VizResult strong.big {
+  flex-basis: 100%;
+  font-size: 38px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.VizCompare {
+  position: relative;
+  height: 14px;
+  margin: 2px 0 12px;
+}
+
+.VizCompare span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  border-radius: 4px;
+}
+
+.VizCompare .saved {
+  width: 100%;
+  background: var(--viz-up);
+}
+
+.VizCompare .price {
+  min-width: 4px;
+  background: var(--viz-down);
+  box-shadow: 2px 0 0 #fff;
+  transition: width 0.2s;
+}
+
+.Markdown .VizResult .VizPayback {
+  margin: 0;
+  color: var(--viz-ink);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* the loop: steps in a row, the open step below */
+.VizSteps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+@media screen and (min-width: 640px) {
+  .VizSteps {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+  }
+}
+
+.VizStep {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 2px 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border: 1px solid #c9c7c0;
+  border-radius: 8px;
+  background: #fff;
+  color: var(--viz-ink);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 640px) {
+  .VizStep {
+    grid-template-columns: 1fr;
+    align-content: start;
+  }
+
+  /* the arrow to the next step */
+  .VizStep:not(:last-child)::after {
+    content: '→' / '';
+    position: absolute;
+    right: -14px;
+    top: 50%;
+    width: 14px;
+    transform: translateY(-50%);
+    color: var(--viz-ink-3);
+    text-align: center;
+  }
+}
+
+.VizStep[aria-selected='true'] {
+  border-color: var(--viz-up);
+  box-shadow: inset 0 0 0 1px var(--viz-up);
+  background: #eef3fb;
+}
+
+.VizStepNumber {
+  display: inline-grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--viz-ink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.VizStepName {
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.VizStepWhen {
+  color: var(--viz-ink-2);
+  font-size: 13px;
+}
+
+.VizPanel {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid var(--viz-line);
+  min-height: 8.5em;
+}
+
+.Markdown .VizPanel p {
+  margin: 0 0 8px;
+  font-size: 15.5px;
+  line-height: 1.5;
+}
+
+.Markdown .VizPanel p:last-child {
+  margin: 0;
+}
+
+/* the comparison table */
+.VizGridTable {
+  width: 100%;
+  min-width: 560px;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.VizGridTable th,
+.VizGridTable td {
+  padding: 9px 12px 9px 0;
+  border-bottom: 1px solid var(--viz-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.VizGridTable thead th {
+  color: var(--viz-ink-2);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.VizGridTable tbody th {
+  font-weight: 600;
+}
+
+.VizGridTable tr.lead th,
+.VizGridTable tr.lead td {
+  background: #eef3fb;
+  font-weight: 700;
+}
+
+.VizGridTable tr.lead th {
+  padding-left: 10px;
+  box-shadow: inset 3px 0 0 var(--viz-up);
+}
+
+/* the working day as two stacked bars */
+.Markdown .VizLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+  color: var(--viz-ink-2);
+  font-size: 13.5px;
+}
+
+.Markdown .VizLegend li {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin: 0;
+}
+
+.VizSwatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+}
+
+.Markdown .VizStack p {
+  margin: 10px 0 4px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.VizStackBar {
+  display: flex;
+  gap: 2px;
+  height: 34px;
+  min-width: 2px;
+  overflow: hidden;
+}
+
+.VizSegment {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  cursor: default;
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  flex-basis: 0;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  outline-offset: -2px;
+}
+
+.VizSwatch.hand,
+.VizSegment.hand {
+  background: #eb6834;
+}
+
+.VizSwatch.agents,
+.VizSegment.agents {
+  background: #2a78d6;
+}
+
+.VizSwatch.people,
+.VizSegment.people {
+  background: #1baf7a;
+}
+
+.VizSwatch.measure,
+.VizSegment.measure {
+  background: #6250d6;
+}
+
+.VizSwatch.rest,
+.VizSegment.rest {
+  background: #b9b7b0;
+}
+
+/* dark text where white would be too faint on the fill */
+.VizSegment.people,
+.VizSegment.rest,
+.VizSegment.hand {
+  color: #0b0b0b;
+}
+
+/* the timeline */
+.Markdown .VizTimeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.Markdown .VizTimeline li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  gap: 0 14px;
+  margin: 0;
+  padding: 0 0 16px 0;
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.VizTimeline li::before {
+  content: '';
+  position: absolute;
+  left: 64px;
+  top: 6px;
+  bottom: -6px;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--viz-line);
+}
+
+.VizTimeline li:last-child::before {
+  display: none;
+}
+
+.VizTimeline li::after {
+  content: '';
+  position: absolute;
+  left: 64px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--viz-neutral);
+  box-shadow: 0 0 0 3px var(--viz-surface);
+}
+
+.VizTimeline li.me::after {
+  background: var(--viz-ink);
+}
+
+.VizTimeline li.now::after {
+  background: var(--viz-up);
+  box-shadow:
+    0 0 0 3px var(--viz-surface),
+    0 0 0 6px rgba(42, 120, 214, 0.25);
+}
+
+.VizTimeline li.next::after {
+  background: var(--viz-surface);
+  border: 2px dashed var(--viz-ink-3);
+  box-sizing: border-box;
+}
+
+.VizYear {
+  grid-row: span 2;
+  color: var(--viz-ink-2);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.VizTimeline strong,
+.VizTimeline li > span:last-child {
+  grid-column: 2;
+  padding-left: 22px;
+}
+
+.VizTimeline li > span:last-child {
+  color: var(--viz-ink-2);
+}
+
+/* the homage meme */
+.Meme {
+  margin: 8px auto;
+  max-width: 460px;
+  font-family:
+    system,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+}
+
+.MemeFrame {
+  position: relative;
+  display: grid;
+  place-items: end center;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 10px;
+  background: radial-gradient(circle at 50% 40%, #ffd98a, #f08a3c 70%, #c75a1c);
+}
+
+.MemeFrame img {
+  width: 78%;
+  height: auto;
+  transform: rotate(-4deg) translateY(6%);
+}
+
+.MemeText {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-family: Impact, 'Haettenschweiler', 'Arial Narrow Bold', sans-serif;
+  font-size: clamp(34px, 11vw, 62px);
+  line-height: 1;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-shadow:
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    0 3px 0 #000;
+}
+
+.MemeText.top {
+  top: 4%;
+}
+
+.MemeText.bottom {
+  bottom: 4%;
+}
+
+.Meme figcaption {
+  margin-top: 8px;
+  color: #6f6d68;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .MemeFrame img {
+    transition: transform 0.3s cubic-bezier(0.2, 1.3, 0.3, 1);
+  }
+
+  .MemeFrame:hover img {
+    transform: rotate(3deg) translateY(2%) scale(1.04);
+  }
+}
+
+/* the offer at the end, and the head that leans in */
+.HireCard {
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #1d2a6b;
+  color: #fff;
+  font-family:
+    system,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+@media screen and (min-width: 640px) {
+  .HireCard {
+    grid-template-columns: 150px 1fr;
+    gap: 24px;
+    padding: 26px 28px;
+    align-items: center;
+  }
+}
+
+.HireCard > img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #cfdcf2;
+  object-fit: cover;
+  object-position: 50% 10%;
+}
+
+@media screen and (min-width: 640px) {
+  .HireCard > img {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.Markdown .HireCard p {
+  margin: 0;
+}
+
+.Markdown .HireCard .HireLead {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.Markdown .HireCard ul {
+  margin: 10px 0 16px;
+  padding-left: 20px;
+}
+
+.Markdown .HireCard li {
+  margin: 2px 0;
+}
+
+.HireActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+}
+
+.Markdown .HireCard a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.Markdown a.HireButton {
+  display: inline-block;
+  padding: 11px 20px;
+  border-radius: 999px;
+  background: #ffa000;
+  color: #1a1300;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.Markdown a.HireButton.small {
+  padding: 8px 14px;
+  font-size: 14px;
+}
+
+.Markdown a.HireButton:hover {
+  background: #ffb52e;
+  text-decoration: none;
+}
+
+.Peek {
+  position: fixed;
+  right: 0;
+  bottom: 16vh;
+  z-index: 58;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  font-family:
+    system,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  letter-spacing: 0;
+}
+
+.Peek img {
+  width: clamp(130px, 18vw, 220px);
+  height: auto;
+  transform: translateX(42%) rotate(-14deg);
+  transform-origin: 80% 90%;
+  filter: drop-shadow(0 16px 30px rgba(0, 0, 0, 0.35));
+  -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 62%, transparent 92%);
+  animation: peek-in 0.8s cubic-bezier(0.2, 1.3, 0.3, 1) both;
+}
+
+.PeekBubble {
+  pointer-events: auto;
+  position: absolute;
+  right: calc(clamp(130px, 18vw, 220px) * 0.62);
+  bottom: 70%;
+  width: min(300px, 70vw);
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #fff;
+  color: #0b0b0b;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+  animation: peek-bubble 0.4s 0.5s ease-out both;
+}
+
+.PeekBubble::after {
+  content: '';
+  position: absolute;
+  right: 18px;
+  bottom: -9px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+.PeekBubble p {
+  margin: 0 0 10px;
+  font-size: 15.5px;
+  line-height: 1.4;
+}
+
+.PeekRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.PeekRow button {
+  appearance: none;
+  padding: 6px 2px;
+  border: 0;
+  background: none;
+  color: #52514e;
+  font: inherit;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Peek.out img {
+  animation: peek-out 0.5s ease-in both;
+}
+
+.Peek.out .PeekBubble {
+  animation: peek-fade 0.3s both;
+  pointer-events: none;
+}
+
+@keyframes peek-in {
+  from {
+    transform: translateX(110%) rotate(-30deg);
+  }
+}
+
+@keyframes peek-out {
+  to {
+    transform: translateX(110%) rotate(-30deg);
+  }
+}
+
+@keyframes peek-bubble {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@keyframes peek-fade {
+  to {
+    opacity: 0;
+  }
+}
+
+/* on a phone the bubble would cover the offer it points at, so the head stays out */
+@media (max-width: 799px) {
+  .Peek {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .Peek {
+    display: none;
+  }
+}
+
+@media print {
+  .Peek {
+    display: none;
+  }
+}
+
+/* the site makes every div, p, li and a a flex column (styles/foundation/base.css); these
+   are the places in the figures that need a row or plain block text */
+.VizControls > div,
+.Markdown .VizLegend li,
+.VizStackBar,
+.HireActions,
+.PeekRow {
+  flex-direction: row;
+}
+
+.VizControls > div {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.Markdown .VizResult p,
+.Markdown .VizPanel p,
+.Markdown .Viz .VizReadout,
+.Markdown .Viz .VizSource,
+.PeekBubble p {
+  display: block;
+}
+
+.VizResult p > span,
+.VizResult p > strong {
+  display: block;
+}
+
+.Markdown .Viz .VizSource a,
+.Markdown .HireCard .HireActions a,
+.Markdown .VizButton {
+  display: inline-block;
+}
+
+.Markdown .VizTimeline li {
+  grid-template-columns: 46px 1fr;
+}
+
+.VizTimeline li::before,
+.VizTimeline li::after {
+  left: 62px;
+}
+
+/* a label that crosses the zero line or a gridline keeps a halo of the surface */
+.VizSvg .VizLabel {
+  paint-order: stroke;
+  stroke: var(--viz-surface);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.VizSegment {
+  justify-content: center;
+  text-align: center;
+}

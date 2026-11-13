@@ -14,6 +14,7 @@ import template from './template'
 import posts from '../blog/posts'
 import dates from '../dates.json'
 import { sprawdzLd } from '../utils/schema-ld.mjs'
+import { postAlternates } from '../blog/alternates'
 
 // the pages to prerender; blog posts come from the post list, so a new post needs no edit here
 const routes = [
@@ -23,7 +24,10 @@ const routes = [
   { pathname: '/resume', lastmod: dates['/resume'].modified },
   ...Object.values(posts).map(post => ({
     pathname: `/${post.slug}`,
-    lastmod: post.updated || post.date
+    lastmod: post.updated || post.date,
+    lang: post.lang || 'en',
+    // a post with a twin in the other language lists both versions in the sitemap
+    alternates: postAlternates(post)
   })),
   { pathname: '/not-found', alias: '404.html', includeInSitemap: false }
 ]
@@ -32,6 +36,7 @@ const main = async () => {
   try {
     for (const {
       pathname,
+      lang,
       alias = `${pathname.substring(1)}.html`
     } of routes) {
       const location = { pathname }
@@ -51,6 +56,7 @@ const main = async () => {
       const html = template(renderedComponent, {
         ...helmet,
         pathname,
+        lang,
         chunks: isBlogPath(pathname) ? ['blog'] : []
       })
 
@@ -83,7 +89,12 @@ const main = async () => {
         route =>
           `<url><loc>https://ciunkos.com${
             route.pathname === '/' ? '/' : route.pathname
-          }</loc><lastmod>${route.lastmod}</lastmod></url>`
+          }</loc><lastmod>${route.lastmod}</lastmod>${(route.alternates || [])
+            .map(
+              ({ lang, href }) =>
+                `<xhtml:link rel="alternate" hreflang="${lang}" href="${href}"/>`
+            )
+            .join('')}</url>`
       )
 
     const sitemapXml = `<?xml version="1.0" encoding="utf-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">${sitemapUrls.join(

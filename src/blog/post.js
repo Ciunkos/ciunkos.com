@@ -2,11 +2,12 @@ import React from 'react'
 
 import styled from 'styled'
 import { Paragraph, linkIf } from 'components'
+import { postLang, stringsFor } from './i18n'
 
 // post dates are ISO days (2017-06-01), shown as 1 June 2017
 // in UTC, so the server render and the browser agree
-export const formatPostDate = date =>
-  new Date(date).toLocaleDateString('en-GB', {
+export const formatPostDate = (date, lang = 'en') =>
+  new Date(date).toLocaleDateString(stringsFor(lang).locale, {
     day: 'numeric',
     month: 'long',
     year: 'numeric',
@@ -16,12 +17,16 @@ export const formatPostDate = date =>
 // newest first, posts without a date (drafts) last
 export const byPostDate = (a, b) => (b.date || '').localeCompare(a.date || '')
 
-export const PostMeta = ({ post, ...rest }) => (
-  <Paragraph tiny {...rest}>
-    {post.date ? formatPostDate(post.date) : 'Draft'} ·{' '}
-    {`${post.readingTime} min read`}
-  </Paragraph>
-)
+export const PostMeta = ({ post, ...rest }) => {
+  const lang = postLang(post)
+  const strings = stringsFor(lang)
+  return (
+    <Paragraph tiny {...rest}>
+      {post.date ? formatPostDate(post.date, lang) : strings.draft} ·{' '}
+      {strings.minRead(post.readingTime)}
+    </Paragraph>
+  )
+}
 
 export const PostHeader = ({
   post,

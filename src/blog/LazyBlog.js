@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 // the blog styles stay in the main stylesheet:
 // the prerendered posts are styled before the chunk arrives
 import './styles.css'
+import './charts/charts.css'
 import 'highlight.js/styles/atom-one-light.min.css'
 
 /* react-markdown and highlight.js are only needed on the posts, so Blog comes in its own chunk.
