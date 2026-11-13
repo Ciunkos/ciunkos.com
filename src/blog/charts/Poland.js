@@ -34,13 +34,6 @@ const Poland = () => {
       title={pick(data.title, lang)}
       subtitle={pick(data.subtitle, lang)}
       readout={readout}
-      table={{
-        head: pick(data.tableHead, lang),
-        rows: data.years.map(row => [
-          String(row.year),
-          formatNumber(row.value, lang)
-        ])
-      }}
       sources={data.sources}
     >
       <svg

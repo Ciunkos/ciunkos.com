@@ -445,88 +445,117 @@ const FDE_BARS = [
   ['Android', -47, '−47%'],
   ['Front-end', -51, '−51%']
 ]
+// the author's surprised face (a cutout with glasses), kept next to this script
 const fdeFace = () =>
-  readFileSync(
-    join(homedir(), 'hire/public/hire/img/przemo-wycinek-512.png')
-  ).toString('base64')
+  readFileSync(join(import.meta.dirname, 'przemo-reaction-face.png')).toString(
+    'base64'
+  )
 
-const fdeChart = ({ zero, top, row, unit, labels = true, values = true }) =>
-  FDE_BARS.map(([name, value, text], index) => {
+const fdeChart = ({ zero, top, row, unit }) =>
+  FDE_BARS.map(([, value], index) => {
     const y = top + index * row
     const up = value > 0
     const width = Math.abs(value) * unit
     const x = up ? zero + 3 : zero - 3 - width
-    const fill = up ? '#3987e5' : '#eb6834'
-    const lead = index === 0
-    return `<rect x="${x}" y="${y}" width="${width}" height="${row * 0.56}" rx="6" fill="${fill}"/>
-<text x="${up ? zero - 16 : zero + 16}" y="${y + row * 0.4}" text-anchor="${up ? 'end' : 'start'}" fill="${lead ? '#ffffff' : '#b9c2e6'}" font-size="${lead ? 27 : 23}" font-weight="${lead ? 800 : 600}">${labels ? name : ''}</text>
-<text x="${up ? Math.min(x + width + 12, 1180) : x - 12}" y="${y + row * 0.4}" text-anchor="${up && x + width < 1180 ? 'start' : 'end'}" fill="#ffffff" font-size="23" font-weight="800">${lead || !values ? '' : text}</text>`
+    return `<rect x="${x}" y="${y}" width="${width}" height="${row * 0.56}" rx="6" fill="${up ? '#3987e5' : '#eb6834'}"/>`
   }).join('')
 
+const EMOJI =
+  "font-family:'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif"
+
+/* The cover carries no words, because the site lays the post title over it: a skull for
+   coding on the left of the art, the author's surprised face under a crown on the right,
+   and the chart's bars faint behind them. The hero crops the cover to its middle band, so
+   everything that matters sits between y = 90 and y = 520, above the title. */
 const fdeCover = () => `<!doctype html><html><head><meta charset="utf-8"><style>
-body{margin:0;width:${W}px;height:${H}px;overflow:hidden;background:#0b1030;position:relative;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
+body{margin:0;width:${W}px;height:${H}px;overflow:hidden;background:#0b1030;position:relative}
 svg{display:block}
-img{position:absolute;right:-70px;bottom:-40px;width:400px;transform:rotate(-9deg);
-  filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
+.face{position:absolute;right:70px;top:186px;width:330px;filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
+.crown{position:absolute;right:150px;top:88px;font-size:150px;line-height:1;transform:rotate(12deg);${EMOJI};
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+.skull{position:absolute;right:470px;top:215px;font-size:190px;line-height:1;transform:rotate(-10deg);${EMOJI};
+  filter:drop-shadow(0 12px 30px rgba(0,0,0,.6))}
+.code{position:absolute;right:500px;top:405px;color:#eb6834;font:800 54px ui-monospace,Menlo,monospace;
+  letter-spacing:-.02em;transform:rotate(-10deg);opacity:.9}
 </style></head><body>
-<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" dominant-baseline="central">
+<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg">
 <defs>
-  <radialGradient id="glow" cx="0.78" cy="0.3" r="0.8">
-    <stop offset="0" stop-color="#2a3aa8"/>
-    <stop offset="0.5" stop-color="#141c5c"/>
+  <radialGradient id="glow" cx="0.8" cy="0.5" r="0.75">
+    <stop offset="0" stop-color="#3243c4"/>
+    <stop offset="0.5" stop-color="#161f66"/>
     <stop offset="1" stop-color="#090d28"/>
   </radialGradient>
   <linearGradient id="left" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0" stop-color="#090d28"/>
-    <stop offset="0.34" stop-color="#090d28" stop-opacity="0.9"/>
-    <stop offset="0.5" stop-color="#090d28" stop-opacity="0"/>
+    <stop offset="0.36" stop-color="#090d28" stop-opacity="0.92"/>
+    <stop offset="0.56" stop-color="#090d28" stop-opacity="0"/>
   </linearGradient>
 </defs>
 <rect width="${W}" height="${H}" fill="url(#glow)"/>
-${[0, 1, 2, 3, 4, 5, 6, 7].map(i => `<line x1="${640 + i * 90}" x2="${640 + i * 90}" y1="150" y2="650" stroke="#ffffff" stroke-opacity="0.06"/>`).join('')}
-<g opacity="0.8">${fdeChart({ zero: 900, top: 120, row: 76, unit: 2.9, labels: false, values: false })}</g>
-<line x1="900" x2="900" y1="96" y2="660" stroke="#ffffff" stroke-opacity="0.8" stroke-width="3"/>
+<g opacity="0.22">${fdeChart({ zero: 760, top: 150, row: 64, unit: 2.4 })}
+<line x1="760" x2="760" y1="130" y2="610" stroke="#ffffff" stroke-width="3"/></g>
 <rect width="${W}" height="${H}" fill="url(#left)"/>
 </svg>
-<img src="data:image/png;base64,${fdeFace()}" alt="">
+<div class="skull">💀</div>
+<div class="code">&lt;/&gt;</div>
+<img class="face" src="data:image/png;base64,${fdeFace()}" alt="">
+<div class="crown">👑</div>
 </body></html>`
 
 const FDE_SHARE = {
   en: {
-    title: 'Coding is dead. Long live the FDE.',
-    sub: 'Front-end jobs halved in a year. FDE openings grew 4.6x. What the role is and how to get there.'
+    kicker: 'Forward Deployed Engineer',
+    dead: 'Coding is dead.',
+    live: 'Long live the FDE.',
+    sub: 'What the role is, what it pays and how to get there.',
+    down: 'Front-end jobs',
+    up: 'FDE jobs'
   },
   pl: {
-    title: 'Koniec klepania kodu. Niech żyje FDE.',
-    sub: 'Ofert dla front-endu ubyło o połowę. Ofert FDE przybyło 4,6 raza. Czym jest ta rola i jak do niej dojść.'
+    kicker: 'Forward Deployed Engineer',
+    dead: 'Koniec klepania kodu.',
+    live: 'Niech żyje FDE.',
+    sub: 'Czym jest ta rola, ile płaci i jak do niej dojść.',
+    down: 'Oferty front-end',
+    up: 'Oferty FDE'
   }
 }
+
+/* Share card for LinkedIn, X and Slack (1200 × 630). It has to win the click in a feed:
+   the claim in two lines with the skull and the crown, the two numbers that back it, and
+   a face looking at the text. */
 const fdeShare = ({
   width,
   height,
   text = FDE_SHARE.en
 }) => `<!doctype html><html><head><meta charset="utf-8"><style>
-body{margin:0;width:${width}px;height:${height}px;overflow:hidden;position:relative;background:#0b1030;color:#f0efec;
+body{margin:0;width:${width}px;height:${height}px;overflow:hidden;position:relative;color:#fff;
+  background:radial-gradient(circle at 82% 55%,#3243c4,#161f66 48%,#090d28 100%);
   font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif}
-svg{position:absolute;right:0;top:0}
-.fade{position:absolute;inset:0;background:linear-gradient(90deg,#0b1030 44%,rgba(11,16,48,.7) 52%,rgba(11,16,48,0) 60%)}
-img{position:absolute;right:-60px;bottom:-40px;width:340px;transform:rotate(-9deg);filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
-.text{position:absolute;left:64px;top:0;bottom:0;width:640px;display:flex;flex-direction:column;justify-content:center}
-.kicker{color:#7fb2ff;text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:22px;margin-bottom:20px}
-h1{margin:0 0 22px;font-size:60px;line-height:1.05;letter-spacing:-.02em;font-weight:800}
-.sub{font-size:27px;line-height:1.35;color:#c3c8e6;margin:0}
-.url{position:absolute;left:64px;bottom:40px;font:700 20px ui-monospace,Menlo,monospace;color:#8f97c4}
+.face{position:absolute;right:26px;bottom:-34px;width:400px;filter:drop-shadow(0 20px 50px rgba(0,0,0,.6))}
+.crown{position:absolute;right:150px;top:150px;font-size:160px;line-height:1;transform:rotate(12deg);${EMOJI};
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+.text{position:absolute;left:64px;top:54px;width:740px}
+.kicker{color:#8fb8ff;text-transform:uppercase;letter-spacing:.14em;font-weight:800;font-size:22px;margin-bottom:18px}
+h1{margin:0;font-size:${text.dead.length > 16 ? 62 : 74}px;line-height:1.08;letter-spacing:-.025em;font-weight:800}
+h1 .emoji{${EMOJI};font-weight:400}
+h1 .dead{color:#ffb59a}
+.sub{font-size:28px;line-height:1.35;color:#c9cff0;margin:22px 0 0}
+.stats{position:absolute;left:64px;bottom:92px;display:flex;gap:16px}
+.stat{padding:14px 22px;border-radius:14px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18)}
+.stat b{display:block;font-size:44px;line-height:1;letter-spacing:-.02em}
+.stat span{display:block;margin-top:6px;font-size:19px;color:#c9cff0}
+.stat.down b{color:#ff9a70}.stat.up b{color:#7fb2ff}
+.url{position:absolute;left:64px;bottom:36px;font:700 20px ui-monospace,Menlo,monospace;color:#9aa3d6}
 </style></head><body>
-<svg width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" dominant-baseline="central">
-${fdeChart({ zero: 860, top: 150, row: 58, unit: 2.4, labels: false })}
-<line x1="860" x2="860" y1="130" y2="560" stroke="#ffffff" stroke-width="3"/>
-</svg>
-<div class="fade"></div>
-<img src="data:image/png;base64,${fdeFace()}" alt="">
-<div class="text"><div class="kicker">Forward Deployed Engineer</div><h1>${text.title}</h1>
+<div class="text"><div class="kicker">${text.kicker}</div>
+<h1><span class="dead">${text.dead}</span> <span class="emoji">💀</span><br>${text.live}</h1>
 <p class="sub">${text.sub}</p></div>
+<div class="stats"><div class="stat down"><b>−51%</b><span>${text.down}</span></div>
+<div class="stat up"><b>+361%</b><span>${text.up}</span></div></div>
 <div class="url">ciunkos.com</div>
+<img class="face" src="data:image/png;base64,${fdeFace()}" alt="">
+<div class="crown">👑</div>
 </body></html>`
 
 const IMAGES = [

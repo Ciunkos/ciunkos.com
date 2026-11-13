@@ -4,23 +4,23 @@
 
 export const SOURCES = {
   lenny: {
-    name: "Lenny's Newsletter and TrueUp, 10 Nov 2026",
+    name: "TrueUp via Lenny's Newsletter",
     href: 'https://www.lennysnewsletter.com/p/state-of-the-tech-job-market-late'
   },
   jjit: {
-    name: 'Just Join IT, 2025 market report',
+    name: 'Just Join IT',
     href: 'https://justjoin.it/blog/rynek-it-w-polsce-2025-stabilizacja-i-koniec-kryzysu-raport'
   },
   nfj: {
-    name: 'No Fluff Jobs, Kariera w IT 2026, via Antyweb',
+    name: 'No Fluff Jobs via Antyweb',
     href: 'https://antyweb.pl/rynek-pracy-it-2026'
   },
   fortune: {
-    name: 'Lightcast via Fortune, 3 Sep 2026',
+    name: 'Lightcast via Fortune',
     href: 'https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/'
   },
   databricks: {
-    name: 'Databricks careers',
+    name: 'Databricks',
     href: 'https://www.databricks.com/company/careers/professional-services-operations/sr-forward-deployed-engineer-8739465002'
   },
   levels: {
@@ -28,12 +28,16 @@ export const SOURCES = {
     href: 'https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer'
   },
   bloomberry: {
-    name: 'Bloomberry, 1,000 FDE postings',
+    name: 'Bloomberry',
     href: 'https://bloomberry.com/blog/i-analyzed-1000-forward-deployed-engineer-jobs-what-i-learned/'
   },
   pricing: {
     name: { en: 'my price list', pl: 'mój cennik' },
     href: 'https://ciunkos.com/pricing'
+  },
+  eldorado: {
+    name: 'Czy Jest Eldorado',
+    href: 'https://czyjesteldorado.pl/zwolnienia-w-it'
   }
 }
 
@@ -60,14 +64,6 @@ export const roleShift = {
   shrank: {
     en: (label, value) => `${label}: ${value} fewer open roles than a year ago`,
     pl: (label, value) => `${label}: ${value} mniej ofert niż rok temu`
-  },
-  tableHead: {
-    en: ['Job title', 'Change in open roles'],
-    pl: ['Stanowisko', 'Zmiana liczby ofert']
-  },
-  note: {
-    en: '29 Oct 2025 to 28 Oct 2026. Counts job titles in postings, not hires.',
-    pl: '29.10.2025 do 28.10.2026. Liczone są nazwy stanowisk w ogłoszeniach, nie zatrudnienia.'
   },
   rows: [
     {
@@ -159,18 +155,10 @@ export const openingsVsHires = {
     }
   ],
   readout: {
-    en: 'Open roles are up 44% while hiring is down 17%. US companies hired about 113,000 software engineers in the year to April 2026, against 239,000 at the 2022 peak.',
-    pl: 'Ofert jest o 44% więcej, a zatrudnień o 17% mniej. Firmy w USA zatrudniły około 113 tys. programistów w rok do kwietnia 2026, wobec 239 tys. w szczycie w 2022.'
+    en: 'US companies hired about 113,000 software engineers in the year to April 2026. At the 2022 peak it was 239,000.',
+    pl: 'Firmy w USA zatrudniły około 113 tys. programistów w rok do kwietnia 2026. W szczycie w 2022 było to 239 tys.'
   },
-  tableHead: {
-    en: ['Measure', 'Jan 2024', 'Nov 2026'],
-    pl: ['Miara', 'sty 2024', 'lis 2026']
-  },
-  sources: [SOURCES.lenny],
-  note: {
-    en: 'Openings: TrueUp, global. Hires: Live Data Technologies, US only.',
-    pl: 'Oferty: TrueUp, cały świat. Zatrudnienia: Live Data Technologies, tylko USA.'
-  }
+  sources: [SOURCES.lenny]
 }
 
 // Poland: job ads on Just Join IT per year, and how crowded each ad is
@@ -221,7 +209,6 @@ export const poland = {
       }
     }
   ],
-  tableHead: { en: ['Year', 'Job ads'], pl: ['Rok', 'Ogłoszenia'] },
   sources: [SOURCES.jjit, SOURCES.nfj]
 }
 
@@ -249,54 +236,54 @@ export const fdeShare = {
     {
       value: '4.6x',
       valuePl: '4,6x',
+      source: { name: 'TrueUp', href: SOURCES.lenny.href },
       label: {
-        en: 'TrueUp, open roles, year to October 2026',
-        pl: 'TrueUp, otwarte oferty, rok do października 2026'
+        en: 'open roles, year to October 2026',
+        pl: 'otwarte oferty, rok do października 2026'
       }
     },
     {
       value: '8.3x',
       valuePl: '8,3x',
+      source: {
+        name: 'Indeed',
+        href: 'https://fortune.com/2026/09/03/forward-deployed-engineers-fast-growing-six-figure-silicon-valley-job-integrate-ai-with-customers-tech-careers-palantir/'
+      },
       label: {
-        en: 'Indeed, postings, April 2025 to April 2026, as reported by Business Insider',
-        pl: 'Indeed, ogłoszenia, kwiecień 2025 do kwietnia 2026, za Business Insiderem'
+        en: 'postings, April 2025 to April 2026',
+        pl: 'ogłoszenia, kwiecień 2025 do kwietnia 2026'
       }
     },
     {
       value: '11x+',
+      source: { name: 'Lightcast', href: SOURCES.fortune.href },
       label: {
-        en: 'Lightcast, postings, January to August 2026 against a year earlier',
-        pl: 'Lightcast, ogłoszenia, styczeń do sierpnia 2026 wobec roku wcześniej'
+        en: 'postings, January to August 2026 against a year earlier',
+        pl: 'ogłoszenia, styczeń do sierpnia 2026 wobec roku wcześniej'
       }
     }
   ],
-  tableHead: { en: ['Group', 'Open roles'], pl: ['Grupa', 'Otwarte oferty'] },
-  tableRows: {
-    en: [
-      ['Forward deployed engineer', '1,500'],
-      ['All other engineering roles', '63,500']
-    ],
-    pl: [
-      ['Forward deployed engineer', '1500'],
-      ['Pozostałe role inżynierskie', '63 500']
-    ]
-  },
-  sources: [SOURCES.lenny, SOURCES.fortune]
+  sources: [SOURCES.lenny]
 }
 
-// published pay for FDE roles; ranges are what the ads say, not what people got
+// published pay for FDE roles, per year. US ads are in dollars and Polish ads in złoty;
+// the figure shows both in the reader's currency at the rate of my own price list
+// (180 zł = $45, so 4 zł to the dollar). B2B: hourly rate x 160 hours x 12 months.
 export const pay = {
-  title: { en: 'What FDE ads pay', pl: 'Ile płacą ogłoszenia FDE' },
-  views: [
+  title: {
+    en: 'What FDE ads pay per year',
+    pl: 'Ile rocznie płacą ogłoszenia FDE'
+  },
+  subtitle: {
+    en: 'Advertised ranges in US dollars, Polish ads converted at 4 zł to the dollar',
+    pl: 'Widełki z ogłoszeń w złotych, amerykańskie przeliczone po 4 zł za dolara'
+  },
+  rate: 4,
+  groups: [
     {
       id: 'us',
-      tab: { en: 'United States', pl: 'USA' },
-      subtitle: {
-        en: 'Base salary per year in US dollars, from published ranges',
-        pl: 'Pensja podstawowa rocznie w dolarach, z publikowanych widełek'
-      },
-      unit: 'usd',
-      max: 340000,
+      name: { en: 'United States', pl: 'USA' },
+      currency: 'usd',
       rows: [
         {
           id: 'anthropic',
@@ -304,8 +291,8 @@ export const pay = {
           low: 280000,
           high: 320000,
           detail: {
-            en: 'SF, NYC or Seattle, ad from August 2026, now closed',
-            pl: 'SF, NYC lub Seattle, ogłoszenie z sierpnia 2026, już zamknięte'
+            en: 'base salary, ad from August 2026, now closed',
+            pl: 'pensja podstawowa, ogłoszenie z sierpnia 2026, już zamknięte'
           }
         },
         {
@@ -314,8 +301,8 @@ export const pay = {
           low: 220000,
           high: 280000,
           detail: {
-            en: 'Life sciences FDE, New York, up to 50% travel, ad now closed',
-            pl: 'FDE life sciences, Nowy Jork, do 50% podróży, ogłoszenie zamknięte'
+            en: 'base salary, New York, up to 50% travel, ad now closed',
+            pl: 'pensja podstawowa, Nowy Jork, do 50% podróży, ogłoszenie zamknięte'
           }
         },
         {
@@ -324,8 +311,8 @@ export const pay = {
           low: 182000,
           high: 250208,
           detail: {
-            en: 'Senior FDE, 6+ years, 20% travel',
-            pl: 'Senior FDE, 6+ lat, 20% podróży'
+            en: 'base salary, senior FDE, 6+ years',
+            pl: 'pensja podstawowa, senior FDE, 6+ lat'
           }
         },
         {
@@ -333,102 +320,58 @@ export const pay = {
           label: { en: 'Median, Levels.fyi', pl: 'Mediana, Levels.fyi' },
           point: 225000,
           detail: {
-            en: 'Median total compensation from 163 reports, so it includes stock and bonus',
-            pl: 'Mediana całkowitego wynagrodzenia ze 163 zgłoszeń, czyli z akcjami i premią'
-          }
-        },
-        {
-          id: 'bloomberry',
-          label: { en: 'Median, 1,000 ads', pl: 'Mediana, 1000 ogłoszeń' },
-          point: 173816,
-          detail: {
-            en: 'Median of the ads that publish a range; 70% also mention equity',
-            pl: 'Mediana ogłoszeń z widełkami; 70% wspomina też o udziałach'
+            en: 'median total compensation, so with stock and bonus',
+            pl: 'mediana całkowitego wynagrodzenia, czyli z akcjami i premią'
           }
         }
-      ],
-      sources: [SOURCES.databricks, SOURCES.levels, SOURCES.bloomberry],
-      note: {
-        en: 'Anthropic and OpenAI ranges come from mirrors of closed ads.',
-        pl: 'Widełki Anthropic i OpenAI pochodzą z kopii zamkniętych ogłoszeń.'
-      }
+      ]
     },
     {
       id: 'pl',
-      tab: { en: 'Poland', pl: 'Polska' },
-      subtitle: {
-        en: 'Polish złoty per month. B2B is net of VAT at 160 hours; employment is gross.',
-        pl: 'Złote miesięcznie. B2B netto bez VAT przy 160 godzinach; etat brutto.'
-      },
-      unit: 'pln',
-      max: 68000,
+      name: { en: 'Poland', pl: 'Polska' },
+      currency: 'pln',
       rows: [
         {
-          id: 'itfs',
-          label: { en: 'Agency ad, B2B', pl: 'Ogłoszenie agencji, B2B' },
-          low: 40000,
-          high: 64000,
+          id: 'agency',
+          label: { en: 'Agency, B2B', pl: 'Agencja, B2B' },
+          low: 480000,
+          high: 768000,
           detail: {
-            en: 'Senior AI FDE, 250 to 400 zł per hour, 8+ years, travel up to 30%',
-            pl: 'Senior AI FDE, 250 do 400 zł za godzinę, 8+ lat, do 30% delegacji'
-          }
-        },
-        {
-          id: 'iteams',
-          label: {
-            en: 'Second agency ad, B2B',
-            pl: 'Drugie ogłoszenie agencji, B2B'
-          },
-          low: 40000,
-          high: 52800,
-          detail: {
-            en: 'Senior FDSE with GenAI, 250 to 330 zł per hour',
-            pl: 'Senior FDSE z GenAI, 250 do 330 zł za godzinę'
+            en: 'senior AI FDE, 250 to 400 zł an hour, travel up to 30%',
+            pl: 'senior AI FDE, 250 do 400 zł za godzinę, do 30% delegacji'
           }
         },
         {
           id: 'google',
           label: { en: 'Google Cloud, employment', pl: 'Google Cloud, etat' },
-          low: 23333,
-          high: 23917,
+          low: 280000,
+          high: 287000,
           detail: {
-            en: 'Warsaw or Wrocław, 280,000 to 287,000 zł a year plus 15% bonus and equity',
-            pl: 'Warszawa lub Wrocław, 280 do 287 tys. zł rocznie plus 15% premii i akcje'
+            en: 'Warsaw or Wrocław, plus 15% bonus and stock',
+            pl: 'Warszawa lub Wrocław, plus 15% premii i akcje'
           }
         },
         {
           id: 'me',
           label: { en: 'Me, B2B', pl: 'Ja, B2B' },
-          point: 30000,
+          point: 360000,
           lead: true,
           detail: {
-            en: 'My public price for a dedicated month: 30,000 zł, about 167 hours at 180 zł',
-            pl: 'Moja publiczna cena za miesiąc na wyłączność: 30 000 zł, około 167 godzin po 180 zł'
+            en: 'my public price: 30,000 zł for a dedicated month',
+            pl: 'moja publiczna cena: 30 000 zł za miesiąc na wyłączność'
           }
         }
-      ],
-      sources: [SOURCES.pricing],
-      note: {
-        en: 'Agency ads seen on No Fluff Jobs and Pracuj.pl in November 2026; Google via a job-board mirror.',
-        pl: 'Ogłoszenia agencji z No Fluff Jobs i Pracuj.pl z listopada 2026; Google z kopii ogłoszenia.'
-      }
+      ]
     }
   ],
-  hint: {
-    en: 'Point at a bar for the details of that ad.',
-    pl: 'Wskaż słupek, żeby zobaczyć szczegóły ogłoszenia.'
-  },
-  tableHead: {
-    en: ['Ad', 'From', 'To'],
-    pl: ['Ogłoszenie', 'Od', 'Do']
-  }
+  sources: [SOURCES.levels, SOURCES.databricks, SOURCES.pricing]
 }
 
 // the cost of work done by hand against the price of two days of discovery
 export const roi = {
   title: {
-    en: 'What does retyping cost you a year?',
-    pl: 'Ile rocznie kosztuje Cię przepisywanie?'
+    en: 'What does the manual work cost you a year?',
+    pl: 'Ile rocznie kosztuje Cię ręczna robota?'
   },
   subtitle: {
     en: 'Move the sliders to your own numbers. Nothing leaves your browser.',
@@ -472,6 +415,10 @@ export const roi = {
       en: 'Two days of discovery cost',
       pl: 'Dwa dni discovery kosztują'
     },
+    roi: {
+      en: 'return on the discovery in year one',
+      pl: 'zwrotu z discovery w pierwszym roku'
+    },
     payback: {
       en: days =>
         `It pays for itself in ${days} working ${days === 1 ? 'day' : 'days'} of that saving.`,
@@ -481,8 +428,8 @@ export const roi = {
     hoursUnit: { en: 'h', pl: 'h' }
   },
   note: {
-    en: 'An estimate from four numbers, 46 working weeks a year. The discovery price is 16 hours at my standard rate. Your real numbers come out of the discovery.',
-    pl: 'Szacunek z czterech liczb, 46 tygodni pracy w roku. Cena discovery to 16 godzin po mojej standardowej stawce. Prawdziwe liczby wychodzą w discovery.'
+    en: 'An estimate at 46 working weeks a year.',
+    pl: 'Szacunek dla 46 tygodni pracy w roku.'
   },
   sources: [SOURCES.pricing]
 }
@@ -530,8 +477,8 @@ export const loop = {
         pl: 'Jeden proces, jeden agent, podpięty do systemów, które już masz. Działa na prawdziwych zamówieniach obok ludzi, z testami i limitem kosztów.'
       },
       get: {
-        en: 'Something that works on the shop floor, not in a demo.',
-        pl: 'Coś, co działa na hali, a nie na demie.'
+        en: 'Something that works on the dispatch desk on a Monday.',
+        pl: 'Coś, co działa w dyspozytorni w poniedziałek.'
       }
     },
     {
@@ -539,8 +486,8 @@ export const loop = {
       name: { en: 'Rollout and training', pl: 'Wdrożenie i szkolenia' },
       when: { en: 'Weeks 4 to 6', pl: 'Tygodnie 4 do 6' },
       does: {
-        en: 'Corrections after the pilot, then training. A tool people avoid is shadow IT in reverse: paid for, official and unused.',
-        pl: 'Poprawki po pilotażu, potem szkolenia. Narzędzie, którego ludzie unikają, to shadow IT na odwrót: opłacone, oficjalne i nieużywane.'
+        en: 'Corrections after the pilot, then training. A tool people avoid ends up paid for, official and unused.',
+        pl: 'Poprawki po pilotażu, potem szkolenia. Narzędzie, którego ludzie unikają, kończy jako opłacone, oficjalne i nieużywane.'
       },
       get: {
         en: 'People who use it without being told to.',
@@ -696,10 +643,6 @@ export const dayShift = {
   hint: {
     en: 'The code still gets written. I just stopped being the one who types it.',
     pl: 'Kod dalej powstaje. Tylko to już nie ja go wklepuję.'
-  },
-  tableHead: {
-    en: ['Part of the day', '2022', '2026'],
-    pl: ['Część dnia', '2022', '2026']
   }
 }
 
@@ -801,6 +744,19 @@ export const memelib = {
       en: '/memelib/they-took-our-jobs',
       pl: '/memylib/they-took-our-jobs'
     }
+  },
+  'let-it-go': {
+    width: 498,
+    height: 280,
+    alt: {
+      en: 'Reaction clip: an animated queen in a blue dress sings "Let it go"',
+      pl: 'Reakcja: animowana królowa w niebieskiej sukni śpiewa „Mam tę moc”'
+    },
+    caption: {
+      en: 'Your vim macros will be fine without you. From',
+      pl: 'Twoje makra w vimie poradzą sobie bez Ciebie. Z'
+    },
+    page: { en: '/memelib/let-it-go', pl: '/memylib/let-it-go' }
   }
 }
 
@@ -850,4 +806,90 @@ export const hire = {
   },
   peekCall: { en: 'Fine, book the call', pl: 'Dobra, umów rozmowę' },
   peekClose: { en: 'Close', pl: 'Zamknij' }
+}
+
+// three signs a company is not ready for this work
+export const redFlags = {
+  title: {
+    en: 'Three signs an FDE can’t help you',
+    pl: 'Trzy sygnały, że FDE Ci nie pomoże'
+  },
+  items: [
+    {
+      id: 'paper',
+      name: { en: 'Bureaucracy', pl: 'Biurokracja' },
+      text: {
+        en: 'Every change needs three signatures.',
+        pl: 'Każda zmiana wymaga trzech podpisów.'
+      }
+    },
+    {
+      id: 'lock',
+      name: { en: 'Rigid processes', pl: 'Usztywnione procesy' },
+      text: {
+        en: '“We have always done it this way.”',
+        pl: '„Zawsze tak robiliśmy.”'
+      }
+    },
+    {
+      id: 'anchor',
+      name: { en: 'No will to change', pl: 'Brak chęci do zmiany' },
+      text: {
+        en: 'AI is wanted for the press release.',
+        pl: 'AI ma być do komunikatu prasowego.'
+      }
+    }
+  ]
+}
+
+// publicly reported layoffs in Polish IT per month of 2026 (positions)
+export const layoffs = {
+  title: {
+    en: 'Layoffs in Polish IT, 2026',
+    pl: 'Zwolnienia w polskim IT, 2026'
+  },
+  subtitle: {
+    en: 'Positions cut per month, from public reports',
+    pl: 'Zredukowane stanowiska w miesiącu, z publicznych doniesień'
+  },
+  months: {
+    en: [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov'
+    ],
+    pl: [
+      'sty',
+      'lut',
+      'mar',
+      'kwi',
+      'maj',
+      'cze',
+      'lip',
+      'sie',
+      'wrz',
+      'paź',
+      'lis'
+    ]
+  },
+  values: [196, 240, 188, 252, 1035, 65, 1186, 384, 1124, 747, 25],
+  // November was ten days old when the count was taken
+  partial: 10,
+  describe: {
+    en: (month, value) => `${month} 2026: about ${value} positions`,
+    pl: (month, value) => `${month} 2026: około ${value} stanowisk`
+  },
+  hint: {
+    en: 'About 5,442 positions at 84 companies from January to 10 November. Community-reported, so some entries are unconfirmed.',
+    pl: 'Około 5442 stanowisk w 84 firmach od stycznia do 10 listopada. Dane zgłaszane przez społeczność, więc część wpisów jest niepotwierdzona.'
+  },
+  sources: [SOURCES.eldorado]
 }

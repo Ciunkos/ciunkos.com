@@ -30,16 +30,7 @@ const OpeningsVsHires = () => {
       title={pick(data.title, lang)}
       subtitle={pick(data.subtitle, lang)}
       readout={pick(data.readout, lang)}
-      table={{
-        head: pick(data.tableHead, lang),
-        rows: data.series.map(series => [
-          pick(series.label, lang),
-          '100',
-          String(series.value)
-        ])
-      }}
       sources={data.sources}
-      note={pick(data.note, lang)}
     >
       <svg
         className="VizSvg"

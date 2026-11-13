@@ -87,12 +87,7 @@ const RoleShift = () => {
           ? pick(data.hint, lang)
           : describe(rows.find(row => row.id === active))
       }
-      table={{
-        head: pick(data.tableHead, lang),
-        rows: rows.map(row => [row.label, percent(row.value, lang)])
-      }}
       sources={data.sources}
-      note={pick(data.note, lang)}
     >
       <svg
         className="VizSvg"

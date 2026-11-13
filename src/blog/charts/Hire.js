@@ -36,11 +36,17 @@ const Hire = () => {
     }
     const observer = new IntersectionObserver(
       entries => {
-        if (entries.some(entry => entry.isIntersecting)) {
-          setPeek('in')
+        const visible = entries.some(entry => entry.isIntersecting)
+        if (visible) {
+          setPeek(state => (state === 'idle' ? 'in' : state))
           track('peek_shown', { post: 'fde' })
-          observer.disconnect()
+          return
         }
+        // the offer scrolled away: the head goes with it and does not come back
+        setPeek(state => {
+          if (state === 'in') observer.disconnect()
+          return state === 'in' ? 'out' : state
+        })
       },
       { threshold: 0.6 }
     )

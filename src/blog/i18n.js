@@ -24,6 +24,7 @@ export const STRINGS = {
       tldr: 'TL;DR',
       przemo: 'Przemo says'
     },
+    alsoIn: 'This post is also available in Polish.',
     otherLanguage: 'Czytaj po polsku',
     home: 'ciunkos.com'
   },
@@ -46,6 +47,7 @@ export const STRINGS = {
       tldr: 'W skrócie',
       przemo: 'Przemo mówi'
     },
+    alsoIn: 'Ten wpis jest też dostępny po angielsku.',
     otherLanguage: 'Read in English',
     home: 'ciunkos.com'
   }

@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 
 import { fdeShare as data } from '../posts/forward-deployed-engineer-coding-is-dead/data'
 import { useLang } from '../i18n'
-import Figure, { pick } from './Figure'
+import Figure, { Credit, pick } from './Figure'
 import { useEntrance, useTween } from './hooks'
 
 const DOTS = Array.from({ length: 100 }, (_, index) => index)
@@ -22,10 +22,6 @@ const FdeShare = () => {
       title={pick(data.title, lang)}
       subtitle={pick(data.subtitle, lang)}
       readout={pick(data.readout, lang)}
-      table={{
-        head: pick(data.tableHead, lang),
-        rows: pick(data.tableRows, lang)
-      }}
       sources={data.sources}
     >
       <div
@@ -46,7 +42,9 @@ const FdeShare = () => {
         {data.growth.map(tile => (
           <li key={tile.value}>
             <strong>{(lang === 'pl' && tile.valuePl) || tile.value}</strong>
-            <span>{pick(tile.label, lang)}</span>
+            <span>
+              <Credit sources={[tile.source]} />, {pick(tile.label, lang)}
+            </span>
           </li>
         ))}
       </ul>

@@ -24,13 +24,6 @@ const DayShift = () => {
           ? pick(data.describe, lang)(active.day, active.part, active.value)
           : pick(data.hint, lang)
       }
-      table={{
-        head: pick(data.tableHead, lang),
-        rows: data.parts.map(part => [
-          pick(part.label, lang),
-          ...data.days.map(day => `${day.values[part.id]}%`)
-        ])
-      }}
     >
       <ul className="VizLegend">
         {data.parts.map(part => (

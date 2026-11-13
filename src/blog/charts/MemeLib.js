@@ -3,16 +3,25 @@ import React, { useEffect, useRef } from 'react'
 import { memelib as data } from '../posts/forward-deployed-engineer-coding-is-dead/data'
 import { useLang } from '../i18n'
 import { pick } from './Figure'
+import letItGo from './memes/let-it-go.mp4'
+import letItGoPoster from './memes/let-it-go.png'
+import tookOurJobs from './memes/they-took-our-jobs.mp4'
+import tookOurJobsPoster from './memes/they-took-our-jobs.png'
 
-const MEDIA = 'https://ciunkos.com/memelib/media'
+// the clips are copies of the MemeLib entries with the same ids (ciunkos.com/memelib)
+const MEDIA = {
+  'they-took-our-jobs': { video: tookOurJobs, poster: tookOurJobsPoster },
+  'let-it-go': { video: letItGo, poster: letItGoPoster }
+}
 
-/* A reaction from MemeLib (ciunkos.com/memelib), played from there as a muted, looping
-   video with the poster as its still. It plays while it is on screen; with reduced motion
-   it stays a still with controls. The caption links to the meme's page. */
+/* A reaction from MemeLib as a muted, looping video with its poster as the still. It plays
+   while it is on screen; with reduced motion it stays a still with controls. The caption
+   links to the meme's page. */
 const MemeLib = ({ id }) => {
   const lang = useLang()
   const video = useRef(null)
   const meme = data[id]
+  const media = MEDIA[id]
 
   useEffect(() => {
     const element = video.current
@@ -32,7 +41,7 @@ const MemeLib = ({ id }) => {
           })
         } else element.pause()
       },
-      { threshold: 0.5 }
+      { threshold: 0.4 }
     )
     observer.observe(element)
     return () => observer.disconnect()
@@ -43,17 +52,16 @@ const MemeLib = ({ id }) => {
       <video
         ref={video}
         className="MemeVideo"
-        poster={`${MEDIA}/${id}/${id}-poster.png`}
+        src={media.video}
+        poster={media.poster}
         width={meme.width}
         height={meme.height}
         muted
         loop
         playsInline
-        preload="none"
+        preload="metadata"
         aria-label={pick(meme.alt, lang)}
-      >
-        <source src={`${MEDIA}/${id}/${id}.mp4`} type="video/mp4" />
-      </video>
+      />
       <figcaption>
         {pick(meme.caption, lang)}{' '}
         <a href={`https://ciunkos.com${pick(meme.page, lang)}`}>MemeLib</a>

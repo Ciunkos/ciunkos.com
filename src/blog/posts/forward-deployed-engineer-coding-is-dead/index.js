@@ -34,7 +34,7 @@ export default {
   ],
   cover,
   // phones show only part of the width; keep the chart's zero line and the face in view
-  coverPosition: '78% 50%',
+  coverPosition: '86% 50%',
   shareImage,
   markdown: source,
   metaDescription:

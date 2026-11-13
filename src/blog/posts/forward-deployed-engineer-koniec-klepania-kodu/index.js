@@ -32,7 +32,7 @@ export default {
     }
   ],
   cover,
-  coverPosition: '78% 50%',
+  coverPosition: '86% 50%',
   shareImage,
   markdown: source,
   metaDescription:

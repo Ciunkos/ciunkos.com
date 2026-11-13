@@ -49,6 +49,7 @@ const Roi = () => {
     currency === 'pln'
       ? `${formatNumber(Math.round(value), lang)} zł`
       : `${unit.label}${formatNumber(Math.round(value), lang)}`
+  const roi = Math.round(((saved - unit.discovery) / unit.discovery) * 100)
   const barShare = Math.min(100, (unit.discovery / Math.max(saved, 1)) * 100)
 
   const change = setter => value => {
@@ -84,8 +85,6 @@ const Roi = () => {
           ))}
         </div>
       }
-      sources={data.sources}
-      note={pick(data.note, lang)}
     >
       <div className="VizCalc">
         <div className="VizFields">
@@ -142,7 +141,12 @@ const Roi = () => {
             <span>{pick(data.out.discovery, lang)}</span>
             <strong>{money(unit.discovery)}</strong>
           </p>
+          <p className="VizKpi">
+            <strong>{formatNumber(roi, lang)}%</strong>
+            <span>{pick(data.out.roi, lang)}</span>
+          </p>
           <p className="VizPayback">{pick(data.out.payback, lang)(payback)}</p>
+          <p className="VizSmall">{pick(data.note, lang)}</p>
         </div>
       </div>
     </Figure>

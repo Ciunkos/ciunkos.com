@@ -65,6 +65,7 @@ const OtherLanguage = ({ post }) => {
   if (!alternate || !alternate[other]) return null
   return (
     <p className="OtherLanguage">
+      {stringsFor(lang).alsoIn}{' '}
       <a href={alternate[other]} hrefLang={other} lang={other}>
         {stringsFor(lang).otherLanguage} →
       </a>
