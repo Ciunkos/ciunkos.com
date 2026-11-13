@@ -219,7 +219,7 @@ Most ads ask for five or more years. Palantir is the exception and has advertise
 
 ### Are there FDE jobs in Poland? {#faq-poland}
 
-Yes. Google hires FDEs in Warsaw and Wrocław, and consultancies and agencies advertise the role too. It is a small market: about 30 roles in Poland or remote in the EU this month. [Job Finder AI](https://ciunkos.com/job-finder-ai) matches your CV against open offers from Polish and remote boards, FDE roles included.
+Yes. Google hires FDEs in Warsaw and Wrocław, and consultancies and agencies advertise the role too. It is a small market: on 13 November 2026 there were [32 open FDE postings in Poland](https://ciunkos.com/job-finder-ai/forward-deployed-engineer-jobs-poland) from 28 employers, two thirds of them remote. [Job Finder AI](https://ciunkos.com/job-finder-ai) matches your CV against open offers, FDE roles included.
 
 ## Looking for an FDE? {#hire}
 

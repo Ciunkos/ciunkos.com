@@ -219,7 +219,7 @@ Większość ogłoszeń wymaga pięciu albo więcej lat. Wyjątkiem jest Palanti
 
 ### Czy w Polsce są oferty FDE? {#faq-poland}
 
-Tak. Google zatrudnia FDE w Warszawie i Wrocławiu, rolę ogłaszają też firmy konsultingowe i agencje. To mały rynek: około 30 ról w Polsce albo zdalnie w UE w tym miesiącu. [Szukacz Pracy AI](https://ciunkos.com/szukacz-pracy-ai) dopasuje Twoje CV do otwartych ofert z polskich i zdalnych portali, w tym ról FDE.
+Tak. Google zatrudnia FDE w Warszawie i Wrocławiu, rolę ogłaszają też firmy konsultingowe i agencje. To mały rynek: 13 listopada 2026 były [32 otwarte oferty FDE w Polsce](https://ciunkos.com/szukacz-pracy-ai/praca-forward-deployed-engineer) od 28 pracodawców, z czego dwie trzecie zdalne. [Szukacz Pracy AI](https://ciunkos.com/szukacz-pracy-ai) dopasuje Twoje CV do otwartych ofert, w tym ról FDE.
 
 ## Szukasz FDE? {#hire}
 
