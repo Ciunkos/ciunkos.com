@@ -142,6 +142,7 @@ export const FOOTER_GROUPS = [
     L(P('Przemo on Flack', 'Przemo na Flacku'), '/przemo')
   ] },
   { id: 'learn', title: P('Articles', 'Artykuły'), hub: P('/'), links: [
+    L(P('Coding is dead. Long live the Forward Deployed Engineer', 'Koniec klepania kodu. Niech żyje Forward Deployed Engineer'), P('/forward-deployed-engineer-coding-is-dead', '/forward-deployed-engineer-koniec-klepania-kodu')),
     L('Node.js 26 LTS: what’s new and how to upgrade', '/node-js-26-lts-whats-new-and-how-to-upgrade'),
     L('Data as code modules', '/data-as-code-modules'),
     L('Debugging JavaScript: the basics', '/debugging-javascript-the-basics'),

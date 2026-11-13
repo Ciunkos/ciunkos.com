@@ -129,7 +129,7 @@ My test for real FDE work has three questions. Does the person ship code to prod
 pay
 ```
 
-These are advertised ranges. In the US, the big labs advertise $180,000 to $320,000 in base salary. In Poland, Google pays an employee about $70,000 a year before bonus and stock, and agencies advertise 250 to 400 zł an hour for senior contractors, which is $120,000 to $190,000 a year. My own price works out to $90,000.
+These are advertised ranges. In the US, the big labs advertise $180,000 to $320,000 in base salary. In Poland, Google pays an employee about $70,000 a year before bonus and stock, and one agency ad offers senior contractors 250 to 400 zł an hour. Billed 160 hours every month with no leave, that is $120,000 to $190,000 a year. It is the highest range I have seen in a Polish ad, and an ad is not a contract. My own price works out to $90,000.
 
 B2B money is before your own taxes, insurance, holidays and sick days. And the agency market is thinner than it looks: my scan of about 14,000 openings this month found roughly 120 FDE-type roles, about 30 of them in Poland or remote in the EU, and the same end client often appears in four agency ads.
 
@@ -211,7 +211,7 @@ Yes, and they ship it to production. In 2026 agents write most of that code whil
 
 ### How much does a Forward Deployed Engineer earn? {#faq-pay}
 
-In the US, the median total compensation is [$225,000 a year](https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer), and ads at AI labs go up to $320,000 in base salary. In Poland, ads in November 2026 range from about $70,000 a year on employment to $120,000 to $190,000 a year on B2B.
+In the US, the median total compensation is [$225,000 a year](https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer), and ads at AI labs go up to $320,000 in base salary. In Poland, ads in November 2026 range from about $70,000 a year on employment to an advertised $120,000 to $190,000 a year on B2B at the top end.
 
 ### Can a junior become an FDE? {#faq-junior}
 

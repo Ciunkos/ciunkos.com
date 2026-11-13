@@ -129,7 +129,7 @@ Mój test na prawdziwe FDE ma trzy pytania. Czy ta osoba wdraża kod na produkcj
 pay
 ```
 
-To widełki z ogłoszeń. W USA duże laboratoria ogłaszają od 180 do 320 tysięcy dolarów pensji podstawowej, czyli od 730 tysięcy do 1,28 miliona złotych rocznie. W Polsce Google płaci pracownikowi około 280 tysięcy złotych rocznie przed premią i akcjami, a agencje ogłaszają 250 do 400 zł za godzinę dla seniorów na kontrakcie, czyli 480 do 770 tysięcy złotych rocznie. Moja cena to 360 tysięcy.
+To widełki z ogłoszeń. W USA duże laboratoria ogłaszają od 180 do 320 tysięcy dolarów pensji podstawowej, czyli od 730 tysięcy do 1,28 miliona złotych rocznie. W Polsce Google płaci pracownikowi około 280 tysięcy złotych rocznie przed premią i akcjami, a jedno ogłoszenie agencji daje seniorom na kontrakcie 250 do 400 zł za godzinę. Przy 160 godzinach co miesiąc, bez urlopu, to 480 do 770 tysięcy złotych rocznie. To najwyższe widełki, jakie widziałem w polskim ogłoszeniu, a ogłoszenie to nie umowa. Moja cena to 360 tysięcy.
 
 Pieniądze na B2B są przed Twoimi podatkami, ZUS-em, urlopem i chorobowym. A rynek agencji jest cieńszy, niż wygląda: mój przegląd około 14 tysięcy ofert z tego miesiąca znalazł mniej więcej 120 ról typu FDE, z czego około 30 w Polsce albo zdalnie w UE, a ten sam klient końcowy często pojawia się w czterech ogłoszeniach różnych agencji.
 
@@ -211,7 +211,7 @@ Tak, i wdraża go na produkcję. W 2026 większość tego kodu piszą agenci, kt
 
 ### Ile zarabia Forward Deployed Engineer? {#faq-pay}
 
-W USA mediana całkowitego wynagrodzenia to [225 tysięcy dolarów rocznie](https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer), czyli około 900 tysięcy złotych, a ogłoszenia laboratoriów AI sięgają 1,28 miliona złotych pensji podstawowej. W Polsce ogłoszenia z listopada 2026 to od około 280 tysięcy złotych rocznie na etacie do 480 do 770 tysięcy złotych rocznie na B2B.
+W USA mediana całkowitego wynagrodzenia to [225 tysięcy dolarów rocznie](https://www.levels.fyi/t/software-engineer/title/forward-deployed-engineer), czyli około 900 tysięcy złotych, a ogłoszenia laboratoriów AI sięgają 1,28 miliona złotych pensji podstawowej. W Polsce ogłoszenia z listopada 2026 to od około 280 tysięcy złotych rocznie na etacie do ogłaszanych 480 do 770 tysięcy złotych rocznie na B2B w najwyższych widełkach.
 
 ### Czy junior może zostać FDE? {#faq-junior}
 

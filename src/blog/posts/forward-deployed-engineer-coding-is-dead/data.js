@@ -333,12 +333,15 @@ export const pay = {
       rows: [
         {
           id: 'agency',
-          label: { en: 'Agency, B2B', pl: 'Agencja, B2B' },
+          label: {
+            en: 'One agency ad, B2B',
+            pl: 'Jedno ogłoszenie agencji, B2B'
+          },
           low: 480000,
           high: 768000,
           detail: {
-            en: 'senior AI FDE, 250 to 400 zł an hour, travel up to 30%',
-            pl: 'senior AI FDE, 250 do 400 zł za godzinę, do 30% delegacji'
+            en: '250 to 400 zł an hour in the ad, counted as 160 hours a month for 12 months with no leave',
+            pl: '250 do 400 zł za godzinę w ogłoszeniu, liczone jako 160 godzin miesięcznie przez 12 miesięcy bez urlopu'
           }
         },
         {
