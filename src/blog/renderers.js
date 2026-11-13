@@ -5,7 +5,8 @@ import Image from './Image'
 import Chart from './charts'
 import { textOf } from './markdown'
 import { useStrings } from './i18n'
-import przemoFace from './charts/przemo-cutout.webp'
+// not named przemo-*: ciunkos.com/przemo* is routed to another app, so such a file 404s
+import przemoFace from './charts/author-cutout.webp'
 
 // the page header already has the h1 and posts start their sections at ##, so ## is h2
 // (a stray # also becomes h2) and levels never skip, which axe's heading-order checks;

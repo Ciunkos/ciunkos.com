@@ -4,7 +4,7 @@ import { hire as data } from '../posts/forward-deployed-engineer-coding-is-dead/
 import { useLang } from '../i18n'
 import { pick } from './Figure'
 import { track } from './hooks'
-import face from './przemo-cutout.webp'
+import face from './author-cutout.webp'
 
 const CLOSED = 'fde-peek-closed'
 
