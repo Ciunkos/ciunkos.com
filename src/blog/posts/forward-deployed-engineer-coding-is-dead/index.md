@@ -42,6 +42,10 @@ poland
 
 The ads came back in 2025 and the queue for each one got shorter on average. A junior front-end ad still gets 146 applications. I track the Polish numbers on my own [IT job radar](https://ciunkos.com/radar-pracy-it) (in Polish).
 
+```chart
+they-took-my-job
+```
+
 At a meetup this week I introduced myself as a _programista bezklientowy_, a clientless programmer. People laughed, and then a few of them asked how long I had been looking.
 
 ## What is a Forward Deployed Engineer? {#what-is-fde}

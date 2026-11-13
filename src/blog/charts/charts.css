@@ -1121,3 +1121,19 @@
   justify-content: center;
   text-align: center;
 }
+
+.MemeVideo {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #111;
+}
+
+.Markdown .Meme figcaption {
+  display: block;
+}
+
+.Markdown .Meme figcaption a {
+  display: inline;
+}

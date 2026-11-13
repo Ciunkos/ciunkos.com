@@ -784,13 +784,33 @@ export const shifts = {
   ]
 }
 
-// the homage meme, drawn with my own photo
+// reactions played from MemeLib, by their id there
+export const memelib = {
+  'they-took-our-jobs': {
+    width: 640,
+    height: 360,
+    alt: {
+      en: 'Reaction clip: an angry cartoon townsman at a podium shouts "They took our jobs!"',
+      pl: 'Reakcja: wściekły rysunkowy mieszkaniec miasteczka krzyczy zza mównicy „Zabrali nam robotę!”'
+    },
+    caption: {
+      en: 'The whole industry, 2026. From',
+      pl: 'Cała branża, 2026. Z'
+    },
+    page: {
+      en: '/memelib/they-took-our-jobs',
+      pl: '/memylib/they-took-our-jobs'
+    }
+  }
+}
+
+// the same line with my own photo
 export const meme = {
   top: { en: 'THEY TOOK', pl: 'ZABRALI NAM' },
   bottom: { en: 'OUR JOBS!', pl: 'ROBOTĘ!' },
   caption: {
-    en: 'Me, since November. With apologies to a certain cartoon town in Colorado.',
-    pl: 'Ja, od listopada. Z przeprosinami dla pewnego rysunkowego miasteczka w Kolorado.'
+    en: 'And me, since November.',
+    pl: 'A to ja, od listopada.'
   },
   alt: {
     en: 'Meme: Przemysław Zalewski under the caption "They took our jobs!"',
