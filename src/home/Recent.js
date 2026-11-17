@@ -6,6 +6,8 @@ import kalkulatorIcon from 'apps/2026/icon-kalkulator.png'
 // 80 x 80 copy of /przemo/awatar-512.png (371 KB) for the 40 px tiles
 import przemoIcon from 'apps/2026/icon-przemo.png'
 import codewarriorsIcon from 'apps/2026/icon-codewarriors.png'
+// 80 x 80 copy of /avatar/przemo.jpg
+import avatarIcon from 'apps/2026/icon-avatar.png'
 
 /* Apps and tools from 2026. They live outside this SPA, so links are absolute:
    the router in styled/index.js only intercepts relative links. An entry hosted elsewhere
@@ -19,6 +21,7 @@ export const apps = [
     icon: codewarriorsIcon,
     hero: true
   },
+  { id: 'avatar', path: '/avatar', icon: avatarIcon, hero: true },
   {
     id: 'riddle',
     path: '/you-and-przemyslaw',

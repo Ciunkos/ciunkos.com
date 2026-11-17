@@ -33,6 +33,7 @@ export const recent = {
   apps: {
     memelib: ['Memelib', 'My collection of memes and reaction GIFs'],
     codewarriors: ['CodeWarriors', 'Coding arena with an RPG skin'],
+    avatar: ['Przemo Call', 'Practise English on a video call with AI me'],
     riddle: ['You 🤝 Przemysław?', 'Riddle me this: a hire page'],
     przemo: ['Przemo', 'Flack: DM the AI me, it always replies'],
     migawki: ['Migawki', 'Started as a song, ended as a game'],
@@ -71,6 +72,8 @@ export const recent = {
   long: {
     codewarriors:
       'A coding arena with an RPG skin: bug hunts, code reviews, projects on existing code checked by Playwright and axe, an interview simulator and live duels.',
+    avatar:
+      'A video call with an AI avatar of me. Small talk that fixes your English in passing, a C1/C2 speaking exam, the worst job interview of your life, or a roast of every sentence.',
     memelib:
       'My collection of memes and reaction GIFs. Search in Polish or English, browse reactions, and copy or download a favorite for the conversation.',
     migawki:
