@@ -32,6 +32,7 @@ export const recent = {
     'Niżej: aplikacje z pierwszej dekady, tak jak pokazywała je ta strona w 2017.',
   apps: {
     memelib: ['Memylib', 'Moja kolekcja memów i GIF-ów do rozmów'],
+    codewarriors: ['CodeWarriors', 'Arena programistyczna w stylu RPG'],
     riddle: ['Ty i Przemysław?', 'Zagadka: strona rekrutacyjna'],
     przemo: ['Przemo', 'Flack: napisz do mnie-AI, zawsze odpisze'],
     migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
@@ -68,6 +69,8 @@ export const recent = {
     wyrocznia: ['Wyrocznia', 'Zapytaj Klaudię o cokolwiek: tak albo nie']
   },
   long: {
+    codewarriors:
+      'Arena programistyczna w stylu RPG: polowania na bugi, code review, projekty na istniejącym kodzie sprawdzane Playwrightem i axe, symulator rozmowy rekrutacyjnej i pojedynki na żywo.',
     memelib:
       'Moja kolekcja memów i GIF-ów do rozmów. Szukaj po polsku lub angielsku, przeglądaj reakcje i kopiuj albo pobierz coś na odpowiedź.',
     migawki:

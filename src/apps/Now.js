@@ -4,6 +4,7 @@ import { Section } from 'components'
 import { apps } from 'home/Recent'
 import locale from 'home/locale'
 import toolIcon from './toolIcons'
+import codewarriors from './2026/shot-2026-codewarriors.jpg'
 import riddle from './2026/shot-2026-riddle.jpg'
 import przemo from './2026/shot-2026-przemo.jpg'
 import migawki from './2026/shot-2026-migawki.jpg'
@@ -22,6 +23,7 @@ const cardApps = [
 const toolApps = apps.slice(lastCard + 1)
 const vectorIcon = icon => icon.replace(/apple-touch-icon\.png$/, 'favicon.svg')
 const shots = {
+  codewarriors,
   riddle,
   przemo,
   migawki,

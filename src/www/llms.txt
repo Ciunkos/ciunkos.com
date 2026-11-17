@@ -56,6 +56,7 @@ Independent rankings of Polish software development companies, built from the Na
 
 ## Free tools
 
+- [CodeWarriors](https://ciunkos.com/codewarriors): a coding arena with an RPG skin. Bug hunts and Bug Sprints, GitHub-style code reviews, projects on an existing codebase (layout, debugging, a feature) checked by Playwright, axe and a pixel diff, Python and SQL that really run, a 60-minute interview simulator and live duels against friends or AI rivals. Free, sign in with Google.
 - [Quote Desk](https://ciunkos.com/quote-desk): matches a customer inquiry (email, PDF, Excel or a photo of a list) to your own price list, flags unclear lines and exports a draft quote to Excel.
 - [Job Finder AI](https://ciunkos.com/job-finder-ai): upload a CV and get IT job offers from Polish and remote boards that match it, each checked against its source before it is shown; an assistant then tailors the list. Nothing about the visitor is stored. Polish version: https://ciunkos.com/szukacz-pracy-ai
 - [IT job market in Poland, live numbers](https://ciunkos.com/job-finder-ai/it-job-market-poland): open IT job postings by level, city, work mode and skill, with median net pay; refreshed every three hours; JSON at https://ciunkos.com/job-finder-ai/api/market.json (CC BY 4.0). Polish version: https://ciunkos.com/szukacz-pracy-ai/rynek-pracy-it
