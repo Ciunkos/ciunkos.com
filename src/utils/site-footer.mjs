@@ -155,6 +155,7 @@ export const FOOTER_GROUPS = [
     L(P('How I work', 'Jak pracuję'), P('/how-i-work', '/jak-pracuje')),
     L(P('Security', 'Bezpieczeństwo'), P('/security', '/bezpieczenstwo')),
     L(P('Privacy', 'Prywatność'), P('/privacy', '/prywatnosc')),
+    L(P('Terms', 'Regulamin'), P('/terms', '/regulamin')),
     L('Open source', P('/open-source', '/open-source-pl')),
     L(P('Trust center', 'Centrum zaufania'), P('/trust', '/zaufanie'))
   ] },
