@@ -1,5 +1,5 @@
 {
-  "current": "1.439.0-f32a5541",
+  "current": "1.447.12-bbbb5008",
   "versions": {
     "1.439.0": {
       "src": "/vendor/posthog/1.439.0/posthog.js",
@@ -17,6 +17,15 @@
       "esbuild": "0.28.2",
       "entry": "scripts/posthog/entry.ts",
       "vendored": "2026-11-03"
+    },
+    "1.447.12-bbbb5008": {
+      "version": "1.447.12",
+      "src": "/vendor/posthog/1.447.12-bbbb5008/posthog.js",
+      "integrity": "sha384-IBA0uRheUBlvsEAOo1zvgDPAQF2LUqKUqU+WHGnRjrM6uw7n/UnJMOaroUGIb6XI",
+      "commit": "315ca54eb5794991f1197e34a50ee543d516f699",
+      "esbuild": "0.28.2",
+      "entry": "scripts/posthog/entry.ts",
+      "vendored": "2026-11-18"
     }
   }
 }

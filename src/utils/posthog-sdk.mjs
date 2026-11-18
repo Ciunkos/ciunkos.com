@@ -2,7 +2,7 @@
    Copies in other repos (src/shared/posthog-sdk.mjs) are synced with
    ciunkos.com/scripts/check-posthog-copies.mjs --fix. */
 export const POSTHOG_SDK = {
-  version: "1.439.0",
-  src: "/vendor/posthog/1.439.0-f32a5541/posthog.js",
-  integrity: "sha384-7tPSHdDbq6CQO0xfuWHqd7w3VefViVXx4eNX/PX8SqAeaMolupVqzMIf22ryGp40"
+  version: "1.447.12",
+  src: "/vendor/posthog/1.447.12-bbbb5008/posthog.js",
+  integrity: "sha384-IBA0uRheUBlvsEAOo1zvgDPAQF2LUqKUqU+WHGnRjrM6uw7n/UnJMOaroUGIb6XI"
 }
