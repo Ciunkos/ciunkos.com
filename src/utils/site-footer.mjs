@@ -111,9 +111,9 @@ export const FOOTER_GROUPS = [
     L(P('Rzeszów', 'Rzeszów'), P('/best-software-houses-in-rzeszow', '/software-house-rzeszow')),
     L(P('Zielona Góra', 'Zielona Góra'), P('/best-software-houses-in-zielona-gora', '/software-house-zielona-gora')),
     L(P('AI companies', 'Firmy AI'), P('/best-ai-development-companies-in-poland', '/software-house-ai')),
-    L(P('MCP server companies', 'Firmy od serwerów MCP'), P('/best-mcp-server-and-ai-integration-companies-in-poland', '/software-house-serwery-mcp')),
-    L('React', P('/best-react-development-companies-in-poland', '/software-house-react')),
-    L('TypeScript', P('/best-typescript-development-companies-in-poland', '/software-house-typescript')),
+    L(P('MCP server companies', 'Firmy od serwerów MCP'), P('/best-mcp-server-and-ai-integration-companies-in-poland', '/najlepsze-firmy-od-serwerow-mcp-i-integracji-ai-w-polsce')),
+    L('React', P('/best-react-development-companies-in-poland', '/najlepsze-software-house-react-w-polsce')),
+    L('TypeScript', P('/best-typescript-development-companies-in-poland', '/najlepsze-software-house-typescript-w-polsce')),
     L('JavaScript', P('/best-javascript-development-companies-in-poland', '/software-house-javascript')),
     L(P('Software house finder', 'Wyszukiwarka software house’ów'), P('/software-house-finder', '/wyszukiwarka-software-house'))
   ] },
