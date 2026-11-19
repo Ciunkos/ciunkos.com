@@ -37,6 +37,7 @@ export const recent = {
     riddle: ['Ty i Przemysław?', 'Zagadka: strona rekrutacyjna'],
     przemo: ['Przemo', 'Flack: napisz do mnie-AI, zawsze odpisze'],
     migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
+    puzzle: ['Sliding Puzzle', 'Drewniana piętnastka, którą słychać'],
     bimi: ['Sprawdź BIMI', 'Czy Gmail pokaże Twoje logo?'],
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
     buildorbuy: ['Budować czy kupić', 'SaaS kontra własna apka'],
@@ -78,6 +79,8 @@ export const recent = {
       'Moja kolekcja memów i GIF-ów do rozmów. Szukaj po polsku lub angielsku, przeglądaj reakcje i kopiuj albo pobierz coś na odpowiedź.',
     migawki:
       'Zaczęło się od piosenki z EP-ki „Migawki”, skończyło na abstrakcyjnej grze w deszczowym, nocnym mieście. Jedyne, co widzisz, to migawki.',
+    puzzle:
+      'Drewniana układanka 3D z obrazkami, dźwiękiem i muzyką. Bez rejestracji: gra zapisuje się w linku, więc dokończysz ją na dowolnym urządzeniu.',
     przemo:
       'Flack, jak Flak Cannon: memowy Slack, w którym działa tylko jedna rozmowa, DM ze mną jako agentem AI. Zaczął się jako Przemo, bot mnie na firmowy czat, i odpisuje tak jak ja, z literówkami włącznie.',
     riddle:

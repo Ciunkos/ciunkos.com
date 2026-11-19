@@ -9,6 +9,7 @@ import avatar from './2026/shot-2026-avatar.jpg'
 import riddle from './2026/shot-2026-riddle.jpg'
 import przemo from './2026/shot-2026-przemo.jpg'
 import migawki from './2026/shot-2026-migawki.jpg'
+import puzzle from './2026/shot-2026-puzzle.jpg'
 import kalkulator from './2026/shot-2026-kalkulator.jpg'
 import wyrocznia from './2026/shot-2026-wyrocznia.jpg'
 import korpo from './2026/shot-2026-korpo.jpg'
@@ -29,6 +30,7 @@ const shots = {
   riddle,
   przemo,
   migawki,
+  puzzle,
   kalkulator,
   wyrocznia,
   korpo,

@@ -8,6 +8,8 @@ import przemoIcon from 'apps/2026/icon-przemo.png'
 import codewarriorsIcon from 'apps/2026/icon-codewarriors.png'
 // 80 x 80 copy of /avatar/przemo.jpg
 import avatarIcon from 'apps/2026/icon-avatar.png'
+// 80 x 80 copy of /sliding-puzzle/icons/icon-192.png
+import puzzleIcon from 'apps/2026/icon-puzzle.png'
 
 /* Apps and tools from 2026. They live outside this SPA, so links are absolute:
    the router in styled/index.js only intercepts relative links. An entry hosted elsewhere
@@ -35,6 +37,7 @@ export const apps = [
     icon: migawkiIcon,
     hero: true
   },
+  { id: 'puzzle', path: '/sliding-puzzle', icon: puzzleIcon, hero: true },
   {
     id: 'kalkulator',
     path: '/kalkulator-b2b-vs-uop-2026',

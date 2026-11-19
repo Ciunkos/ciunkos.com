@@ -37,6 +37,7 @@ export const recent = {
     riddle: ['You 🤝 Przemysław?', 'Riddle me this: a hire page'],
     przemo: ['Przemo', 'Flack: DM the AI me, it always replies'],
     migawki: ['Migawki', 'Started as a song, ended as a game'],
+    puzzle: ['Sliding Puzzle', 'A wooden 15-puzzle you can hear'],
     bimi: ['BIMI checker', 'Will Gmail show your logo?'],
     estimator: ['Software cost estimator', '125 real projects'],
     buildorbuy: ['Build or buy', 'SaaS vs your own app'],
@@ -78,6 +79,8 @@ export const recent = {
       'My collection of memes and reaction GIFs. Search in Polish or English, browse reactions, and copy or download a favorite for the conversation.',
     migawki:
       'It began as a song from an EP called Migawki and ended as an abstract browser game in a rainy night city. All you see are snapshots.',
+    puzzle:
+      'A 3D wooden sliding puzzle with pictures, sound and music. No sign-up: your game is saved in the link, so it continues on any device.',
     przemo:
       'Flack, as in the Flak Cannon: a meme Slack where the only chat that works is a DM with me as an AI agent. It started as Przemo, a bot of me for the team chat, and it replies the way I do, typos included.',
     riddle:
