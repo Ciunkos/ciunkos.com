@@ -28,7 +28,7 @@
     "switch-locale": "node switch-locale",
     "switch-locale:en": "node switch-locale en",
     "switch-locale:pl": "node switch-locale pl",
-    "test": "echo 'No test specified' && exit 0",
+    "test": "node --test tests/*.test.mjs",
     "vendor:posthog": "node scripts/vendor-posthog.mjs"
   },
   "lint-staged": {

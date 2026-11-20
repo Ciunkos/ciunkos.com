@@ -4,6 +4,7 @@ import classNames from 'classnames'
 import { partition, filter } from 'utils'
 import ErrorBoundary from 'components/ErrorBoundary/ErrorBoundary'
 import { push, replace } from './history'
+import shouldRouteClick from './link-click'
 
 const viewCache = {}
 
@@ -14,7 +15,14 @@ function defaultView(name) {
 
   const view = class StyledComponent extends React.PureComponent {
     render() {
-      const { children, ref, id, tag: Tag = 'div', ...rest } = this.props
+      const {
+        children,
+        ref,
+        id,
+        download,
+        tag: Tag = 'div',
+        ...rest
+      } = this.props
       const { href } = this.props
       const [booleans, others] = partition(x => x === true)(rest)
       const otherProps = filter(x => x)(others)
@@ -36,6 +44,7 @@ function defaultView(name) {
       ) {
         injectedProps = {
           onClick: event => {
+            if (!shouldRouteClick(event)) return
             event.preventDefault()
 
             if (!href.includes('#')) {
@@ -82,6 +91,7 @@ function defaultView(name) {
             className={classNames(name, booleans)}
             id={id}
             ref={ref}
+            download={Tag === 'a' ? download : undefined}
             {...injectedProps}
             {...otherProps}
           >
