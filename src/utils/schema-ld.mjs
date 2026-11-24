@@ -133,7 +133,7 @@ const bezSlasha = (u) => String(u || '').replace(/[?#].*$/, '').replace(/\/$/, '
 
 /**
  * @param {string} html gotowy dokument
- * @param {{ modified?: string, published?: string, lang?: string,
+ * @param {{ modified?: string, published?: string, lang?: string, image?: string,
  *           okruszki?: Array<{name: string, item: string}>, typ?: string,
  *           widocznaData?: boolean, gdzieData?: 'footer'|'main'|'h1' }} [o]
  */
@@ -149,8 +149,10 @@ export function ulepszLd(html, o = {}) {
     graf.unshift(strona);
   }
   if (strona) {
+    if (o.image) strona.image = o.image;
     if (!strona.isPartOf) strona.isPartOf = ref(WEBSITE_ID);
-    if (!strona.inLanguage) strona.inLanguage = lang;
+    // inLanguage belongs to CreativeWork (and Event); a DefinedTerm main entity must not get it
+    if (!strona.inLanguage && !jest(strona, ['DefinedTerm'])) strona.inLanguage = lang;
     if (jest(strona, ['Article', 'BlogPosting', 'NewsArticle', 'TechArticle', 'WebPage', 'CollectionPage', 'ProfilePage', 'DefinedTermSet', 'DefinedTerm', 'DiscussionForumPosting', 'Dataset'])) {
       if (!strona.author) strona.author = ref(PERSON_ID);
       if (!strona.publisher && !jest(strona, ['DefinedTerm', 'DiscussionForumPosting'])) strona.publisher = ref(PERSON_ID);
