@@ -428,7 +428,20 @@ const repoRules = {
     }
   ],
   '@stylistic/no-multiple-empty-lines': ['error', { max: 1 }],
-  '@stylistic/object-curly-newline': ['error', { consistent: true }]
+  /* @stylistic 6 replaced object-curly-newline ({ consistent: true }) with list-style; limited to
+     braces it keeps the same check: a line break after `{` means one before `}` and between items.
+     Spacing inside braces stays `{ a }`, as Prettier formats it. */
+  '@stylistic/list-style': [
+    'error',
+    {
+      overrides: {
+        '()': 'off',
+        '[]': 'off',
+        '<>': 'off',
+        '{}': { singleLine: { spacing: 'always' } }
+      }
+    }
+  ]
 }
 
 export default [
