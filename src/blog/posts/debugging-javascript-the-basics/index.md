@@ -133,7 +133,7 @@ There are already made modules which implement similar interface:
 
 - [lodash tap](https://lodash.com/docs/4.17.4#tap)
 - [underscore tap](http://underscorejs.org/#tap)
-- [bluebird tap](http://bluebirdjs.com/docs/api/tap.html)
+- [bluebird tap](https://github.com/petkaantonov/bluebird/blob/master/docs/docs/api/tap.md)
 
 ## Debugging with DevTools
 
