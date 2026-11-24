@@ -78,7 +78,7 @@ export const apps = [
   },
   {
     id: 'fileConverter',
-    path: '/free-tools/file-converter',
+    path: '/free-tools/converter',
     icon: '/free-tools/icons/converter-180.png'
   },
   {

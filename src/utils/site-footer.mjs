@@ -81,7 +81,7 @@ export const FOOTER_GROUPS = [
     L(P('JWT decoder', 'Dekoder JWT'), P('/free-tools/jwt-decoder', '/darmowe-narzedzia/dekoder-jwt')),
     L(P('Character counter', 'Licznik znaków'), P('/free-tools/character-counter', '/darmowe-narzedzia/licznik-znakow')),
     L(P('Base64 encode and decode', 'Base64: koduj i dekoduj'), P('/free-tools/base64-encode-decode', '/darmowe-narzedzia/base64-koduj-dekoduj')),
-    L(P('File converter', 'Konwerter plików'), P('/free-tools/file-converter', '/darmowe-narzedzia/konwerter-plikow')),
+    L(P('File converter', 'Konwerter plików'), P('/free-tools/converter', '/darmowe-narzedzia/konwerter')),
     L(P('All free tools', 'Wszystkie darmowe narzędzia'), P('/free-tools', '/darmowe-narzedzia'))
   ] },
   { id: 'calc', title: P('Calculators', 'Kalkulatory'), hub: P('/software-cost-estimator', '/ile-kosztuje-aplikacja'), links: [
