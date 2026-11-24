@@ -57,6 +57,11 @@ export const apps = [
     hero: true
   },
   {
+    id: 'whiteScreen',
+    path: '/free-tools/white-screen',
+    icon: '/free-tools/a/icons/white-screen-180.png'
+  },
+  {
     id: 'bimi',
     path: '/bimi-checker',
     icon: '/spf-dkim-dmarc-checker/a/ikony/bimi/apple-touch-icon.png'

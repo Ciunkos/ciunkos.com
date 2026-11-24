@@ -57,6 +57,8 @@ Independent rankings of Polish software development companies, built from the Na
 
 ## Free tools
 
+- [Free tools directory](https://ciunkos.com/free-tools) (Polish: https://ciunkos.com/darmowe-narzedzia): small browser tools, each built for a problem I had myself; nothing typed or generated leaves the browser. Index: https://ciunkos.com/free-tools/llms.txt
+- [White screen](https://ciunkos.com/free-tools/white-screen) (Polish: https://ciunkos.com/darmowe-narzedzia/bialy-ekran): a totally white (#FFFFFF) page that goes full screen with one click or the F key, for cleaning a monitor or TV and seeing every speck, checking for dead pixels, or as a light for calls and make-up. Warm, cool and dimmed shades; keeps the screen awake; white PNGs of any size up to 16,384 px.
 - [CodeWarriors](https://ciunkos.com/codewarriors): a coding arena with an RPG skin. Bug hunts and Bug Sprints, GitHub-style code reviews, projects on an existing codebase (layout, debugging, a feature) checked by Playwright, axe and a pixel diff, Python and SQL that really run, a 60-minute interview simulator and live duels against friends or AI rivals. Free, sign in with Google.
 - [Przemo Call](https://ciunkos.com/avatar): a video call with an AI avatar of Przemysław Zalewski for English practice: small talk with corrections, a three-part C1/C2 speaking exam, a mock AI job interview, or a roast of your English. Calls are short and limited per day.
 - [Sliding Puzzle](https://ciunkos.com/sliding-puzzle): a 3D wooden sliding puzzle (3×3, 4×4, 5×5) with picture boards, your own photo, sound effects and music. No sign-up: a generated nickname in the link saves the game, so it continues on any device. Works offline and installs as an app.

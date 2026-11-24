@@ -38,6 +38,7 @@ export const recent = {
     przemo: ['Przemo', 'Flack: napisz do mnie-AI, zawsze odpisze'],
     migawki: ['Migawki', 'Zaczęło się od piosenki, skończyło na grze'],
     puzzle: ['Sliding Puzzle', 'Drewniana piętnastka, którą słychać'],
+    whiteScreen: ['Biały ekran', 'Każdy pyłek widać przy czyszczeniu'],
     bimi: ['Sprawdź BIMI', 'Czy Gmail pokaże Twoje logo?'],
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
     buildorbuy: ['Budować czy kupić', 'SaaS kontra własna apka'],

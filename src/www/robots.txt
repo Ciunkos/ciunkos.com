@@ -28,3 +28,4 @@ Sitemap: https://ciunkos.com/przemo/sitemap.xml
 Sitemap: https://ciunkos.com/checks/sitemap.xml
 Sitemap: https://ciunkos.com/codewarriors/sitemap.xml
 Sitemap: https://ciunkos.com/avatar/sitemap.xml
+Sitemap: https://ciunkos.com/free-tools/sitemap.xml

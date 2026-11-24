@@ -8,6 +8,10 @@ export const S =
 
 /* id → [background color, symbol drawn on a 24 × 24 grid] */
 export const ICONS = {
+  whiteScreen: [
+    '#111316',
+    "<rect x='3' y='4' width='18' height='12' rx='2' fill='white'/><path d='M9 20h6M12 16v4'/>"
+  ],
   bimi: [
     '#c2410c',
     "<rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'/>"
