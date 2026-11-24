@@ -59,7 +59,22 @@ export const apps = [
   {
     id: 'whiteScreen',
     path: '/free-tools/white-screen',
-    icon: '/free-tools/a/icons/white-screen-180.png'
+    icon: '/free-tools/icons/white-screen-180.png'
+  },
+  {
+    id: 'jwtDecoder',
+    path: '/free-tools/jwt-decoder',
+    icon: '/free-tools/icons/jwt-decoder-180.png'
+  },
+  {
+    id: 'charCounter',
+    path: '/free-tools/character-counter',
+    icon: '/free-tools/icons/character-counter-180.png'
+  },
+  {
+    id: 'base64',
+    path: '/free-tools/base64-encode-decode',
+    icon: '/free-tools/icons/base64-180.png'
   },
   {
     id: 'bimi',

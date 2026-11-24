@@ -78,6 +78,9 @@ export const FOOTER_GROUPS = [
   ] },
   { id: 'free', title: P('Free tools', 'Darmowe narzędzia'), hub: P('/free-tools', '/darmowe-narzedzia'), links: [
     L(P('White screen', 'Biały ekran'), P('/free-tools/white-screen', '/darmowe-narzedzia/bialy-ekran')),
+    L(P('JWT decoder', 'Dekoder JWT'), P('/free-tools/jwt-decoder', '/darmowe-narzedzia/dekoder-jwt')),
+    L(P('Character counter', 'Licznik znaków'), P('/free-tools/character-counter', '/darmowe-narzedzia/licznik-znakow')),
+    L(P('Base64 encode and decode', 'Base64: koduj i dekoduj'), P('/free-tools/base64-encode-decode', '/darmowe-narzedzia/base64-koduj-dekoduj')),
     L(P('All free tools', 'Wszystkie darmowe narzędzia'), P('/free-tools', '/darmowe-narzedzia'))
   ] },
   { id: 'calc', title: P('Calculators', 'Kalkulatory'), hub: P('/software-cost-estimator', '/ile-kosztuje-aplikacja'), links: [
