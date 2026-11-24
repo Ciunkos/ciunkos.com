@@ -24,9 +24,12 @@ const shareImage = post =>
     ? { url: new URL(post.shareImage, SITE).href, width: 1200, height: 630 }
     : { url: coverUrl(post), width: 1280, height: 720 }
 
-// the first author wrote the post, the others are contributors (co-authors)
+// the first author wrote the post, the others are contributors (co-authors);
+// bylines without a jsonLd node (AI models) are left out of the structured data
 const postJsonLd = post => {
-  const [author, ...contributors] = postAuthors(post).map(a => a.jsonLd)
+  const [author, ...contributors] = postAuthors(post)
+    .map(a => a.jsonLd)
+    .filter(Boolean)
   const url = postUrl(post)
   return graph(
     {

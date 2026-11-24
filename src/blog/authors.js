@@ -23,11 +23,8 @@ const authors = {
     avatar: claudeLogo,
     bylineAvatarOnly: true,
     description: 'AI model by Anthropic.',
-    jsonLd: {
-      '@type': 'SoftwareApplication',
-      name: 'Claude',
-      creator: { '@type': 'Organization', name: 'Anthropic' }
-    },
+    // no jsonLd: schema.org's author and contributor take only a Person or an
+    // Organization, so a model is credited in the visible byline only
     links: [{ name: 'Website', href: 'https://www.anthropic.com/claude' }]
   },
   chatgpt: {
@@ -36,11 +33,8 @@ const authors = {
     avatar: chatgptLogo,
     bylineAvatarOnly: true,
     description: 'AI assistant by OpenAI.',
-    jsonLd: {
-      '@type': 'SoftwareApplication',
-      name: 'ChatGPT',
-      creator: { '@type': 'Organization', name: 'OpenAI' }
-    },
+    // no jsonLd: schema.org's author and contributor take only a Person or an
+    // Organization, so a model is credited in the visible byline only
     links: [{ name: 'Website', href: 'https://chatgpt.com/' }]
   }
 }
