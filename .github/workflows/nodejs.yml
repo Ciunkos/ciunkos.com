@@ -24,3 +24,5 @@ jobs:
       - run: npm run build
         env:
           CI: true
+      # titles, descriptions and JSON-LD of the prerendered pages
+      - run: npm run test:dist

@@ -25,11 +25,12 @@ const shareImage = post =>
     : { url: coverUrl(post), width: 1280, height: 720 }
 
 // the first author wrote the post, the others are contributors (co-authors);
-// bylines without a jsonLd node (AI models) are left out of the structured data
+// bylines without a jsonLd node (AI models) are left out of the structured data,
+// and the post is then credited to the site's Person rather than to the next co-author
 const postJsonLd = post => {
-  const [author, ...contributors] = postAuthors(post)
-    .map(a => a.jsonLd)
-    .filter(Boolean)
+  const [first, ...rest] = postAuthors(post)
+  const author = first.jsonLd || personRef
+  const contributors = rest.map(a => a.jsonLd).filter(Boolean)
   const url = postUrl(post)
   return graph(
     {
