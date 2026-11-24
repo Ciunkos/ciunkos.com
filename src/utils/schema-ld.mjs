@@ -225,6 +225,8 @@ export function sprawdzLd(html, { wymagajDaty = true, opisMin = 50, opisMax = 17
   const url = canonical(html);
   if (!url) b.push('brak canonical');
   const strona = wybierzStrone(n, url);
+  /* DefinedTerm nie jest CreativeWork: nie bierze isPartOf, author, dat ani inLanguage. Stronę hasła opisuje WebPage z mainEntity → hasło (#term). */
+  if (strona && jest(strona, ['DefinedTerm'])) b.push('węzeł strony to DefinedTerm: owiń go w WebPage z mainEntity');
   if (wymagajDaty) {
     if (!strona) b.push('brak węzła strony z @id/url = canonical');
     else if (!/^\d{4}-\d{2}-\d{2}/.test(strona.dateModified || '')) b.push('węzeł strony bez dateModified');
