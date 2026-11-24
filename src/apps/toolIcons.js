@@ -20,6 +20,10 @@ export const ICONS = {
     '#15803d',
     "<path d='M10 3 8 21M16 3l-2 18M4 8.5h16M3.5 15.5h16'/>"
   ],
+  fileConverter: [
+    '#0e7490',
+    "<path d='M6 3h7l5 5v4M13 3v5h5M6 3v18h6'/><path d='M15 15h6m-2.5-2.5L21 15l-2.5 2.5M21 20h-6m2.5 2.5L15 20l2.5-2.5'/>"
+  ],
   base64: ['#c2410c', "<path d='M4 8h15l-3.5-3.5M20 16H5l3.5 3.5'/>"],
   bimi: [
     '#c2410c',

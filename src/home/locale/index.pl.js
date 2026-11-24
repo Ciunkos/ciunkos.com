@@ -42,6 +42,10 @@ export const recent = {
     jwtDecoder: ['Dekoder JWT', 'Odczytaj i sprawdź token, prywatnie'],
     charCounter: ['Licznik znaków', 'Znaki, słowa i limity'],
     base64: ['Base64', 'Kodowanie i dekodowanie, tekst i pliki'],
+    fileConverter: [
+      'Konwerter plików',
+      'MOV na GIF, HEIC na JPG, bez wysyłania'
+    ],
     bimi: ['Sprawdź BIMI', 'Czy Gmail pokaże Twoje logo?'],
     estimator: ['Ile kosztuje aplikacja', '125 prawdziwych projektów'],
     buildorbuy: ['Budować czy kupić', 'SaaS kontra własna apka'],

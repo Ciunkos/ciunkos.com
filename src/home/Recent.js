@@ -77,6 +77,11 @@ export const apps = [
     icon: '/free-tools/icons/base64-180.png'
   },
   {
+    id: 'fileConverter',
+    path: '/free-tools/file-converter',
+    icon: '/free-tools/icons/converter-180.png'
+  },
+  {
     id: 'bimi',
     path: '/bimi-checker',
     icon: '/spf-dkim-dmarc-checker/a/ikony/bimi/apple-touch-icon.png'
