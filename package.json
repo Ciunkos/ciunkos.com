@@ -58,7 +58,7 @@
     "lint-staged": "^17.6.1",
     "mini-css-extract-plugin": "^2.10.2",
     "playwright": "^1.65.1",
-    "posthog-js": "^1.447.12",
+    "posthog-js": "^1.450.1",
     "prettier": "^3.10.1",
     "style-loader": "^4.0.0",
     "terser": "^5.51.2",
