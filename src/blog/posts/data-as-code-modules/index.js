@@ -12,6 +12,7 @@ const readingTime = str =>
 
 export default {
   name: 'Data as code modules',
+  metaTitle: 'Data as code modules: import JSON, CSV and images with webpack',
   slug: 'data-as-code-modules',
   date: '2017-06-01',
   updated: '2026-11-02',

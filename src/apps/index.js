@@ -95,7 +95,7 @@ const AppsPage = () => (
   <Page
     Apps
     title="Apps and free tools by Przemysław Zalewski"
-    description="Free tools I run in 2026: Core Web Vitals monitor, email list validator, signature generator, PostHog dashboard, AI prompt testing, AI visibility, quote automation."
+    description="Free tools I run in 2026: a Core Web Vitals monitor, email list validator, signature generator, PostHog dashboards, AI prompt testing and AI visibility."
     ogUrl="https://ciunkos.com/apps"
     ogImage={new URL(cover, 'https://ciunkos.com/').href}
     jsonLd={appsJsonLd}

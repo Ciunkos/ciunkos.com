@@ -10,7 +10,7 @@ const readingTime = text =>
 export default {
   name: 'Koniec klepania kodu. Niech żyje Forward Deployed Engineer.',
   metaTitle:
-    'Forward Deployed Engineer (FDE): kto to jest, ile zarabia i czemu ubywa ofert dla programistów',
+    'Forward Deployed Engineer (FDE): kto to jest i ile zarabia w 2026',
   slug: 'forward-deployed-engineer-koniec-klepania-kodu',
   lang: 'pl',
   alternate: 'forward-deployed-engineer-coding-is-dead',

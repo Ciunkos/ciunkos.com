@@ -32,6 +32,9 @@ const routes = [
   { pathname: '/not-found', alias: '404.html', includeInSitemap: false }
 ]
 
+// pages other workers serve on this domain that publish no sitemap of their own
+const externalPages = ['/migawki', '/sliding-puzzle']
+
 const main = async () => {
   try {
     for (const {
@@ -83,13 +86,18 @@ const main = async () => {
       await writeFile(`./dist/${alias}`, html, 'utf-8')
     }
 
-    const sitemapUrls = routes
+    const sitemapUrls = [
+      ...routes,
+      ...externalPages.map(pathname => ({ pathname }))
+    ]
       .filter(route => route.includeInSitemap !== false)
       .map(
         route =>
           `<url><loc>https://ciunkos.com${
             route.pathname === '/' ? '/' : route.pathname
-          }</loc><lastmod>${route.lastmod}</lastmod>${(route.alternates || [])
+          }</loc>${route.lastmod ? `<lastmod>${route.lastmod}</lastmod>` : ''}${(
+            route.alternates || []
+          )
             .map(
               ({ lang, href }) =>
                 `<xhtml:link rel="alternate" hreflang="${lang}" href="${href}"/>`

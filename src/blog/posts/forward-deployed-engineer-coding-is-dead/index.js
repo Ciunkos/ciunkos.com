@@ -10,7 +10,7 @@ export default {
   name: 'Coding is dead. Long live the Forward Deployed Engineer.',
   // search results get the plain version of the headline
   metaTitle:
-    'Forward Deployed Engineer (FDE): the role, the pay and why coding jobs are shrinking',
+    'Forward Deployed Engineer (FDE): the role, the pay and the job market',
   slug: 'forward-deployed-engineer-coding-is-dead',
   lang: 'en',
   // the Polish version of this post
@@ -44,7 +44,7 @@ export default {
   shareImage,
   markdown: source,
   metaDescription:
-    'What a Forward Deployed Engineer (FDE) does, what the role pays and why front-end and mobile openings halved in 2026, from a full-stack developer who lost his clients.',
+    'What a Forward Deployed Engineer (FDE) does, what it pays and why front-end and mobile openings halved in 2026, by a full-stack developer who lost his clients.',
   description:
     'Open roles for front-end and mobile engineers nearly halved in a year, while Forward Deployed Engineer openings grew 4.6 times. I am a full-stack developer who has had no client since November. Here is what the FDE role is, what it pays and how to get ready.',
   readingTime: readingTime(source)

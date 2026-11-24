@@ -1,5 +1,6 @@
 User-agent: * 
-Disallow: 
+Disallow: /korpo-tlumacz/dalej
+Disallow: /codewarriors/auth/
 
 Sitemap: https://ciunkos.com/sitemap.xml
 Sitemap: https://ciunkos.com/memelib/sitemap.xml
