@@ -76,6 +76,10 @@ export const FOOTER_GROUPS = [
     L(P('Email list validator', 'Walidacja listy e-mail'), P('/email-list-validator', '/walidacja-listy-email')),
     L(P('Email signature generator', 'Generator stopki e-mail'), P('/email-signature-generator', '/generator-stopki-email'))
   ] },
+  { id: 'free', title: P('Free tools', 'Darmowe narzędzia'), hub: P('/free-tools', '/darmowe-narzedzia'), links: [
+    L(P('White screen', 'Biały ekran'), P('/free-tools/white-screen', '/darmowe-narzedzia/bialy-ekran')),
+    L(P('All free tools', 'Wszystkie darmowe narzędzia'), P('/free-tools', '/darmowe-narzedzia'))
+  ] },
   { id: 'calc', title: P('Calculators', 'Kalkulatory'), hub: P('/software-cost-estimator', '/ile-kosztuje-aplikacja'), links: [
     L(P('Software cost estimator', 'Ile kosztuje aplikacja'), P('/software-cost-estimator', '/ile-kosztuje-aplikacja')),
     L(P('Build or buy', 'Budować czy kupić'), P('/software-cost-estimator/build-or-buy', '/ile-kosztuje-aplikacja/budowac-czy-kupic')),
