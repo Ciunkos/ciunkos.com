@@ -2,20 +2,21 @@ import assert from 'node:assert/strict'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
-// Checks the prerendered pages, so it runs after `npm run build`.
-const dist = new URL('../dist/', import.meta.url)
-const pages = existsSync(dist)
-  ? readdirSync(dist).filter(name => name.endsWith('.html'))
-  : []
+// Checks the prerendered pages: `npm run test:dist` after `npm run build` (CI runs it after the build step).
+const dist = new URL('../../dist/', import.meta.url)
+if (!existsSync(dist)) throw new Error('dist/ is missing: run npm run build first')
+const pages = readdirSync(dist).filter(name => name.endsWith('.html'))
 
 const nodes = html =>
   [...html.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/g)]
     .map(([, json]) => JSON.parse(json))
     .flatMap(block => block['@graph'] || [block])
 
-// schema.org: author and contributor take a Person or an Organization only
+// schema.org: author and contributor take a Person or an Organization only;
+// a bare reference must point at the site's canonical Person or Organization node
 const isAgent = value =>
-  (Object.keys(value).length === 1 && value['@id']) ||
+  (Object.keys(value).length === 1 &&
+    /^https:\/\/ciunkos\.com\/#(person|organization|business)$/.test(value['@id'])) ||
   ['Person', 'Organization'].includes(value['@type'])
 
 for (const name of pages) {

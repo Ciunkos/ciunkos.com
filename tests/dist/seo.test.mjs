@@ -2,13 +2,12 @@ import assert from 'node:assert/strict'
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import test from 'node:test'
 
-// Checks the prerendered pages, so it runs after `npm run build`.
-const dist = new URL('../dist/', import.meta.url)
-const pages = existsSync(dist)
-  ? readdirSync(dist).filter(
+// Checks the prerendered pages: `npm run test:dist` after `npm run build` (CI runs it after the build step).
+const dist = new URL('../../dist/', import.meta.url)
+if (!existsSync(dist)) throw new Error('dist/ is missing: run npm run build first')
+const pages = readdirSync(dist).filter(
       name => name.endsWith('.html') && name !== '404.html'
     )
-  : []
 
 const decode = s =>
   s
