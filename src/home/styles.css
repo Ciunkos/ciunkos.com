@@ -88,8 +88,8 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  /* Five tiles: the first one gets the full row, the other four form a 2 x 2 grid. */
-  .RecentGrid li:first-child {
+  /* With an odd number of tiles, give the first one a full row. */
+  .RecentGrid > li:first-child:nth-last-child(odd) {
     grid-column: 1 / -1;
   }
 }
