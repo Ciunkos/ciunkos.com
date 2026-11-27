@@ -1,5 +1,7 @@
 import React from 'react'
 
+import NamePronunciation from '../NamePronunciation'
+
 export const page = {
   title: 'Przemysław Zalewski: full-stack and AI engineer, remote from Poland',
   description:
@@ -7,7 +9,16 @@ export const page = {
 }
 
 export const hero = {
-  title: 'Przemysław Zalewski, senior full-stack engineer',
+  title: (
+    <>
+      Przemysław{' '}
+      <span className="HomeSurname">
+        Zalewski
+        <NamePronunciation />,
+      </span>{' '}
+      senior full-stack engineer
+    </>
+  ),
   paragraphs: [
     'I build web apps, SaaS products and AI agents in TypeScript, React and Node.js. I work from Wrocław, Poland, for clients in the US, UK and EU.',
     'Here you will find the free tools I run in 2026, my apps from 2007 to 2017 and a blog about JavaScript, React and app development.'

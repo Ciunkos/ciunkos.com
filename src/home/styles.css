@@ -11,7 +11,67 @@
   object-position: 50% 40%;
 }
 
+.HomeSurname {
+  white-space: nowrap;
+}
+
+.NamePronunciation {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  width: 44px;
+  height: 44px;
+  margin-inline-start: 4px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgb(0 0 0 / 32%);
+  transition: none;
+}
+
+.NamePronunciation:hover,
+.NamePronunciation:focus-visible {
+  background: rgb(0 0 0 / 60%);
+}
+
+.NamePronunciation:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+.NamePronunciation[data-playing='true'] {
+  color: #fbbf24;
+  background: rgb(0 0 0 / 65%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .NamePronunciation[data-playing='true']::after {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 1px solid currentColor;
+    border-radius: inherit;
+    pointer-events: none;
+    animation: pronunciation-ripple 1.2s ease-out infinite;
+  }
+}
+
+@keyframes pronunciation-ripple {
+  from {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
 @media print {
+  .NamePronunciation {
+    display: none;
+  }
+
   .Section.Home {
     min-height: initial;
   }
