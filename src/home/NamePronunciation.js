@@ -1,11 +1,17 @@
-import React, { useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 
 import { VolumeUp } from 'icons'
 
 export default function NamePronunciation() {
   const audioRef = useRef(null)
+  const [ready, setReady] = useState(false)
   const [playing, setPlaying] = useState(false)
   const label = playing ? 'Stop name pronunciation' : 'Play name pronunciation'
+
+  const attachAudio = useCallback(element => {
+    audioRef.current = element
+    setReady(Boolean(element))
+  }, [])
 
   const togglePlayback = async () => {
     const audio = audioRef.current
@@ -29,6 +35,7 @@ export default function NamePronunciation() {
       <button
         className="NamePronunciation"
         type="button"
+        disabled={!ready}
         aria-label={label}
         title={label}
         data-playing={playing}
@@ -39,7 +46,7 @@ export default function NamePronunciation() {
       {/* The adjacent name is the transcript of this audio-only recording. */}
       {/* eslint-disable-next-line jsx-a11y-x/media-has-caption */}
       <audio
-        ref={audioRef}
+        ref={attachAudio}
         preload="none"
         onPlaying={() => setPlaying(true)}
         onPause={() => setPlaying(false)}

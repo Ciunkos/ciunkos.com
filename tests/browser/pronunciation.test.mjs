@@ -13,11 +13,20 @@ test('the homepage pronunciation plays on demand, stops, replays and retries', a
     requests += 1
     return route.continue()
   })
-  await page.goto(process.env.HOMEPAGE_URL ?? 'http://127.0.0.1:4173')
+  const hydration = Promise.withResolvers()
+  await page.route('**/app-*.js', async route => {
+    await hydration.promise
+    await route.continue()
+  })
+  await page.goto(process.env.HOMEPAGE_URL ?? 'http://127.0.0.1:4173', {
+    waitUntil: 'domcontentloaded'
+  })
   const heading = page.getByRole('heading', { level: 1 })
   const play = heading.getByRole('button', { name: 'Play name pronunciation' })
   const stop = heading.getByRole('button', { name: 'Stop name pronunciation' })
   await play.waitFor({ timeout: 5000 })
+  assert.ok(await play.isDisabled())
+  hydration.resolve()
   assert.equal(requests, 0)
   await play.click()
   await stop.waitFor()
